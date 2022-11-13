@@ -1,7 +1,19 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "doom-ru-client",
+  "description": "Frontend of Doom.ru",
+  "author": "Vladislav Polishchuk <vladpolisuk159@gmail.com>",
+  "keywords": [
+    "Realty",
+    "Frontend",
+    "React",
+    "Next.js",
+    "Redux",
+    "Mantine UI",
+    "TypeScript"
+  ],
   "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
