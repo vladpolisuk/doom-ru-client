@@ -1,0 +1,41 @@
+@import 'node_modules/normalize.css/normalize.css';
+
+:root {
+    --background: white;
+    --color: black;
+    --nav_link_color: #444;
+}
+
+[data-theme='dark'] {
+    --background: rgb(25, 25, 25);
+    --color: white;
+    --nav_link_color: rgb(200, 200, 200);
+}
+
+html,
+body {
+    font-family: 'Noto Sans Lao Looped', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+[data-theme='dark'] body {
+    background-color: var(--background);
+    color: var(--color);
+}
+
+a, p, span, h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.transition {
+    transition: all 50ms ease-in-out;
+}
+
+.active_scale:active {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+}

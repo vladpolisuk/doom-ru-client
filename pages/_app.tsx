@@ -1,23 +1,19 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
+import { appWithTranslation } from 'next-i18next';
+import { ThemeProvider } from 'next-themes';
+import type { AppProps } from 'next/app';
+import { AppHeader } from '../containers/AppHeader/AppHeader';
+import '../styles/global.scss';
 
-export default function App(props: AppProps) {
-	const { Component, pageProps } = props;
-
+function App({ Component, pageProps }: AppProps) {
 	return (
-		<>
-			<Head>
-				<title>Page title</title>
-				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-			</Head>
-
-			<MantineProvider
-				withGlobalStyles
-				withNormalizeCSS
-				theme={{ colorScheme: 'dark' }}>
-				<Component {...pageProps} />
-			</MantineProvider>
-		</>
-	);
+		<ThemeProvider
+			enableSystem
+			disableTransitionOnChange
+			defaultTheme="system">
+			<AppHeader />
+			<Component {...pageProps} />
+		</ThemeProvider>
+	)
 }
+
+export default appWithTranslation(App);
