@@ -17,5 +17,22 @@
             "url": "/h_and_p",
             "title": "Покупка домов и участков"
         }
-    ]
+    ],
+    "header_user_auth": {
+        "signin": {
+            "name": "Войти",
+            "title": "Войти в доом.ру"
+        }
+    },
+    "header_user_profile": {
+        "profile": {
+            "title": "Перейти в профиль"
+        },
+        "favorites": {
+            "title": "Перейти в избранное"
+        },
+        "notifications": {
+            "title": "Уведомления"
+        }
+    }
 }

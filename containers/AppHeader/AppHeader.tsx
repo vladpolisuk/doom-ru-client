@@ -1,14 +1,18 @@
-import { FC } from 'react';
 import s from './AppHeader.module.scss';
 import { AppHeaderLogo } from './AppHeaderLogo/AppHeaderLogo';
 import { AppHeaderNav } from './AppHeaderNav/AppHeaderNav';
+import { AppHeaderUser } from './AppHeaderUser/AppHeaderUser';
 
-export const AppHeader: FC = () => {
+export const AppHeader = () => {
     return (
         <header className={s.header}>
             <div className={s.header_ctr}>
-                <AppHeaderLogo />
-                <AppHeaderNav />
+                <div className={s.header_ctr_static}>
+                    <AppHeaderLogo />
+                    <AppHeaderNav />
+                </div>
+
+                <AppHeaderUser />
             </div>
         </header>
     )

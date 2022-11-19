@@ -1,0 +1,21 @@
+.transition {
+    transition: all 50ms ease-in-out;
+}
+
+.transparent {
+    background: transparent;
+}
+
+.unlisted {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.active_scale:active {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+}

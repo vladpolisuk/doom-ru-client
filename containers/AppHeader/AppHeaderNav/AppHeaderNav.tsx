@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
 import { AppLink } from '../../../components/AppLink/AppLink';
-import s from '../AppHeader.module.scss';
+import s from './AppHeaderNav.module.scss';
 
 interface Link {
     name: string;
@@ -25,6 +25,7 @@ export const AppHeaderNav = () => {
                         aria-label={link.title}
                         className={`${s.header_ctr_nav_list_item} active_scale transition`}>
                         <AppLink
+                            translation='header'
                             className={s.header_ctr_nav_list_item_link}
                             title={link.title}
                             href={link.url}>

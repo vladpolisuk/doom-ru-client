@@ -17,5 +17,22 @@
             "url": "/h_and_p",
             "title": "Rent and buy houses and plots"
         }
-    ]
+    ],
+    "header_user_auth": {
+        "signin": {
+            "name": "Sign In",
+            "title": "Sing in in doom.ru"
+        }
+    },
+    "header_user_profile": {
+        "profile": {
+            "title": "Go to profile"
+        },
+        "favorites": {
+            "title": "Go to favorites"
+        },
+        "notifications": {
+            "title": "Notifications"
+        }
+    }
 }

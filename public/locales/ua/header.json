@@ -17,5 +17,22 @@
             "url": "/h_and_p",
             "title": "Купівля будинків та ділянок"
         }
-    ]
+    ],
+    "header_user_auth": {
+        "signin": {
+            "name": "Увійти",
+            "title": "Увійти в dom.ru"
+        }
+    },
+    "header_user_profile": {
+        "profile": {
+            "title": "Перейти до профілю"
+        },
+        "favorites": {
+            "title": "Перейти до вибраного"
+        },
+        "notifications": {
+            "title": "Повідомлення"
+        }
+    }
 }
