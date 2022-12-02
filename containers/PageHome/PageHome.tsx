@@ -1,5 +1,10 @@
+import { Fragment } from "react"
+import { SectionSearch } from "./SectionSearch/SectionSearch"
+
 export const PageHome = () => {
     return (
-        <h1>Home</h1>
+        <Fragment>
+            <SectionSearch />
+        </Fragment>
     )
 }

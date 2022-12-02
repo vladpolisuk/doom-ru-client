@@ -1,0 +1,40 @@
+.searchbar {
+    background-color: var(--background);
+    padding: 15px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    max-width: 500px;
+    width: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--input {
+        padding: 15px;
+        margin-right: 10px;
+    }
+
+    &--filters {
+        margin-right: 10px;
+        height: 48px;
+        background: transparent;
+
+        &:hover {
+            background: var(--actionable_background__hover);
+        }
+
+        &_icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+        }
+    }
+
+    &--button {
+        height: 48px;
+        color: white;
+    }
+}

@@ -17,14 +17,15 @@ interface AppButton extends ButtonHTMLAttributes<HTMLButtonElement> {
  * The common button component in the application
  * @type `FC<AppButton>`
  * @memo `true`
- * @return `next/link`
+ * @return `html:button`
  */
 export const AppButton: FC<AppButton> = memo(({
     title,
     className,
     children,
     translation,
-    resetStyles
+    resetStyles,
+    ...props
 }) => {
     const { t } = useTranslation(translation);
 
@@ -37,7 +38,8 @@ export const AppButton: FC<AppButton> = memo(({
             translate="yes"
             className={styles}
             aria-label={t(title || "")}
-            title={t(title || "")}>
+            title={t(title || "")}
+            {...props}>
             {children}
         </button>
     )

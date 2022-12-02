@@ -17,3 +17,15 @@ a, p, span, h1, h2, h3, h4 {
 a, button {
     cursor: pointer;
 }
+
+a, button, input {
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgb(29, 123, 255);
+        transition: 100ms all ease-in-out;
+        -webkit-transition: 100ms all ease-in-out;
+        -moz-transition: 100ms all ease-in-out;
+        -ms-transition: 100ms all ease-in-out;
+        -o-transition: 100ms all ease-in-out;
+    }
+}

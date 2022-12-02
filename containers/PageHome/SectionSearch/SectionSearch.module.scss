@@ -1,0 +1,52 @@
+.section_search {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    
+    &_wallpaper {
+        background-image: url("https://i.postimg.cc/pVzNdJDN/back.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation-name: glide;
+        animation-duration: 15s;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        height: 100%;
+    }
+
+    &_content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: -webkit-fill-available;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
+
+        &--title {
+            color: #fff;
+            text-shadow: 1px 1px 4px rgb(33, 33, 33);
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@keyframes glide {
+    from {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    } to {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+}

@@ -19,3 +19,11 @@
     -ms-transform: scale(0.95);
     -o-transform: scale(0.95);
 }
+
+.hover--none {
+    &:hover {
+        background-color: inherit;
+        color: inherit;
+        border: inherit;
+    }
+}

@@ -1,0 +1,21 @@
+.app--input {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    max-width: 400px;
+    width: 100%;
+
+    &:hover {
+        background-color: var(--actionable_background__hover);
+        transition: 100ms all ease-in-out;
+        -webkit-transition: 100ms all ease-in-out;
+        -moz-transition: 100ms all ease-in-out;
+        -ms-transition: 100ms all ease-in-out;
+        -o-transition: 100ms all ease-in-out;
+    }
+}

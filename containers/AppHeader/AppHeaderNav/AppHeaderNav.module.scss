@@ -29,7 +29,7 @@
                 -o-border-radius: 8px;
 
                 &:hover {
-                    background-color: #8686862c;
+                    background-color: var(--actionable_background__hover);
                 }
 
                 span {
@@ -38,7 +38,7 @@
             };
 
             &_item-active {
-                background-color: #8686862c;
+                background-color: var(--actionable_background__hover);
             }
         };
     };

@@ -1,13 +1,17 @@
 :root {
+    --background: white;
     --background-body: #e7e7e7;
     --background-header: white;
     --color: black;
     --nav_link_color: #444;
+    --actionable_background__hover: #47474714;
 }
 
 [data-theme='dark'] {
+    --background: #191919;
     --background-body: #141414;
     --background-header: #191919;
     --color: white;
     --nav_link_color: #c8c8c8;
+    --actionable_background__hover: #47474726;
 }

@@ -27,7 +27,8 @@ export const AppLink: FC<AppLink> = memo(({
     className,
     children,
     translation,
-    resetStyles
+    resetStyles,
+    ...props
 }) => {
     const { locale } = useRouter();
     const { t } = useTranslation(translation);
@@ -42,7 +43,8 @@ export const AppLink: FC<AppLink> = memo(({
             href={`/${locale}${href}`}
             className={styles}
             aria-label={t(title || "")}
-            title={t(title || "")}>
+            title={t(title || "")}
+            {...props}>
             {children}
         </Link>
     )

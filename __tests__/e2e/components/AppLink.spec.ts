@@ -14,10 +14,15 @@ test.describe("AppLink", async () => {
                 await page.goto(`http://localhost:3000/${locale}`);
             });
 
-            header_nav_links.map(async ({ name, url }) => {
+            header_nav_links.map(async ({ name, url, title }) => {
                 test(`should navigate to the ${name} page`, async ({ page, locale }) => {
                     await page.click(`text=${name}`);
                     await expect(page).toHaveURL(`http://localhost:3000/${locale}${url}`);
+                });
+
+                test(`should have correct title ${name}`, async ({ page }) => {
+                    const linkTitleAttribute = await page.getAttribute(`[title="${title}"]`, "title");
+                    expect(linkTitleAttribute).toEqual(title);
                 });
             });
         });

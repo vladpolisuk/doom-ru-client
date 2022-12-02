@@ -8,7 +8,7 @@ export const Notifications = () => {
         <AppButton
             translation='header'
             title="header_user_profile.notifications.title"
-            className={`${s.profile} active_scale transparent`}>
+            className="active_scale transparent hover--none">
             <Bell className={s.profile_notifications} />
         </AppButton>
     )

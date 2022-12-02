@@ -8,7 +8,7 @@ export const Favorites = () => {
         <AppButton
             translation='header'
             title="header_user_profile.favorites.title"
-            className={`${s.profile} active_scale transparent`}>
+            className="active_scale transparent hover--none">
             <Heart className={s.profile_favorites} />
         </AppButton>
     )
