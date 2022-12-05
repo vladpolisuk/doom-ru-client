@@ -6,7 +6,7 @@ import ua from '../../../public/locales/ua/home.json';
 const locales = [en, ru, ua];
 
 test.describe("Home", async () => {
-    locales.forEach(async ({ home_section_search_title, home_title, locale }) => {
+    locales.forEach(async ({ home_section_search: { section_title }, home_title, locale }) => {
         test.describe(`lang ${locale}`, async () => {
             test.use({ locale });
 
@@ -21,7 +21,7 @@ test.describe("Home", async () => {
 
             test(`should have correct h1 title`, async ({ page }) => {
                 const h1 = await page.textContent("h1");
-                expect(h1).toEqual(home_section_search_title);
+                expect(h1).toEqual(section_title);
             });
         });
     });

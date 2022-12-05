@@ -5,6 +5,9 @@
     --color: black;
     --nav_link_color: #444;
     --actionable_background__hover: #47474714;
+    --input-icon_color: #999;
+    --skeleton_background: white;
+    --skeleton_background-gradient: rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0);
 }
 
 [data-theme='dark'] {
@@ -14,4 +17,7 @@
     --color: white;
     --nav_link_color: #c8c8c8;
     --actionable_background__hover: #47474726;
+    --input-icon_color: #555;
+    --skeleton_background: #191919;
+    --skeleton_background-gradient: rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0);
 }

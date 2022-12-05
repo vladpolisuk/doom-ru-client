@@ -13,3 +13,10 @@ export const getAppUser = (state: RootState) => state.app.user;
  * @returns `AppTheme`
  */
 export const getAppTheme = (state: RootState) => state.app.theme;
+
+/**
+ * The selector that returns the application location from redux store
+ * @param state RootState
+ * @returns `AppLocation`
+ */
+export const getAppLocation = (state: RootState) => state.app.location;

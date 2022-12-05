@@ -1,15 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { AppState, AppTheme, AppUser } from "./types";
+import { AppLocation, AppState, AppTheme, AppUser } from "./types";
 
 const initialState: AppState = {
     user: {
-        name: "Vlad",
-        email: "vlad@gmail.com",
+        name: "Vladislav",
+        email: "vladpolisuk159@gmail.com",
         nickname: "vladislav124352",
         surname: "Polishchuk"
     },
     // user: null,
     theme: "system",
+    location: null
 }
 
 const slice = createSlice({
@@ -31,6 +32,14 @@ const slice = createSlice({
          */
         setAppTheme: (state, action: PayloadAction<AppTheme>) => {
             state.theme = action.payload;
+        },
+        /**
+         * The application reducer that sets the application location to redux store
+         * @param state AppState
+         * @param action AppLocation
+         */
+        setAppLocation: (state, action: PayloadAction<AppLocation>) => {
+            state.location = action.payload;
         }
     }
 })

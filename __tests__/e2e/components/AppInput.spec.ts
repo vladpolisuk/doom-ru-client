@@ -13,7 +13,7 @@ test.describe("AppInput", async () => {
         expect(value).toEqual("Belgorod");
     });
 
-    locales.forEach(async ({ home_section_search_input, locale }) => {
+    locales.forEach(async ({ home_section_search: { search_input }, locale }) => {
         test.describe(`lang ${locale}`, async () => {
             test.use({ locale });
 
@@ -24,8 +24,8 @@ test.describe("AppInput", async () => {
             test(`should have correct title`, async ({ page }) => {
                 const title = await page.getAttribute("data-testid=home-search-input", "title");
                 const placeholder = await page.getAttribute("data-testid=home-search-input", "placeholder");
-                expect(title).toEqual(home_section_search_input.title);
-                expect(placeholder).toEqual(home_section_search_input.placeholder);
+                expect(title).toEqual(search_input.title);
+                expect(placeholder).toEqual(search_input.placeholder);
             });
         });
     });

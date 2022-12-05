@@ -1,17 +1,9 @@
 import { useTranslation } from 'next-i18next';
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { FC, memo } from 'react';
+import { BaseAppComponent } from '../types';
 import s from './AppButton.module.scss';
 
-interface AppButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /**
-     * Specify the which json file with translation to use
-     */
-    translation?: string;
-    /**
-     * Specify that styles should be resets or not
-     */
-    resetStyles?: boolean;
-};
+type AppButton = BaseAppComponent<HTMLButtonElement>;
 
 /**
  * The common button component in the application

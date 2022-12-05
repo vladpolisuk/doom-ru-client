@@ -10,6 +10,10 @@ export type AppState = {
      * The application theme
      */
     theme: AppTheme | "";
+    /**
+     * The application location
+     */
+    location: AppLocation | null;
 }
 
 /**
@@ -39,3 +43,17 @@ export type AppUser = {
  * @value system | light | dark
  */
 export type AppTheme = "system" | "light" | "dark";
+
+/**
+ * The application location type
+ */
+export type AppLocation = {
+    /**
+     * The user's city name
+     */
+    city: string;
+    /**
+     * The user's country name
+     */
+    country: string;
+}

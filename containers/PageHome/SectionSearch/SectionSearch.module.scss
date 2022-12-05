@@ -2,30 +2,44 @@
     height: 500px;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
     
     &_wallpaper {
-        background-image: url("https://i.postimg.cc/pVzNdJDN/back.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        animation-name: glide;
-        animation-duration: 15s;
-        animation-iteration-count: 1;
-        animation-fill-mode: both;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
         height: 100%;
+        max-width: 1450px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        
+        &_image {
+            animation-name: scale;
+            animation-duration: 8s;
+            animation-iteration-count: 1;
+            animation-fill-mode: both;
+            position: absolute;
+            width:100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &_content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: -webkit-fill-available;
+        position: relative;
+        width: 100%;
+        max-width: 1300px;
         height: 100%;
+        padding: 0 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 0 10px;
 
         &--title {
             color: #fff;
@@ -33,9 +47,28 @@
             margin-bottom: 20px;
         }
     }
+
+    &_locationBadge {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(2px);
+
+        &:hover {
+            background-color:rgba(0, 0, 0, 0.7)
+        }
+    }
+
+    &_locationBadge-skeleton {
+        height: 36px;
+        width: 150px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
 }
 
-@keyframes glide {
+@keyframes scale {
     from {
         transform: scale(1);
         -webkit-transform: scale(1);
@@ -43,10 +76,10 @@
         -ms-transform: scale(1);
         -o-transform: scale(1);
     } to {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-    }
+        transform: scale(1.07);
+        -webkit-transform: scale(1.07);
+        -moz-transform: scale(1.07);
+        -ms-transform: scale(1.07);
+        -o-transform: scale(1.07);
+}
 }

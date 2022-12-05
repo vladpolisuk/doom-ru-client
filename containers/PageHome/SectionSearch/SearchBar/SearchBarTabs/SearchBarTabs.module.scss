@@ -1,0 +1,46 @@
+.searchbar_tabs {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    box-shadow: 0 2px 0 -1px rgba(135, 135, 135, 0.2);
+
+    &--item {
+        width: 80px;
+        padding: 12px 15px;
+        background-color: transparent;
+        border-radius: none;
+        -webkit-border-radius: none;
+        -moz-border-radius: none;
+        -ms-border-radius: none;
+        -o-border-radius: none;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        @for $i from 1 through 2 {
+            &--item#{$i}:checked {
+                ~ &--line {
+                    left: #{($i - 1) + 80px};
+                }
+            }
+        }
+    }
+
+    &--line {
+        position: absolute;
+        height: 2px;
+        background: #1E88E5;
+        width: 80px;
+        bottom: -1px;
+        left: 0;
+        transition: 0.25s ease;
+        -webkit-transition: 0.25s ease;
+        -moz-transition: 0.25s ease;
+        -ms-transition: 0.25s ease;
+        -o-transition: 0.25s ease;
+    }
+}

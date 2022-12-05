@@ -1,10 +1,10 @@
-import { Fragment } from "react"
+import React from "react";
 import { SectionSearch } from "./SectionSearch/SectionSearch"
 
 export const PageHome = () => {
     return (
-        <Fragment>
+        <main>
             <SectionSearch />
-        </Fragment>
+        </main>
     )
 }

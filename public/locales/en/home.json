@@ -1,17 +1,33 @@
 {
     "locale": "en",
     "home_title": "Doom.ru - real estate database | Sale, rent of apartments and other real estate",
-    "home_section_search_title": "For real estate? Doom.ru",
-    "home_section_search_input": {
-        "placeholder": "City, address, district or subway",
-        "title": "Input your address"
-    },
-    "home_section_search_button": {
-        "title": "Apply filters and search",
-        "text": "Search"
-    },
-    "home_section_search_filters": {
-        "title": "Set filters",
-        "text": "Filters"
+    "home_section_search": {
+        "section_title": "For real estate? Doom.ru",
+        "search_input": {
+            "placeholder": "City, address, district or subway",
+            "title": "Input your address"
+        },
+        "search_button": {
+            "title": "Apply filters and search",
+            "text": "Search"
+        },
+        "search_filters": {
+            "title": "Set filters",
+            "text": "Filters"
+        },
+        "search_tabs": [
+            {
+                "title": "Choose all",
+                "text": "All"
+            },
+            {
+                "title": "Choose rent",
+                "text": "Rent"
+            },
+            {
+                "title": "Choose buy",
+                "text": "Buy"
+            }
+        ]
     }
 }

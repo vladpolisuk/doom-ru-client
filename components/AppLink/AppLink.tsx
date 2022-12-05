@@ -1,19 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { AnchorHTMLAttributes, FC, memo } from 'react';
+import { FC, memo } from 'react';
+import { BaseAppComponent } from '../types';
 import s from './AppLink.module.scss';
 
-interface AppLink extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    /**
-     * Specify the which json file with translation to use 
-     */
-    translation?: string;
-    /**
-     * Specify that styles should be resets or not
-     */
-    resetStyles?: boolean;
-};
+type AppLink = BaseAppComponent<HTMLAnchorElement>;
 
 /**
  * The common link component in the application

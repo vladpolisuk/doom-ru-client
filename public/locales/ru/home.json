@@ -1,17 +1,33 @@
 {
     "locale": "ru",
     "home_title": "Доом.ру - база недвижимости | Продажа, аренда квартир и другой недвижимости",
-    "home_section_search_title": "За недвижимостью? Доом.ру",
-    "home_section_search_input": {
-        "placeholder": "Город, адрес, район или метро",
-        "title": "Введите свой адрес"
-    },
-    "home_section_search_button": {
-        "title": "Применить фильтры и найти",
-        "text": "Найти"
-    },
-    "home_section_search_filters": {
-        "title": "Установить фильтры",
-        "text": "Фильтры"
+    "home_section_search": {
+        "section_title": "За недвижимостью? Doom.ru",
+        "search_input": {
+            "placeholder": "Город, адрес, район или метро",
+            "title": "Введите адрес"
+        },
+        "search_button": {
+            "title": "Применить фильтры и найти",
+            "text": "Поиск"
+        },
+        "search_filters": {
+            "title": "Установить фильтры",
+            "text": "Фильтры"
+        },
+        "search_tabs": [
+            {
+                "title": "Выбрать все",
+                "text": "Все"
+            },
+            {
+                "title": "Снять жилье",
+                "text": "Аренда"
+            },
+            {
+                "title": "Купить жилье",
+                "text": "Купить"
+            }
+        ]
     }
 }

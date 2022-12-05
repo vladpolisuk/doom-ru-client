@@ -1,0 +1,26 @@
+.app--skeleton {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    background-color: var(--skeleton_background);
+    background-image: linear-gradient(90deg, var(--skeleton_background-gradient));
+    background-size: 65% 100%;
+    background-repeat: no-repeat;
+    background-position: left -200% top 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    animation: shine 1.3s ease infinite;
+    -webkit-animation: shine 1.3s ease infinite;
+    cursor: wait;
+}
+
+@keyframes shine {  
+    to {  
+        background-position: right -200% top 0;  
+    }  
+}  

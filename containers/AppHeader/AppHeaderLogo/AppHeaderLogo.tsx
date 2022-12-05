@@ -14,7 +14,7 @@ export const AppHeaderLogo = () => {
         setMounted(true)
     }, [resolvedTheme])
 
-    const src = `/Doom_${resolvedTheme}.svg`;
+    const src = `/assets/logo_${resolvedTheme}.svg`;
 
     if (!mounted) return null;
 

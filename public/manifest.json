@@ -8,12 +8,12 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "/icons/Doom_light.svg",
+            "src": "/icons/assets/doom_light.svg",
             "sizes": "1602x500",
             "type": "image/svg"
         },
         {
-            "src": "/icons/Doom_light.svg",
+            "src": "/icons/assets/doom_light.svg",
             "sizes": "1602x500",
             "type": "image/svg"
         }

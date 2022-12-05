@@ -1,0 +1,36 @@
+.searchbar_form {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+
+    &--input_icon {
+        color: var(--input-icon_color);
+    }
+
+    &--input {
+        height: 50px;
+    }
+
+    &--filters {
+        height: 50px;
+        background: transparent;
+
+        &:hover {
+            background: var(--actionable_background__hover);
+        }
+
+        &_icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+        }
+    }
+
+    &--button {
+        height: 50px;
+        color: white;
+    }
+}
