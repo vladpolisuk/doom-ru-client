@@ -1,9 +1,11 @@
 .section_search {
+    width: 100%;
     height: 500px;
     overflow: hidden;
     position: relative;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
     
     &_wallpaper {
         overflow: hidden;
@@ -32,8 +34,6 @@
 
     &_content {
         position: relative;
-        width: 100%;
-        max-width: 1300px;
         height: 100%;
         padding: 0 10px;
         display: flex;

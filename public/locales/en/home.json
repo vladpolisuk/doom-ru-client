@@ -29,5 +29,119 @@
                 "text": "Buy"
             }
         ]
+    },
+    "home_section_quickLinks": {
+        "section_title": "Quick Links",
+        "links_board": [
+            {
+                "title": "Buy apartments",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Go to buy a 1-room",
+                            "text": "1-room",
+                            "url": "/buy?type=apartment?rooms=1"
+                        },
+                        {
+                            "title": "Go to buy a 2-room",
+                            "text": "2-room",
+                            "url": "/buy?type=apartment?rooms=2"
+                        },
+                        {
+                            "title": "Go to buy a 3-room",
+                            "text": "3-room",
+                            "url": "/buy?type=apartment?rooms=3"
+                        },
+                        {
+                            "title": "Go to buy a studio",
+                            "text": "Studios",
+                            "url": "/buy?type=studio"
+                        },
+                        {
+                            "title": "Go to buy a room",
+                            "text": "Buy a room",
+                            "url": "/buy?type=room"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_1.jpg",
+                    "alt": "Poster 1"
+                }
+            },
+            {
+                "title": "Rent apartments",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Go to rent a 1-room",
+                            "text": "1-room",
+                            "url": "/rent?type=apartment?rooms=1"
+                        },
+                        {
+                            "title": "Go to rent a 2-room",
+                            "text": "2-room",
+                            "url": "/rent?type=apartment?rooms=2"
+                        },
+                        {
+                            "title": "Go to rent a 3-room",
+                            "text": "3-room",
+                            "url": "/rent?type=apartment?rooms=3"
+                        },
+                        {
+                            "title": "Go to rent a studio",
+                            "text": "Studios",
+                            "url": "/rent?type=studio"
+                        },
+                        {
+                            "title": "Go to rent a room",
+                            "text": "Buy a room",
+                            "url": "/rent?type=room"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_2.jpg",
+                    "alt": "Poster 2"
+                }
+            },
+            {
+                "title": "Rent daily",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Go to rent an apartments daily",
+                            "text": "Daily rate apartments",
+                            "url": "/rent?type=apartment?term=day"
+                        },
+                        {
+                            "title": "Go to rent a cottage daily",
+                            "text": "Rent cottage for a day",
+                            "url": "/rent?type=cottage?term=day"
+                        },
+                        {
+                            "title": "Go to rent a room daily",
+                            "text": "Rent a room for a day",
+                            "url": "/rent?type=room?term=day"
+                        },
+                        {
+                            "title": "Go to rent a hostel daily",
+                            "text": "Rent a hostel for a day",
+                            "url": "/rent?type=hostels"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_3.jpg",
+                    "alt": "Poster 3"
+                }
+            },
+            {
+                "title": "Map Search",
+                "content": {
+                    "map": ""
+                }
+            }
+        ]
     }
 }

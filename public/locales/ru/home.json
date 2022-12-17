@@ -29,5 +29,119 @@
                 "text": "Купить"
             }
         ]
+    },
+    "home_section_quickLinks": {
+        "section_title": "Быстрые ссылки",
+        "links_board": [
+            {
+                "title": "Купить квартиру",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Перейти к выбору 1-комнатных",
+                            "text": "1-комнатные",
+                            "url": "/buy?type=apartment?rooms=1"
+                        },
+                        {
+                            "title": "Перейти к выбору 2-комнатных",
+                            "text": "2-комнатные",
+                            "url": "/buy?type=apartment?rooms=2"
+                        },
+                        {
+                            "title": "Перейти к выбору 3-комнатных",
+                            "text": "3-комнатные",
+                            "url": "/buy?type=apartment?rooms=3"
+                        },
+                        {
+                            "title": "Перейти к выбору студий",
+                            "text": "Студии",
+                            "url": "/buy?type=studio"
+                        },
+                        {
+                            "title": "Перейти к выбору комнат",
+                            "text": "Купить комнату",
+                            "url": "/buy?type=room"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_1.jpg",
+                    "alt": "Poster 1"
+                }
+            },
+            {
+                "title": "Снять квартиру",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Перейти к выбору 1-комнатных",
+                            "text": "1-комнатные",
+                            "url": "/rent?type=apartment?rooms=1"
+                        },
+                        {
+                            "title": "Перейти к выбору 2-комнатных",
+                            "text": "2-комнатные",
+                            "url": "/rent?type=apartment?rooms=2"
+                        },
+                        {
+                            "title": "Перейти к выбору 3-комнатных",
+                            "text": "3-комнатные",
+                            "url": "/rent?type=apartment?rooms=3"
+                        },
+                        {
+                            "title": "Перейти к выбору студий",
+                            "text": "Студии",
+                            "url": "/rent?type=studio"
+                        },
+                        {
+                            "title": "Перейти к выбору комнат",
+                            "text": "Снять комнату",
+                            "url": "/rent?type=room"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_2.jpg",
+                    "alt": "Poster 2"
+                }
+            },
+            {
+                "title": "Снять посуточно",
+                "content": {
+                    "links": [
+                        {
+                            "title": "Перейти к выбору квартир",
+                            "text": "Квартира посуточно",
+                            "url": "/rent?type=apartment?term=day"
+                        },
+                        {
+                            "title": "Перейти к выбору коттеджа",
+                            "text": "Коттедж на день",
+                            "url": "/rent?type=cottage?term=day"
+                        },
+                        {
+                            "title": "Перейти в выбору комнаты",
+                            "text": "Комната на день",
+                            "url": "/rent?type=room?term=day"
+                        },
+                        {
+                            "title": "Перейти в выбору хостела",
+                            "text": "Хостел на день",
+                            "url": "/rent?type=hostels"
+                        }
+                    ]
+                },
+                "image": {
+                    "src": "../../assets/boardLinks_item_3.jpg",
+                    "alt": "Poster 3"
+                }
+            },
+            {
+                "title": "Map Search",
+                "content": {
+                    "map": ""
+                }
+            }
+        ]
     }
 }

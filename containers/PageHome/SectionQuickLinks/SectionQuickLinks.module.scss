@@ -1,0 +1,17 @@
+.section_quickLinks {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &_ctr {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+    }   
+
+    &_link {
+        color: var(--link__color);
+    }
+}

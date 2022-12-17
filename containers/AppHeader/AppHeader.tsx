@@ -6,7 +6,7 @@ import { AppHeaderUser } from './AppHeaderUser/AppHeaderUser';
 export const AppHeader = () => {
     return (
         <header className={s.header}>
-            <div className={s.header_ctr}>
+            <div className={`${s.header_ctr} container`}>
                 <div className={s.header_ctr_static}>
                     <AppHeaderLogo />
                     <AppHeaderNav />

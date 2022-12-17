@@ -27,7 +27,7 @@ export const SectionSearch: FC = () => {
                     className={s.section_search_wallpaper_image} />
             </div>
 
-            <div className={s.section_search_content}>
+            <div className={`${s.section_search_content} container`}>
                 {location ?
                     <AppLocationBadge
                         location={location}
