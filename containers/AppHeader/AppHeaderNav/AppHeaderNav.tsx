@@ -1,26 +1,19 @@
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
-import React from 'react';
 import { AppLink } from '../../../components/AppLink/AppLink';
+import { LocaleHeaderNavLink } from '../../../types/locales/header';
 import s from './AppHeaderNav.module.scss';
-
-interface Link {
-    name: string;
-    url: string;
-    title: string;
-}
 
 export const AppHeaderNav = () => {
     const { t } = useTranslation("header");
 
-    const t_links = t("header_nav_links", { returnObjects: true }) as Link[];
+    const links: LocaleHeaderNavLink[] = t("header_nav_links", { returnObjects: true });
 
     return (
         <nav className={s.header_ctr_nav}>
             <ul
                 aria-label="Site navigation"
                 className={s.header_ctr_nav_list}>
-                {t_links.map((link: Link) => (
+                {links.map((link: LocaleHeaderNavLink) => (
                     <li key={link.name}
                         aria-label={link.title}
                         className={`${s.header_ctr_nav_list_item} active_scale transition`}>

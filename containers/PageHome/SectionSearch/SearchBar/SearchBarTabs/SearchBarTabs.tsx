@@ -1,22 +1,18 @@
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react'
 import { AppButton } from '../../../../../components/AppButton/AppButton'
+import { LocaleHomeSearchTab } from '../../../../../types/locales/home';
 import s from './SearchBarTabs.module.scss';
-
-type Tab = {
-    title: string;
-    text: string;
-}
 
 export const SearchBarTabs = () => {
     const [tab, setTab] = useState(0);
     const { t } = useTranslation("home");
 
-    const t_tabs = t("home_section_search.search_tabs", { returnObjects: true }) as Tab[];
+    const tabs: LocaleHomeSearchTab[] = t("home_section_search.search_tabs", { returnObjects: true });
 
     return (
         <ul className={`${s.searchbar_tabs} unlisted`}>
-            {t_tabs.map(({ title, text }, i) => (
+            {tabs.map(({ title, text }, i) => (
                 <li key={text}>
                     <AppButton
                         title={title}

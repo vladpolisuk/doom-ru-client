@@ -1,9 +1,10 @@
+import { LocaleHeader } from './../../../types/locales/header';
 import { expect, test } from '@playwright/test';
 import en from '../../../public/locales/en/header.json';
 import ru from '../../../public/locales/ru/header.json';
 import ua from '../../../public/locales/ua/header.json';
 
-const locales = [en, ru, ua];
+const locales: LocaleHeader[] = [en, ru, ua];
 
 test.describe("AppLink", async () => {
     locales.forEach(async ({ header_nav_links, locale }) => {

@@ -1,4 +1,4 @@
-import React, { BaseHTMLAttributes, FC, PropsWithChildren } from 'react';
+import React, { Children, BaseHTMLAttributes, FC, PropsWithChildren } from 'react';
 import s from "./LinksBoard.module.scss";
 
 export type ILinksBoardItemContent = FC<BaseHTMLAttributes<HTMLDivElement> & PropsWithChildren>;
@@ -14,7 +14,7 @@ export const LinksBoardItemContent: ILinksBoardItemContent = ({
             </p>
 
             <ul className={`${s.linksBoard_item_content__list} unlisted`}>
-                {React.Children.map(children, (child: any) => (
+                {Children.map(children, (child: any) => (
                     <li className={s.linksBoard_item_content__list_item}
                         key={child.key}>
                         {child}
