@@ -1,4 +1,4 @@
-.app--locationBadge {
+.app_locationBadge {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 
-    &-icon {
+    &_icon {
         width: 20px;
         height: 20px;
     }

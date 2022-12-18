@@ -1,4 +1,4 @@
-.linksBoard {
+.section_quickLinks_board {
     display: grid;
     grid-template: repeat(2, 200px) / repeat(2, minmax(400px, 650px));
     gap: 15px;
@@ -17,18 +17,18 @@
             align-items: flex-start;
             justify-content: flex-start;
             flex-direction: column;
-            padding: 15px 20px;
-            
-            &__title {
-                color: var(--color);
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
+            padding: 15px 20px;    
+        }
 
-            &__list {
-                &_item {
-                    margin-bottom: 5px;
-                }
+        &_title {
+            color: var(--color);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        &_list {
+            &_item {
+                margin-bottom: 5px;
             }
         }
 
@@ -37,7 +37,7 @@
             display: flex;
             width: 100%;
 
-            &__poster {
+            &_poster {
                 width: 100%;
                 object-fit: cover;
                 border-top-right-radius: 5px;
@@ -47,7 +47,7 @@
         }
     }
 
-    &_item_full {
+    &_itemFull {
         display: grid;
         grid-template: 1fr / 1fr 1fr;
     }

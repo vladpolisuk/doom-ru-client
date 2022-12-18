@@ -1,4 +1,4 @@
-.profile {
+.header_profile {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,7 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 
-    &__img {
+    &_image {
         border-radius: 50%;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;

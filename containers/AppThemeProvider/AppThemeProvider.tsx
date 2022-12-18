@@ -8,8 +8,7 @@ type Props = FC<PropsWithChildren>;
  */
 export const AppThemeProvider: Props = ({ children }) => {
     return (
-        <ThemeProvider
-            disableTransitionOnChange>
+        <ThemeProvider disableTransitionOnChange>
             {children}
         </ThemeProvider>
     )

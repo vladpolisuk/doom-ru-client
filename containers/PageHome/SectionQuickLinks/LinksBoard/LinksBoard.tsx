@@ -12,7 +12,7 @@ interface LinksBoard extends FC<PropsWithChildren> {
 
 export const LinksBoard: LinksBoard = ({ children }) => {
     return (
-        <div className={s.linksBoard}>
+        <div className={s.section_quickLinks_board}>
             {children}
         </div>
     )

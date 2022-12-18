@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../types';
 import s from './AppLink.module.scss';
 
@@ -16,26 +16,26 @@ type AppLink = BaseAppComponent<HTMLAnchorElement>;
 export const AppLink: FC<AppLink> = memo(({
     href,
     title,
-    className,
     children,
-    translation,
-    resetStyles,
+    className = s.app_link,
+    resetStyles = false,
     ...props
 }) => {
     const { locale } = useRouter();
-    const { t } = useTranslation(translation);
+    const url = `/${locale}${href}`;
 
-    const styles = resetStyles
-        ? className
-        : `${s['app--link']} ${className}`;
+    const styles = getConcatenatedStylesByCondition(
+        resetStyles,
+        className,
+        s.app_link
+    );
 
     return (
         <Link
-            translate="yes"
-            href={`/${locale}${href}`}
+            href={url}
             className={styles}
-            aria-label={t(title || "")}
-            title={t(title || "")}
+            aria-label={title}
+            title={title}
             {...props}>
             {children}
         </Link>

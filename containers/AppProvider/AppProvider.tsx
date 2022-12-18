@@ -1,8 +1,8 @@
 import { useTheme } from 'next-themes';
-import { FC, Fragment, PropsWithChildren, useEffect } from 'react';
+import { FC, PropsWithChildren, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/useSelector';
 import { loadAppLocation, setAppTheme } from '../../store/app/actions';
-import { getAppLocation, getAppTheme } from '../../store/app/selectors';
+import { getAppTheme } from '../../store/app/selectors';
 import { AppTheme } from '../../store/app/types';
 
 /**
@@ -28,9 +28,5 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
         dispatch(loadAppLocation());
     }, [])
 
-    return (
-        <Fragment>
-            {children}
-        </Fragment>
-    )
+    return <>{children}</>
 }

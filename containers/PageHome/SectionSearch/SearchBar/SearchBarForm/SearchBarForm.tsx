@@ -4,34 +4,41 @@ import { Search, Sliders } from 'react-feather'
 import { AppButton } from '../../../../../components/AppButton/AppButton'
 import { AppInput } from '../../../../../components/AppInput/AppInput'
 import s from "./SearchBarForm.module.scss";
+import clsx from 'clsx';
 
 export const SearchBarForm = () => {
     const { t } = useTranslation("home");
 
+    const inputTitle = t("home_section_search.search_input.title");
+    const inputPlaceholder = t("home_section_search.search_input.placeholder");
+    const filtersTitle = t("home_section_search.search_filters.title");
+    const filtersStyles = clsx(s.sectionSearch_searchBar_form_filters, "active--scale", "transition");
+    const filtersText = t("home_section_search.search_filters.text");
+    const submitTitle = t("home_section_search.search_button.title");
+    const submitStyles = clsx(s.sectionSearch_searchBar_form_button, "active--scale", "transition");
+    const submitText = t("home_section_search.search_button.text");
+
     return (
-        <form className={s.searchbar_form}>
+        <form className={s.sectionSearch_searchBar_form}>
             <AppInput
                 type="search"
-                translation="home"
-                iconLeft={<Search className={s["searchbar_form--input_icon"]} />}
+                title={inputTitle}
+                placeholder={inputPlaceholder}
                 data-testid="home-search-input"
-                className={s["searchbar_form--input"]}
-                title="home_section_search.search_input.title"
-                placeholder="home_section_search.search_input.placeholder" />
+                iconLeft={<Search className={s.sectionSearch_searchBar_form_inputIcon} />}
+                className={s.sectionSearch_searchBar_form_input} />
 
             <AppButton
-                translation="home"
-                title="home_section_search.search_filters.title"
-                className={`${s["searchbar_form--filters"]} active_scale transition`}>
-                <Sliders className={s["searchbar_form--filters_icon"]} />
-                {t("home_section_search.search_filters.text")}
+                title={filtersTitle}
+                className={filtersStyles}>
+                <Sliders className={s.sectionSearch_searchBar_form_filtersIcon} />
+                {filtersText}
             </AppButton>
 
             <AppButton
-                translation="home"
-                title="home_section_search.search_button.title"
-                className={`${s["searchbar_form--button"]} active_scale transition`}>
-                {t("home_section_search.search_button.text")}
+                title={submitTitle}
+                className={submitStyles}>
+                {submitText}
             </AppButton>
         </form>
     )

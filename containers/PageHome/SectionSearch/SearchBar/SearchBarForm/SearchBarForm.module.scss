@@ -1,4 +1,4 @@
-.searchbar_form {
+.sectionSearch_searchBar_form {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -6,30 +6,31 @@
     gap: 10px;
     margin-top: 15px;
 
-    &--input_icon {
-        color: var(--input-icon_color);
-    }
-
-    &--input {
+    &_input {
         height: 50px;
     }
 
-    &--filters {
+    &_inputIcon {
+        color: var(--color_inputIcon);
+    }
+
+    &_filters {
         height: 50px;
         background: transparent;
 
         &:hover {
-            background: var(--actionable_background__hover);
+            background: var(--background_actives--hover);
         }
 
-        &_icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 5px;
-        }
+    }
+    
+    &_filtersIcon {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
     }
 
-    &--button {
+    &_button {
         height: 50px;
         color: white;
     }

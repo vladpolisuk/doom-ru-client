@@ -4,7 +4,7 @@ import { SearchBarTabs } from './SearchBarTabs/SearchBarTabs';
 
 export const SearchBar = () => {
     return (
-        <div className={s.searchbar}>
+        <div className={s.sectionSearch_searchBar}>
             <SearchBarTabs />
             <SearchBarForm />
         </div>

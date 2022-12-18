@@ -6,7 +6,7 @@ import { AppLink } from '../../../components/AppLink/AppLink';
 import s from './AppHeaderLogo.module.scss';
 
 export const AppHeaderLogo = () => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('header');
     const [mounted, setMounted] = useState(false)
     const { resolvedTheme } = useTheme()
 
@@ -14,23 +14,24 @@ export const AppHeaderLogo = () => {
         setMounted(true)
     }, [resolvedTheme])
 
-    const src = `/assets/logo_${resolvedTheme}.svg`;
-
     if (!mounted) return null;
+
+    const src = `/assets/logo_${resolvedTheme}.svg`;
+    const title = t("header_logo_link_label");
+    const name = t("logo_name");
 
     return (
         <AppLink
             href='/'
-            translation="header"
-            className={s.header_ctr_logoLink}
-            title="header_logo_link_label">
+            className={s.header_logoLink}
+            title={title}>
             <Image
-                alt={t("logo_name")}
+                priority
+                src={src}
                 width="132"
                 height="42"
-                priority
-                className={s.header_ctr_logoLink__img}
-                src={src} />
+                alt={name}
+                className={s.header_logoLink_image} />
         </AppLink>
     );
 }

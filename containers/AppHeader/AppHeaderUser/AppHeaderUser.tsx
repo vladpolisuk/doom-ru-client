@@ -7,12 +7,10 @@ import { HeaderProfile } from './HeaderProfile/HeaderProfile';
 export const AppHeaderUser = () => {
     const user = useAppSelector(getAppUser);
 
-    const component = user
-        ? <HeaderProfile />
-        : <HeaderAuth />
+    const component = user ? <HeaderProfile /> : <HeaderAuth />
 
     return (
-        <div className={s.header_ctr_user}>
+        <div className={s.header_user}>
             {component}
         </div>
     )

@@ -1,4 +1,4 @@
-.header_ctr_nav {
+.header_nav {
     &_list {
         display: flex;
         align-items: center;
@@ -21,7 +21,7 @@
                 font-size: 16px;
                 font-weight: bold;
                 padding: 14px;
-                color: var(--nav_link_color);
+                color: var(--color_navLink);
                 border-radius: 8px;
                 -webkit-border-radius: 8px;
                 -moz-border-radius: 8px;
@@ -29,7 +29,7 @@
                 -o-border-radius: 8px;
 
                 &:hover {
-                    background-color: var(--actionable_background__hover);
+                    background-color: var(--background_actives--hover);
                 }
 
                 span {
@@ -37,8 +37,8 @@
                 }
             };
 
-            &_item-active {
-                background-color: var(--actionable_background__hover);
+            &_item--active {
+                background-color: var(--background_actives--hover);
             }
         };
     };

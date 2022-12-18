@@ -1,13 +1,11 @@
 import { ErrorProps } from "next/error"
 
 function Error({ statusCode }: ErrorProps) {
-    return (
-        <p>
-            {statusCode
-                ? `An error ${statusCode} occurred on server`
-                : 'An error occurred on client'}
-        </p>
-    )
+    const component = statusCode
+        ? `An error ${statusCode} occurred on server`
+        : 'An error occurred on client';
+
+    return <p>{component}</p>;
 }
 
 Error.getInitialProps = ({ res, err }: any) => {

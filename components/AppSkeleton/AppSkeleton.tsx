@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../types';
 import s from './AppSkeleton.module.scss';
 
@@ -9,13 +10,16 @@ type AppSkeleton = BaseAppComponent<HTMLDivElement>;
  * @returns `html:div`
  */
 export const AppSkeleton: FC<AppSkeleton> = memo(({
-    resetStyles,
-    className,
-    children
+    children,
+    className = s.app_skeleton,
+    resetStyles = false,
 }) => {
-    const styles = resetStyles
-        ? className
-        : `${s["app--skeleton"]} transition ${className}`;
+    const styles = getConcatenatedStylesByCondition(
+        resetStyles,
+        className,
+        s.app_skeleton,
+        "transition"
+    );
 
     return (
         <div className={styles}>

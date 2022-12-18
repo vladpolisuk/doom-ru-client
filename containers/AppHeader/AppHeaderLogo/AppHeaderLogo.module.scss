@@ -1,4 +1,4 @@
-.header_ctr_logoLink {
+.header_logoLink {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     
-    &__img {
+    &_image {
         margin-right: 10px;
     }
 };

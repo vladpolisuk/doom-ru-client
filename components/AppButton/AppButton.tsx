@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import { FC, memo } from 'react';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../types';
 import s from './AppButton.module.scss';
 
@@ -13,24 +13,22 @@ type AppButton = BaseAppComponent<HTMLButtonElement>;
  */
 export const AppButton: FC<AppButton> = memo(({
     title,
-    className,
     children,
-    translation,
-    resetStyles,
+    className = s.app_button,
+    resetStyles = false,
     ...props
 }) => {
-    const { t } = useTranslation(translation);
-
-    const styles = resetStyles
-        ? className
-        : `${s['app--button']} ${className}`;
+    const styles = getConcatenatedStylesByCondition(
+        resetStyles,
+        className,
+        s.app_button
+    );
 
     return (
         <button
-            translate="yes"
             className={styles}
-            aria-label={t(title || "")}
-            title={t(title || "")}
+            aria-label={title}
+            title={title}
             {...props}>
             {children}
         </button>

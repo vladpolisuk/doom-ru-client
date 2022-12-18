@@ -1,4 +1,4 @@
-.section_search {
+.home_sectionSearch {
     width: 100%;
     height: 500px;
     overflow: hidden;
@@ -41,11 +41,12 @@
         justify-content: center;
         flex-direction: column;
 
-        &--title {
-            color: #fff;
-            text-shadow: 1px 1px 4px rgb(33, 33, 33);
-            margin-bottom: 20px;
-        }
+    }
+
+    &_title {
+        color: #fff;
+        text-shadow: 1px 1px 4px rgb(33, 33, 33);
+        margin-bottom: 20px;
     }
 
     &_locationBadge {
@@ -61,7 +62,7 @@
         }
     }
 
-    &_locationBadge-skeleton {
+    &_locationBadge--skeleton {
         height: 36px;
         width: 150px;
         background-color: rgba(0, 0, 0, 0.6);

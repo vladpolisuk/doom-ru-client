@@ -1,6 +1,7 @@
 {
     "locale": "en",
     "header_logo_link_label": "Go home",
+    "header_nav_label": "Site navigation",
     "header_nav_links": [
         {
             "name": "Rent",

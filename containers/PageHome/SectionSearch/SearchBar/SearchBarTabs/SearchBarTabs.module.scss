@@ -1,4 +1,4 @@
-.searchbar_tabs {
+.sectionSearch_searchBar_tabs {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -7,7 +7,7 @@
     width: 100%;
     box-shadow: 0 2px 0 -1px rgba(135, 135, 135, 0.2);
 
-    &--item {
+    &_item {
         width: 80px;
         padding: 12px 15px;
         background-color: transparent;
@@ -30,7 +30,7 @@
         }
     }
 
-    &--line {
+    &_line {
         position: absolute;
         height: 2px;
         background: #1E88E5;

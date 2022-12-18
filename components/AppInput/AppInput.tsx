@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import { FC, InputHTMLAttributes, memo } from 'react';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../types';
 import s from './AppInput.module.scss';
 
@@ -24,61 +24,66 @@ interface AppInput extends Props {
  */
 export const AppInput: FC<AppInput> = memo(({
     title,
-    className,
     children,
-    translation,
-    resetStyles,
     type,
     placeholder,
     iconLeft,
     iconRight,
+    className = s.app_input,
+    resetStyles = false,
     ...props
 }) => {
-    const { t } = useTranslation(translation);
+    const iconSide = iconLeft
+        ? s.app_input_withIconLeft
+        : iconRight
+            ? s.app_input_withIconRight
+            : "";
 
-    const inputStyles = resetStyles
-        ? className
-        : `${s['app--input']} 
-            ${iconLeft ? s["app--input_withIconLeft"] : iconRight ? s["app--input_withIconRight"] : ""} 
-            ${className}`;
+    const inputStyles = getConcatenatedStylesByCondition(
+        resetStyles,
+        className,
+        s.app_input,
+        iconSide
+    );
 
-    return iconLeft ? (
-        <div className={s['app--input-label']}>
-            <span className={s['app--input-iconLeft']}>
+    if (iconLeft) return (
+        <div className={s.app_inputLabel}>
+            <span className={s.app_input_iconLeft}>
                 {iconLeft}
             </span>
 
             <input
                 type={type}
-                translate="yes"
-                title={t(title || "")}
-                aria-label={t(title || "")}
-                placeholder={t(placeholder || "")}
+                title={title}
+                aria-label={title}
+                placeholder={placeholder}
                 className={inputStyles}
                 {...props} />
         </div>
-    ) : iconRight ? (
-        <div className={s['app--input-label']}>
+    )
+
+    else if (iconRight) return (
+        <div className={s.app_inputLabel}>
             <input
                 type={type}
-                translate="yes"
-                title={t(title || "")}
-                aria-label={t(title || "")}
-                placeholder={t(placeholder || "")}
+                title={title}
+                aria-label={title}
+                placeholder={placeholder}
                 className={inputStyles}
                 {...props} />
 
-            <span className={s['app--input-iconRight']}>
+            <span className={s.app_input_iconRight}>
                 {iconRight}
             </span>
         </div>
-    ) : (
+    )
+
+    return (
         <input
             type={type}
-            translate="yes"
-            title={t(title || "")}
-            aria-label={t(title || "")}
-            placeholder={t(placeholder || "")}
+            title={title}
+            aria-label={title}
+            placeholder={placeholder}
             className={inputStyles}
             {...props} />
     )

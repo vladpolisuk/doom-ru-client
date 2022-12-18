@@ -1,16 +1,13 @@
 import { FC, memo } from 'react';
 import { Navigation } from 'react-feather';
-import { AppLocation } from '../../store/app/types';
+import { useAppSelector } from '../../hooks/useSelector';
+import { getAppLocation } from '../../store/app/selectors';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { AppButton } from '../AppButton/AppButton';
 import { BaseAppComponent } from '../types';
 import s from './AppLocationBadge.module.scss';
 
-interface AppNavigationBadge extends BaseAppComponent<HTMLButtonElement> {
-    /**
-     * The field with the user's geolocation information
-     */
-    location: AppLocation;
-};
+type AppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
 
 /**
  * The common navigation badge component in the application
@@ -18,14 +15,18 @@ interface AppNavigationBadge extends BaseAppComponent<HTMLButtonElement> {
  * @returns `AppButton`
  */
 export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
-    resetStyles,
-    className,
-    location,
+    className = s.app_locationBadge,
+    resetStyles = false,
     ...props
 }) => {
-    const styles = resetStyles
-        ? className
-        : `${s["app--locationBadge"]} transition ${className}`;
+    const location = useAppSelector(getAppLocation);
+
+    const styles = getConcatenatedStylesByCondition(
+        resetStyles,
+        className,
+        s.app_locationBadge,
+        "transition",
+    );
 
     return (
         <AppButton
@@ -33,7 +34,7 @@ export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
             className={styles}
             data-testid="app-location-badge"
             aria-label={`${location?.country}, ${location?.city}`}>
-            <Navigation className={s["app--locationBadge-icon"]} />
+            <Navigation className={s.app_locationBadge_icon} />
 
             <p translate='yes'>
                 {location?.country}, {location?.city}

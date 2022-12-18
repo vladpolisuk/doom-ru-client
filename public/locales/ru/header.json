@@ -1,6 +1,7 @@
 {
     "locale": "ru",
     "header_logo_link_label": "Домой",
+    "header_nav_label": "Навигация по сайту",
     "header_nav_links": [
         {
             "name": "Аренда",

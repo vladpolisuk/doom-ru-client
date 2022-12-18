@@ -1,5 +1,6 @@
 import React, { Children, BaseHTMLAttributes, FC, PropsWithChildren } from 'react';
 import s from "./LinksBoard.module.scss";
+import clsx from 'clsx';
 
 export type ILinksBoardItemContent = FC<BaseHTMLAttributes<HTMLDivElement> & PropsWithChildren>;
 
@@ -7,19 +8,23 @@ export const LinksBoardItemContent: ILinksBoardItemContent = ({
     children,
     title
 }) => {
+    const components = Children.map(children, (child: any) => (
+        <li key={child.key}
+            className={s.section_quickLinks_board_item_list_item}>
+            {child}
+        </li>
+    ));
+
+    const styles = clsx(s.section_quickLinks_board_item_list, "unlisted");
+
     return (
-        <div className={s.linksBoard_item_content}>
-            <p className={s.linksBoard_item_content__title}>
+        <div className={s.section_quickLinks_board_item_content}>
+            <p className={s.section_quickLinks_board_item_title}>
                 {title}
             </p>
 
-            <ul className={`${s.linksBoard_item_content__list} unlisted`}>
-                {Children.map(children, (child: any) => (
-                    <li className={s.linksBoard_item_content__list_item}
-                        key={child.key}>
-                        {child}
-                    </li>
-                ))}
+            <ul className={styles}>
+                {components}
             </ul>
         </div>
     )

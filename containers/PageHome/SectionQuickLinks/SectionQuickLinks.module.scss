@@ -4,7 +4,7 @@
     width: 100%;
     margin-bottom: 20px;
 
-    &_ctr {
+    &_container {
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
@@ -12,6 +12,6 @@
     }   
 
     &_link {
-        color: var(--link__color);
+        color: var(--color_link);
     }
 }
