@@ -1,10 +1,13 @@
-.sectionSearch_searchBar_tabs {
+.sectionSearch_searchBar_nav {
     position: relative;
+    width: 100%;
+}
+
+.sectionSearch_searchBar_tabs {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
     box-shadow: 0 2px 0 -1px rgba(135, 135, 135, 0.2);
 
     &_item {

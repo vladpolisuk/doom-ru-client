@@ -2,6 +2,7 @@ import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { AppHeader } from '../containers/AppHeader/AppHeader';
+import { AppFooter } from '../containers/AppFooter/AppFooter';
 import { AppProvider } from '../containers/AppProvider/AppProvider';
 import { AppThemeProvider } from '../containers/AppThemeProvider/AppThemeProvider';
 import { store } from '../store/store';
@@ -14,6 +15,7 @@ function App({ Component, pageProps }: AppProps) {
 				<AppProvider>
 					<AppHeader />
 					<Component {...pageProps} />
+                    <AppFooter />
 				</AppProvider>
 			</AppThemeProvider>
 		</Provider>

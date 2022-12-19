@@ -4,27 +4,20 @@ import Image from 'next/image';
 import { FC } from 'react';
 import { AppLocationBadge } from '../../../components/AppLocationBadge/AppLocationBadge';
 import { AppSkeleton } from '../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../hooks/useSelector';
 import wallpaper from '../../../public/assets/home_wallpaper.webp';
-import { getAppLocation } from '../../../store/app/selectors';
 import { SearchBar } from './SearchBar/SearchBar';
 import s from './SectionSearch.module.scss';
 
 export const SectionSearch: FC = () => {
-    const location = useAppSelector(getAppLocation);
     const { t } = useTranslation("home");
 
-    const locationBadgeComponent = location
-        ? <AppLocationBadge
-            className={s.home_sectionSearch_locationBadge} />
-        : <AppSkeleton
-            className={s["home_sectionSearch_locationBadge--skeleton"]} />
-
     const text = t("home_section_search.section_title");
+    const skeleton = <AppSkeleton
+        className={s["home_sectionSearch_locationBadge--skeleton"]} />;
 
     return (
         <section
-            id="section-search"
+            id="search"
             className={s.home_sectionSearch}>
             <div className={s.home_sectionSearch_wallpaper}>
                 <Image
@@ -37,7 +30,9 @@ export const SectionSearch: FC = () => {
             </div>
 
             <div className={clsx(s.home_sectionSearch_content, "container")}>
-                {locationBadgeComponent}
+                <AppLocationBadge
+                    Skeleton={skeleton}
+                    className={s.home_sectionSearch_locationBadge} />
 
                 <h1 className={s.home_sectionSearch_title}>
                     {text}

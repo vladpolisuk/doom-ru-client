@@ -15,6 +15,7 @@ type AppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
  * @returns `AppButton`
  */
 export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
+    Skeleton,
     className = s.app_locationBadge,
     resetStyles = false,
     ...props
@@ -27,6 +28,9 @@ export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
         s.app_locationBadge,
         "transition",
     );
+
+    if (!location && Skeleton) 
+        return <>{Skeleton}</>
 
     return (
         <AppButton

@@ -9,8 +9,9 @@ export default function H_And_P() {
     const t = useTranslation("common").t;
     const t_home = useTranslation("home").t;
 
-    const description = t("site_rent_description");
-    const keywords = t("site_rent_keywords");
+    const description = t("site_description");
+    const keywords = t("site_keywords");
+    const author = t("site_author");
     const title = t_home("home_title");
 
     return (
@@ -18,6 +19,7 @@ export default function H_And_P() {
             <Head>
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
+                <meta name="author" content={author} />
                 <title>{title}</title>
             </Head>
 
@@ -31,7 +33,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
         props: {
             ...(await serverSideTranslations(
                 locale as string,
-                ["common", "header", "home"],
+                ["common", "header", "home", "footer"],
             )),
         },
     };

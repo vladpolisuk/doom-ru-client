@@ -1,21 +1,52 @@
 {
-    "name": "PWA App",
-    "short_name": "App",
-    "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF",
-    "start_url": "/",
+    "name": "Doom.ru - Real Estate",
+    "short_name": "Doom.ru",
+    "description": "Doom.ru - database of ads for rent and sale of real estate",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "http://localhost:3000/",
+    "default_locale": "en",
     "display": "standalone",
     "orientation": "portrait",
-    "icons": [
+    "icons":[
         {
-            "src": "/icons/assets/doom_light.svg",
-            "sizes": "1602x500",
-            "type": "image/svg"
+            "src":"assets/android-chrome-192x192.png",
+            "sizes":"192x192",
+            "type":"image/png"
         },
         {
-            "src": "/icons/assets/doom_light.svg",
-            "sizes": "1602x500",
-            "type": "image/svg"
+            "src":"assets/android-chrome-512x512.png",
+            "sizes":"512x512",
+            "type":"image/png"
+        },
+        {
+            "src":"assets/maskable_icon.png",
+            "sizes":"512x512",
+            "type":"image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts" : [
+        {
+            "name": "Rent real estate",
+            "short_name": "Rent",
+            "url": "/rent",
+            "description": "List of apartments for rent",
+            "icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Buy real estate",
+            "short_name": "Buy",
+            "url": "/buy",
+            "description": "List of apartments for sale",
+            "icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Rent houses or plots",
+            "short_name": "Houses and plots",
+            "url": "/h_and_p",
+            "description": "List of houses and plots for sale or rent",
+            "icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
         }
     ]
 }

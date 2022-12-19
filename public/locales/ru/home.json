@@ -38,27 +38,27 @@
                 "content": {
                     "links": [
                         {
-                            "title": "Перейти к выбору 1-комнатных",
+                            "title": "Перейти к выбору 1-комнатных к покупке",
                             "text": "1-комнатные",
-                            "url": "/buy?type=apartment?rooms=1"
+                            "url": "/buy?type=apartment&rooms=1"
                         },
                         {
-                            "title": "Перейти к выбору 2-комнатных",
+                            "title": "Перейти к выбору 2-комнатных к покупке",
                             "text": "2-комнатные",
-                            "url": "/buy?type=apartment?rooms=2"
+                            "url": "/buy?type=apartment&rooms=2"
                         },
                         {
-                            "title": "Перейти к выбору 3-комнатных",
+                            "title": "Перейти к выбору 3-комнатных к покупке",
                             "text": "3-комнатные",
-                            "url": "/buy?type=apartment?rooms=3"
+                            "url": "/buy?type=apartment&rooms=3"
                         },
                         {
-                            "title": "Перейти к выбору студий",
+                            "title": "Перейти к выбору студий к покупке",
                             "text": "Студии",
                             "url": "/buy?type=studio"
                         },
                         {
-                            "title": "Перейти к выбору комнат",
+                            "title": "Перейти к выбору комнат к покупке",
                             "text": "Купить комнату",
                             "url": "/buy?type=room"
                         }
@@ -74,27 +74,27 @@
                 "content": {
                     "links": [
                         {
-                            "title": "Перейти к выбору 1-комнатных",
+                            "title": "Перейти к выбору 1-комнатных в аренду",
                             "text": "1-комнатные",
-                            "url": "/rent?type=apartment?rooms=1"
+                            "url": "/rent?type=apartment&rooms=1"
                         },
                         {
-                            "title": "Перейти к выбору 2-комнатных",
+                            "title": "Перейти к выбору 2-комнатных в аренду",
                             "text": "2-комнатные",
-                            "url": "/rent?type=apartment?rooms=2"
+                            "url": "/rent?type=apartment&rooms=2"
                         },
                         {
-                            "title": "Перейти к выбору 3-комнатных",
+                            "title": "Перейти к выбору 3-комнатных в аренду",
                             "text": "3-комнатные",
-                            "url": "/rent?type=apartment?rooms=3"
+                            "url": "/rent?type=apartment&rooms=3"
                         },
                         {
-                            "title": "Перейти к выбору студий",
+                            "title": "Перейти к выбору студий в аренду",
                             "text": "Студии",
                             "url": "/rent?type=studio"
                         },
                         {
-                            "title": "Перейти к выбору комнат",
+                            "title": "Перейти к выбору комнат в аренду",
                             "text": "Снять комнату",
                             "url": "/rent?type=room"
                         }
@@ -112,17 +112,17 @@
                         {
                             "title": "Перейти к выбору квартир",
                             "text": "Квартира посуточно",
-                            "url": "/rent?type=apartment?term=day"
+                            "url": "/rent?type=apartment&term=day"
                         },
                         {
                             "title": "Перейти к выбору коттеджа",
                             "text": "Коттедж на день",
-                            "url": "/rent?type=cottage?term=day"
+                            "url": "/rent?type=cottage&term=day"
                         },
                         {
                             "title": "Перейти в выбору комнаты",
                             "text": "Комната на день",
-                            "url": "/rent?type=room?term=day"
+                            "url": "/rent?type=room&term=day"
                         },
                         {
                             "title": "Перейти в выбору хостела",
@@ -139,7 +139,8 @@
             {
                 "title": "Map Search",
                 "content": {
-                    "map": ""
+                    "map": "",
+                    "links": []
                 }
             }
         ]

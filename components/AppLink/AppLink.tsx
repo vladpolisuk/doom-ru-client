@@ -5,7 +5,9 @@ import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenated
 import { BaseAppComponent } from '../types';
 import s from './AppLink.module.scss';
 
-type AppLink = BaseAppComponent<HTMLAnchorElement>;
+interface AppLink extends BaseAppComponent<HTMLAnchorElement> {
+    resetHref?: boolean;
+};
 
 /**
  * The common link component in the application
@@ -14,15 +16,16 @@ type AppLink = BaseAppComponent<HTMLAnchorElement>;
  * @return `next/link`
  */
 export const AppLink: FC<AppLink> = memo(({
-    href,
     title,
     children,
+    href = "/",
+    resetHref = false,
     className = s.app_link,
     resetStyles = false,
     ...props
 }) => {
     const { locale } = useRouter();
-    const url = `/${locale}${href}`;
+    const url = resetHref ? href : `/${locale}${href}`;
 
     const styles = getConcatenatedStylesByCondition(
         resetStyles,

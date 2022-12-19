@@ -50,7 +50,7 @@ export const SectionQuickLinks = () => {
 
     return (
         <section
-            id="section-quickLinks"
+            id="quickLinks"
             className={s.section_quickLinks}>
             <div className={styles}>
                 <h2>{title}</h2>

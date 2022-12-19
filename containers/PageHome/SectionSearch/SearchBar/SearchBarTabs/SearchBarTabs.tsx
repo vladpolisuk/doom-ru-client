@@ -26,12 +26,14 @@ export const SearchBarTabs = () => {
     const dynamicStyles = { left: `${80 * tab}px` };
 
     return (
-        <ul className={styles}>
-            {components}
+        <div className={s.sectionSearch_searchBar_nav}>
+            <ul className={styles}>
+                {components}
+            </ul>
 
             <div style={dynamicStyles}
                 className={s.sectionSearch_searchBar_tabs_line}>
             </div>
-        </ul>
+        </div>
     )
 }

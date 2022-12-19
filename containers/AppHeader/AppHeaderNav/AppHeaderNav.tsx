@@ -16,6 +16,7 @@ export const AppHeaderNav = () => {
             aria-label={link.title}
             className={styles}>
             <AppLink
+                resetStyles
                 className={s.header_nav_list_item_link}
                 title={link.title}
                 href={link.url}>

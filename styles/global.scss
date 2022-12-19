@@ -2,12 +2,20 @@
 @import 'theme.scss';
 @import 'selectors.scss';
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     font-family: 'Noto Sans Lao Looped', sans-serif;
     padding: 0;
     margin: 0;
     background-color: var(--background_body);
+}
+
+a {
+    text-decoration: none;
 }
 
 a, p, span {
@@ -27,5 +35,6 @@ a, button, input {
         -moz-transition: 100ms all ease-in-out;
         -ms-transition: 100ms all ease-in-out;
         -o-transition: 100ms all ease-in-out;
+        border-radius: 5px;
     }
 }
