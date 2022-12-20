@@ -5,7 +5,7 @@ import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
 
-interface AppInput extends Props {
+interface IAppInput extends Props {
     /** 
      * Specify an icon to display on the left of input 
      */
@@ -22,17 +22,20 @@ interface AppInput extends Props {
  * @memo `true`
  * @return `html:input`
  */
-export const AppInput: FC<AppInput> = memo(({
+export const AppInput: FC<IAppInput> = memo(({
     title,
     children,
     type,
     placeholder,
     iconLeft,
     iconRight,
-    className = s.app_input,
+    className = "",
+    onlyARIA = false,
     resetStyles = false,
     ...props
 }) => {
+    const titleAttr = onlyARIA ? "" : title;
+
     const iconSide = iconLeft
         ? s.app_input_withIconLeft
         : iconRight
@@ -54,7 +57,7 @@ export const AppInput: FC<AppInput> = memo(({
 
             <input
                 type={type}
-                title={title}
+                title={titleAttr}
                 aria-label={title}
                 placeholder={placeholder}
                 className={inputStyles}
@@ -66,7 +69,7 @@ export const AppInput: FC<AppInput> = memo(({
         <div className={s.app_inputLabel}>
             <input
                 type={type}
-                title={title}
+                title={titleAttr}
                 aria-label={title}
                 placeholder={placeholder}
                 className={inputStyles}
@@ -81,7 +84,7 @@ export const AppInput: FC<AppInput> = memo(({
     return (
         <input
             type={type}
-            title={title}
+            title={titleAttr}
             aria-label={title}
             placeholder={placeholder}
             className={inputStyles}

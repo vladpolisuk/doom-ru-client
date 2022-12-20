@@ -12,4 +12,8 @@ export interface BaseAppComponent<T> extends BaseHTMLAttributes<T> {
      * Specify what's should be show before rendering component
      */
     Skeleton?: JSX.Element;
+    /**
+     * Specify that some attributes should be added like aria-*
+     */
+    onlyARIA?: boolean;
 };

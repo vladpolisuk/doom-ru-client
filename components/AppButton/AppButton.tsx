@@ -3,7 +3,7 @@ import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenated
 import { BaseAppComponent } from '../types';
 import s from './AppButton.module.scss';
 
-type AppButton = BaseAppComponent<HTMLButtonElement>;
+export type IAppButton = BaseAppComponent<HTMLButtonElement>;
 
 /**
  * The common button component in the application
@@ -11,13 +11,16 @@ type AppButton = BaseAppComponent<HTMLButtonElement>;
  * @memo `true`
  * @return `html:button`
  */
-export const AppButton: FC<AppButton> = memo(({
+export const AppButton: FC<IAppButton> = memo(({
     title,
     children,
-    className = s.app_button,
+    className = "",
+    onlyARIA = false,
     resetStyles = false,
     ...props
 }) => {
+    const titleAttr = onlyARIA ? "" : title;
+
     const styles = getConcatenatedStylesByCondition(
         resetStyles,
         className,
@@ -28,7 +31,7 @@ export const AppButton: FC<AppButton> = memo(({
         <button
             className={styles}
             aria-label={title}
-            title={title}
+            title={titleAttr}
             {...props}>
             {children}
         </button>

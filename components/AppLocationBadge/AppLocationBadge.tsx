@@ -1,22 +1,22 @@
 import { FC, memo } from 'react';
 import { Navigation } from 'react-feather';
-import { useAppSelector } from '../../hooks/useSelector';
+import { useAppSelector } from '../../hooks/store';
 import { getAppLocation } from '../../store/app/selectors';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { AppButton } from '../AppButton/AppButton';
 import { BaseAppComponent } from '../types';
 import s from './AppLocationBadge.module.scss';
 
-type AppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
+type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
 
 /**
  * The common navigation badge component in the application
  * @memo `true`
  * @returns `AppButton`
  */
-export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
+export const AppLocationBadge: FC<IAppNavigationBadge> = memo(({
     Skeleton,
-    className = s.app_locationBadge,
+    className = "",
     resetStyles = false,
     ...props
 }) => {
@@ -29,7 +29,7 @@ export const AppLocationBadge: FC<AppNavigationBadge> = memo(({
         "transition",
     );
 
-    if (!location && Skeleton) 
+    if (!location && Skeleton)
         return <>{Skeleton}</>
 
     return (

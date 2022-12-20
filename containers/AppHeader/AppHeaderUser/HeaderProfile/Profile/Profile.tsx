@@ -14,6 +14,7 @@ export const Profile = () => {
         <AppLink
             href="/me"
             title={title}
+            onlyARIA
             className={styles}>
             <Image
                 priority

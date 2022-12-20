@@ -23,6 +23,7 @@ export const AppHeaderLogo = () => {
     return (
         <AppLink
             href='/'
+            onlyARIA
             className={s.header_logoLink}
             title={title}>
             <Image
