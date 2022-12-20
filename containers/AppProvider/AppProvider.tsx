@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
 import { FC, PropsWithChildren, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/useSelector';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { loadAppLocation, setAppTheme } from '../../store/app/actions';
 import { getAppTheme } from '../../store/app/selectors';
 import { AppTheme } from '../../store/app/types';

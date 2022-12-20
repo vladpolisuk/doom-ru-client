@@ -1,13 +1,10 @@
-import React, { Children, BaseHTMLAttributes, FC, PropsWithChildren } from 'react';
+import React, { Children, BaseHTMLAttributes, FC, PropsWithChildren, memo } from 'react';
 import s from "./LinksBoard.module.scss";
 import clsx from 'clsx';
 
 export type ILinksBoardItemContent = FC<BaseHTMLAttributes<HTMLDivElement> & PropsWithChildren>;
 
-export const LinksBoardItemContent: ILinksBoardItemContent = ({
-    children,
-    title
-}) => {
+export const LinksBoardItemContent: ILinksBoardItemContent = memo(({ children, title }) => {
     const components = Children.map(children, (child: any) => (
         <li key={child.key}
             className={s.section_quickLinks_board_item_list_item}>
@@ -28,4 +25,6 @@ export const LinksBoardItemContent: ILinksBoardItemContent = ({
             </ul>
         </div>
     )
-}
+})
+
+LinksBoardItemContent.displayName = "LinksBoardItemContent";

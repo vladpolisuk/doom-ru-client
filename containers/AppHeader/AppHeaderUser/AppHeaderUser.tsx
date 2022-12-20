@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../../hooks/useSelector';
+import { useAppSelector } from '../../../hooks/store';
 import { getAppUser } from '../../../store/app/selectors';
 import s from './AppHeaderUser.module.scss';
 import { HeaderAuth } from './HeaderAuth/HeaderAuth';

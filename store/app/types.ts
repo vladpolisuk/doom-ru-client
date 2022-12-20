@@ -21,6 +21,10 @@ export type AppState = {
  */
 export type AppUser = {
     /**
+     * The user's id
+     */
+    id: number;
+    /**
      * The user's nickname
      */
     nickname: string;
@@ -36,7 +40,11 @@ export type AppUser = {
      * The user's email address
      */
     email: string;
-} | null;
+    /**
+     * The user's avatar url
+     */
+    avatar: string;
+};
 
 /**
  * The application theme type
