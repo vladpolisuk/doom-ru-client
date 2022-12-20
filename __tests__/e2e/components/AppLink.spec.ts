@@ -11,20 +11,12 @@ test.describe("AppLink", async () => {
         test.describe(`lang ${locale}`, async () => {
             test.use({ locale });
 
-            test.beforeEach(async ({ page }) => {
+            const { name, url } = header_nav_links[0];
+
+            test(`should navigate to the ${name} page`, async ({ page, locale }) => {
                 await page.goto(`http://localhost:3000/${locale}`);
-            });
-
-            header_nav_links.map(async ({ name, url, title }) => {
-                test(`should navigate to the ${name} page`, async ({ page, locale }) => {
-                    await page.click(`text=${name}`);
-                    await expect(page).toHaveURL(`http://localhost:3000/${locale}${url}`);
-                });
-
-                test(`should have correct title ${name}`, async ({ page }) => {
-                    const linkTitleAttribute = await page.getAttribute(`[title="${title}"]`, "title");
-                    expect(linkTitleAttribute).toEqual(title);
-                });
+                await page.click(`text=${name}`);
+                await expect(page).toHaveURL(`http://localhost:3000/${locale}${url}`);
             });
         });
     });
