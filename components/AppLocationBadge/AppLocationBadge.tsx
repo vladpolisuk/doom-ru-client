@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { Navigation } from 'react-feather';
+import { FiNavigation } from 'react-icons/fi';
 import { useAppSelector } from '../../hooks/store';
 import { getAppLocation } from '../../store/app/selectors';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
@@ -38,7 +38,7 @@ export const AppLocationBadge: FC<IAppNavigationBadge> = memo(({
             className={styles}
             data-testid="app-location-badge"
             aria-label={`${location?.country}, ${location?.city}`}>
-            <Navigation className={s.app_locationBadge_icon} />
+            <FiNavigation className={s.app_locationBadge_icon} />
 
             <p translate='yes'>
                 {location?.country}, {location?.city}

@@ -1,0 +1,54 @@
+{
+    "locale": "ua",
+    "me_title": "Доом.ру | Мій профіль",
+    "aside": {
+        "tabs": [
+            {
+                "id": 0,
+                "name": "Профіль",
+                "title": "Перейти до профілю",
+                "url": "/me/profile",
+                "icon": "FaRegUserCircle"
+            },
+            {
+                "id": 1,
+                "name": "Повідомлення",
+                "title": "Перейти в повідомлення",
+                "url": "/me/notifications",
+                "icon": "FaRegBell"
+            },
+            {
+                "id": 2,
+                "name": "Вибране",
+                "title": "Перейти до вибраного",
+                "url": "/me/favorites",
+                "icon": "FaRegHeart"
+            },
+            {
+                "id": 3,
+                "name": "Налаштування",
+                "title": "Перейти до налаштувань",
+                "url": "/me/settings",
+                "icon": "FaRegSun"
+            },
+            {
+                "id": 4,
+                "name": "Мої оголошення",
+                "title": "Перейти в мої оголошення",
+                "url": "/me/announcements",
+                "icon": "FaRegListAlt"
+            },
+            {
+                "id": 5,
+                "name": "Історія",
+                "title": "Перейти до моєї історії",
+                "url": "/me/history",
+                "icon": "FaHistory"
+            }
+        ],
+        "logout": {
+            "text": "Вийти",
+            "title": "Вийти з програми"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.me_aside_profileCard {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    &_info {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &_avatar {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    &_name {
+        font-size: 22px;
+    }
+
+    &_surname {
+        font-size: 22px;
+    }
+
+    &_id {
+        margin-top: 2px;
+        font-size: 18px;
+        color: var(--color-2)
+    }
+}

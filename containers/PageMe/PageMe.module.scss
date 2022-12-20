@@ -1,0 +1,53 @@
+.me {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &_container {
+        padding: 20px 10px;
+    }
+
+    &_aside {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        top: 20px;
+        position: sticky;
+        max-width: 300px;
+        width: 100%;
+        gap: 10px;
+    }
+
+    &_hr {
+        border: none;
+        height: 1px;
+        width: 100%;
+        background: var(--color-6);
+    }
+
+    &_logout {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        padding: 11px;
+        width: 100%;
+        color: var(--color);
+        border-radius: 5px;
+        background-color: transparent;
+        border: none;
+
+        &_icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-2);
+            margin-top: 2px;
+        }
+        
+        &:hover {
+            background-color: var(--background_actives--hover);
+        }
+    }
+}

@@ -46,11 +46,12 @@
 
 .link_hover--underline {
     color: var(--color_link);
+    border-bottom: 1px solid transparent;
     font-weight: 600;
 
     &:hover {
         text-decoration: none;
-        border-bottom: 1px solid var(--color_link);
+        border-bottom-color: var(--color_link);
         transition: border-bottom 100ms;
     }
 }
