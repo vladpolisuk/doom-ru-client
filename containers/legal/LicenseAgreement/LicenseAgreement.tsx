@@ -9,11 +9,7 @@ export const LicenseAgreementPage = () => {
         <main className={styles}>
             <div className="container">
                 <h1>License Agreement</h1>
-<<<<<<< HEAD
                 <p className={s.legal_text}>
-=======
-                <p>
->>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam at quae eius hic aliquid fugiat earum est saepe in tempora modi ducimus ab minus soluta sunt, dolor magnam voluptas nam!
                     Illo, libero! Tenetur maiores pariatur consectetur veniam placeat debitis quam fuga. Repellendus excepturi minus consequuntur id! Molestias cumque cum, maxime facilis recusandae corrupti accusamus delectus quos quia debitis provident quidem.
                     Facere illo, fugiat ipsa natus amet exercitationem veniam culpa pariatur ad reprehenderit aliquam magnam similique cum beatae repudiandae, iste commodi maiores odit aliquid expedita. Impedit illum voluptas eveniet ipsum ipsam.
