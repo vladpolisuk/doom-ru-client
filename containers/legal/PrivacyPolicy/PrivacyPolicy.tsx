@@ -9,7 +9,11 @@ export const PrivacyPolicyPage = () => {
         <main className={styles}>
             <div className="container">
                 <h1>Privacy Policy</h1>
+<<<<<<< HEAD
                 <p className={s.legal_text}>
+=======
+                <p>
+>>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque modi deserunt accusantium ut soluta, voluptate ratione repudiandae quod impedit excepturi distinctio nulla iusto, illum delectus perferendis dolorem dolore. Qui, facere?
                     Pariatur, accusamus facilis? Itaque, vitae? Praesentium nemo neque quaerat fuga, mollitia, reprehenderit at beatae saepe, cumque non dignissimos. Possimus ipsam quod eaque laboriosam earum quam temporibus doloribus facere aliquam nisi!
                     Corporis illum doloremque praesentium vel dolore explicabo atque beatae sunt iste qui. Cum aut minus officia ea odio nostrum nesciunt reiciendis veniam! Officia, omnis veritatis debitis quia quibusdam aspernatur voluptate.

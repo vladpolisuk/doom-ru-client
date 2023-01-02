@@ -13,6 +13,12 @@ export default function UserAgreement() {
 	const keywords = t("site_keywords");
 	const title = t_home("home_title");
 	const author = t("site_author");
+<<<<<<< HEAD
+=======
+	const locale = t("locale");
+
+	const url = `http://localhost:3000/${locale}/legal/`;
+>>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
 
 	return (
 		<Fragment>
@@ -20,6 +26,10 @@ export default function UserAgreement() {
 				<meta name="description" content={description} />
 				<meta name="keywords" content={keywords} />
 				<meta name="author" content={author} />
+<<<<<<< HEAD
+=======
+				<base href={url} />
+>>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
 				<title>{title}</title>
 			</Head>
 

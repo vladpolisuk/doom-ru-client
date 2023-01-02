@@ -9,7 +9,11 @@ export const UserAgreementPage = () => {
         <main className={styles}>
             <div className="container">
                 <h1>User Agreement</h1>
+<<<<<<< HEAD
                 <p className={s.legal_text}>
+=======
+                <p>
+>>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit eaque dolores fugit aut, porro voluptatibus unde alias incidunt obcaecati atque quas quam, ut provident eum facilis libero repudiandae iusto.
                     Perferendis aliquid maiores odio ipsum sunt, quaerat dolores labore numquam obcaecati voluptate magnam tenetur commodi doloremque. Recusandae laboriosam laborum veritatis? Eligendi distinctio debitis dolorum. Cum placeat maiores modi libero non!
                     Tenetur, quasi repudiandae. Totam et excepturi ipsum, perferendis ipsa dolorem veniam exercitationem nihil quos nesciunt, atque dolor nostrum temporibus unde sit perspiciatis deleniti reiciendis rerum eum reprehenderit in quam consectetur?
