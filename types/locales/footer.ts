@@ -1,7 +1,7 @@
 export interface LocaleFooter {
     locale: string;
     title: string;
-    disclamer: string;
+    disclaimer: string;
     links: {
         github: LocaleFooterGitHub;
         linkedin: LocaleFooterLinkedIn;

@@ -1,7 +1,7 @@
 {
     "locale": "ua",
-    "title": "ДООМ.РУ — база даних про нерухомість. Використання сайту означає згоду з <a class='link_hover--underline' href='ua/legal/user-agreetment' rel='noopener noreferrer'>Угодою користувача</a> та <a class='link_hover--underline' href= 'ua/legal/privacy-policy' rel='noopener noreferrer'>Політикою конфіденційності</a>. Оплачуючи ліцензійний платіж, ви приймаєте <a class='link_hover--underline' href='ua/legal/license-agreetment' rel='noopener noreferrer'>Ліцензійне угода.</a>",
-    "disclamer": "Сайт не є комерційним і створений в особистих інтересах <a class='link_hover--underline' href='https://github.com/vladislav124352' rel='noopener noreferrer'>автора</a>",
+    "title": "ДООМ.РУ — база даних про нерухомість. Використання сайту означає згоду з <a class='link_hover--underline' href='http://localhost:3000/ua/legal/user-agreement' rel='noopener noreferrer'>Угодою користувача</a> та <a class='link_hover--underline' href= 'http://localhost:3000/ua/legal/privacy-policy' rel='noopener noreferrer'>Політикою конфіденційності</a>. Оплачуючи ліцензійний платіж, ви приймаєте <a class='link_hover--underline' href='http://localhost:3000/ua/legal/license-agreement' rel='noopener noreferrer'>Ліцензійне угода.</a>",
+    "disclaimer": "Сайт не є комерційним і створений в особистих інтересах <a class='link_hover--underline' href='https://github.com/vladislav124352' rel='noopener noreferrer'>автора</a>",
     "links": {
         "github": {
             "title": "Перейдіть на GitHub",

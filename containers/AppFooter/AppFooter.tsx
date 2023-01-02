@@ -14,7 +14,7 @@ export const AppFooter = () => {
     const author = t_c("site_author");
     const github: LocaleFooterGitHub = t_f("links.github", { returnObjects: true });
     const title = t_f("title");
-    const disclamer = t_f("disclamer");
+    const disclaimer = t_f("disclaimer");
     const styles = clsx(s.footer_container, "container");
     const linksStyles = clsx(s.footer_links, "unlisted");
 
@@ -23,15 +23,15 @@ export const AppFooter = () => {
             <div className={styles}>
                 <noindex
                     className={s.footer_title}
-                    dangerouslySetInnerHTML={{__html: title}}>
+                    dangerouslySetInnerHTML={{ __html: title }}>
                 </noindex>
 
-                <hr className={s.footer_hr}/>
+                <hr className={s.footer_hr} />
 
                 <div className={s.footer_desc}>
                     <noindex
-                        className={s.footer_disclamer}
-                        dangerouslySetInnerHTML={{__html: disclamer}}>
+                        className={s.footer_disclaimer}
+                        dangerouslySetInnerHTML={{ __html: disclaimer }}>
                     </noindex>
 
                     <ul className={linksStyles}>
@@ -41,7 +41,7 @@ export const AppFooter = () => {
                                 className={s.footer_link}
                                 title={github.title}
                                 href={github.url}>
-                                <BsGithub className={s.footer_links_item_image}/>
+                                <BsGithub className={s.footer_links_item_image} />
                             </AppLink>
                         </li>
 
@@ -51,7 +51,7 @@ export const AppFooter = () => {
                                 className={s.footer_link}
                                 title={github.title}
                                 href={github.url}>
-                                <BsLinkedin className={s.footer_links_item_image}/>
+                                <BsLinkedin className={s.footer_links_item_image} />
                             </AppLink>
                         </li>
                     </ul>
