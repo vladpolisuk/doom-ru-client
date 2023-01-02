@@ -1,10 +1,6 @@
 {
     "locale": "ua",
-<<<<<<< HEAD
     "title": "ДООМ.РУ — база даних про нерухомість. Використання сайту означає згоду з <a class='link_hover--underline' href='http://localhost:3000/ua/legal/user-agreement' rel='noopener noreferrer'>Угодою користувача</a> та <a class='link_hover--underline' href= 'http://localhost:3000/ua/legal/privacy-policy' rel='noopener noreferrer'>Політикою конфіденційності</a>. Оплачуючи ліцензійний платіж, ви приймаєте <a class='link_hover--underline' href='http://localhost:3000/ua/legal/license-agreement' rel='noopener noreferrer'>Ліцензійне угода.</a>",
-=======
-    "title": "ДООМ.РУ — база даних про нерухомість. Використання сайту означає згоду з <a class='link_hover--underline' href='user-agreement' rel='noopener noreferrer'>Угодою користувача</a> та <a class='link_hover--underline' href= 'privacy-policy' rel='noopener noreferrer'>Політикою конфіденційності</a>. Оплачуючи ліцензійний платіж, ви приймаєте <a class='link_hover--underline' href='license-agreement' rel='noopener noreferrer'>Ліцензійне угода.</a>",
->>>>>>> 365d4d67e8d4662a88ed12143943d2f943b7279f
     "disclaimer": "Сайт не є комерційним і створений в особистих інтересах <a class='link_hover--underline' href='https://github.com/vladislav124352' rel='noopener noreferrer'>автора</a>",
     "links": {
         "github": {
