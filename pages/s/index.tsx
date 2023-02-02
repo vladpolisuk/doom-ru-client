@@ -3,9 +3,9 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
-import { PageHAndP } from '../../containers/PageHAndP/PageHAndP';
+import { PageSearch } from '../../containers/PageSearch/PageSearch';
 
-export default function H_And_P() {
+export default function Search() {
     const t = useTranslation("common").t;
     const t_home = useTranslation("home").t;
 
@@ -23,7 +23,7 @@ export default function H_And_P() {
                 <title>{title}</title>
             </Head>
 
-            <PageHAndP />
+            <PageSearch />
         </Fragment>
     )
 }

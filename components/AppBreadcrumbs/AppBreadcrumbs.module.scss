@@ -1,0 +1,10 @@
+.app_breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    &_separator {
+        color: var(--color-2);
+    }
+}

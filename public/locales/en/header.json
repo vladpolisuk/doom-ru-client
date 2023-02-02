@@ -5,18 +5,13 @@
     "header_nav_links": [
         {
             "name": "Rent",
-            "url": "/rent",
+            "url": "/s?action=rent",
             "title": "Real estate properties"
         },
         {
             "name": "Buy",
-            "url": "/buy",
+            "url": "/s?action=buy",
             "title": "Real estate and property for sale"
-        },
-        {
-            "name": "Houses and plots",
-            "url": "/h_and_p",
-            "title": "Rent and buy houses and plots"
         }
     ],
     "header_user_auth": {

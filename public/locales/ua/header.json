@@ -5,18 +5,13 @@
     "header_nav_links": [
         {
             "name": "Оренда",
-            "url": "/rent",
+            "url": "/s?action=rent",
             "title": "Оренда квартир та будинків"
         },
         {
             "name": "Купити",
-            "url": "/buy",
+            "url": "/s?action=buy",
             "title": "Покупка квартир та будинків"
-        },
-        {
-            "name": "Будинки та ділянки",
-            "url": "/h_and_p",
-            "title": "Купівля будинків та ділянок"
         }
     ],
     "header_user_auth": {

@@ -40,27 +40,27 @@
                         {
                             "title": "Піти купити 1-кімнатну",
                             "text": "1-кімнатна",
-                            "url": "/buy?type=apartment&rooms=1"
+                            "url": "/s?action=buy&type=apartment&rooms=1"
                         },
                         {
                             "title": "Піти купити 2-кімнатну",
                             "text": "2-кімнатна",
-                            "url": "/buy?type=apartment&rooms=2"
+                            "url": "/s?action=buy&type=apartment&rooms=2"
                         },
                         {
                             "title": "Піти купувати 3-кімнатну",
                             "text": "3-кімнатна",
-                            "url": "/buy?type=apartment&rooms=3"
+                            "url": "/s?action=buy&type=apartment&rooms=3"
                         },
                         {
                             "title": "Йти купувати студію",
                             "text": "Студії",
-                            "url": "/buy?type=studio"
+                            "url": "/s?action=buy&type=studio"
                         },
                         {
                             "title": "Піти, щоб купити кімнату",
                             "text": "Купити кімнату",
-                            "url": "/buy?type=room"
+                            "url": "/s?action=buy&type=room"
                         }
                     ]
                 },
@@ -76,27 +76,27 @@
                         {
                             "title": "Здати 1-кімнатну",
                             "text": "1-кімнатна",
-                            "url": "/rent?type=apartment&rooms=1"
+                            "url": "/s?action=rent&type=apartment&rooms=1"
                         },
                         {
                             "title": "Зняти 2-х кімнатну",
                             "text": "2-кімнатна",
-                            "url": "/rent?type=apartment&rooms=2"
+                            "url": "/s?action=rent&type=apartment&rooms=2"
                         },
                         {
                             "title": "Зняти 3-кімнатну",
                             "text": "3-кімнатна",
-                            "url": "/rent?type=apartment&rooms=3"
+                            "url": "/s?action=rent&type=apartment&rooms=3"
                         },
                         {
                             "title": "Піти в оренду студії",
                             "text": "Студії",
-                            "url": "/rent?type=studio"
+                            "url": "/s?action=rent&type=studio"
                         },
                         {
                             "title": "Піти орендувати кімнату",
                             "text": "Купити кімнату",
-                            "url": "/rent?type=room"
+                            "url": "/s?action=rent&type=room"
                         }
                     ]
                 },
@@ -112,22 +112,22 @@
                         {
                             "title": "Їдьте в оренду квартир подобово",
                             "text": "Квартири подобово",
-                            "url": "/rent?type=apartment&term=day"
+                            "url": "/s?action=rent&type=apartment&term=day"
                         },
                         {
                             "title": "Поїхати в оренду котеджу подобово",
                             "text": "Оренда котеджу на добу",
-                            "url": "/rent?type=cottage&term=day"
+                            "url": "/s?action=rent&type=cottage&term=day"
                         },
                         {
                             "title": "Їдьте орендувати кімнату подобово",
                             "text": "Зняти кімнату на добу",
-                            "url": "/rent?type=room&term=day"
+                            "url": "/s?action=rent&type=room&term=day"
                         },
                         {
                             "title": "Їдьте орендувати хостел подобово",
                             "text": "Зняти хостел на добу",
-                            "url": "/rent?type=hostels"
+                            "url": "/s?action=rent&type=hostels"
                         }
                     ]
                 },
