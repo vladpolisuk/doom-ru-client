@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next'
-import { UserAgreementPage } from '../../containers/legal/UserAgreement/UserAgreement';
+import { UserAgreementPage } from '../../modules/PageLegal/UserAgreement/UserAgreement';
 
 export default function UserAgreement() {
 	const t = useTranslation("common").t;

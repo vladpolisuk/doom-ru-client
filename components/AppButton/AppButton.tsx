@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
-import { BaseAppComponent } from '../types';
+import { BaseAppComponent } from '../../types/components';
 import s from './AppButton.module.scss';
 
 export type IAppButton = BaseAppComponent<HTMLButtonElement>;

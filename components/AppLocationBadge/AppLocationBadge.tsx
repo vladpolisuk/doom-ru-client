@@ -4,7 +4,7 @@ import { useAppSelector } from '../../hooks/store';
 import { getAppLocation } from '../../store/app/selectors';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { AppButton } from '../AppButton/AppButton';
-import { BaseAppComponent } from '../types';
+import { BaseAppComponent } from '../../types/components';
 import s from './AppLocationBadge.module.scss';
 
 type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;

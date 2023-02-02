@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
-import { BaseAppComponent } from '../types';
+import { BaseAppComponent } from '../../types/components';
 import s from './AppSkeleton.module.scss';
 
 type IAppSkeleton = BaseAppComponent<HTMLDivElement>;

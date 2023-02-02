@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next'
-import { PrivacyPolicyPage } from '../../containers/legal/PrivacyPolicy/PrivacyPolicy';
+import { PrivacyPolicyPage } from '../../modules/PageLegal/PrivacyPolicy/PrivacyPolicy';
 
 export default function PrivacyPolicy() {
     const t = useTranslation("common").t;

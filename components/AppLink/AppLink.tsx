@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
-import { BaseAppComponent } from '../types';
+import { BaseAppComponent } from '../../types/components';
 import s from './AppLink.module.scss';
 
 interface IAppLink extends BaseAppComponent<HTMLAnchorElement> {

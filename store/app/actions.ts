@@ -1,4 +1,4 @@
-import { APILocation } from './../../api/location';
+import { getLocationAPI } from '../../api/location';
 import { AppDispatch } from './../types';
 import { appActions } from './reducer';
 import { AppLocation, AppTheme, AppUser } from './types';
@@ -42,8 +42,8 @@ export const setAppLocation = (location: AppLocation) => {
  */
 export const loadAppLocation = () => {
     return async (dispatch: AppDispatch) => {
-        const api = new APILocation();
-        const data = await api.getCityAndCountry();
+        const { getCityAndCountry } = getLocationAPI();
+        const data = await getCityAndCountry();
         dispatch(setAppLocation(data));
     }
 }

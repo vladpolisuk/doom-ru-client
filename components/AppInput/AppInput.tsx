@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
-import { BaseAppComponent } from '../types';
+import { BaseAppComponent } from '../../types/components';
 import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
