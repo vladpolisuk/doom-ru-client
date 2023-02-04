@@ -46,7 +46,7 @@ export const PageSearch = () => {
     const area = getStringWithUppercase(location?.city || location?.country || "", 0);
 
     return (
-        <main className={s.search}>
+        <div className={s.search}>
             <div className={styles}>
                 <AppBreadcrumbs>
                     {area}
@@ -63,6 +63,6 @@ export const PageSearch = () => {
                     <SearchResult />
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

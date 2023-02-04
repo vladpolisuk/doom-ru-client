@@ -6,7 +6,7 @@ export const PrivacyPolicyPage = () => {
     const styles = clsx(s.legal, 'center-top');
 
     return (
-        <main className={styles}>
+        <div className={styles}>
             <div className="container">
                 <h1>Privacy Policy</h1>
                 <p className={s.legal_text}>
@@ -32,6 +32,6 @@ export const PrivacyPolicyPage = () => {
                     Facere tenetur, animi voluptatum provident nostrum eos harum necessitatibus eum quam nulla? Maiores praesentium tenetur quis sunt eos aliquam iusto consequatur, adipisci repellat ab itaque iste distinctio mollitia, facere beatae!
                 </p>
             </div>
-        </main>
+        </div>
     )
 }

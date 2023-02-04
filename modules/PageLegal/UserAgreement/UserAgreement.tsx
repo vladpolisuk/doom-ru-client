@@ -6,7 +6,7 @@ export const UserAgreementPage = () => {
     const styles = clsx(s.legal, 'center-top');
 
     return (
-        <main className={styles}>
+        <div className={styles}>
             <div className="container">
                 <h1>User Agreement</h1>
                 <p className={s.legal_text}>
@@ -32,6 +32,6 @@ export const UserAgreementPage = () => {
                     Ab alias quo adipisci velit eaque nostrum quae deleniti eveniet doloremque aspernatur, beatae laudantium distinctio sit aliquid ex placeat quaerat ad dignissimos dolores. Nemo, porro culpa? Saepe nemo illum eius?
                 </p>
             </div>
-        </main>
+        </div>
     )
 }

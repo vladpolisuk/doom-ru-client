@@ -34,7 +34,7 @@ export const PageMe = () => {
     const styles = clsx(s.me_container, "container");
 
     return (
-        <main className={s.me}>
+        <div className={s.me}>
             <div className={styles}>
                 <div className={s.me_aside}>
                     <ProfileCard />
@@ -57,6 +57,6 @@ export const PageMe = () => {
                     </AppLogoutButton>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

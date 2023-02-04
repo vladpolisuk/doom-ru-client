@@ -7,15 +7,19 @@ import { AppProvider } from '../containers/AppProvider/AppProvider';
 import { AppThemeProvider } from '../containers/AppThemeProvider/AppThemeProvider';
 import { store } from '../store/store';
 import '../styles/global.scss';
+import { AppSkipLink } from '../components/AppSkipLink/AppSkipLink';
 
 function App({ Component, pageProps }: AppProps) {
 	return (
 		<Provider store={store}>
 			<AppThemeProvider>
 				<AppProvider>
+					<AppSkipLink />
 					<AppHeader />
-					<Component {...pageProps} />
-                    <AppFooter />
+					<main id="main">
+						<Component {...pageProps} />
+					</main>
+					<AppFooter />
 				</AppProvider>
 			</AppThemeProvider>
 		</Provider>

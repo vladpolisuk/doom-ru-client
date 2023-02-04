@@ -1,0 +1,13 @@
+.app_skipLink {
+    position: absolute;
+    left: 20px;
+    top: -200px;
+    transition: top 0.2s;
+    padding: 10px;
+    background: yellow;
+    color: black;
+
+    &:focus {
+        top: 20px;
+    }
+}

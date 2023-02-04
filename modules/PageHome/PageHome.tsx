@@ -4,9 +4,9 @@ import { SectionQuickLinks } from "./SectionQuickLinks/SectionQuickLinks";
 
 export const PageHome = () => {
     return (
-        <main className={s.home_main}>
+        <div className={s.home}>
             <SectionSearch />
             <SectionQuickLinks />
-        </main>
+        </div>
     )
 }
