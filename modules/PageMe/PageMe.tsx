@@ -1,35 +1,15 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
-import { AppLogoutButton } from '../../components/AppLogoutButton/AppLogoutButton';
-import { LocaleMeAsideLogOut, LocaleMeAsideTab } from '../../types/locales/me';
-import { AsideTabs } from './AsideTabs/AsideTabs';
-import s from './PageMe.module.scss';
 import { FiLogOut } from 'react-icons/fi';
+import { AppLogoutButton } from '../../components/AppLogoutButton/AppLogoutButton';
+import { LocaleMeAsideLogOut } from '../../types/locales/me';
+import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
-import { useEffect, useState } from 'react';
+import s from './PageMe.module.scss';
 
 export const PageMe = () => {
-    const [current, setCurrent] = useState(0);
     const { t } = useTranslation("me");
-
-    useEffect(() => {
-        setCurrent(0);
-    }, [])
-
     const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
-    const tabs: LocaleMeAsideTab[] = t("aside.tabs", { returnObjects: true });
-
-    const components = tabs.map(({ name, title, url, icon, id }) => (
-        <AsideTabs.Item
-            tabId={id}
-            current={current}
-            setCurrent={setCurrent}
-            icon={icon}
-            href={url}
-            title={title}
-            key={name}
-            text={name} />
-    ));
 
     const styles = clsx(s.me_container, "container");
 
@@ -41,9 +21,7 @@ export const PageMe = () => {
 
                     <hr className={s.me_hr} />
 
-                    <AsideTabs>
-                        {components}
-                    </AsideTabs>
+                    <Aside />
 
                     <hr className={s.me_hr} />
 
