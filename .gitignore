@@ -14,8 +14,10 @@
 
 # production
 /build
+
+# public
 /public/sw.js
-/public/sw.js.map
+/public/sw.js.*
 /public/workbox-*.js
 /public/workbox-*.js.map
 
