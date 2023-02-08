@@ -6,28 +6,28 @@ import ua from '../../../public/locales/ua/home.json';
 
 const locales: LocaleHome[] = [en, ru, ua];
 
-test.describe("AppInput", async () => {
-    test(`should have input value`, async ({ page }) => {
-        await page.goto("http://localhost:3000/en/");
-        await page.type("data-testid=home-search-input", "Belgorod");
-        const value = await page.inputValue("data-testid=home-search-input")
-        expect(value).toEqual("Belgorod");
-    });
+test.describe('AppInput', async () => {
+	test(`should have input value`, async ({ page }) => {
+		await page.goto('http://localhost:3000/en/');
+		await page.type('data-testid=home-search-input', 'Belgorod');
+		const value = await page.inputValue('data-testid=home-search-input');
+		expect(value).toEqual('Belgorod');
+	});
 
-    locales.forEach(async ({ home_section_search: { search_input }, locale }) => {
-        test.describe(`lang ${locale}`, async () => {
-            test.use({ locale });
+	locales.forEach(async ({ home_section_search: { search_input }, locale }) => {
+		test.describe(`lang ${locale}`, async () => {
+			test.use({ locale });
 
-            test.beforeEach(async ({ page }) => {
-                await page.goto(`http://localhost:3000/${locale}`);
-            });
+			test.beforeEach(async ({ page }) => {
+				await page.goto(`http://localhost:3000/${locale}`);
+			});
 
-            test(`should have correct title`, async ({ page }) => {
-                const title = await page.getAttribute("data-testid=home-search-input", "title");
-                const placeholder = await page.getAttribute("data-testid=home-search-input", "placeholder");
-                expect(title).toEqual(search_input.title);
-                expect(placeholder).toEqual(search_input.placeholder);
-            });
-        });
-    });
+			test(`should have correct title`, async ({ page }) => {
+				const title = await page.getAttribute('data-testid=home-search-input', 'title');
+				const placeholder = await page.getAttribute('data-testid=home-search-input', 'placeholder');
+				expect(title).toEqual(search_input.title);
+				expect(placeholder).toEqual(search_input.placeholder);
+			});
+		});
+	});
 });

@@ -7,8 +7,8 @@ type getStringWithUppercase = (string: string, index: number) => string;
  * @returns string
  */
 export const getStringWithUppercase: getStringWithUppercase = (string, index) => {
-    if (!string.length) return "";
-    const uppercaseLetter = string[index].toUpperCase();
-    const newString = string.slice(0, index) + uppercaseLetter + string.slice(index + 1);
-    return newString;
-}
+	if (!string.length) return '';
+	const uppercaseLetter = string[index].toUpperCase();
+	const newString = string.slice(0, index) + uppercaseLetter + string.slice(index + 1);
+	return newString;
+};

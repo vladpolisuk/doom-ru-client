@@ -16,14 +16,14 @@ function App({ Component, pageProps }: AppProps) {
 				<AppProvider>
 					<AppSkipLink />
 					<AppHeader />
-					<main id="main">
+					<main id='main'>
 						<Component {...pageProps} />
 					</main>
 					<AppFooter />
 				</AppProvider>
 			</AppThemeProvider>
 		</Provider>
-	)
+	);
 }
 
 export default appWithTranslation(App);

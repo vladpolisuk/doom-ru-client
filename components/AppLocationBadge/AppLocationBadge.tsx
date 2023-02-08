@@ -14,37 +14,28 @@ type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
  * @memo `true`
  * @returns `AppButton`
  */
-export const AppLocationBadge: FC<IAppNavigationBadge> = memo(({
-    Skeleton,
-    className = "",
-    resetStyles = false,
-    ...props
-}) => {
-    const location = useAppSelector(getAppLocation);
+export const AppLocationBadge: FC<IAppNavigationBadge> = memo(
+	({ Skeleton, className = '', resetStyles = false, ...props }) => {
+		const location = useAppSelector(getAppLocation);
 
-    const styles = getConcatenatedStylesByCondition(
-        resetStyles,
-        className,
-        s.app_locationBadge,
-        "transition",
-    );
+		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_locationBadge, 'transition');
 
-    if (!location && Skeleton)
-        return <>{Skeleton}</>
+		if (!location && Skeleton) return <>{Skeleton}</>;
 
-    return (
-        <AppButton
-            {...props}
-            className={styles}
-            data-testid="app-location-badge"
-            aria-label={`${location?.country}, ${location?.city}`}>
-            <FiNavigation className={s.app_locationBadge_icon} />
+		return (
+			<AppButton
+				{...props}
+				className={styles}
+				data-testid='app-location-badge'
+				aria-label={`${location?.country}, ${location?.city}`}>
+				<FiNavigation className={s.app_locationBadge_icon} />
 
-            <p translate='yes'>
-                {location?.country}, {location?.city}
-            </p>
-        </AppButton>
-    )
-})
+				<p translate='yes'>
+					{location?.country}, {location?.city}
+				</p>
+			</AppButton>
+		);
+	}
+);
 
-AppLocationBadge.displayName = "AppLocationBadge";
+AppLocationBadge.displayName = 'AppLocationBadge';

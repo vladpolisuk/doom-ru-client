@@ -10,26 +10,20 @@ type IAppSkipLink = BaseAppComponent<HTMLAnchorElement>;
  * The common skip link component in the application
  * @returns `html:anchor`
  */
-export const AppSkipLink: FC<IAppSkipLink> = memo(({
-	className = s.app_skipLink,
-	resetStyles = false,
-}) => {
+export const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink, resetStyles = false }) => {
 	const { t } = useTranslation('common');
-	const text = t("skip_link");
+	const text = t('skip_link');
 
-	const styles = getConcatenatedStylesByCondition(
-		resetStyles,
-		className,
-		s.app_skipLink,
-	);
+	const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_skipLink);
 
 	return (
-		<a href="#main"
+		<a
+			href='#main'
 			aria-label={text}
 			className={styles}>
 			{text}
 		</a>
-	)
+	);
 });
 
-AppSkipLink.displayName = "AppSkipLink";
+AppSkipLink.displayName = 'AppSkipLink';

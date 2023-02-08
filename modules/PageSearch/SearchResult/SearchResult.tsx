@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const SearchResult = () => {
-    return (
-        <div>SearchResult</div>
-    )
-}
+	return <div>SearchResult</div>;
+};

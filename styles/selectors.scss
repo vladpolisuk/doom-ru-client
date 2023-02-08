@@ -1,69 +1,68 @@
 // SHORTS
 .transition {
-    transition: all 50ms ease-in-out;
+	transition: all 50ms ease-in-out;
 }
 
 .transparent {
-    background: transparent;
+	background: transparent;
 }
 
 .unlisted {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
-    max-width: 1300px;
-    width: 100%;
+	max-width: 1300px;
+	width: 100%;
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .center-top {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
-
 
 // SELECTORS
 .active--scale {
-    &:active {
-        transform: scale(0.95);
-        -webkit-transform: scale(0.95);
-        -moz-transform: scale(0.95);
-        -ms-transform: scale(0.95);
-        -o-transform: scale(0.95);
-    }
+	&:active {
+		transform: scale(0.95);
+		-webkit-transform: scale(0.95);
+		-moz-transform: scale(0.95);
+		-ms-transform: scale(0.95);
+		-o-transform: scale(0.95);
+	}
 }
 
 .hover--underline {
-    &:hover {
-        text-decoration: underline;
-    }
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .hover--none {
-    &:hover {
-        background-color: inherit;
-        color: inherit;
-        border: inherit;
-    }
+	&:hover {
+		background-color: inherit;
+		color: inherit;
+		border: inherit;
+	}
 }
 
 .link_hover--underline {
-    color: var(--color_link);
-    border-bottom: 1px solid transparent;
-    font-weight: 600;
+	color: var(--color_link);
+	border-bottom: 1px solid transparent;
+	font-weight: 600;
 
-    &:hover {
-        text-decoration: none;
-        border-bottom-color: var(--color_link);
-        transition: border-bottom 100ms;
-    }
+	&:hover {
+		text-decoration: none;
+		border-bottom-color: var(--color_link);
+		transition: border-bottom 100ms;
+	}
 }

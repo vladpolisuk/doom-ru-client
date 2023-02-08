@@ -11,31 +11,22 @@ export type IAppButton = BaseAppComponent<HTMLButtonElement>;
  * @memo `true`
  * @return `html:button`
  */
-export const AppButton: FC<IAppButton> = memo(({
-    title,
-    children,
-    className = "",
-    onlyARIA = false,
-    resetStyles = false,
-    ...props
-}) => {
-    const titleAttr = onlyARIA ? "" : title;
+export const AppButton: FC<IAppButton> = memo(
+	({ title, children, className = '', onlyARIA = false, resetStyles = false, ...props }) => {
+		const titleAttr = onlyARIA ? '' : title;
 
-    const styles = getConcatenatedStylesByCondition(
-        resetStyles,
-        className,
-        s.app_button
-    );
+		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_button);
 
-    return (
-        <button
-            className={styles}
-            aria-label={title}
-            title={titleAttr}
-            {...props}>
-            {children}
-        </button>
-    )
-})
+		return (
+			<button
+				className={styles}
+				aria-label={title}
+				title={titleAttr}
+				{...props}>
+				{children}
+			</button>
+		);
+	}
+);
 
-AppButton.displayName = "AppButton";
+AppButton.displayName = 'AppButton';

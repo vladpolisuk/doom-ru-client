@@ -8,33 +8,33 @@ import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
 export const PageMe = () => {
-    const { t } = useTranslation("me");
-    const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
+	const { t } = useTranslation('me');
+	const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
 
-    const styles = clsx(s.me_container, "container");
+	const styles = clsx(s.me_container, 'container');
 
-    return (
-        <div className={s.me}>
-            <div className={styles}>
-                <div className={s.me_aside}>
-                    <ProfileCard />
+	return (
+		<div className={s.me}>
+			<div className={styles}>
+				<div className={s.me_aside}>
+					<ProfileCard />
 
-                    <hr className={s.me_hr} />
+					<hr className={s.me_hr} />
 
-                    <Aside />
+					<Aside />
 
-                    <hr className={s.me_hr} />
+					<hr className={s.me_hr} />
 
-                    <AppLogoutButton
-                        resetStyles
-                        onlyARIA
-                        className={s.me_logout}
-                        title={title}>
-                        <FiLogOut className={s.me_logout_icon} />
-                        {text}
-                    </AppLogoutButton>
-                </div>
-            </div>
-        </div>
-    )
-}
+					<AppLogoutButton
+						resetStyles
+						onlyARIA
+						className={s.me_logout}
+						title={title}>
+						<FiLogOut className={s.me_logout_icon} />
+						{text}
+					</AppLogoutButton>
+				</div>
+			</div>
+		</div>
+	);
+};

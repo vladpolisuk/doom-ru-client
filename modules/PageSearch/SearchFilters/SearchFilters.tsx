@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const SearchFilters = () => {
-    return (
-        <div>SearchFilters</div>
-    )
-}
+	return <div>SearchFilters</div>;
+};

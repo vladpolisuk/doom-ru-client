@@ -10,17 +10,17 @@ type IAppLogoutButton = IAppButton;
  * @return `html:button`
  */
 export const AppLogoutButton: FC<IAppLogoutButton> = memo(({ children, ...props }) => {
-    const logout = () => {
-        alert('Log out!')
-    }
+	const logout = () => {
+		alert('Log out!');
+	};
 
-    return (
-        <AppButton
-            onClick={logout}
-            {...props}>
-            {children}
-        </AppButton>
-    )
-})
+	return (
+		<AppButton
+			onClick={logout}
+			{...props}>
+			{children}
+		</AppButton>
+	);
+});
 
-AppLogoutButton.displayName = "AppLogoutButton";
+AppLogoutButton.displayName = 'AppLogoutButton';

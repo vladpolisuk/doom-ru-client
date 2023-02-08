@@ -1,23 +1,23 @@
 .search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 
-    &_container {
-        padding: 20px 10px;
-    }
+	&_container {
+		padding: 20px 10px;
+	}
 
-    &_title {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-    }
+	&_title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+	}
 
-    &_resultsCount {
-        font-size: 32px;
-        color: var(--color-2);
-        margin-left: 10px;
-        font-weight: 600;
-    }
+	&_resultsCount {
+		font-size: 32px;
+		color: var(--color-2);
+		margin-left: 10px;
+		font-weight: 600;
+	}
 }

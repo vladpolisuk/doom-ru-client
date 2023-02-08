@@ -1,15 +1,15 @@
 .app_button {
-    background-color: #5025c9;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    outline: none;
+	background-color: #5025c9;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	outline: none;
 
-    &:hover {
-        background-color: #441eb0;
-    }
+	&:hover {
+		background-color: #441eb0;
+	}
 }

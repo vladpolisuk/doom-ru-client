@@ -7,61 +7,52 @@ import { getConcatenatedStylesByCondition } from '../../../../utils/ui/getConcat
 import s from './AsideTabs.module.scss';
 
 export interface IAsideTabsItem extends BaseHTMLAttributes<HTMLAnchorElement> {
-    icon: LocaleMeAsideTabIcon;
-    text: string;
-    setCurrent: Dispatch<SetStateAction<number>>;
-    tabId: number;
-    current: number;
-};
-
-const tabs: Record<LocaleMeAsideTabIcon, JSX.Element> = {
-    FaRegUserCircle: <FaRegUserCircle className={s.me_aside_tabs_item_icon} />,
-    FaRegBell: <FaRegBell className={s.me_aside_tabs_item_icon} />,
-    FaRegHeart: <FaRegHeart className={s.me_aside_tabs_item_icon} />,
-    FaRegSun: <FaRegSun className={s.me_aside_tabs_item_icon} />,
-    FaHistory: <FaHistory className={s.me_aside_tabs_item_icon} />,
-    FaRegListAlt: <FaRegListAlt className={s.me_aside_tabs_item_icon} />,
+	icon: LocaleMeAsideTabIcon;
+	text: string;
+	setCurrent: Dispatch<SetStateAction<number>>;
+	tabId: number;
+	current: number;
 }
 
-export const AsideTabsItem: FC<IAsideTabsItem> = memo(({
-    href,
-    title,
-    text,
-    icon,
-    current,
-    setCurrent,
-    tabId,
-    ...props
-}) => {
-    const component = tabs[icon];
-    const isActive = current === tabId;
+const tabs: Record<LocaleMeAsideTabIcon, JSX.Element> = {
+	FaRegUserCircle: <FaRegUserCircle className={s.me_aside_tabs_item_icon} />,
+	FaRegBell: <FaRegBell className={s.me_aside_tabs_item_icon} />,
+	FaRegHeart: <FaRegHeart className={s.me_aside_tabs_item_icon} />,
+	FaRegSun: <FaRegSun className={s.me_aside_tabs_item_icon} />,
+	FaHistory: <FaHistory className={s.me_aside_tabs_item_icon} />,
+	FaRegListAlt: <FaRegListAlt className={s.me_aside_tabs_item_icon} />
+};
 
-    const click = () => setCurrent(tabId);
+export const AsideTabsItem: FC<IAsideTabsItem> = memo(
+	({ href, title, text, icon, current, setCurrent, tabId, ...props }) => {
+		const component = tabs[icon];
+		const isActive = current === tabId;
 
-    const styles = getConcatenatedStylesByCondition(
-        !isActive,
-        clsx(s.me_aside_tabs_link, "active--scale", "transition"),
-        s["me_aside_tabs_link--active"]
-    )
+		const click = () => setCurrent(tabId);
 
-    return (
-        <li className={s.me_aside_tabs_item}>
-            <AppLink
-                onlyARIA
-                resetStyles
-                className={styles}
-                aria-label={title}
-                title={title}
-                href={href}
-                onClick={click}
-                {...props}>
-                {component}
-                <p className={s.me_aside_tabs_item_text}>
-                    {text}
-                </p>
-            </AppLink>
-        </li>
-    )
-})
+		const styles = getConcatenatedStylesByCondition(
+			!isActive,
+			clsx(s.me_aside_tabs_link, 'active--scale', 'transition'),
+			s['me_aside_tabs_link--active']
+		);
 
-AsideTabsItem.displayName = "AsideTabsItem";
+		return (
+			<li className={s.me_aside_tabs_item}>
+				<AppLink
+					onlyARIA
+					resetStyles
+					className={styles}
+					aria-label={title}
+					title={title}
+					href={href}
+					onClick={click}
+					{...props}>
+					{component}
+					<p className={s.me_aside_tabs_item_text}>{text}</p>
+				</AppLink>
+			</li>
+		);
+	}
+);
+
+AsideTabsItem.displayName = 'AsideTabsItem';

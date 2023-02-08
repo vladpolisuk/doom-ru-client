@@ -1,24 +1,24 @@
 .header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: var(--background_header);
-    margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: var(--background_header);
+	margin-bottom: 20px;
 
-    &_container {        
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 10px;
-        width: 100%;
-    }
+	&_container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 10px;
+		width: 100%;
+	}
 
-    &_nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 30px;
-    }
-};
+	&_nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 30px;
+	}
+}

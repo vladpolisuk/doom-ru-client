@@ -1,43 +1,43 @@
 .me_aside_tabs {
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+	flex-direction: column;
+	gap: 5px;
+	width: 100%;
 
-    &_item {
-        width: 100%;
+	&_item {
+		width: 100%;
 
-        &_icon {
-            width: 20px;
-            height: 20px;
-            color: var(--color-2);
-            margin-top: 2px;
-        }
+		&_icon {
+			width: 20px;
+			height: 20px;
+			color: var(--color-2);
+			margin-top: 2px;
+		}
 
-        &_text {
-            font-size: 16px;
-        }
-    }
-    
-    &_link {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 15px;
-        padding: 11px;
-        width: 100%;
-        color: var(--color);
-        border-radius: 5px;
+		&_text {
+			font-size: 16px;
+		}
+	}
 
-        &--active {
-            background-color: var(--background_actives--hover);
-        }
-        
-        &:hover {
-            background-color: var(--background_actives--hover);
-        }
-    }
+	&_link {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 15px;
+		padding: 11px;
+		width: 100%;
+		color: var(--color);
+		border-radius: 5px;
+
+		&--active {
+			background-color: var(--background_actives--hover);
+		}
+
+		&:hover {
+			background-color: var(--background_actives--hover);
+		}
+	}
 }

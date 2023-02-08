@@ -1,48 +1,48 @@
 .app_inputLabel {
-    position: relative;
-    width: 100%;
+	position: relative;
+	width: 100%;
 
-    .app_input {
-        padding: 10px 15px;
-        border: none;
-        background-color: transparent;
-        border-radius: 6px;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        -ms-border-radius: 6px;
-        -o-border-radius: 6px;
-        max-width: 400px;
-        width: 100%;
+	.app_input {
+		padding: 10px 15px;
+		border: none;
+		background-color: transparent;
+		border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		-ms-border-radius: 6px;
+		-o-border-radius: 6px;
+		max-width: 400px;
+		width: 100%;
 
-        &:hover {
-            background-color: var(--background_actives--hover);
-            transition: 100ms all ease-in-out;
-            -webkit-transition: 100ms all ease-in-out;
-            -moz-transition: 100ms all ease-in-out;
-            -ms-transition: 100ms all ease-in-out;
-            -o-transition: 100ms all ease-in-out;
-        }
+		&:hover {
+			background-color: var(--background_actives--hover);
+			transition: 100ms all ease-in-out;
+			-webkit-transition: 100ms all ease-in-out;
+			-moz-transition: 100ms all ease-in-out;
+			-ms-transition: 100ms all ease-in-out;
+			-o-transition: 100ms all ease-in-out;
+		}
 
-        &_iconLeft {
-            position: absolute;
-            left: 10px;
-            top: calc(46% - 10px);
-            background: transparent;
-        }
+		&_iconLeft {
+			position: absolute;
+			left: 10px;
+			top: calc(46% - 10px);
+			background: transparent;
+		}
 
-        &_iconRight {
-            position: absolute;
-            right: 10px;
-            top: calc(46% - 10px);
-            background: transparent;
-        }
-    }
+		&_iconRight {
+			position: absolute;
+			right: 10px;
+			top: calc(46% - 10px);
+			background: transparent;
+		}
+	}
 
-    .app_input_withIconLeft {
-        padding-left: 42px;
-    }
+	.app_input_withIconLeft {
+		padding-left: 42px;
+	}
 
-    .app_input_withIconRight {
-        padding-right: 42px;
-    }
+	.app_input_withIconRight {
+		padding-right: 42px;
+	}
 }

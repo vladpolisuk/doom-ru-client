@@ -7,9 +7,5 @@ type Props = FC<PropsWithChildren>;
  * The global application theme provider
  */
 export const AppThemeProvider: Props = ({ children }) => {
-    return (
-        <ThemeProvider disableTransitionOnChange>
-            {children}
-        </ThemeProvider>
-    )
-}
+	return <ThemeProvider disableTransitionOnChange>{children}</ThemeProvider>;
+};

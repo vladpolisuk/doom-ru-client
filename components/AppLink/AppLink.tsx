@@ -6,8 +6,8 @@ import { BaseAppComponent } from '../../types/components';
 import s from './AppLink.module.scss';
 
 interface IAppLink extends BaseAppComponent<HTMLAnchorElement> {
-    resetHref?: boolean;
-};
+	resetHref?: boolean;
+}
 
 /**
  * The common link component in the application
@@ -15,36 +15,34 @@ interface IAppLink extends BaseAppComponent<HTMLAnchorElement> {
  * @memo `true`
  * @return `next/link`
  */
-export const AppLink: FC<IAppLink> = memo(({
-    title,
-    children,
-    href = "/",
-    className = "",
-    onlyARIA = false,
-    resetHref = false,
-    resetStyles = false,
-    ...props
-}) => {
-    const { locale } = useRouter();
-    const url = resetHref ? href : `/${locale}${href}`;
-    const titleAttr = onlyARIA ? "" : title;
+export const AppLink: FC<IAppLink> = memo(
+	({
+		title,
+		children,
+		href = '/',
+		className = '',
+		onlyARIA = false,
+		resetHref = false,
+		resetStyles = false,
+		...props
+	}) => {
+		const { locale } = useRouter();
+		const url = resetHref ? href : `/${locale}${href}`;
+		const titleAttr = onlyARIA ? '' : title;
 
-    const styles = getConcatenatedStylesByCondition(
-        resetStyles,
-        className,
-        s.app_link
-    );
+		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_link);
 
-    return (
-        <Link
-            href={url}
-            className={styles}
-            aria-label={title}
-            title={titleAttr}
-            {...props}>
-            {children}
-        </Link>
-    )
-})
+		return (
+			<Link
+				href={url}
+				className={styles}
+				aria-label={title}
+				title={titleAttr}
+				{...props}>
+				{children}
+			</Link>
+		);
+	}
+);
 
-AppLink.displayName = "AppLink";
+AppLink.displayName = 'AppLink';

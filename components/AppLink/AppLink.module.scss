@@ -1,8 +1,8 @@
 .app_link {
-    text-decoration: none;
-    transition: border-color 100ms;
+	text-decoration: none;
+	transition: border-color 100ms;
 
-    &:hover {
-        color: var(--color_link--hover);
-    }
+	&:hover {
+		color: var(--color_link--hover);
+	}
 }

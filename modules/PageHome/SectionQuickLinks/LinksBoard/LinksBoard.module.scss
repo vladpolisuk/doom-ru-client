@@ -1,54 +1,53 @@
 .section_quickLinks_board {
-    display: grid;
-    grid-template: repeat(2, 200px) / repeat(2, minmax(400px, 650px));
-    gap: 15px;
+	display: grid;
+	grid-template: repeat(2, 200px) / repeat(2, minmax(400px, 650px));
+	gap: 15px;
 
-    &_item {
-        background-color: var(--background);
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
-        box-shadow: 0 0 0 1px #83838320;
-        
-        &_content {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            flex-direction: column;
-            padding: 15px 20px;    
-        }
+	&_item {
+		background-color: var(--background);
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+		box-shadow: 0 0 0 1px #83838320;
 
-        &_title {
-            color: var(--color);
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+		&_content {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-direction: column;
+			padding: 15px 20px;
+		}
 
-        &_list {
-            &_item {
-                margin-bottom: 5px;
-            }
-        }
+		&_title {
+			color: var(--color);
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
 
-        &_image {
-            overflow: hidden;
-            display: flex;
-            width: 100%;
+		&_list {
+			&_item {
+				margin-bottom: 5px;
+			}
+		}
 
-            &_poster {
-                width: 100%;
-                object-fit: cover;
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;
-            }
+		&_image {
+			overflow: hidden;
+			display: flex;
+			width: 100%;
 
-        }
-    }
+			&_poster {
+				width: 100%;
+				object-fit: cover;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+	}
 
-    &_itemFull {
-        display: grid;
-        grid-template: 1fr / 1fr 1fr;
-    }
+	&_itemFull {
+		display: grid;
+		grid-template: 1fr / 1fr 1fr;
+	}
 }

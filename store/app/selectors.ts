@@ -1,4 +1,4 @@
-import { RootState } from "../types";
+import { RootState } from '../types';
 
 /**
  * The selector that returns the application user from redux store

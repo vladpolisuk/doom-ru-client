@@ -9,9 +9,9 @@ import { AppLocation, AppTheme, AppUser } from './types';
  * @returns void
  */
 export const setAppUser = (user: AppUser) => {
-    return async (dispatch: AppDispatch) => {
-        dispatch(appActions.setAppUser(user));
-    };
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppUser(user));
+	};
 };
 
 /**
@@ -20,9 +20,9 @@ export const setAppUser = (user: AppUser) => {
  * @returns void
  */
 export const setAppTheme = (theme: AppTheme) => {
-    return async (dispatch: AppDispatch) => {
-        dispatch(appActions.setAppTheme(theme));
-    };
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppTheme(theme));
+	};
 };
 
 /**
@@ -31,9 +31,9 @@ export const setAppTheme = (theme: AppTheme) => {
  * @returns void
  */
 export const setAppLocation = (location: AppLocation) => {
-    return async (dispatch: AppDispatch) => {
-        dispatch(appActions.setAppLocation(location));
-    };
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppLocation(location));
+	};
 };
 
 /**
@@ -41,9 +41,9 @@ export const setAppLocation = (location: AppLocation) => {
  * @returns void
  */
 export const loadAppLocation = () => {
-    return async (dispatch: AppDispatch) => {
-        const { getCityAndCountry } = getLocationAPI();
-        const data = await getCityAndCountry();
-        dispatch(setAppLocation(data));
-    }
-}
+	return async (dispatch: AppDispatch) => {
+		const { getCityAndCountry } = getLocationAPI();
+		const data = await getCityAndCountry();
+		dispatch(setAppLocation(data));
+	};
+};

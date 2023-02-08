@@ -1,39 +1,38 @@
 .sectionSearch_searchBar_form {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    gap: 10px;
-    margin-top: 15px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	gap: 10px;
+	margin-top: 15px;
 
-    &_input {
-        height: 50px;
-    }
+	&_input {
+		height: 50px;
+	}
 
-    &_inputIcon {
-        color: var(--color_inputIcon);
-        width: 23px;
-        height: 23px;
-    }
+	&_inputIcon {
+		color: var(--color_inputIcon);
+		width: 23px;
+		height: 23px;
+	}
 
-    &_filters {
-        height: 50px;
-        background: transparent;
+	&_filters {
+		height: 50px;
+		background: transparent;
 
-        &:hover {
-            background: var(--background_actives--hover);
-        }
+		&:hover {
+			background: var(--background_actives--hover);
+		}
+	}
 
-    }
-    
-    &_filtersIcon {
-        width: 18px;
-        height: 18px;
-        margin-right: 5px;
-    }
+	&_filtersIcon {
+		width: 18px;
+		height: 18px;
+		margin-right: 5px;
+	}
 
-    &_button {
-        height: 50px;
-        color: white;
-    }
+	&_button {
+		height: 50px;
+		color: white;
+	}
 }

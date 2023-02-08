@@ -4,15 +4,15 @@ import { AppButton } from '../../../../../components/AppButton/AppButton';
 import s from './Notifications.module.scss';
 
 export const Notifications = () => {
-    const { t } = useTranslation("header")
+	const { t } = useTranslation('header');
 
-    const title = t("header_user_profile.notifications.title");
+	const title = t('header_user_profile.notifications.title');
 
-    return (
-        <AppButton
-            title={title}
-            className="active--scale transparent hover--none">
-            <FaBell className={s.header_notifications} />
-        </AppButton>
-    )
-}
+	return (
+		<AppButton
+			title={title}
+			className='active--scale transparent hover--none'>
+			<FaBell className={s.header_notifications} />
+		</AppButton>
+	);
+};
