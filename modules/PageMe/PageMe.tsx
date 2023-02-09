@@ -7,7 +7,7 @@ import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
-export const PageMe = () => {
+const PageMe = () => {
 	const { t } = useTranslation('me');
 	const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
 
@@ -38,3 +38,5 @@ export const PageMe = () => {
 		</div>
 	);
 };
+
+export default PageMe;

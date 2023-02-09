@@ -1,9 +1,11 @@
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next';
-import { PrivacyPolicyPage } from '../../modules/PageLegal/PrivacyPolicy/PrivacyPolicy';
+
+const DynamicPage = dynamic(() => import('../../modules/PageLegal/PrivacyPolicy/PrivacyPolicy'));
 
 export default function PrivacyPolicy() {
 	const t = useTranslation('common').t;
@@ -32,7 +34,7 @@ export default function PrivacyPolicy() {
 				<title>{title}</title>
 			</Head>
 
-			<PrivacyPolicyPage />
+			<DynamicPage />
 		</Fragment>
 	);
 }

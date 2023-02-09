@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import s from '../legal.module.scss';
 
-export const LicenseAgreementPage = () => {
+const LicenseAgreement = () => {
 	const styles = clsx(s.legal, 'center-top');
 
 	return (
@@ -62,3 +62,5 @@ export const LicenseAgreementPage = () => {
 		</div>
 	);
 };
+
+export default LicenseAgreement;

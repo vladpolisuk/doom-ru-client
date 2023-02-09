@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import s from '../legal.module.scss';
 
-export const UserAgreementPage = () => {
+const UserAgreement = () => {
 	const styles = clsx(s.legal, 'center-top');
 
 	return (
@@ -63,3 +63,5 @@ export const UserAgreementPage = () => {
 		</div>
 	);
 };
+
+export default UserAgreement;

@@ -1,9 +1,11 @@
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next';
-import { LicenseAgreementPage } from '../../modules/PageLegal/LicenseAgreement/LicenseAgreement';
+
+const DynamicPage = dynamic(() => import('../../modules/PageLegal/LicenseAgreement/LicenseAgreement'));
 
 export default function LicenseAgreement() {
 	const t = useTranslation('common').t;
@@ -32,7 +34,7 @@ export default function LicenseAgreement() {
 				<title>{title}</title>
 			</Head>
 
-			<LicenseAgreementPage />
+			<DynamicPage />
 		</Fragment>
 	);
 }

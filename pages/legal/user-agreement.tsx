@@ -3,7 +3,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next';
-import { UserAgreementPage } from '../../modules/PageLegal/UserAgreement/UserAgreement';
+import dynamic from 'next/dynamic';
+
+const DynamicPage = dynamic(() => import('../../modules/PageLegal/UserAgreement/UserAgreement'));
 
 export default function UserAgreement() {
 	const t = useTranslation('common').t;
@@ -32,7 +34,7 @@ export default function UserAgreement() {
 				<title>{title}</title>
 			</Head>
 
-			<UserAgreementPage />
+			<DynamicPage />
 		</Fragment>
 	);
 }

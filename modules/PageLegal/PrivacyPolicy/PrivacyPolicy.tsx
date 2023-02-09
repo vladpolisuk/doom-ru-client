@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import s from '../legal.module.scss';
 
-export const PrivacyPolicyPage = () => {
+const PrivacyPolicy = () => {
 	const styles = clsx(s.legal, 'center-top');
 
 	return (
@@ -62,3 +62,5 @@ export const PrivacyPolicyPage = () => {
 		</div>
 	);
 };
+
+export default PrivacyPolicy;
