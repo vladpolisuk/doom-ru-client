@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { FiLogOut } from 'react-icons/fi';
-import { AppLogoutButton } from '../../components/AppLogoutButton/AppLogoutButton';
+import { AppSignOutButton } from '../../components/AppSignOutButton/AppSignOutButton';
 import { LocaleMeAsideLogOut } from '../../types/locales/me';
 import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
@@ -25,14 +25,14 @@ export const PageMe = () => {
 
 					<hr className={s.me_hr} />
 
-					<AppLogoutButton
+					<AppSignOutButton
 						resetStyles
 						onlyARIA
 						className={s.me_logout}
 						title={title}>
 						<FiLogOut className={s.me_logout_icon} />
 						{text}
-					</AppLogoutButton>
+					</AppSignOutButton>
 				</div>
 			</div>
 		</div>

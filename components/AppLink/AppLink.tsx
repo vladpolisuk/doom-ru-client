@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, memo } from 'react';
+import { FC, LinkHTMLAttributes, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppLink.module.scss';
 
-interface IAppLink extends BaseAppComponent<HTMLAnchorElement> {
+type Props = BaseAppComponent<HTMLAnchorElement> & LinkHTMLAttributes<HTMLAnchorElement>;
+
+interface IAppLink extends Props {
 	resetHref?: boolean;
 }
 
@@ -38,6 +40,7 @@ export const AppLink: FC<IAppLink> = memo(
 				className={styles}
 				aria-label={title}
 				title={titleAttr}
+				data-testid='app-link'
 				{...props}>
 				{children}
 			</Link>

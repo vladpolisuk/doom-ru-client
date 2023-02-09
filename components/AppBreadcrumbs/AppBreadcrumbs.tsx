@@ -19,7 +19,11 @@ export const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
 		const components = Children.toArray(children).map((child, i) => (
 			<li key={`${i}_${Date.now()}`}>
 				{child}
-				<span className={s.app_breadcrumbs_separator}>&nbsp;{separator}&nbsp;</span>
+				<span
+					data-testid='app-breadcrumbs-separator'
+					className={s.app_breadcrumbs_separator}>
+					&nbsp;{separator}&nbsp;
+				</span>
 			</li>
 		));
 
@@ -27,6 +31,7 @@ export const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
 
 		return (
 			<ul
+				data-testid='app-breadcrumbs'
 				className={styles}
 				{...props}>
 				{components}

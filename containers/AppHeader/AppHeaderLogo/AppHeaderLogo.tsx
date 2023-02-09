@@ -14,11 +14,20 @@ export const AppHeaderLogo = () => {
 		setMounted(true);
 	}, [resolvedTheme]);
 
-	if (!mounted) return null;
-
 	const src = `/assets/logo_${resolvedTheme}.svg`;
 	const title = t('header_logo_link_label');
 	const name = t('logo_name');
+
+	const image = mounted && (
+		<Image
+			priority
+			src={src}
+			width='132'
+			height='42'
+			alt={name}
+			className={s.header_logoLink_image}
+		/>
+	);
 
 	return (
 		<AppLink
@@ -26,14 +35,7 @@ export const AppHeaderLogo = () => {
 			onlyARIA
 			className={s.header_logoLink}
 			title={title}>
-			<Image
-				priority
-				src={src}
-				width='132'
-				height='42'
-				alt={name}
-				className={s.header_logoLink_image}
-			/>
+			{image}
 		</AppLink>
 	);
 };

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { AppButton, IAppButton } from '../AppButton/AppButton';
 
-type IAppLogoutButton = IAppButton;
+type IAppSignOutButton = IAppButton;
 
 /**
  * The common logout button in the application
@@ -9,7 +9,7 @@ type IAppLogoutButton = IAppButton;
  * @memo `true`
  * @return `html:button`
  */
-export const AppLogoutButton: FC<IAppLogoutButton> = memo(({ children, ...props }) => {
+export const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) => {
 	const logout = () => {
 		alert('Log out!');
 	};
@@ -23,4 +23,4 @@ export const AppLogoutButton: FC<IAppLogoutButton> = memo(({ children, ...props 
 	);
 });
 
-AppLogoutButton.displayName = 'AppLogoutButton';
+AppSignOutButton.displayName = 'AppSignOutButton';

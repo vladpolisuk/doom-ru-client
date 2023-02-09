@@ -51,6 +51,7 @@ export const AppInput: FC<IAppInput> = memo(
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
+						data-testid='app-input'
 						className={inputStyles}
 						{...props}
 					/>
@@ -64,6 +65,7 @@ export const AppInput: FC<IAppInput> = memo(
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
+						data-testid='app-input'
 						className={inputStyles}
 						{...props}
 					/>
@@ -78,6 +80,7 @@ export const AppInput: FC<IAppInput> = memo(
 				title={titleAttr}
 				aria-label={title}
 				placeholder={placeholder}
+				data-testid='app-input'
 				className={inputStyles}
 				{...props}
 			/>

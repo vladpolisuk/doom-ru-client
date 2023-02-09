@@ -1,9 +1,9 @@
-import { FC, memo } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppButton.module.scss';
 
-export type IAppButton = BaseAppComponent<HTMLButtonElement>;
+export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> & BaseAppComponent<HTMLButtonElement>;
 
 /**
  * The common button component in the application
@@ -22,6 +22,7 @@ export const AppButton: FC<IAppButton> = memo(
 				className={styles}
 				aria-label={title}
 				title={titleAttr}
+				data-testid='app-button'
 				{...props}>
 				{children}
 			</button>

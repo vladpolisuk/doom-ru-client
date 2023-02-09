@@ -20,6 +20,7 @@ export const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink,
 		<a
 			href='#main'
 			aria-label={text}
+			data-testid='app-skip-link'
 			className={styles}>
 			{text}
 		</a>
