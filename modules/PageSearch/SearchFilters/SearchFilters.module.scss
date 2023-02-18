@@ -1,0 +1,31 @@
+.search_filters {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	&_resetButton {
+		color: var(--color);
+		background-color: var(--color-6);
+
+		&:hover {
+			background-color: var(--color-5);
+		}
+	}
+
+	&_submitButton {
+		color: white;
+	}
+
+	&_input {
+		width: 100%;
+		border: 1px solid var(--color-6);
+		background-color: var(--background_actives--hover);
+	}
+
+	&_pair {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		gap: 0.5rem;
+	}
+}

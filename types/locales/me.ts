@@ -1,5 +1,7 @@
+import { Locale } from '.';
+
 export interface LocaleMe {
-	locale: string;
+	locale: Locale;
 	me_title: string;
 	aside: LocaleMeAside;
 }

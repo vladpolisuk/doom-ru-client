@@ -9,48 +9,27 @@ import s from './PageSearch.module.scss';
 import { SearchFilters } from './SearchFilters/SearchFilters';
 import { SearchResult } from './SearchResult/SearchResult';
 
-type Query = { key: string; value: string; href: string };
-
 export const PageSearch = () => {
 	const location = useAppSelector(getAppLocation);
 	const router = useRouter();
-	const queries: Query[] = [];
-
-	for (const key in router.query) {
-		queries.push({
-			key,
-			value: router.query[key] as string,
-			href: `/s?${key}=${router.query[key]}`
-		});
-	}
-
-	for (let i = 1; i < queries.length; i++) {
-		queries[i].href = `${queries[i - 1].href}&${queries[i].key}=${queries[i].value}`;
-	}
-
-	const components = queries.map(({ href, value }) => {
-		const name = getStringWithUppercase(value, 0);
-
-		return (
-			<AppLink
-				onlyARIA
-				resetStyles
-				href={href}
-				key={value}>
-				{name}
-			</AppLink>
-		);
-	});
 
 	const styles = clsx(s.search_container, 'container');
 	const area = getStringWithUppercase(location?.city || location?.country || '', 0);
+	const action = router.query?.action as string;
+	const typeText = getStringWithUppercase(action, 0);
 
 	return (
 		<div className={s.search}>
 			<div className={styles}>
 				<AppBreadcrumbs>
 					{area}
-					{components}
+					<AppLink
+						onlyARIA
+						resetStyles
+						href={`/s?action=${action}`}
+						key={action}>
+						{typeText}
+					</AppLink>
 				</AppBreadcrumbs>
 
 				<div className={s.search_title}>
@@ -58,7 +37,7 @@ export const PageSearch = () => {
 					<span className={s.search_resultsCount}>600</span>
 				</div>
 
-				<div>
+				<div className={s.search_main}>
 					<SearchFilters />
 					<SearchResult />
 				</div>

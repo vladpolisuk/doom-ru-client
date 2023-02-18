@@ -1,5 +1,7 @@
+import { Locale } from '.';
+
 export interface LocaleHeader {
-	locale: string;
+	locale: Locale;
 	header_logo_link_label: string;
 	header_nav_links: LocaleHeaderNavLink[];
 	header_user_auth: LocaleHeaderUserAuth;

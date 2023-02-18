@@ -2,9 +2,8 @@ import { LocaleHome } from './../../../types/locales/home';
 import { expect, test } from '@playwright/test';
 import en from '../../../public/locales/en/home.json';
 import ru from '../../../public/locales/ru/home.json';
-import ua from '../../../public/locales/ua/home.json';
 
-const locales: LocaleHome[] = [en, ru, ua];
+const locales: LocaleHome[] = [en, ru];
 
 test.describe('AppInput', async () => {
 	test(`should have input value`, async ({ page }) => {

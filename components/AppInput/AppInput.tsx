@@ -1,6 +1,6 @@
-import { FC, InputHTMLAttributes, memo } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 import { BaseAppComponent } from '../../types/components';
+import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
 import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
@@ -23,18 +23,20 @@ interface IAppInput extends Props {
  * @return `html:input`
  */
 export const AppInput: FC<IAppInput> = memo(
-	({
-		title,
-		children,
-		type,
-		placeholder,
-		iconLeft,
-		iconRight,
-		className = '',
-		onlyARIA = false,
-		resetStyles = false,
-		...props
-	}) => {
+	forwardRef<any, IAppInput>((props, ref) => {
+		const {
+			title,
+			children,
+			type,
+			placeholder,
+			iconLeft,
+			iconRight,
+			className = '',
+			onlyARIA = false,
+			resetStyles = false,
+			...extra
+		} = props;
+
 		const titleAttr = onlyARIA ? '' : title;
 
 		const iconSide = iconLeft ? s.app_input_withIconLeft : iconRight ? s.app_input_withIconRight : '';
@@ -53,7 +55,8 @@ export const AppInput: FC<IAppInput> = memo(
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
-						{...props}
+						ref={ref}
+						{...extra}
 					/>
 				</div>
 			);
@@ -67,7 +70,8 @@ export const AppInput: FC<IAppInput> = memo(
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
-						{...props}
+						ref={ref}
+						{...extra}
 					/>
 
 					<span className={s.app_input_iconRight}>{iconRight}</span>
@@ -82,10 +86,11 @@ export const AppInput: FC<IAppInput> = memo(
 				placeholder={placeholder}
 				data-testid='app-input'
 				className={inputStyles}
-				{...props}
+				ref={ref}
+				{...extra}
 			/>
 		);
-	}
+	})
 );
 
 AppInput.displayName = 'AppInput';

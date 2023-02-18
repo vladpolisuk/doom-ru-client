@@ -42,7 +42,7 @@ export default function UserAgreement() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'home', 'footer']))
+			...(await serverSideTranslations(locale as string, ['common', 'header', 'footer']))
 		}
 	};
 }

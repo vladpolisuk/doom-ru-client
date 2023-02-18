@@ -1,5 +1,7 @@
+import { Locale } from '.';
+
 export interface LocaleFooter {
-	locale: string;
+	locale: Locale;
 	title: string;
 	disclaimer: string;
 	links: {

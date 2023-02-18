@@ -1,10 +1,9 @@
 import { expect, test } from '@playwright/test';
 import en from '../../../../public/locales/en/home.json';
 import ru from '../../../../public/locales/ru/home.json';
-import ua from '../../../../public/locales/ua/home.json';
 import { LocaleHome } from '../../../../types/locales/home';
 
-const locales: LocaleHome[] = [en, ru, ua];
+const locales: LocaleHome[] = [en, ru];
 
 test.describe('Home', async () => {
 	locales.forEach(async ({ home_section_search: { section_title }, home_title, locale }) => {

@@ -1,14 +1,17 @@
-import React from 'react';
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
+import { Controller, useForm } from 'react-hook-form';
+import { FiSearch, FiSliders } from 'react-icons/fi';
 import { AppButton } from '../../../../../components/AppButton/AppButton';
 import { AppInput } from '../../../../../components/AppInput/AppInput';
+import { HomeRealtySearch } from '../../../../../types';
 import s from './SearchBarForm.module.scss';
-import clsx from 'clsx';
-import { FaSearch } from 'react-icons/fa';
-import { FiSearch, FiSliders } from 'react-icons/fi';
 
 export const SearchBarForm = () => {
 	const { t } = useTranslation('home');
+	const { register, handleSubmit } = useForm<HomeRealtySearch>();
+
+	const onSubmit = (data: HomeRealtySearch) => console.log(data);
 
 	const inputTitle = t('home_section_search.search_input.title');
 	const inputPlaceholder = t('home_section_search.search_input.placeholder');
@@ -20,7 +23,9 @@ export const SearchBarForm = () => {
 	const submitText = t('home_section_search.search_button.text');
 
 	return (
-		<form className={s.sectionSearch_searchBar_form}>
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className={s.sectionSearch_searchBar_form}>
 			<AppInput
 				type='search'
 				title={inputTitle}
@@ -28,6 +33,7 @@ export const SearchBarForm = () => {
 				data-testid='home-search-input'
 				iconLeft={<FiSearch className={s.sectionSearch_searchBar_form_inputIcon} />}
 				className={s.sectionSearch_searchBar_form_input}
+				{...register('address', { required: true })}
 			/>
 
 			<AppButton
@@ -39,7 +45,8 @@ export const SearchBarForm = () => {
 
 			<AppButton
 				title={submitTitle}
-				className={submitStyles}>
+				className={submitStyles}
+				type='submit'>
 				{submitText}
 			</AppButton>
 		</form>

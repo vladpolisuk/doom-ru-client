@@ -1,5 +1,7 @@
+import { Locale } from '.';
+
 export interface LocaleHome {
-	locale: string;
+	locale: Locale;
 	home_title: string;
 	home_section_search: LocaleHomeSectionSearch;
 	home_section_quickLinks: LocaleHomeSectionQuickLinks;

@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, LinkHTMLAttributes, memo } from 'react';
+import type { FC, LinkHTMLAttributes } from 'react';
+import { memo } from 'react';
+import type { BaseAppComponent } from '../../types/components';
 import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
-import { BaseAppComponent } from '../../types/components';
 import s from './AppLink.module.scss';
 
 type Props = BaseAppComponent<HTMLAnchorElement> & LinkHTMLAttributes<HTMLAnchorElement>;

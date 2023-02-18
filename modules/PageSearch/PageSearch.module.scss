@@ -4,7 +4,8 @@
 	justify-content: center;
 
 	&_container {
-		padding: 20px 10px;
+		padding: 10px;
+		padding-bottom: 100px;
 	}
 
 	&_title {
@@ -19,5 +20,12 @@
 		color: var(--color-2);
 		margin-left: 10px;
 		font-weight: 600;
+	}
+
+	&_main {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		width: 100%;
+		gap: 20px;
 	}
 }

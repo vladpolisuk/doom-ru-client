@@ -1,10 +1,10 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC, BaseHTMLAttributes } from 'react';
 import { ILinksBoardItem, LinksBoardItem } from './LinksBoardItem';
 import { ILinksBoardItemContent, LinksBoardItemContent } from './LinksBoardItemContent';
 import { ILinksBoardItemImage, LinksBoardItemImage } from './LinksBoardItemImage';
 import s from './LinksBoard.module.scss';
 
-interface LinksBoard extends FC<PropsWithChildren> {
+interface LinksBoard extends FC<BaseHTMLAttributes<HTMLDivElement>> {
 	Item: ILinksBoardItem;
 	ItemContent: ILinksBoardItemContent;
 	ItemImage: ILinksBoardItemImage;

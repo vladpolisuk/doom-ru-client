@@ -31,7 +31,8 @@ button {
 
 a,
 button,
-input {
+input,
+select {
 	&:focus-visible {
 		outline: none;
 		box-shadow: 0 0 0 2px rgb(29, 123, 255);

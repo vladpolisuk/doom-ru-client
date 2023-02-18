@@ -127,7 +127,7 @@
                         {
                             "title": "Перейти в выбору хостела",
                             "text": "Хостел на день",
-                            "url": "/s?action=rent&type=hostels"
+                            "url": "/s?action=rent&type=hostel"
                         }
                     ]
                 },

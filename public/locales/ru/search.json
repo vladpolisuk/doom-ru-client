@@ -1,0 +1,253 @@
+{
+    "locale": "ru",
+    "search_title": "Doom.ru - база данных по недвижимости | Поиск",
+    "search_filters": [
+        {
+            "name": "address",
+            "type": "text",
+            "title": "Адрес",
+            "label": "Введите адрес"
+        },
+        {
+            "name": "type",
+            "type": "option",
+            "title": "Тип жилья",
+            "label": "Выберите тип жилья",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Тип жилья"
+                },
+                {
+                    "value": "apartment",
+                    "title": "Квартира"
+                },
+                {
+                    "value": "room",
+                    "title": "Комната"
+                },
+                {
+                    "value": "house",
+                    "title": "Дом"
+                },
+                {
+                    "value": "cottage",
+                    "title": "Коттедж"
+                },
+                {
+                    "value": "studio",
+                    "title": "Студия"
+                },
+                {
+                    "value": "hostel",
+                    "title": "Хостел"
+                }
+            ]
+        },
+        {
+            "name": "rooms",
+            "type": "option",
+            "title": "Комнаты",
+            "label": "Выберите кол-во комнат",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Кол-во комнат"
+                },
+                {
+                    "value": "1",
+                    "title": "1"
+                },
+                {
+                    "value": "2",
+                    "title": "2"
+                },
+                {
+                    "value": "3",
+                    "title": "3"
+                },
+                {
+                    "value": "4",
+                    "title": "4"
+                },
+                {
+                    "value": "5",
+                    "title": "5"
+                }
+            ]
+        },
+        {
+            "name": "term",
+            "type": "option",
+            "title": "Срок",
+            "label": "Выберите срок аренды",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Срок аренды"
+                },
+                {
+                    "value": "day",
+                    "title": "День"
+                },
+                {
+                    "value": "month",
+                    "title": "Месяц"
+                }
+            ]
+        },
+        {
+            "name": "price",
+            "type": "from_to",
+            "title": "Цена",
+            "from": {
+                "name": "price_from",
+                "title": "от",
+                "label": "Минимальная цена"
+            },
+            "to": {
+                "name": "price_to",
+                "title": "до",
+                "label": "Максимальная цена"
+            }
+        },
+        {
+            "name": "bedrooms",
+            "type": "option",
+            "title": "Кровати",
+            "label": "Выберите кол-во кроватей",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Кол-во кроватей"
+                },
+                {
+                    "value": "1",
+                    "title": "1"
+                },
+                {
+                    "value": "2",
+                    "title": "2"
+                },
+                {
+                    "value": "3",
+                    "title": "3"
+                },
+                {
+                    "value": "4",
+                    "title": "4"
+                },
+                {
+                    "value": "5",
+                    "title": "5"
+                }
+            ]
+        },
+        {
+            "name": "floor",
+            "type": "from_to",
+            "title": "Этаж",
+            "from": {
+                "name": "floor_from",
+                "title": "от",
+                "label": "Минимальный этаж"
+            },
+            "to": {
+                "name": "floor_to",
+                "title": "до",
+                "label": "Максимальный этаж"
+            }
+        },
+        {
+            "name": "area",
+            "type": "from_to",
+            "title": "Площадь, кв.м.",
+            "from": {
+                "name": "area_from",
+                "title": "от",
+                "label": "Минимальную площадь"
+            },
+            "to": {
+                "name": "area_to",
+                "title": "до",
+                "label": "Максимальную площадь"
+            }
+        },
+        {
+            "name": "house_type",
+            "type": "option",
+            "title": "Тип дома",
+            "label": "Выберите тип дома",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Тип дома"
+                },
+                {
+                    "value": "panel",
+                    "title": "Панель"
+                },
+                {
+                    "value": "brick",
+                    "title": "Кирпич"
+                },
+                {
+                    "value": "monolith",
+                    "title": "Монолит"
+                },
+                {
+                    "value": "wood",
+                    "title": "Дерево"
+                },
+                {
+                    "value": "other",
+                    "title": "Другой"
+                }
+            ]
+        },
+        {
+            "name": "repair",
+            "type": "option",
+            "title": "Ремонт",
+            "label": "Выберите ремонт",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Ремонт"
+                },
+                {
+                    "value": "euro",
+                    "title": "Евро"
+                },
+                {
+                    "value": "design",
+                    "title": "Дизайн"
+                },
+                {
+                    "value": "cosmetic",
+                    "title": "Косметика"
+                },
+                {
+                    "value": "without",
+                    "title": "Без"
+                }
+            ]
+        },
+        {
+            "name": "elevator",
+            "type": "checkbox",
+            "title": "Лифт",
+            "label": "Есть лифт или нет"
+        }
+    ],
+    "btn": {
+        "reset": {
+            "name": "Сбросить",
+            "label": "Сбросить все фильтры"
+        },
+        "submit": {
+            "name": "Поиск",
+            "label": "Применить фильтры"
+        }
+    }
+}

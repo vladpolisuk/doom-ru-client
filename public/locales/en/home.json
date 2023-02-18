@@ -127,7 +127,7 @@
                         {
                             "title": "Go to rent a hostel daily",
                             "text": "Rent a hostel for a day",
-                            "url": "/s?action=rent&type=hostels"
+                            "url": "/s?action=rent&type=hostel"
                         }
                     ]
                 },
