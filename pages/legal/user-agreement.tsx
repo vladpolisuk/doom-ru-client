@@ -9,11 +9,11 @@ const DynamicPage = dynamic(() => import('../../modules/PageLegal/UserAgreement/
 
 export default function UserAgreement() {
 	const t = useTranslation('common').t;
-	const t_home = useTranslation('home').t;
+	const t_legal = useTranslation('legal').t;
 
 	const description = t('site_description');
 	const keywords = t('site_keywords');
-	const title = t_home('home_title');
+	const title = t_legal('legal_userAgreement_title');
 	const author = t('site_author');
 
 	return (
@@ -42,7 +42,7 @@ export default function UserAgreement() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'footer']))
+			...(await serverSideTranslations(locale as string, ['common', 'header', 'legal', 'footer']))
 		}
 	};
 }

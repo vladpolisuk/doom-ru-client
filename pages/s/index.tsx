@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from 'next';
+import { GetStaticPropsContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
@@ -37,7 +37,7 @@ export default function Search() {
 	);
 }
 
-export async function getServerSideProps({ locale }: GetServerSidePropsContext) {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
 			...(await serverSideTranslations(locale as string, ['common', 'header', 'search', 'footer']))
