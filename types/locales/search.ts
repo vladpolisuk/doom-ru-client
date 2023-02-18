@@ -11,6 +11,7 @@ export interface LocaleSearchFilter {
 	name: RealtyFilters;
 	title: string;
 	type: string;
+	typeInput?: string;
 	label?: string;
 	options?: LocaleSearchOption[];
 	from?: LocaleSearchOptionFrom;
@@ -26,12 +27,18 @@ export interface LocaleSearchOptionFrom {
 	name: RealtyFilters;
 	label: string;
 	title: string;
+	min?: number;
+	max?: number;
+	typeInput?: string;
 }
 
 export interface LocaleSearchOptionTo {
 	name: RealtyFilters;
 	label: string;
 	title: string;
+	min?: number;
+	max?: number;
+	typeInput?: string;
 }
 
 export interface LocalSearchBtn {

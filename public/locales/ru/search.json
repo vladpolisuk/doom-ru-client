@@ -102,11 +102,13 @@
             "title": "Цена",
             "from": {
                 "name": "price_from",
+                "min": 0,
                 "title": "от",
                 "label": "Минимальная цена"
             },
             "to": {
                 "name": "price_to",
+                "min": 0,
                 "title": "до",
                 "label": "Максимальная цена"
             }
@@ -149,11 +151,13 @@
             "title": "Этаж",
             "from": {
                 "name": "floor_from",
+                "min": 0,
                 "title": "от",
                 "label": "Минимальный этаж"
             },
             "to": {
                 "name": "floor_to",
+                "min": 0,
                 "title": "до",
                 "label": "Максимальный этаж"
             }
@@ -164,11 +168,13 @@
             "title": "Площадь, кв.м.",
             "from": {
                 "name": "area_from",
+                "min": 0,
                 "title": "от",
                 "label": "Минимальную площадь"
             },
             "to": {
                 "name": "area_to",
+                "min": 0,
                 "title": "до",
                 "label": "Максимальную площадь"
             }

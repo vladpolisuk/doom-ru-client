@@ -5,8 +5,9 @@
         {
             "name": "address",
             "type": "text",
+            "typeInput": "search",
             "title": "Address",
-            "label": "City, dictrict or subway"
+            "label": "City, district or subway"
         },
         {
             "name": "type",
@@ -35,7 +36,7 @@
                     "title": "Cottage"
                 },
                 {
-                    "value": "Studio",
+                    "value": "studio",
                     "title": "Studio"
                 },
                 {

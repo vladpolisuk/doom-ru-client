@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { MouseEvent } from 'react';
+import { FormEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 import { AppButton } from '../../../components/AppButton/AppButton';
@@ -9,8 +9,11 @@ import { AppCheckbox } from '../../../components/AppCheckbox/AppCheckbox';
 import { AppInput } from '../../../components/AppInput/AppInput';
 import { AppLabel } from '../../../components/AppLabel/AppLabel';
 import { AppSelect } from '../../../components/AppSelect/AppSelect';
-import { RealtyFilter } from '../../../types';
+import { RealtyFilter, RealtyFilters } from '../../../types';
 import { LocaleSearchFilter } from '../../../types/locales/search';
+import { getNumberFromString } from '../../../utils/ui/getNumberFromString';
+import { getNumberWithSpaces } from '../../../utils/ui/getNumberWithSpaces';
+import { getParsedQueries } from '../../../utils/ui/getParsedQueries';
 import s from './SearchFilters.module.scss';
 
 export const SearchFilters = () => {
@@ -20,21 +23,29 @@ export const SearchFilters = () => {
 		handleSubmit,
 		register,
 		reset,
+		setValue,
 		control: { _defaultValues }
 	} = useForm<RealtyFilter>({
-		defaultValues: router.query
+		defaultValues: getParsedQueries(router.query)
 	});
 
-	const onSubmit: SubmitHandler<RealtyFilter> = data =>
-		console.log({
-			...data,
-			action: router.query.action
-		});
+	const onSubmit: SubmitHandler<RealtyFilter> = data => {
+		const queries: any = getParsedQueries(data);
+		const query: any = {};
+		for (let i in queries) if (queries[i]) query[i] = queries[i];
+		router.push({ pathname: `/${router.locale}/s`, query });
+	};
 
-	const resetFields = (event: MouseEvent<HTMLButtonElement>) => {
+	const resetFields = () => {
 		// @ts-ignore
 		for (let i in _defaultValues) _defaultValues[i] = undefined;
 		reset();
+	};
+
+	const inputNumber = (name: RealtyFilters) => (event: FormEvent<HTMLInputElement>) => {
+		const value = getNumberFromString((event.target as HTMLInputElement).value);
+		const result = getNumberWithSpaces(value);
+		setValue(name, result || value);
 	};
 
 	const resetButtonStyles = clsx(s.search_filters_resetButton, 'active--scale', 'transition');
@@ -55,6 +66,7 @@ export const SearchFilters = () => {
 						<p>{filter.title}</p>
 						<AppInput
 							onlyARIA
+							type={filter.typeInput}
 							title={filter.label}
 							className={s.search_filters_input}
 							placeholder={filter.label}
@@ -93,17 +105,23 @@ export const SearchFilters = () => {
 						<div className={s.search_filters_pair}>
 							<AppInput
 								onlyARIA
+								min={filter.from?.min}
+								type={filter.from?.typeInput}
 								title={filter.from?.label}
 								className={s.search_filters_input}
 								placeholder={filter.from?.title}
-								{...register(filter.from?.name as any)}
+								onInput={inputNumber(filter.from?.name as RealtyFilters)}
+								{...register(filter.from?.name as RealtyFilters)}
 							/>
 							<AppInput
 								onlyARIA
+								min={filter.to?.min}
+								type={filter.to?.typeInput}
 								title={filter.to?.label}
 								className={s.search_filters_input}
 								placeholder={filter.to?.title}
-								{...register(filter.to?.name as any)}
+								onInput={inputNumber(filter.to?.name as RealtyFilters)}
+								{...register(filter.to?.name as RealtyFilters)}
 							/>
 						</div>
 					</AppLabel>

@@ -29,12 +29,12 @@ export interface HomeRealtySearch {
 
 export interface RealtyFilter
 	extends Pick<Realty, 'type' | 'address' | 'rooms' | 'term' | 'houseType' | 'repair' | 'elevator' | 'bedrooms'> {
-	price_from?: string;
-	price_to?: string;
-	area_from?: string;
-	area_to?: string;
-	floor_from?: string;
-	floor_to?: string;
+	price_from?: number;
+	price_to?: number;
+	area_from?: number;
+	area_to?: number;
+	floor_from?: number;
+	floor_to?: number;
 }
 
 export type RealtyFilters =

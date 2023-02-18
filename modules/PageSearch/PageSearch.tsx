@@ -38,7 +38,7 @@ export const PageSearch = () => {
 				</div>
 
 				<div className={s.search_main}>
-					<SearchFilters />
+					{router.query?.action ? <SearchFilters /> : <p>loading...</p>}
 					<SearchResult />
 				</div>
 			</div>

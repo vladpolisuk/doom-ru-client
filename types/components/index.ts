@@ -17,3 +17,13 @@ export interface BaseAppComponent<T> extends BaseHTMLAttributes<T> {
 	 */
 	onlyARIA?: boolean;
 }
+
+/**
+ * The common type of html events
+ */
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+	/**
+	 * Event target
+	 */
+	target: T;
+};
