@@ -250,5 +250,11 @@
             "name": "Search",
             "label": "Apply filters"
         }
+    },
+    "realty": {
+        "favorite": {
+            "add_label": "Save to favorites",
+            "remove_label": "Remove from favorites"
+        },
     }
 }

@@ -1,28 +1,43 @@
 export interface Realty {
 	id: number;
-	action: 'rent' | 'buy';
-	type: 'apartment' | 'room' | 'studio' | 'house' | 'cottage' | 'hostel';
+	action: RealtyAction;
+	type: RealtyType;
 	title: string;
 	description: string;
 	primeImage: string;
 	images: string[];
 	address: string;
 	rooms: number;
-	term: 'day' | 'month';
+	term: RealtyTerm;
 	price: number;
-	currency: 'USD' | 'RUB' | 'UAH';
+	currency: RealtyCurrency;
 	area: number;
 	floor: number;
-	houseType: 'brick' | 'panel' | 'monolith' | 'wood' | 'other';
-	repair: 'design' | 'euro' | 'cosmetic' | 'without';
+	houseType: RealtyHouseType;
+	favorite: boolean;
+	repair: RealtyRepair;
 	elevator: boolean;
 	bedrooms: number;
+	createdAt: number;
+	updatedAt: number;
 }
+
+export type RealtyAction = 'rent' | 'buy';
+
+export type RealtyType = 'apartment' | 'room' | 'studio' | 'house' | 'cottage' | 'hostel';
+
+export type RealtyTerm = 'day' | 'month';
+
+export type RealtyCurrency = 'USD' | 'RUB';
+
+export type RealtyHouseType = 'brick' | 'panel' | 'monolith' | 'wood' | 'other';
+
+export type RealtyRepair = 'design' | 'euro' | 'cosmetic' | 'without';
 
 export interface HomeRealtySearch {
 	address: string;
 	rooms: number;
-	term: 'day' | 'month';
+	term: RealtyTerm;
 	price_from: number;
 	price_to: number;
 }

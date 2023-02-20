@@ -5,12 +5,12 @@
     "header_nav_links": [
         {
             "name": "Аренда",
-            "url": "/s?action=rent",
+            "url": "/s/rent",
             "title": "Аренда квартир и домов"
         },
         {
             "name": "Купить",
-            "url": "/s?action=buy",
+            "url": "/s/buy",
             "title": "Покупка квартир и домов"
         }
     ],

@@ -7,7 +7,7 @@ import { getAppLocation } from '../../store/app/selectors';
 import { getStringWithUppercase } from '../../utils/ui/getStringWithUppercase';
 import s from './PageSearch.module.scss';
 import { SearchFilters } from './SearchFilters/SearchFilters';
-import { SearchResult } from './SearchResult/SearchResult';
+import SearchSorts from './SearchSorts/SearchSorts';
 
 export const PageSearch = () => {
 	const location = useAppSelector(getAppLocation);
@@ -15,7 +15,7 @@ export const PageSearch = () => {
 
 	const styles = clsx(s.search_container, 'container');
 	const area = getStringWithUppercase(location?.city || location?.country || '', 0);
-	const action = router.query?.action as string;
+	const action = router.route.split('/')[2];
 	const typeText = getStringWithUppercase(action, 0);
 
 	return (
@@ -26,7 +26,7 @@ export const PageSearch = () => {
 					<AppLink
 						onlyARIA
 						resetStyles
-						href={`/s?action=${action}`}
+						href={`/s/${action}`}
 						key={action}>
 						{typeText}
 					</AppLink>
@@ -38,8 +38,12 @@ export const PageSearch = () => {
 				</div>
 
 				<div className={s.search_main}>
-					{router.query?.action ? <SearchFilters /> : <p>loading...</p>}
-					<SearchResult />
+					<SearchFilters />
+
+					<div>
+						<SearchSorts />
+						<SearchResult />
+					</div>
 				</div>
 			</div>
 		</div>

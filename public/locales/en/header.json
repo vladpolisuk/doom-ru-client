@@ -5,12 +5,12 @@
     "header_nav_links": [
         {
             "name": "Rent",
-            "url": "/s?action=rent",
+            "url": "/s/rent",
             "title": "Real estate properties"
         },
         {
             "name": "Buy",
-            "url": "/s?action=buy",
+            "url": "/s/buy",
             "title": "Real estate and property for sale"
         }
     ],

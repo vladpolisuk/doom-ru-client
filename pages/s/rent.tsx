@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import { PageSearch } from '../../modules/PageSearch/PageSearch';
 
-export default function Search() {
+export default function Rent() {
 	const t = useTranslation('common').t;
 	const t_search = useTranslation('search').t;
 

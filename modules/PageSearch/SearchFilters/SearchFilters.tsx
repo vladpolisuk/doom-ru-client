@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 import { AppButton } from '../../../components/AppButton/AppButton';
@@ -19,27 +19,27 @@ import s from './SearchFilters.module.scss';
 export const SearchFilters = () => {
 	const router = useRouter();
 	const { t } = useTranslation('search');
-	const {
-		handleSubmit,
-		register,
-		reset,
-		setValue,
-		control: { _defaultValues }
-	} = useForm<RealtyFilter>({
-		defaultValues: getParsedQueries(router.query)
-	});
+	const { handleSubmit, register, reset, setValue, getValues } = useForm<RealtyFilter>();
+
+	useEffect(() => {
+		if (!router.query) return;
+		const queries = getParsedQueries(router.query);
+		const values = getValues();
+		// @ts-ignore
+		for (const key in values) setValue(key, queries[key]);
+	}, [router.query]);
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {
+		console.log(data);
 		const queries: any = getParsedQueries(data);
 		const query: any = {};
 		for (let i in queries) if (queries[i]) query[i] = queries[i];
-		router.push({ pathname: `/${router.locale}/s`, query });
+		router.push({ pathname: `/s/${router.route.split('/')[2]}`, query });
 	};
 
-	const resetFields = () => {
-		// @ts-ignore
-		for (let i in _defaultValues) _defaultValues[i] = undefined;
+	const onReset = () => {
 		reset();
+		router.push({ pathname: `/s/${router.route.split('/')[2]}` });
 	};
 
 	const inputNumber = (name: RealtyFilters) => (event: FormEvent<HTMLInputElement>) => {
@@ -145,22 +145,22 @@ export const SearchFilters = () => {
 
 	return (
 		<form
+			onReset={onReset}
 			onSubmit={handleSubmit(onSubmit)}
 			className={s.search_filters}>
 			{components}
 
 			<AppButton
-				type='reset'
 				onlyARIA
-				onClick={resetFields}
+				type='reset'
 				title={resetButtonLabel}
 				className={resetButtonStyles}>
 				{resetButtonName}
 			</AppButton>
 
 			<AppButton
-				type='submit'
 				onlyARIA
+				type='submit'
 				title={submitButtonLabel}
 				className={submitButtonStyles}>
 				{submitButtonName}
