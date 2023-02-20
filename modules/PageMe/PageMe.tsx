@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { FiLogOut } from 'react-icons/fi';
-import { AppSignOutButton } from '../../components/AppSignOutButton/AppSignOutButton';
+import AppSignOutButton from '../../components/AppSignOutButton/AppSignOutButton';
 import { LocaleMeAsideLogOut } from '../../types/locales/me';
 import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';

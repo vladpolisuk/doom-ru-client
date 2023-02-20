@@ -2,10 +2,10 @@ import { useTranslation } from 'next-i18next';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { AppLink } from '../../../components/AppLink/AppLink';
+import AppLink from '../../../components/AppLink/AppLink';
 import s from './AppHeaderLogo.module.scss';
 
-export const AppHeaderLogo = () => {
+const AppHeaderLogo = () => {
 	const { t } = useTranslation('header');
 	const [mounted, setMounted] = useState(false);
 	const { resolvedTheme } = useTheme();
@@ -39,3 +39,5 @@ export const AppHeaderLogo = () => {
 		</AppLink>
 	);
 };
+
+export default AppHeaderLogo;

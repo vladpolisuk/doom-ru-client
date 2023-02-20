@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AppInput } from '../../components/AppInput/AppInput';
+import AppInput from '../../components/AppInput/AppInput';
 
 describe('AppInput', () => {
 	it('should be rendered', () => {

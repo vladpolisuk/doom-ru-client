@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppSkipLink.module.scss';
 import { useTranslation } from 'next-i18next';
@@ -10,7 +10,7 @@ type IAppSkipLink = BaseAppComponent<HTMLAnchorElement>;
  * The common skip link component in the application
  * @returns `html:anchor`
  */
-export const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink, resetStyles = false }) => {
+const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink, resetStyles = false }) => {
 	const { t } = useTranslation('common');
 	const text = t('skip_link');
 
@@ -28,3 +28,4 @@ export const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink,
 });
 
 AppSkipLink.displayName = 'AppSkipLink';
+export default AppSkipLink;

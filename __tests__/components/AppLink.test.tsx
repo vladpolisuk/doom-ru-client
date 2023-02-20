@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AppLink } from '../../components/AppLink/AppLink';
+import AppLink from '../../components/AppLink/AppLink';
 
 describe('AppLink', () => {
 	const useRouter = jest.spyOn(require('next/router'), 'useRouter');

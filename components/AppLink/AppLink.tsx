@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import type { FC, LinkHTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { BaseAppComponent } from '../../types/components';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import s from './AppLink.module.scss';
 
 type Props = BaseAppComponent<HTMLAnchorElement> & LinkHTMLAttributes<HTMLAnchorElement>;
@@ -18,7 +18,7 @@ interface IAppLink extends Props {
  * @memo `true`
  * @return `next/link`
  */
-export const AppLink: FC<IAppLink> = memo(
+const AppLink: FC<IAppLink> = memo(
 	({
 		title,
 		children,
@@ -50,3 +50,4 @@ export const AppLink: FC<IAppLink> = memo(
 );
 
 AppLink.displayName = 'AppLink';
+export default AppLink;

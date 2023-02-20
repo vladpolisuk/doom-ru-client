@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { AppButton } from '../../../../components/AppButton/AppButton';
+import AppButton from '../../../../components/AppButton/AppButton';
 import s from './HeaderAuth.module.scss';
 import clsx from 'clsx';
 

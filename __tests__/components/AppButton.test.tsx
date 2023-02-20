@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AppButton } from '../../components/AppButton/AppButton';
+import AppButton from '../../components/AppButton/AppButton';
 
 describe('AppButton', () => {
 	it('should be rendered', () => {

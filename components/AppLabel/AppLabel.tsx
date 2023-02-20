@@ -1,5 +1,5 @@
 import { FC, LabelHTMLAttributes, memo } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppLabel.module.scss';
 
@@ -14,7 +14,7 @@ type IAppLabel = BaseAppComponent<HTMLLabelElement> &
  * @memo `true`
  * @return `html:label`
  */
-export const AppLabel: FC<IAppLabel> = memo(
+const AppLabel: FC<IAppLabel> = memo(
 	({ children, className = '', onlyARIA = false, row = false, resetStyles = false, ...props }) => {
 		const labelStyles = getConcatenatedStylesByCondition(
 			resetStyles,
@@ -36,3 +36,4 @@ export const AppLabel: FC<IAppLabel> = memo(
 );
 
 AppLabel.displayName = 'AppLabel';
+export default AppLabel;

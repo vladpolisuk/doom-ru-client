@@ -1,6 +1,6 @@
 import { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 import { BaseAppComponent } from '../../types/components';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
@@ -22,7 +22,7 @@ interface IAppInput extends Props {
  * @memo `true`
  * @return `html:input`
  */
-export const AppInput: FC<IAppInput> = memo(
+const AppInput: FC<IAppInput> = memo(
 	forwardRef<any, IAppInput>((props, ref) => {
 		const {
 			title,
@@ -94,3 +94,4 @@ export const AppInput: FC<IAppInput> = memo(
 );
 
 AppInput.displayName = 'AppInput';
+export default AppInput;

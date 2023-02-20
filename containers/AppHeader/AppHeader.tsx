@@ -1,10 +1,10 @@
 import s from './AppHeader.module.scss';
-import { AppHeaderLogo } from './AppHeaderLogo/AppHeaderLogo';
-import { AppHeaderNav } from './AppHeaderNav/AppHeaderNav';
-import { AppHeaderUser } from './AppHeaderUser/AppHeaderUser';
+import AppHeaderLogo from './AppHeaderLogo/AppHeaderLogo';
+import AppHeaderNav from './AppHeaderNav/AppHeaderNav';
+import AppHeaderUser from './AppHeaderUser/AppHeaderUser';
 import clsx from 'clsx';
 
-export const AppHeader = () => {
+const AppHeader = () => {
 	return (
 		<header className={s.header}>
 			<div className={clsx(s.header_container, 'container')}>
@@ -18,3 +18,5 @@ export const AppHeader = () => {
 		</header>
 	);
 };
+
+export default AppHeader;

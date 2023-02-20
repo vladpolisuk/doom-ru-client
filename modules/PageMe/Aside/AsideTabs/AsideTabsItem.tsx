@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { BaseHTMLAttributes, Dispatch, FC, memo, SetStateAction } from 'react';
 import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCircle } from 'react-icons/fa';
-import { AppLink } from '../../../../components/AppLink/AppLink';
+import AppLink from '../../../../components/AppLink/AppLink';
 import { LocaleMeAsideTabIcon } from '../../../../types/locales/me';
-import { getConcatenatedStylesByCondition } from '../../../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../../../utils/ui/getConcatenatedStylesByCondition';
 import s from './AsideTabs.module.scss';
 
 export interface IAsideTabsItem extends BaseHTMLAttributes<HTMLAnchorElement> {

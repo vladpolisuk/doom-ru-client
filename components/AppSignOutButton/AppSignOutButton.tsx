@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { AppButton, IAppButton } from '../AppButton/AppButton';
+import AppButton, { IAppButton } from '../AppButton/AppButton';
 
 type IAppSignOutButton = IAppButton;
 
@@ -9,7 +9,7 @@ type IAppSignOutButton = IAppButton;
  * @memo `true`
  * @return `html:button`
  */
-export const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) => {
+const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) => {
 	const logout = () => {
 		alert('Log out!');
 	};
@@ -24,3 +24,4 @@ export const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...prop
 });
 
 AppSignOutButton.displayName = 'AppSignOutButton';
+export default AppSignOutButton;

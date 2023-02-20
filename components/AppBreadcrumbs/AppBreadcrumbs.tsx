@@ -1,5 +1,5 @@
 import { Children, FC, memo } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppBreadcrumbs.module.scss';
 
@@ -14,7 +14,7 @@ interface IAppBreadcrumbs extends BaseAppComponent<HTMLUListElement> {
  * @memo `true`
  * @return `html:ul`
  */
-export const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
+const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
 	({ title, children, className = '', separator = '/', resetStyles = false, ...props }) => {
 		const components = Children.toArray(children).map((child, i) => (
 			<li key={`${i}_${Date.now()}`}>
@@ -41,3 +41,4 @@ export const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
 );
 
 AppBreadcrumbs.displayName = 'AppBreadcrumbs';
+export default AppBreadcrumbs;

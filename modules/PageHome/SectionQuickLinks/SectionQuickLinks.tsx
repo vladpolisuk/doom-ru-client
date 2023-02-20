@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
-import { AppLink } from '../../../components/AppLink/AppLink';
+import AppLink from '../../../components/AppLink/AppLink';
 import { LocaleHome, LocaleHomeLinksBoard } from '../../../types/locales/home';
 import { LinksBoard } from './LinksBoard/LinksBoard';
 import s from './SectionQuickLinks.module.scss';

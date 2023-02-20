@@ -1,5 +1,5 @@
 import { FC, Ref, InputHTMLAttributes, memo, forwardRef } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppCheckbox.module.scss';
 
@@ -11,7 +11,7 @@ type IAppCheckbox = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTM
  * @memo `true`
  * @return `html:checkbox`
  */
-export const AppCheckbox: FC<IAppCheckbox> = memo(
+const AppCheckbox: FC<IAppCheckbox> = memo(
 	forwardRef<any, IAppCheckbox>((props, ref) => {
 		const { title, children, className = '', onlyARIA = false, resetStyles = false, ...extra } = props;
 		const titleAttr = onlyARIA ? '' : title;
@@ -33,3 +33,4 @@ export const AppCheckbox: FC<IAppCheckbox> = memo(
 );
 
 AppCheckbox.displayName = 'AppCheckbox';
+export default AppCheckbox;

@@ -9,8 +9,8 @@ type ResetStyles = (condition: boolean, defaultStyles: string, ...addedStyles: s
  * @param addedStyles styles if false + defaultStyles
  * @returns string
  */
-export const getConcatenatedStylesByCondition: ResetStyles = (condition, defaultStyles, ...addedStyles) => {
-	const styles = condition ? defaultStyles : clsx(...addedStyles, defaultStyles);
-
-	return styles;
+const getConcatenatedStylesByCondition: ResetStyles = (condition, defaultStyles, ...addedStyles) => {
+	return condition ? defaultStyles : clsx(...addedStyles, defaultStyles);
 };
+
+export default getConcatenatedStylesByCondition;

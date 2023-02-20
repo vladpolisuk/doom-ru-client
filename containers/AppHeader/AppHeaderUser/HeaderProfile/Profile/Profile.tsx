@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import { AppLink } from '../../../../../components/AppLink/AppLink';
+import AppLink from '../../../../../components/AppLink/AppLink';
 import s from './Profile.module.scss';
 import clsx from 'clsx';
 import { getAppUser } from '../../../../../store/app/selectors';

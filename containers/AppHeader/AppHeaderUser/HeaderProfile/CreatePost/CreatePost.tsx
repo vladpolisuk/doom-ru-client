@@ -1,5 +1,5 @@
 import { FaPlus } from 'react-icons/fa';
-import { AppButton } from '../../../../../components/AppButton/AppButton';
+import AppButton from '../../../../../components/AppButton/AppButton';
 import s from './CreatePost.module.scss';
 
 export const CreatePost = () => {

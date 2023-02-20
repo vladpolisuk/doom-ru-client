@@ -4,16 +4,16 @@ import { useRouter } from 'next/router';
 import { FormEvent, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
-import { AppButton } from '../../../components/AppButton/AppButton';
-import { AppCheckbox } from '../../../components/AppCheckbox/AppCheckbox';
-import { AppInput } from '../../../components/AppInput/AppInput';
-import { AppLabel } from '../../../components/AppLabel/AppLabel';
-import { AppSelect } from '../../../components/AppSelect/AppSelect';
+import AppButton from '../../../components/AppButton/AppButton';
+import AppCheckbox from '../../../components/AppCheckbox/AppCheckbox';
+import AppInput from '../../../components/AppInput/AppInput';
+import AppLabel from '../../../components/AppLabel/AppLabel';
+import AppSelect from '../../../components/AppSelect/AppSelect';
 import { RealtyFilter, RealtyFilters } from '../../../types';
 import { LocaleSearchFilter } from '../../../types/locales/search';
-import { getNumberFromString } from '../../../utils/ui/getNumberFromString';
-import { getNumberWithSpaces } from '../../../utils/ui/getNumberWithSpaces';
-import { getParsedQueries } from '../../../utils/ui/getParsedQueries';
+import getNumberFromString from '../../../utils/ui/getNumberFromString';
+import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';
+import getParsedQueries from '../../../utils/ui/getParsedQueries';
 import s from './SearchFilters.module.scss';
 
 export const SearchFilters = () => {

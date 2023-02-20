@@ -1,9 +1,11 @@
+type GetParsedQueries = <T>(values: T) => T;
+
 /** ## Get parsed queries
  * The function that gives an query object and returns it parsed
  * @param values initial Object: T
  * @returns Object: T
  */
-export const getParsedQueries = <T>(values: T): T => {
+const getParsedQueries: GetParsedQueries = values => {
 	const result: any = {};
 
 	for (const key in values) {
@@ -26,3 +28,5 @@ export const getParsedQueries = <T>(values: T): T => {
 
 	return result;
 };
+
+export default getParsedQueries;

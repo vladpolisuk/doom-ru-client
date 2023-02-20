@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { AppSkeleton } from '../../components/AppSkeleton/AppSkeleton';
+import AppSkeleton from '../../components/AppSkeleton/AppSkeleton';
 
 describe('AppSkeleton', () => {
 	it('should render the component', () => {

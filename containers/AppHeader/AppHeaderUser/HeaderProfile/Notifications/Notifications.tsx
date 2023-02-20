@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { FaBell } from 'react-icons/fa';
-import { AppButton } from '../../../../../components/AppButton/AppButton';
+import AppButton from '../../../../../components/AppButton/AppButton';
 import s from './Notifications.module.scss';
 
 export const Notifications = () => {

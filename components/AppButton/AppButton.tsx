@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, memo } from 'react';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppButton.module.scss';
 
@@ -11,7 +11,7 @@ export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> & BaseAppCompon
  * @memo `true`
  * @return `html:button`
  */
-export const AppButton: FC<IAppButton> = memo(
+const AppButton: FC<IAppButton> = memo(
 	({ title, children, className = '', onlyARIA = false, resetStyles = false, ...props }) => {
 		const titleAttr = onlyARIA ? '' : title;
 
@@ -31,3 +31,4 @@ export const AppButton: FC<IAppButton> = memo(
 );
 
 AppButton.displayName = 'AppButton';
+export default AppButton;

@@ -8,7 +8,7 @@ import { AppTheme } from '../../store/app/types';
 /**
  * The global application provider
  */
-export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
+const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 	const dispatch = useAppDispatch();
 	const appTheme = useAppSelector(getAppTheme);
 	const { setTheme, theme } = useTheme();
@@ -30,3 +30,5 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 
 	return <>{children}</>;
 };
+
+export default AppProvider;

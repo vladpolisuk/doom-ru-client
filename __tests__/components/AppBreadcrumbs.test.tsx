@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { AppBreadcrumbs } from '../../components/AppBreadcrumbs/AppBreadcrumbs';
+import AppBreadcrumbs from '../../components/AppBreadcrumbs/AppBreadcrumbs';
 
 describe('AppBreadcrumbs', () => {
 	it('should be rendered', () => {

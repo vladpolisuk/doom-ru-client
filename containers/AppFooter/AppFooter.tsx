@@ -1,13 +1,12 @@
-import React from 'react';
-import { useTranslation } from 'next-i18next';
-import s from './AppFooter.module.scss';
-import { LocaleFooterGitHub } from '../../types/locales/footer';
-import { AppLink } from '../../components/AppLink/AppLink';
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
-import { AppFooterBottom } from './AppFooterBottom';
 import clsx from 'clsx';
+import { useTranslation } from 'next-i18next';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import AppLink from '../../components/AppLink/AppLink';
+import { LocaleFooterGitHub } from '../../types/locales/footer';
+import s from './AppFooter.module.scss';
+import AppFooterBottom from './AppFooterBottom';
 
-export const AppFooter = () => {
+const AppFooter = () => {
 	const t_c = useTranslation('common').t;
 	const t_f = useTranslation('footer').t;
 
@@ -60,3 +59,5 @@ export const AppFooter = () => {
 		</footer>
 	);
 };
+
+export default AppFooter;

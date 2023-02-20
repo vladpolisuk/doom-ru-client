@@ -1,8 +1,8 @@
-import { FC, forwardRef, memo, OptionHTMLAttributes, NamedExoticComponent } from 'react';
+import { FC, forwardRef, memo, OptionHTMLAttributes } from 'react';
 import { BaseAppComponent } from '../../types/components';
-import { getConcatenatedStylesByCondition } from '../../utils/ui/getConcatenatedStylesByCondition';
+import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
 import s from './AppSelect.module.scss';
-import { AppSelectOption } from './AppSelectOption';
+import AppSelectOption from './AppSelectOption';
 
 type IAppSelect = BaseAppComponent<HTMLSelectElement>;
 
@@ -17,7 +17,7 @@ type IAppSelectCompound = {
  * @return `html:select`
  */
 // @ts-ignore
-export const AppSelect: FC<IAppSelect> & IAppSelectCompound = memo(
+const AppSelect: FC<IAppSelect> & IAppSelectCompound = memo(
 	forwardRef<HTMLSelectElement, IAppSelect>((props, ref) => {
 		const { children, className = '', resetStyles = false, defaultValue, ...extra } = props;
 		const selectStyles = getConcatenatedStylesByCondition(resetStyles, className, s.app_select);
@@ -37,3 +37,4 @@ export const AppSelect: FC<IAppSelect> & IAppSelectCompound = memo(
 
 AppSelect.displayName = 'AppSelect';
 AppSelect.Option = memo(AppSelectOption);
+export default AppSelect;

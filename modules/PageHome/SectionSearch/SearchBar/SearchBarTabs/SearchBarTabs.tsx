@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { AppButton } from '../../../../../components/AppButton/AppButton';
+import AppButton from '../../../../../components/AppButton/AppButton';
 import { LocaleHomeSearchTab } from '../../../../../types/locales/home';
 import s from './SearchBarTabs.module.scss';
 import clsx from 'clsx';

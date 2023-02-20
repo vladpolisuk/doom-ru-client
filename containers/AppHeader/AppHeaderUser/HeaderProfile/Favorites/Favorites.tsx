@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppButton } from '../../../../../components/AppButton/AppButton';
+import AppButton from '../../../../../components/AppButton/AppButton';
 import s from './Favorites.module.scss';
 import { useTranslation } from 'next-i18next';
 import { FaHeart } from 'react-icons/fa';

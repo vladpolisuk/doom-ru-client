@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
-import { AppLink } from '../../../components/AppLink/AppLink';
+import AppLink from '../../../components/AppLink/AppLink';
 import { LocaleHeaderNavLink } from '../../../types/locales/header';
 import s from './AppHeaderNav.module.scss';
 import clsx from 'clsx';
 
-export const AppHeaderNav = () => {
+const AppHeaderNav = () => {
 	const { t } = useTranslation('header');
 
 	const styles = clsx(s.header_nav_list_item, 'active--scale', 'transition');
@@ -36,3 +36,5 @@ export const AppHeaderNav = () => {
 		</nav>
 	);
 };
+
+export default AppHeaderNav;

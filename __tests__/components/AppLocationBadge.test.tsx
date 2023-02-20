@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { AppLocationBadge } from '../../components/AppLocationBadge/AppLocationBadge';
+import AppLocationBadge from '../../components/AppLocationBadge/AppLocationBadge';
 import { store } from '../../store/store';
 
 describe('AppLocationBadge', () => {

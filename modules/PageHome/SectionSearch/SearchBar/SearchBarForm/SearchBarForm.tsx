@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FiSearch, FiSliders } from 'react-icons/fi';
-import { AppButton } from '../../../../../components/AppButton/AppButton';
-import { AppInput } from '../../../../../components/AppInput/AppInput';
+import AppButton from '../../../../../components/AppButton/AppButton';
+import AppInput from '../../../../../components/AppInput/AppInput';
 import { HomeRealtySearch } from '../../../../../types';
 import s from './SearchBarForm.module.scss';
 
