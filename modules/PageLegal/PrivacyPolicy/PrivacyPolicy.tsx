@@ -7,7 +7,9 @@ const PrivacyPolicy = () => {
 
 	return (
 		<div className={styles}>
-			<div className='container'>
+			<main
+				id='main'
+				className='container'>
 				<h1>Privacy Policy</h1>
 				<p className={s.legal_text}>
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque modi deserunt accusantium ut
@@ -58,7 +60,7 @@ const PrivacyPolicy = () => {
 					harum necessitatibus eum quam nulla? Maiores praesentium tenetur quis sunt eos aliquam iusto
 					consequatur, adipisci repellat ab itaque iste distinctio mollitia, facere beatae!
 				</p>
-			</div>
+			</main>
 		</div>
 	);
 };

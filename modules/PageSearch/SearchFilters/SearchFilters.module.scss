@@ -3,6 +3,12 @@
 	flex-direction: column;
 	gap: 1rem;
 	min-width: 240px;
+	padding: 10px;
+	width: 100%;
+	border-radius: 10px;
+	height: fit-content;
+	border: 1px solid var(--color-6);
+	background-color: var(--background);
 
 	&_resetButton {
 		color: var(--color);
@@ -20,7 +26,7 @@
 	&_input {
 		width: 100%;
 		border: 1px solid var(--color-6);
-		background-color: var(--background_actives--hover);
+		background-color: var(--background_actives);
 	}
 
 	&_pair {

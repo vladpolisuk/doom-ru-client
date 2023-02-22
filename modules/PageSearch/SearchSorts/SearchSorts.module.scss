@@ -1,3 +1,7 @@
 .search_sorts {
-	// ...
+	&_sortBy {
+		background: var(--background);
+		border: 1px solid var(--color-6);
+		max-width: 252px;
+	}
 }

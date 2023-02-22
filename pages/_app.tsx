@@ -8,17 +8,17 @@ import AppProvider from '../containers/AppProvider/AppProvider';
 import AppThemeProvider from '../containers/AppThemeProvider/AppThemeProvider';
 import store from '../store/store';
 import '../styles/global.scss';
+import AppProgressbar from '../components/AppProgressbar/AppProgressbar';
 
 function App({ Component, pageProps }: AppProps) {
 	return (
 		<Provider store={store}>
 			<AppThemeProvider>
 				<AppProvider>
+					<AppProgressbar />
 					<AppSkipLink />
 					<AppHeader />
-					<main id='main'>
-						<Component {...pageProps} />
-					</main>
+					<Component {...pageProps} />
 					<AppFooter />
 				</AppProvider>
 			</AppThemeProvider>

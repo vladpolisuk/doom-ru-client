@@ -7,7 +7,9 @@ const UserAgreement = () => {
 
 	return (
 		<div className={styles}>
-			<div className='container'>
+			<main
+				id='main'
+				className='container'>
 				<h1>User Agreement</h1>
 				<p className={s.legal_text}>
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit eaque dolores fugit aut, porro
@@ -59,7 +61,7 @@ const UserAgreement = () => {
 					beatae laudantium distinctio sit aliquid ex placeat quaerat ad dignissimos dolores. Nemo, porro
 					culpa? Saepe nemo illum eius?
 				</p>
-			</div>
+			</main>
 		</div>
 	);
 };

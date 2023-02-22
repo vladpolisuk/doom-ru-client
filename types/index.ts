@@ -14,7 +14,6 @@ export interface Realty {
 	area: number;
 	floor: number;
 	houseType: RealtyHouseType;
-	favorite: boolean;
 	repair: RealtyRepair;
 	elevator: boolean;
 	bedrooms: number;
@@ -67,3 +66,11 @@ export type RealtyFilters =
 	| 'area_to'
 	| 'floor_from'
 	| 'floor_to';
+
+export type RealtySort = {
+	sort_by: RealtySortBy;
+};
+
+export type RealtySortBy = 'default' | 'price_up' | 'price_down' | 'date_up' | 'date_down';
+
+export type RealtySorts = 'sort_by';

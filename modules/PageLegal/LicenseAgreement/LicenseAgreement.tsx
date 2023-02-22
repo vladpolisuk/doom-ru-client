@@ -7,7 +7,9 @@ const LicenseAgreement = () => {
 
 	return (
 		<div className={styles}>
-			<div className='container'>
+			<main
+				id='main'
+				className='container'>
 				<h1>License Agreement</h1>
 				<p className={s.legal_text}>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam at quae eius hic aliquid fugiat earum
@@ -58,7 +60,7 @@ const LicenseAgreement = () => {
 					neque tempore. Accusamus ipsum maiores nihil iste eum, eaque, fugiat officiis sint dolore totam
 					doloribus. Accusamus mollitia beatae perferendis sit!
 				</p>
-			</div>
+			</main>
 		</div>
 	);
 };

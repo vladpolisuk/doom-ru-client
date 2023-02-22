@@ -29,7 +29,9 @@ export const SectionSearch: FC = () => {
 				/>
 			</div>
 
-			<div className={clsx(s.home_sectionSearch_content, 'container')}>
+			<main
+				id='main'
+				className={clsx(s.home_sectionSearch_content, 'container')}>
 				<AppLocationBadge
 					Skeleton={skeleton}
 					className={s.home_sectionSearch_locationBadge}
@@ -38,7 +40,7 @@ export const SectionSearch: FC = () => {
 				<h1 className={s.home_sectionSearch_title}>{text}</h1>
 
 				<SearchBar />
-			</div>
+			</main>
 		</section>
 	);
 };

@@ -28,4 +28,19 @@
 		width: 100%;
 		gap: 20px;
 	}
+
+	&_resultBox {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		border-radius: 10px;
+		height: fit-content;
+		gap: 10px;
+
+		&_control {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+		}
+	}
 }

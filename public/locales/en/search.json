@@ -1,8 +1,43 @@
 {
     "locale": "en",
     "search_title": "Doom.ru - real estate database | Search",
+    "search_sorts": {
+        "sort_by": {
+            "name": "sort_by",
+            "type": "sorting",
+            "label": "Choose sort",
+            "title": "Sort by",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Sort by"
+                },
+                {
+                    "value": "default",
+                    "title": "Default"
+                },
+                {
+                    "value": "price_down",
+                    "title": "More expensive"
+                },
+                {
+                    "value": "price_up",
+                    "title": "Cheaper"
+                },
+                {
+                    "value": "date_down",
+                    "title": "New"
+                },
+                {
+                    "value": "date_up",
+                    "title": "Old"
+                }
+            ]
+        }
+    },
     "search_filters": [
         {
+            "page": "both",
             "name": "address",
             "type": "text",
             "typeInput": "search",
@@ -10,6 +45,7 @@
             "label": "City, district or subway"
         },
         {
+            "page": "both",
             "name": "type",
             "type": "option",
             "title": "Type",
@@ -47,6 +83,7 @@
         },
         {
             "name": "rooms",
+            "page": "both",
             "type": "option",
             "title": "Rooms",
             "label": "Select rooms",
@@ -79,6 +116,7 @@
         },
         {
             "name": "term",
+            "page": "rent",
             "type": "option",
             "title": "Term",
             "label": "Select term",
@@ -99,6 +137,7 @@
         },
         {
             "name": "price",
+            "page": "both",
             "type": "from_to",
             "title": "Price",
             "from": {
@@ -114,6 +153,7 @@
         },
         {
             "name": "beds",
+            "page": "both",
             "type": "option",
             "title": "Beds",
             "label": "Select beds",
@@ -146,6 +186,7 @@
         },
         {
             "name": "floor",
+            "page": "both",
             "type": "from_to",
             "title": "Floor",
             "from": {
@@ -161,6 +202,7 @@
         },
         {
             "name": "area",
+            "page": "both",
             "type": "from_to",
             "title": "Area, sq. m.",
             "from": {
@@ -176,6 +218,7 @@
         },
         {
             "name": "house_type",
+            "page": "both",
             "type": "option",
             "title": "House type",
             "label": "Select house type",
@@ -208,6 +251,7 @@
         },
         {
             "name": "repair",
+            "page": "both",
             "type": "option",
             "title": "Repair",
             "label": "Select repair",
@@ -236,12 +280,20 @@
         },
         {
             "name": "elevator",
+            "page": "both",
             "type": "checkbox",
             "title": "Elevator",
             "label": "Is there an elevator or not"
+        },
+        {
+            "name": "mortgage",
+            "page": "buy",
+            "type": "checkbox",
+            "title": "Into a mortgage",
+            "label": "With mortgage or not"
         }
     ],
-    "btn": {
+    "search_filters_btn": {
         "reset": {
             "name": "Reset",
             "label": "Reset all filters"
@@ -251,10 +303,20 @@
             "label": "Apply filters"
         }
     },
+    "search_result_btn": {
+        "list": {
+            "name": "List",
+            "label": "Switch to list view"
+        },
+        "grid": {
+            "name": "Grid",
+            "label": "Switch to grid view"
+        }
+    },
     "realty": {
         "favorite": {
             "add_label": "Save to favorites",
             "remove_label": "Remove from favorites"
-        },
+        }
     }
 }

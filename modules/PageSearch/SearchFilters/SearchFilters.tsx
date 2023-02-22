@@ -20,6 +20,7 @@ export const SearchFilters = () => {
 	const router = useRouter();
 	const { t } = useTranslation('search');
 	const { handleSubmit, register, reset, setValue, getValues } = useForm<RealtyFilter>();
+	const action = router.route.split('/')[2];
 
 	useEffect(() => {
 		if (!router.query) return;
@@ -34,12 +35,12 @@ export const SearchFilters = () => {
 		const queries: any = getParsedQueries(data);
 		const query: any = {};
 		for (let i in queries) if (queries[i]) query[i] = queries[i];
-		router.push({ pathname: `/s/${router.route.split('/')[2]}`, query });
+		router.push({ pathname: `/s/${action}`, query });
 	};
 
 	const onReset = () => {
 		reset();
-		router.push({ pathname: `/s/${router.route.split('/')[2]}` });
+		router.push({ pathname: `/s/${action}` });
 	};
 
 	const inputNumber = (name: RealtyFilters) => (event: FormEvent<HTMLInputElement>) => {
@@ -57,6 +58,8 @@ export const SearchFilters = () => {
 
 	const filters: LocaleSearchFilter[] = t('search_filters', { returnObjects: true });
 	const components = filters?.map(filter => {
+		if (action !== filter.page && filter.page !== 'both') return;
+
 		switch (filter.type) {
 			case 'text':
 				return (
@@ -144,27 +147,29 @@ export const SearchFilters = () => {
 	});
 
 	return (
-		<form
-			onReset={onReset}
-			onSubmit={handleSubmit(onSubmit)}
-			className={s.search_filters}>
-			{components}
+		<aside>
+			<form
+				onReset={onReset}
+				onSubmit={handleSubmit(onSubmit)}
+				className={s.search_filters}>
+				{components}
 
-			<AppButton
-				onlyARIA
-				type='reset'
-				title={resetButtonLabel}
-				className={resetButtonStyles}>
-				{resetButtonName}
-			</AppButton>
+				<AppButton
+					onlyARIA
+					type='reset'
+					title={resetButtonLabel}
+					className={resetButtonStyles}>
+					{resetButtonName}
+				</AppButton>
 
-			<AppButton
-				onlyARIA
-				type='submit'
-				title={submitButtonLabel}
-				className={submitButtonStyles}>
-				{submitButtonName}
-			</AppButton>
-		</form>
+				<AppButton
+					onlyARIA
+					type='submit'
+					title={submitButtonLabel}
+					className={submitButtonStyles}>
+					{submitButtonName}
+				</AppButton>
+			</form>
+		</aside>
 	);
 };

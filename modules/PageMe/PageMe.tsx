@@ -16,7 +16,9 @@ const PageMe = () => {
 	return (
 		<div className={s.me}>
 			<div className={styles}>
-				<div className={s.me_aside}>
+				<main
+					id='main'
+					className={s.me_aside}>
 					<ProfileCard />
 
 					<hr className={s.me_hr} />
@@ -33,7 +35,7 @@ const PageMe = () => {
 						<FiLogOut className={s.me_logout_icon} />
 						{text}
 					</AppSignOutButton>
-				</div>
+				</main>
 			</div>
 		</div>
 	);

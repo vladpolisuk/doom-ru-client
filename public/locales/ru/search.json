@@ -1,15 +1,51 @@
 {
     "locale": "ru",
     "search_title": "Doom.ru - база данных по недвижимости | Поиск",
+    "search_sorts": {
+        "sort_by": {
+            "name": "sort_by",
+            "type": "sorting",
+            "label": "Выберите сортировку",
+            "title": "Сортировать по",
+            "options": [
+                {
+                    "value": "",
+                    "title": "Сортировать по"
+                },
+                {
+                    "value": "default",
+                    "title": "По умолчанию"
+                },
+                {
+                    "value": "price_down",
+                    "title": "Дороже"
+                },
+                {
+                    "value": "price_up",
+                    "title": "Дешевле"
+                },
+                {
+                    "value": "date_down",
+                    "title": "Новые"
+                },
+                {
+                    "value": "date_up",
+                    "title": "Старые"
+                }
+            ]
+        }
+    },
     "search_filters": [
         {
             "name": "address",
+            "page": "both",
             "type": "text",
             "title": "Адрес",
             "label": "Введите адрес"
         },
         {
             "name": "type",
+            "page": "both",
             "type": "option",
             "title": "Тип жилья",
             "label": "Выберите тип жилья",
@@ -46,6 +82,7 @@
         },
         {
             "name": "rooms",
+            "page": "both",
             "type": "option",
             "title": "Комнаты",
             "label": "Выберите кол-во комнат",
@@ -78,6 +115,7 @@
         },
         {
             "name": "term",
+            "page": "rent",
             "type": "option",
             "title": "Срок",
             "label": "Выберите срок аренды",
@@ -98,6 +136,7 @@
         },
         {
             "name": "price",
+            "page": "both",
             "type": "from_to",
             "title": "Цена",
             "from": {
@@ -115,6 +154,7 @@
         },
         {
             "name": "bedrooms",
+            "page": "both",
             "type": "option",
             "title": "Кровати",
             "label": "Выберите кол-во кроватей",
@@ -147,6 +187,7 @@
         },
         {
             "name": "floor",
+            "page": "both",
             "type": "from_to",
             "title": "Этаж",
             "from": {
@@ -164,6 +205,7 @@
         },
         {
             "name": "area",
+            "page": "both",
             "type": "from_to",
             "title": "Площадь, кв.м.",
             "from": {
@@ -181,6 +223,7 @@
         },
         {
             "name": "house_type",
+            "page": "both",
             "type": "option",
             "title": "Тип дома",
             "label": "Выберите тип дома",
@@ -213,6 +256,7 @@
         },
         {
             "name": "repair",
+            "page": "both",
             "type": "option",
             "title": "Ремонт",
             "label": "Выберите ремонт",
@@ -241,12 +285,20 @@
         },
         {
             "name": "elevator",
+            "page": "both",
             "type": "checkbox",
             "title": "Лифт",
             "label": "Есть лифт или нет"
+        },
+        {
+            "name": "mortgage",
+            "page": "buy",
+            "type": "checkbox",
+            "title": "В ипотеку",
+            "label": "В ипотеку или нет"
         }
     ],
-    "btn": {
+    "search_filters_btn": {
         "reset": {
             "name": "Сбросить",
             "label": "Сбросить все фильтры"
@@ -254,6 +306,16 @@
         "submit": {
             "name": "Поиск",
             "label": "Применить фильтры"
+        }
+    },
+    "search_result_btn": {
+        "list": {
+            "name": "Список",
+            "label": "Перейти в режим списка"
+        },
+        "grid": {
+            "name": "Таблица",
+            "label": "Перейти в табличный режим"
         }
     },
     "realty": {

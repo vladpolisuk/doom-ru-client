@@ -2,8 +2,11 @@
 :root {
 	// BACKGROUND
 	--background: white;
-	--background_actives--hover: #47474714;
-	--background_body: #e7e7e7;
+	--background_actives: #3a3a3a14;
+	--background_actives-2: #47474714;
+	--background_actives-3: #f5f5f5;
+	--background_actives-4: white;
+	--background_body: #f0f0f0;
 	--background_header: white;
 	--background_skeleton: white;
 	--background_skeleton--gradient: rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0);
@@ -25,7 +28,10 @@
 [data-theme='dark'] {
 	// BACKGROUND
 	--background: #191919;
-	--background_actives--hover: #47474726;
+	--background_actives: #39393926;
+	--background_actives-2: #47474726;
+	--background_actives-3: #47474726;
+	--background_actives-4: #3d3d3d26;
 	--background_body: #141414;
 	--background_header: #191919;
 	--background_skeleton: #191919;
