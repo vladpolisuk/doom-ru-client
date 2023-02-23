@@ -1,6 +1,6 @@
 import { FC, forwardRef, memo, OptionHTMLAttributes } from 'react';
 import { BaseAppComponent } from '../../types/components';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppSelect.module.scss';
 import AppSelectOption from './AppSelectOption';
 
@@ -20,7 +20,7 @@ type IAppSelectCompound = {
 const AppSelect: FC<IAppSelect> & IAppSelectCompound = memo(
 	forwardRef<HTMLSelectElement, IAppSelect>((props, ref) => {
 		const { children, className = '', resetStyles = false, defaultValue, ...extra } = props;
-		const selectStyles = getConcatenatedStylesByCondition(resetStyles, className, s.app_select);
+		const selectStyles = resetStylesOrMerge(resetStyles, className, s.app_select);
 
 		return (
 			<select

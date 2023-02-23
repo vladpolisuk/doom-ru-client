@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import type { FC, LinkHTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { BaseAppComponent } from '../../types/components';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppLink.module.scss';
 
 type Props = BaseAppComponent<HTMLAnchorElement> & LinkHTMLAttributes<HTMLAnchorElement>;
@@ -33,7 +33,7 @@ const AppLink: FC<IAppLink> = memo(
 		const url = resetHref ? href : `/${locale}${href}`;
 		const titleAttr = onlyARIA ? '' : title;
 
-		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_link);
+		const styles = resetStylesOrMerge(resetStyles, className, s.app_link);
 
 		return (
 			<Link

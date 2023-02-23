@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppSkipLink.module.scss';
 import { useTranslation } from 'next-i18next';
@@ -14,7 +14,7 @@ const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink, resetS
 	const { t } = useTranslation('common');
 	const text = t('skip_link');
 
-	const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_skipLink);
+	const styles = resetStylesOrMerge(resetStyles, className, s.app_skipLink);
 
 	return (
 		<a

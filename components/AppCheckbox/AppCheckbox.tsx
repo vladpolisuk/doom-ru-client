@@ -1,5 +1,5 @@
 import { FC, Ref, InputHTMLAttributes, memo, forwardRef } from 'react';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppCheckbox.module.scss';
 
@@ -16,7 +16,7 @@ const AppCheckbox: FC<IAppCheckbox> = memo(
 		const { title, children, className = '', onlyARIA = false, resetStyles = false, ...extra } = props;
 		const titleAttr = onlyARIA ? '' : title;
 
-		const checkboxStyles = getConcatenatedStylesByCondition(resetStyles, className, s.app_checkbox);
+		const checkboxStyles = resetStylesOrMerge(resetStyles, className, s.app_checkbox);
 
 		return (
 			<input

@@ -1,4 +1,4 @@
-type GetNumberWithSpaces = (num: number) => string;
+type GetNumberWithSpaces = (num: number | string | bigint) => string;
 
 /** ## Get number with spaces
  * The function that gives the number and returns string that has number with spaces

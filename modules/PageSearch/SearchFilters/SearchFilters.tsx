@@ -11,7 +11,7 @@ import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { RealtyFilter, RealtyFilters } from '../../../types';
 import { LocaleSearchFilter } from '../../../types/locales/search';
-import getNumberFromString from '../../../utils/ui/getNumberFromString';
+import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';
 import getParsedQueries from '../../../utils/ui/getParsedQueries';
 import s from './SearchFilters.module.scss';
@@ -44,7 +44,8 @@ export const SearchFilters = () => {
 	};
 
 	const inputNumber = (name: RealtyFilters) => (event: FormEvent<HTMLInputElement>) => {
-		const value = getNumberFromString((event.target as HTMLInputElement).value);
+		const value = extractNumberFromString((event.target as HTMLInputElement).value);
+		if (!value) return;
 		const result = getNumberWithSpaces(value);
 		setValue(name, result || value);
 	};

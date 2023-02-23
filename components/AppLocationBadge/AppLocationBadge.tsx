@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { FiNavigation } from 'react-icons/fi';
 import { useAppSelector } from '../../hooks/store';
 import { getAppLocation } from '../../store/app/selectors';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppButton from '../AppButton/AppButton';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppLocationBadge.module.scss';
@@ -18,7 +18,7 @@ const AppLocationBadge: FC<IAppNavigationBadge> = memo(
 	({ Skeleton, className = '', resetStyles = false, ...props }) => {
 		const location = useAppSelector(getAppLocation);
 
-		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_locationBadge, 'transition');
+		const styles = resetStylesOrMerge(resetStyles, className, s.app_locationBadge, 'transition');
 
 		if (!location && Skeleton) return <>{Skeleton}</>;
 

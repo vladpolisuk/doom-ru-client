@@ -3,7 +3,7 @@ import { BaseHTMLAttributes, Dispatch, FC, memo, SetStateAction } from 'react';
 import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCircle } from 'react-icons/fa';
 import AppLink from '../../../../components/AppLink/AppLink';
 import { LocaleMeAsideTabIcon } from '../../../../types/locales/me';
-import getConcatenatedStylesByCondition from '../../../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../../../utils/ui/resetStylesOrMerge';
 import s from './AsideTabs.module.scss';
 
 export interface IAsideTabsItem extends BaseHTMLAttributes<HTMLAnchorElement> {
@@ -30,7 +30,7 @@ export const AsideTabsItem: FC<IAsideTabsItem> = memo(
 
 		const click = () => setCurrent(tabId);
 
-		const styles = getConcatenatedStylesByCondition(
+		const styles = resetStylesOrMerge(
 			!isActive,
 			clsx(s.me_aside_tabs_link, 'active--scale', 'transition'),
 			s['me_aside_tabs_link--active']

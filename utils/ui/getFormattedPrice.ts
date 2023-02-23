@@ -1,7 +1,7 @@
 import { RealtyCurrency, RealtyTerm } from '../../types';
 import { Locale } from '../../types/locales';
 
-type GetFormattedPrice = (price: number, currency: RealtyCurrency, term: RealtyTerm, locale: Locale) => string;
+type GetFormattedPrice = (price: number, currency?: RealtyCurrency, term?: RealtyTerm, locale?: Locale) => string;
 
 const localesSource = {
 	en: { day: 'day', month: 'month' },
@@ -16,7 +16,7 @@ const localesSource = {
  * @param locale available locales
  * @returns string
  * */
-const formattedPrice: GetFormattedPrice = (price, currency = 'RUB', term = 'month', locale = 'en') => {
+const formattedPrice: GetFormattedPrice = (price, currency = 'USD', term = 'month', locale = 'en') => {
 	const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency });
 	const priceFormatted = formatter.format(price);
 	const termFormatted = localesSource[locale][term];

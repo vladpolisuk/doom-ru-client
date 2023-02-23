@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, memo } from 'react';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppButton.module.scss';
 
@@ -15,7 +15,7 @@ const AppButton: FC<IAppButton> = memo(
 	({ title, children, className = '', onlyARIA = false, resetStyles = false, ...props }) => {
 		const titleAttr = onlyARIA ? '' : title;
 
-		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_button);
+		const styles = resetStylesOrMerge(resetStyles, className, s.app_button);
 
 		return (
 			<button

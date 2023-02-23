@@ -1,5 +1,12 @@
 type GetParsedQueries = <T>(values: T) => T;
 
+const parseString = (value: string) => {
+	if (value === 'true') return true;
+	if (value === 'false') return false;
+	if (!isNaN(+value)) return Number(value);
+	return value;
+};
+
 /** ## Get parsed queries
  * The function that gives an query object and returns it parsed
  * @param values initial Object: T
@@ -12,15 +19,9 @@ const getParsedQueries: GetParsedQueries = values => {
 		const value = values[key];
 
 		if (typeof value === 'string' && value) {
-			if (value === 'true') {
-				result[key] = true;
-			} else if (value === 'false') {
-				result[key] = false;
-			} else if (!isNaN(Number(value))) {
-				result[key] = Number(value);
-			} else {
-				result[key] = value;
-			}
+			result[key] = parseString(value);
+		} else if (Array.isArray(value) && value) {
+			result[key] = value.map(item => parseString(item));
 		} else {
 			result[key] = value;
 		}

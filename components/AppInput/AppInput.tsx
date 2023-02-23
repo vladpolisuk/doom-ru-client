@@ -1,6 +1,6 @@
 import { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 import { BaseAppComponent } from '../../types/components';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
@@ -41,7 +41,7 @@ const AppInput: FC<IAppInput> = memo(
 
 		const iconSide = iconLeft ? s.app_input_withIconLeft : iconRight ? s.app_input_withIconRight : '';
 
-		const inputStyles = getConcatenatedStylesByCondition(resetStyles, className, s.app_input, iconSide);
+		const inputStyles = resetStylesOrMerge(resetStyles, className, s.app_input, iconSide);
 
 		if (iconLeft)
 			return (

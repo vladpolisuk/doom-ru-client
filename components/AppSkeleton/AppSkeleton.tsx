@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppSkeleton.module.scss';
 
@@ -10,7 +10,7 @@ type IAppSkeleton = BaseAppComponent<HTMLDivElement>;
  * @returns `html:div`
  */
 const AppSkeleton: FC<IAppSkeleton> = memo(({ children, className = s.app_skeleton, resetStyles = false }) => {
-	const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_skeleton, 'transition');
+	const styles = resetStylesOrMerge(resetStyles, className, s.app_skeleton, 'transition');
 
 	return (
 		<div

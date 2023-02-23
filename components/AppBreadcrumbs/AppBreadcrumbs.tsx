@@ -1,5 +1,5 @@
 import { Children, FC, memo } from 'react';
-import getConcatenatedStylesByCondition from '../../utils/ui/getConcatenatedStylesByCondition';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
 import s from './AppBreadcrumbs.module.scss';
 
@@ -27,7 +27,7 @@ const AppBreadcrumbs: FC<IAppBreadcrumbs> = memo(
 			</li>
 		));
 
-		const styles = getConcatenatedStylesByCondition(resetStyles, className, s.app_breadcrumbs, 'unlisted');
+		const styles = resetStylesOrMerge(resetStyles, className, s.app_breadcrumbs, 'unlisted');
 
 		return (
 			<ul
