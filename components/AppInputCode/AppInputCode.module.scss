@@ -19,6 +19,7 @@
 	padding: 0;
 	border: 1px solid var(--color-6);
 	background-color: var(--background_actives);
+	transition: all 50ms ease-in-out;
 
 	&::-webkit-outer-spin-button,
 	&::-webkit-inner-spin-button {

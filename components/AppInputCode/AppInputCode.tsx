@@ -1,5 +1,14 @@
-import clsx from 'clsx';
-import { BaseSyntheticEvent, ChangeEvent, ClipboardEvent, FC, InputHTMLAttributes, KeyboardEvent, memo } from 'react';
+import {
+	BaseSyntheticEvent,
+	ChangeEvent,
+	ClipboardEvent,
+	FC,
+	InputHTMLAttributes,
+	KeyboardEvent,
+	memo,
+	useState,
+	useEffect
+} from 'react';
 import { BaseAppComponent } from '../../types/components';
 import AppInput from '../AppInput/AppInput';
 import s from './AppInputCode.module.scss';
@@ -8,6 +17,7 @@ type IAppInputCode = BaseAppComponent<HTMLInputElement> &
 	InputHTMLAttributes<HTMLInputElement> & {
 		codeLength: number;
 		codePlaceholder?: string;
+		submit: (code: number) => void;
 	};
 
 /**
@@ -27,16 +37,24 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 		onlyARIA = false,
 		name = 'codeNumber',
 		codePlaceholder = '𐤏',
+		submit,
 		...extra
 	} = props;
+	const [code, setCode] = useState('');
+
+	useEffect(() => {
+		if (code.length === codeLength) submit(+code);
+	}, [code]);
 
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+		if (!event.target.value) return;
 		const id = +event.target.id;
 		const value = +event.target.value;
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
-		if (value && id !== codeLength - 1) fields.item(id + 1).focus();
+		if (id !== codeLength - 1) fields.item(id + 1).focus();
 		const div = Math.floor(value / 10);
-		if (div > 0) fields.item(id).value = String(div);
+		if (div < 1) return setCode(code + value);
+		fields.item(id).value = String(div);
 	};
 
 	const handleKeyDown = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
@@ -45,6 +63,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
 		if (id === 0) return;
 		fields.item(id - 1).focus();
+		setCode(code.slice(0, code.length - 1));
 	};
 
 	const onPaste = (event: BaseSyntheticEvent<HTMLInputElement> & ClipboardEvent<HTMLInputElement>) => {
@@ -58,11 +77,12 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 		pasteArray.forEach((value, index) => {
 			fields.item(index).value = value;
 		});
+		setCode(paste);
 	};
 
 	return (
 		<div className={s.app_code}>
-			{[...Array(6).keys()].map(value => (
+			{[...Array(codeLength).keys()].map(value => (
 				<AppInput
 					name={name}
 					type='number'
