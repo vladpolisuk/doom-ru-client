@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import AppLink from '../../../../components/AppLink/AppLink';
 import { View } from '../../PageSearch';
 import s from './RealtyItem.module.scss';

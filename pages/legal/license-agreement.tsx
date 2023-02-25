@@ -42,7 +42,7 @@ export default function LicenseAgreement() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'legal', 'footer']))
+			...(await serverSideTranslations(locale as string, ['common', 'header', 'legal', 'auth', 'footer']))
 		}
 	};
 }

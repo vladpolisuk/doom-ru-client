@@ -7,7 +7,7 @@ export const ProfileCard = () => {
 	const user = useAppSelector(getAppUser);
 	const avatar = user?.avatar || '';
 	const name = user?.name || '';
-	const surname = user?.surname || '';
+	const secondName = user?.secondName || '';
 	const id = user?.id || '';
 
 	return (
@@ -25,7 +25,7 @@ export const ProfileCard = () => {
 			<div className={s.me_aside_profileCard_info}>
 				<strong className={s.me_aside_profileCard_name}>{name}</strong>
 
-				<strong className={s.me_aside_profileCard_surname}>{surname}</strong>
+				<strong className={s.me_aside_profileCard_secondName}>{secondName}</strong>
 
 				<p className={s.me_aside_profileCard_id}>ID {id}</p>
 			</div>

@@ -3,16 +3,16 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
-import { PageSearch } from '../../modules/PageSearch/PageSearch';
+import PageAuth from '../../modules/PageAuth/PageAuth';
 
-export default function Rent() {
+export default function Auth() {
 	const t = useTranslation('common').t;
-	const t_search = useTranslation('search').t;
+	const t_auth = useTranslation('auth').t;
 
 	const description = t('site_description');
 	const keywords = t('site_keywords');
 	const author = t('site_author');
-	const title = t_search('search_title');
+	const title = t_auth('auth_title');
 
 	return (
 		<Fragment>
@@ -32,7 +32,7 @@ export default function Rent() {
 				<title>{title}</title>
 			</Head>
 
-			<PageSearch />
+			<PageAuth />
 		</Fragment>
 	);
 }
@@ -40,7 +40,7 @@ export default function Rent() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'search', 'footer']))
+			...(await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'footer']))
 		}
 	};
 }

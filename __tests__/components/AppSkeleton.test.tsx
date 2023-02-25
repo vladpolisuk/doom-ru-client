@@ -5,8 +5,9 @@ import AppSkeleton from '../../components/AppSkeleton/AppSkeleton';
 
 describe('AppSkeleton', () => {
 	it('should render the component', () => {
-		render(<AppSkeleton />);
+		const wrapper = render(<AppSkeleton />);
 		const skeleton = screen.getByTestId('app-skeleton');
+		expect(wrapper).toMatchSnapshot();
 		expect(skeleton).toBeInTheDocument();
 	});
 

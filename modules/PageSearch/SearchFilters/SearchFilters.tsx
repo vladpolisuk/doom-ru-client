@@ -52,10 +52,10 @@ export const SearchFilters = () => {
 
 	const resetButtonStyles = clsx(s.search_filters_resetButton, 'active--scale', 'transition');
 	const submitButtonStyles = clsx(s.search_filters_submitButton, 'active--scale');
-	const resetButtonName = t('btn.reset.name');
-	const resetButtonLabel = t('btn.reset.label');
-	const submitButtonName = t('btn.submit.name');
-	const submitButtonLabel = t('btn.submit.label');
+	const resetButtonName = t('search_filters_btn.reset.name');
+	const resetButtonLabel = t('search_filters_btn.reset.label');
+	const submitButtonName = t('search_filters_btn.submit.name');
+	const submitButtonLabel = t('search_filters_btn.submit.label');
 
 	const filters: LocaleSearchFilter[] = t('search_filters', { returnObjects: true });
 	const components = filters?.map(filter => {

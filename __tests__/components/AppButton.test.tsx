@@ -5,8 +5,9 @@ import AppButton from '../../components/AppButton/AppButton';
 
 describe('AppButton', () => {
 	it('should be rendered', () => {
-		render(<AppButton />);
+		const wrapper = render(<AppButton />);
 		const button = screen.getByTestId('app-button');
+		expect(wrapper).toMatchSnapshot();
 		expect(button).toBeInTheDocument();
 	});
 

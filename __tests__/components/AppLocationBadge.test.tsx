@@ -7,12 +7,13 @@ import store from '../../store/store';
 
 describe('AppLocationBadge', () => {
 	it('should be rendered', () => {
-		render(
+		const wrapper = render(
 			<Provider store={store}>
 				<AppLocationBadge />
 			</Provider>
 		);
 		const badge = screen.getByTestId('app-location-badge');
+		expect(wrapper).toMatchSnapshot();
 		expect(badge).toBeInTheDocument();
 	});
 });

@@ -6,6 +6,7 @@ export type IAppSelectOption = FC<OptionHTMLAttributes<HTMLOptionElement>>;
 const AppSelectOption: IAppSelectOption = ({ children, ...props }) => {
 	return (
 		<option
+			data-testid='app-select-option'
 			className={s.app_select_option}
 			{...props}>
 			{children}

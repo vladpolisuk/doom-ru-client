@@ -13,9 +13,10 @@ describe('AppLink', () => {
 	}));
 
 	it('should be rendered', () => {
-		render(<AppLink href='#'>Link</AppLink>);
+		const wrapper = render(<AppLink href='#'>Link</AppLink>);
 		const link = screen.getByTestId('app-link');
 		expect(link).toBeInTheDocument();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should be rendered with href', () => {

@@ -2,15 +2,15 @@ import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import AppLink from '../../components/AppLink/AppLink';
+import { useAppSelector } from '../../hooks/store';
+import { getAppUser } from '../../store/app/selectors';
 import { LocaleFooterGitHub } from '../../types/locales/footer';
 import s from './AppFooter.module.scss';
 import AppFooterBottom from './AppFooterBottom';
 
 const AppFooter = () => {
-	const t_c = useTranslation('common').t;
 	const t_f = useTranslation('footer').t;
 
-	const author = t_c('site_author');
 	const github: LocaleFooterGitHub = t_f('links.github', { returnObjects: true });
 	const title = t_f('title');
 	const disclaimer = t_f('disclaimer');

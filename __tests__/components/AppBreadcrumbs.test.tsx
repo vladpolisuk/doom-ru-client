@@ -5,8 +5,9 @@ import AppBreadcrumbs from '../../components/AppBreadcrumbs/AppBreadcrumbs';
 
 describe('AppBreadcrumbs', () => {
 	it('should be rendered', () => {
-		render(<AppBreadcrumbs />);
+		const wrapper = render(<AppBreadcrumbs />);
 		const breadcrumbs = screen.getByTestId('app-breadcrumbs');
+		expect(wrapper).toMatchSnapshot();
 		expect(breadcrumbs).toBeInTheDocument();
 	});
 

@@ -40,7 +40,7 @@ export default function Buy() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'search', 'footer']))
+			...(await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'search', 'footer']))
 		}
 	};
 }

@@ -34,6 +34,10 @@ export default function Document() {
 					rel='stylesheet'
 				/>
 				<link
+					href='https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap'
+					rel='stylesheet'
+				/>
+				<link
 					href='/assets/favicon-16x16.png'
 					rel='icon'
 					type='image/png'
@@ -57,6 +61,7 @@ export default function Document() {
 			<body>
 				<Main />
 				<NextScript />
+				<div id='modal-root'></div>
 			</body>
 		</Html>
 	);

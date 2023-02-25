@@ -5,8 +5,9 @@ import AppSkipLink from '../../components/AppSkipLink/AppSkipLink';
 
 describe('AppSkipLink', () => {
 	it('should render the component', () => {
-		render(<AppSkipLink />);
+		const wrapper = render(<AppSkipLink />);
 		const link = screen.getByTestId('app-skip-link');
+		expect(wrapper).toMatchSnapshot();
 		expect(link).toBeInTheDocument();
 	});
 

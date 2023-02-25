@@ -1,11 +1,78 @@
-.header_container_user_auth {
+.authBox {
 	height: 100%;
 	width: max-content;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	flex-direction: row;
+}
 
-	.auth_signin {
+.auth_modal {
+	&_headerLogo {
+		font-family: 'Kalam', sans-serif;
+		line-height: 10px;
+		user-select: none;
+	}
+
+	&_headerMethod {
+		color: var(--color-2);
+		text-transform: uppercase;
+		user-select: none;
+	}
+
+	&_form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		max-width: 350px;
+		width: 100%;
+		gap: 15px;
+
+		&_input {
+			width: 100%;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			border: 1px solid var(--color-6);
+			background-color: var(--background_actives);
+		}
+	}
+
+	&_actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 10px;
+		width: 100%;
+
+		&_submit {
+			width: 100%;
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+
+		&_cancel {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			padding: 10px 15px;
+			border-radius: 5px;
+			background: transparent;
+			font-size: 15px;
+			outline: none;
+			width: 100%;
+			padding-top: 12px;
+			padding-bottom: 12px;
+
+			&:hover {
+				background: var(--color-6);
+			}
+
+			&:focus-visible {
+				background: var(--color-6);
+			}
+		}
 	}
 }

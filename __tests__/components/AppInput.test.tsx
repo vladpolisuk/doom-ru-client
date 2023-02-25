@@ -5,9 +5,10 @@ import AppInput from '../../components/AppInput/AppInput';
 
 describe('AppInput', () => {
 	it('should be rendered', () => {
-		render(<AppInput />);
+		const wrapper = render(<AppInput />);
 		const input = screen.getByTestId('app-input');
 		expect(input).toBeInTheDocument();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should be rendered with standard attributes', () => {

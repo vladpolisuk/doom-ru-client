@@ -25,17 +25,13 @@ export type AppUser = {
 	 */
 	id: number;
 	/**
-	 * The user's nickname
-	 */
-	nickname: string;
-	/**
 	 * The user's first name
 	 */
 	name: string;
 	/**
 	 * The user's last name
 	 */
-	surname: string;
+	secondName: string;
 	/**
 	 * The user's email address
 	 */
@@ -43,7 +39,15 @@ export type AppUser = {
 	/**
 	 * The user's avatar url
 	 */
-	avatar: string;
+	avatar?: string;
+	/**
+	 * The user's bio
+	 */
+	bio?: string;
+	/**
+	 * The user's city
+	 */
+	city?: string;
 };
 
 /**
