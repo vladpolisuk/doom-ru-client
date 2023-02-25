@@ -10,7 +10,7 @@ type Step = 'signup' | 'code';
 
 const PageAuth = () => {
 	const router = useRouter();
-	const [step, setStep] = useState<Step>('signup');
+	const [step, setStep] = useState<Step>('code');
 	const t = useTranslation('auth').t;
 
 	const onSubmit = (data: SignUpFields) => {
