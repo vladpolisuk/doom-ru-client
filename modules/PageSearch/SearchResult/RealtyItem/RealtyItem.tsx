@@ -10,9 +10,9 @@ import { Realty } from '../../../../types';
 import { Locale } from '../../../../types/locales';
 import getFormattedCreatedAt from '../../../../utils/ui/getFormattedCreatedAt';
 import getFormattedPrice from '../../../../utils/ui/getFormattedPrice';
-import { RealtyItemImages } from './RealtyItemImages';
-import s from './RealtyItem.module.scss';
 import { View } from '../../PageSearch';
+import s from './RealtyItem.module.scss';
+import { RealtyItemImages } from './RealtyItemImages';
 
 type Props = Realty & {
 	toggleFavorite: any;

@@ -94,8 +94,8 @@ export const AuthSignIn: FC<Props> = ({ setViewModal, viewModal, onSubmit }) => 
 						</AppButton>
 
 						<AppButton
-							resetStyles
 							type='reset'
+							color='transparent'
 							onClick={onClose}
 							title={cancel_label}
 							className={cancelBtnStyles}>

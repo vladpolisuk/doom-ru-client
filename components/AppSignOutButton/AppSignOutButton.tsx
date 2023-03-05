@@ -16,6 +16,7 @@ const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) =>
 
 	return (
 		<AppButton
+			color='transparent'
 			onClick={logout}
 			{...props}>
 			{children}

@@ -16,7 +16,13 @@ export interface BaseAppComponent<T> extends BaseHTMLAttributes<T> {
 	 * Specify that some attributes should be added like aria-*
 	 */
 	onlyARIA?: boolean;
+	/**
+	 * Specify that color style should be used
+	 */
+	color?: BaseAppComponentColor;
 }
+
+export type BaseAppComponentColor = 'primary' | 'transparent' | 'reset' | 'none' | 'default';
 
 /**
  * The common type of html events

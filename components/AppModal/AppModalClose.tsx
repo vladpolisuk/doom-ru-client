@@ -11,9 +11,9 @@ const AppModalButton: FC<Props> = ({ children, ...extra }) => {
 
 	return (
 		<AppButton
-			resetStyles
+			{...extra}
 			className={styles}
-			{...extra}>
+			color='transparent'>
 			<FaTimes size={26} />
 		</AppButton>
 	);

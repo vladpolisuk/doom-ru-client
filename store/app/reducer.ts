@@ -2,13 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppLocation, AppState, AppTheme, AppUser } from './types';
 
 const initialState: AppState = {
-	// user: {
-	// 	id: 94146172,
-	// 	name: 'Vladislav',
-	// 	email: 'vladpolisuk159@gmail.com',
-	// 	secondName: 'Polishchuk',
-	// 	avatar: 'https://lh3.googleusercontent.com/a/ALm5wu3vk30A3Lu2ZOEvl7GWqZvP98Q1ABFBUWJKAawYmA=s360-p-rw-no'
-	// },
 	user: null,
 	theme: 'system',
 	location: null

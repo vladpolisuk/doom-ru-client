@@ -1,9 +1,9 @@
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import { LocaleHomeSearchTab } from '../../../../../types/locales/home';
 import s from './SearchBarTabs.module.scss';
-import clsx from 'clsx';
 
 export const SearchBarTabs = () => {
 	const [tab, setTab] = useState(0);
@@ -17,6 +17,7 @@ export const SearchBarTabs = () => {
 		<li key={text}>
 			<AppButton
 				title={title}
+				color='none'
 				onClick={() => setTab(i)}
 				className={s.sectionSearch_searchBar_tabs_item}>
 				{text}

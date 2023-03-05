@@ -11,20 +11,7 @@
 	background-color: var(--background);
 
 	&_resetButton {
-		color: var(--color);
-		background-color: var(--color-6);
-
-		&:hover {
-			background-color: var(--color-5);
-		}
-
-		&:focus-visible {
-			background-color: var(--color-5);
-		}
-	}
-
-	&_submitButton {
-		color: white;
+		background-color: var(--background_actives-3);
 	}
 
 	&_input {

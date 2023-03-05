@@ -158,6 +158,7 @@ export const SearchFilters = () => {
 				<AppButton
 					onlyARIA
 					type='reset'
+					color='transparent'
 					title={resetButtonLabel}
 					className={resetButtonStyles}>
 					{resetButtonName}

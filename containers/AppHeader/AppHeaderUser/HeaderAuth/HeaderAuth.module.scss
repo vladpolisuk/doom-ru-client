@@ -53,26 +53,14 @@
 		}
 
 		&_cancel {
-			display: flex;
-			align-items: center;
-			justify-content: center;
 			border: none;
 			padding: 10px 15px;
 			border-radius: 5px;
-			background: transparent;
 			font-size: 15px;
 			outline: none;
 			width: 100%;
 			padding-top: 12px;
 			padding-bottom: 12px;
-
-			&:hover {
-				background: var(--color-6);
-			}
-
-			&:focus-visible {
-				background: var(--color-6);
-			}
 		}
 	}
 }

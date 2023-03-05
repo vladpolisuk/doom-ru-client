@@ -1,8 +1,7 @@
-import React from 'react';
-import AppButton from '../../../../../components/AppButton/AppButton';
-import s from './Favorites.module.scss';
 import { useTranslation } from 'next-i18next';
 import { FaHeart } from 'react-icons/fa';
+import AppButton from '../../../../../components/AppButton/AppButton';
+import s from './Favorites.module.scss';
 
 export const Favorites = () => {
 	const { t } = useTranslation('header');
@@ -12,7 +11,8 @@ export const Favorites = () => {
 	return (
 		<AppButton
 			title={title}
-			className='active--scale transparent hover--none'>
+			color='none'
+			className='active--scale'>
 			<FaHeart className={s.header_favorites} />
 		</AppButton>
 	);

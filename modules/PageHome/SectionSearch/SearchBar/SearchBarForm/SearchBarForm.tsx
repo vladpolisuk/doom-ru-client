@@ -38,6 +38,7 @@ export const SearchBarForm = () => {
 
 			<AppButton
 				title={filtersTitle}
+				color='transparent'
 				className={filtersStyles}>
 				<FiSliders className={s.sectionSearch_searchBar_form_filtersIcon} />
 				{filtersText}

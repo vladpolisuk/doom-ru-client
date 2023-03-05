@@ -1,5 +1,4 @@
 .app_button {
-	background-color: #5025c9;
 	border: none;
 	padding: 10px 15px;
 	border-radius: 5px;
@@ -9,8 +8,42 @@
 	font-size: 15px;
 	color: white;
 	outline: none;
+}
+
+.app_button--primary {
+	background-color: #5025c9;
 
 	&:hover {
 		background-color: #441eb0;
+	}
+
+	&:focus-visible {
+		background-color: #441eb0;
+	}
+}
+
+.app_button--transparent {
+	background: transparent;
+	color: var(--color);
+
+	&:hover {
+		background: var(--color-6);
+	}
+
+	&:focus-visible {
+		background: var(--color-6);
+	}
+}
+
+.app_button--none {
+	background: transparent;
+	color: var(--color);
+
+	&:hover {
+		background: transparent;
+	}
+
+	&:focus-visible {
+		background: transparent;
 	}
 }

@@ -2,9 +2,9 @@ import { FC, memo } from 'react';
 import { FiNavigation } from 'react-icons/fi';
 import { useAppSelector } from '../../hooks/store';
 import { getAppLocation } from '../../store/app/selectors';
+import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppButton from '../AppButton/AppButton';
-import { BaseAppComponent } from '../../types/components';
 import s from './AppLocationBadge.module.scss';
 
 type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
@@ -25,6 +25,7 @@ const AppLocationBadge: FC<IAppNavigationBadge> = memo(
 		return (
 			<AppButton
 				{...props}
+				color='reset'
 				className={styles}
 				data-testid='app-location-badge'
 				aria-label={`${location?.country}, ${location?.city}`}>

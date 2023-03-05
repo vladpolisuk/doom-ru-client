@@ -11,7 +11,8 @@ export const Notifications = () => {
 	return (
 		<AppButton
 			title={title}
-			className='active--scale transparent hover--none'>
+			color='none'
+			className='active--scale'>
 			<FaBell className={s.header_notifications} />
 		</AppButton>
 	);
