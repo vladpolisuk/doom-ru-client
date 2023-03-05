@@ -3,7 +3,13 @@ import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppButton.module.scss';
 
-export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> & BaseAppComponent<HTMLButtonElement>;
+export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> &
+	BaseAppComponent<HTMLButtonElement> & {
+		/**
+		 * Specify that color style should be used
+		 */
+		color?: 'primary' | 'transparent' | 'reset' | 'none' | 'default';
+	};
 
 /**
  * The common button component in the application
