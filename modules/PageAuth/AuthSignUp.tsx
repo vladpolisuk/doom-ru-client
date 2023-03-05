@@ -26,9 +26,16 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
+		setError
 	} = useForm<SignUpFields>();
 	const t = useTranslation('auth').t;
+
+	const extendedOnSubmit = (data: SignUpFields) => {
+		if (data.password !== data.repeatPassword)
+			setError('repeatPassword', { type: 'value', message: 'Wrong password' });
+		else onSubmit(data);
+	};
 
 	const name = t('auth_form.signup.name');
 	const fields = t('auth_form.fields', { returnObjects: true }) as LocaleAuthField[];
@@ -39,7 +46,7 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 
 	return (
 		<form
-			onSubmit={handleSubmit(onSubmit)}
+			onSubmit={handleSubmit(extendedOnSubmit)}
 			className={s.auth_form}>
 			{fields
 				.filter(field => field.page === name || field.page === 'both')
@@ -47,11 +54,12 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 					switch (field.fieldType) {
 						case 'input':
 							return (
-								<AppLabel errorMessage={errors[field.name]?.message}>
+								<AppLabel
+									key={`signup_${field.name}`}
+									errorMessage={errors[field.name]?.message}>
 									<AppInput
 										onlyARIA
 										showPasswordButton={field.showPasswordButton}
-										key={`signup_${field.name}`}
 										type={field.type}
 										title={field.label}
 										placeholder={field.title}

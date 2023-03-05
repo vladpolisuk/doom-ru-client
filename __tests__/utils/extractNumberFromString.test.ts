@@ -30,6 +30,12 @@ describe('extractNumberFromString', () => {
 		expect(result).toEqual(null);
 	});
 
+	it('should return number if string was passed with spacing', () => {
+		const string = '2 023';
+		const result = extractNumberFromString(string);
+		expect(result).toEqual(2023);
+	});
+
 	it('should return null if null was passed', () => {
 		// @ts-ignore
 		const result = extractNumberFromString(null);

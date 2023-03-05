@@ -28,7 +28,7 @@ export const SearchFilters = () => {
 		const values = getValues();
 		// @ts-ignore
 		for (const key in values) setValue(key, queries[key]);
-	}, [router.query]);
+	}, [router.query, getValues, setValue]);
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {
 		console.log(data);
