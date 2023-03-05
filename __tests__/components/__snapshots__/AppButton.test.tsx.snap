@@ -6,14 +6,14 @@ exports[`AppButton should be rendered 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="app_button"
+        class="app_button app_button--primary"
         data-testid="app-button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="app_button"
+      class="app_button app_button--primary"
       data-testid="app-button"
     />
   </div>,
