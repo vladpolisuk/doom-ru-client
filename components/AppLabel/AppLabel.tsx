@@ -1,11 +1,12 @@
 import { FC, LabelHTMLAttributes, memo } from 'react';
-import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import { BaseAppComponent } from '../../types/components';
+import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppLabel.module.scss';
 
 type IAppLabel = BaseAppComponent<HTMLLabelElement> &
 	LabelHTMLAttributes<HTMLLabelElement> & {
 		row?: boolean;
+		errorMessage?: string;
 	};
 
 /**
@@ -15,7 +16,7 @@ type IAppLabel = BaseAppComponent<HTMLLabelElement> &
  * @return `html:label`
  */
 const AppLabel: FC<IAppLabel> = memo(
-	({ children, className = '', onlyARIA = false, row = false, resetStyles = false, ...props }) => {
+	({ children, className = '', onlyARIA = false, errorMessage, row = false, resetStyles = false, ...props }) => {
 		const labelStyles = resetStylesOrMerge(resetStyles, className, s.app_label, row ? s.app_label_row : '');
 
 		return (
@@ -25,6 +26,7 @@ const AppLabel: FC<IAppLabel> = memo(
 				className={labelStyles}
 				{...props}>
 				{children}
+				{errorMessage && <p className={s.app_label_errorMessage}>{errorMessage}</p>}
 			</label>
 		);
 	}

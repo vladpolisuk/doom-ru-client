@@ -23,7 +23,11 @@ type Props = {
 };
 
 export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
-	const { register, handleSubmit } = useForm<SignUpFields>();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors }
+	} = useForm<SignUpFields>();
 	const t = useTranslation('auth').t;
 
 	const name = t('auth_form.signup.name');
@@ -43,18 +47,26 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 					switch (field.fieldType) {
 						case 'input':
 							return (
-								<AppInput
-									onlyARIA
-									key={`signup_${field.name}`}
-									type={field.type}
-									title={field.label}
-									placeholder={field.title}
-									className={s.auth_form_input}
-									{...register(field.name, {
-										required: field.required,
-										minLength: field.minLength
-									})}
-								/>
+								<AppLabel errorMessage={errors[field.name]?.message}>
+									<AppInput
+										onlyARIA
+										showPasswordButton={field.showPasswordButton}
+										key={`signup_${field.name}`}
+										type={field.type}
+										title={field.label}
+										placeholder={field.title}
+										invalid={field.name in errors}
+										className={s.auth_form_input}
+										{...register(field.name, {
+											required: field.required,
+											minLength: field.minLength,
+											pattern: field.pattern && {
+												value: new RegExp(field.pattern.value.slice(1, -1)),
+												message: field.pattern.message
+											}
+										})}
+									/>
+								</AppLabel>
 							);
 
 						case 'checkbox':

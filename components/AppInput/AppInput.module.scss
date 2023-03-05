@@ -37,6 +37,15 @@
 		top: calc(46% - 10px);
 		background: transparent;
 	}
+
+	&_showPasswordButton {
+		color: var(--color-2);
+		position: absolute;
+		right: 4px;
+		top: 4px;
+		padding: 8px 10px;
+		background: transparent;
+	}
 }
 
 .app_input_withIconLeft {
@@ -45,4 +54,11 @@
 
 .app_input_withIconRight {
 	padding-right: 42px;
+}
+
+.app_input--invalid {
+	box-shadow: 0 0 0 2px rgb(255, 29, 29);
+	&:focus-visible {
+		box-shadow: 0 0 0 2px rgb(255, 29, 29);
+	}
 }

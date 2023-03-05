@@ -26,7 +26,11 @@ type Props = {
 export const AuthSignIn: FC<Props> = ({ setViewModal, viewModal, onSubmit }) => {
 	const router = useRouter();
 	const t = useTranslation('auth').t;
-	const { handleSubmit, register } = useForm<SignInFields>();
+	const {
+		handleSubmit,
+		register,
+		formState: { errors }
+	} = useForm<SignInFields>();
 
 	const title = t('auth_form.signin.title');
 	const name = t('auth_form.signin.name');
@@ -61,16 +65,25 @@ export const AuthSignIn: FC<Props> = ({ setViewModal, viewModal, onSubmit }) => 
 							switch (field.fieldType) {
 								case 'input':
 									return (
-										<AppInput
+										<AppLabel
 											key={`field_${field.name}`}
-											type={field.type}
-											placeholder={field.title}
-											className={s.auth_modal_form_input}
-											{...register(field.name, {
-												required: field.required,
-												minLength: field.minLength
-											})}
-										/>
+											errorMessage={errors[field.name]?.message}>
+											<AppInput
+												showPasswordButton={field.showPasswordButton}
+												type={field.type}
+												invalid={field.name in errors}
+												placeholder={field.title}
+												className={s.auth_modal_form_input}
+												{...register(field.name, {
+													required: field.required,
+													minLength: field.minLength,
+													pattern: field.pattern && {
+														value: new RegExp(field.pattern.value.slice(1, -1)),
+														message: field.pattern.message
+													}
+												})}
+											/>
+										</AppLabel>
 									);
 
 								case 'checkbox':

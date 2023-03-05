@@ -20,8 +20,25 @@ export interface LocaleAuthField {
 	type: string;
 	title: string;
 	label: string;
-	required?: boolean;
-	minLength?: number;
+	showPasswordButton?: boolean;
+	minLength?: LocaleAuthFieldMinLength;
+	required?: LocaleAuthFieldRequired;
+	pattern?: LocaleAuthFieldPattern;
+}
+
+export interface LocaleAuthFieldMinLength {
+	value: number;
+	message: string;
+}
+
+export interface LocaleAuthFieldRequired {
+	value: boolean;
+	message: string;
+}
+
+export interface LocaleAuthFieldPattern {
+	value: string;
+	message: string;
 }
 
 export type LocaleAuthFieldPage = 'both' | 'signin' | 'signup';

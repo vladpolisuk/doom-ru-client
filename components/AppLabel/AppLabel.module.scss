@@ -5,6 +5,12 @@
 	justify-content: center;
 	width: 100%;
 	gap: 0.5rem;
+
+	&_errorMessage {
+		color: red;
+		user-select: none;
+		font-size: 12px;
+	}
 }
 
 .app_label_row {
