@@ -8,6 +8,13 @@ import { RootState } from '../types';
 export const getAppUser = (state: RootState) => state.app.user;
 
 /**
+ * The selector that returns the application user loading status from redux store
+ * @param state RootState
+ * @returns `boolean`
+ */
+export const getAppUserLoading = (state: RootState) => state.app.userLoading;
+
+/**
  * The selector that returns the application theme from redux store
  * @param state RootState
  * @returns `AppTheme`

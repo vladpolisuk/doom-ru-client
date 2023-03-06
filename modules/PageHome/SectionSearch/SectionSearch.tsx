@@ -12,7 +12,7 @@ export const SectionSearch: FC = () => {
 	const { t } = useTranslation('home');
 
 	const text = t('home_section_search.section_title');
-	const skeleton = <AppSkeleton className={s['home_sectionSearch_locationBadge--skeleton']} />;
+	const skeleton = <AppSkeleton className={s.home_sectionSearch_locationBadgeSkeleton} />;
 
 	return (
 		<section

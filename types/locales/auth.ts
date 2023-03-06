@@ -9,22 +9,32 @@ export interface LocaleAuthSignIn {
 	name: string;
 	title: string;
 	logo: string;
-	fields: LocaleAuthField[];
+	fields: LocaleAuthSignInField[] | LocaleAuthSignUpField[];
 	btn: LocaleAuthBtn;
 }
 
-export interface LocaleAuthField {
+export interface LocaleAuthSignInField {
 	page: LocaleAuthFieldPage;
-	name: LocaleAuthFieldName;
+	name: LocaleAuthSignInFieldName;
 	fieldType: LocaleAuthFieldType;
 	type: string;
 	title: string;
 	label: string;
 	showPasswordButton?: boolean;
 	minLength?: LocaleAuthFieldMinLength;
+	validate?: LocaleAuthFieldValidate;
 	required?: LocaleAuthFieldRequired;
 	pattern?: LocaleAuthFieldPattern;
 }
+
+export type LocaleAuthFieldValidate = {
+	equalValueField: LocaleAuthSignUpFieldName;
+	message: string;
+};
+
+export type LocaleAuthSignUpField = Omit<LocaleAuthSignInField, 'name'> & {
+	name: LocaleAuthSignUpFieldName;
+};
 
 export interface LocaleAuthFieldMinLength {
 	value: number;
@@ -43,7 +53,9 @@ export interface LocaleAuthFieldPattern {
 
 export type LocaleAuthFieldPage = 'both' | 'signin' | 'signup';
 
-export type LocaleAuthFieldName = 'email' | 'password' | 'remember';
+export type LocaleAuthSignInFieldName = 'email' | 'password' | 'remember';
+
+export type LocaleAuthSignUpFieldName = 'email' | 'password' | 'repeatPassword' | 'name' | 'secondName';
 
 export type LocaleAuthFieldType = 'input' | 'checkbox';
 

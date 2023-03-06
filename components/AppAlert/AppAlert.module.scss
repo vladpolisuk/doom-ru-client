@@ -1,0 +1,34 @@
+.app_alert {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 8px;
+	user-select: none;
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.app_alert--error {
+	background-color: rgba(255, 45, 45, 0.2);
+	color: rgb(255, 45, 45);
+	border: 2px solid rgb(255, 45, 45);
+}
+
+.app_alert--success {
+	background-color: rgba(56, 255, 79, 0.2);
+	color: rgb(56, 255, 79);
+	border: 2px solid rgb(56, 255, 79);
+}
+
+.app_alert--info {
+	background-color: rgba(129, 158, 255, 0.2);
+	color: rgb(129, 158, 255);
+	border: 2px solid rgb(129, 158, 255);
+}
+
+.app_alert--warning {
+	background-color: rgba(255, 140, 0, 0.2);
+	color: rgb(255, 140, 0);
+	border: 2px solid rgb(255, 140, 0);
+}

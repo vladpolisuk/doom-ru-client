@@ -7,6 +7,10 @@ export type AppState = {
 	 */
 	user: AppUser | null;
 	/**
+	 * The user loading status
+	 */
+	userLoading: boolean;
+	/**
 	 * The application theme
 	 */
 	theme: AppTheme | '';

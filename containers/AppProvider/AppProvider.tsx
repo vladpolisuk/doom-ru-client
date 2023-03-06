@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
-import { loadAppLocation, setAppTheme } from '../../store/app/actions';
+import { appMe, loadAppLocation, setAppTheme, setAppUserLoading } from '../../store/app/actions';
 import { getAppTheme } from '../../store/app/selectors';
 import { AppTheme } from '../../store/app/types';
 
@@ -22,11 +22,18 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 			dispatch(setAppTheme(theme as AppTheme));
 			setTheme(appTheme);
 		}
-	}, []);
+	}, [appTheme, dispatch, setTheme, theme]);
 
 	useEffect(() => {
-		dispatch(loadAppLocation());
-	}, []);
+		const fetchData = async () => {
+			dispatch(setAppUserLoading(true));
+			dispatch(loadAppLocation());
+			await dispatch(appMe());
+			dispatch(setAppUserLoading(false));
+		};
+
+		fetchData();
+	}, [dispatch]);
 
 	return <>{children}</>;
 };

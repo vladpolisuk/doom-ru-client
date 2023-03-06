@@ -3,6 +3,7 @@ import { AppLocation, AppState, AppTheme, AppUser } from './types';
 
 const initialState: AppState = {
 	user: null,
+	userLoading: true,
 	theme: 'system',
 	location: null
 };
@@ -16,8 +17,16 @@ const slice = createSlice({
 		 * @param state AppState
 		 * @param action AppUser
 		 */
-		setAppUser: (state, action: PayloadAction<AppUser>) => {
+		setAppUser: (state, action: PayloadAction<AppUser | null>) => {
 			state.user = action.payload;
+		},
+		/**
+		 * The application reducer that sets the application user to redux store
+		 * @param state AppState
+		 * @param action AppUser
+		 */
+		setAppUserLoading: (state, action: PayloadAction<boolean>) => {
+			state.userLoading = action.payload;
 		},
 		/**
 		 * The application reducer that sets the application theme to redux store

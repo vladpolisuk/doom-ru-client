@@ -2,43 +2,39 @@ import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
+import AppAlert from '../../components/AppAlert/AppAlert';
 import AppButton from '../../components/AppButton/AppButton';
 import AppCheckbox from '../../components/AppCheckbox/AppCheckbox';
 import AppInput from '../../components/AppInput/AppInput';
 import AppLabel from '../../components/AppLabel/AppLabel';
-import { LocaleAuthField } from '../../types/locales/auth';
+import { LocaleAuthSignUpField } from '../../types/locales/auth';
 import s from './PageAuth.module.scss';
 
 export type SignUpFields = {
 	email: string;
-	password: string;
 	name: string;
 	secondName: string;
+	password: string;
 	repeatPassword: string;
-	remember?: boolean;
 };
 
 type Props = {
 	onSubmit: (data: SignUpFields) => void;
+	loading: boolean;
+	error: string;
 };
 
-export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
+export const AuthSignUp: FC<Props> = ({ onSubmit, error, loading }) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-		setError
+		watch
 	} = useForm<SignUpFields>();
 	const t = useTranslation('auth').t;
 
-	const extendedOnSubmit = (data: SignUpFields) => {
-		if (data.password !== data.repeatPassword)
-			setError('repeatPassword', { type: 'value', message: 'Wrong password' });
-		else onSubmit(data);
-	};
-
 	const name = t('auth_form.signup.name');
-	const fields = t('auth_form.fields', { returnObjects: true }) as LocaleAuthField[];
+	const fields = t('auth_form.fields', { returnObjects: true }) as LocaleAuthSignUpField[];
 	const submit_title = t('auth_form.btn.signup.submit.title');
 	const submit_label = t('auth_form.btn.signup.submit.label');
 
@@ -46,8 +42,9 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 
 	return (
 		<form
-			onSubmit={handleSubmit(extendedOnSubmit)}
+			onSubmit={handleSubmit(onSubmit)}
 			className={s.auth_form}>
+			{error && <AppAlert type='error'>{error}</AppAlert>}
 			{fields
 				.filter(field => field.page === name || field.page === 'both')
 				.map(field => {
@@ -59,6 +56,7 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 									errorMessage={errors[field.name]?.message}>
 									<AppInput
 										onlyARIA
+										disabled={loading}
 										showPasswordButton={field.showPasswordButton}
 										type={field.type}
 										title={field.label}
@@ -68,6 +66,13 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 										{...register(field.name, {
 											required: field.required,
 											minLength: field.minLength,
+											validate: (value: string) => {
+												if (field.validate) {
+													if (watch(field.validate.equalValueField) != value) {
+														return field.validate.message;
+													}
+												}
+											},
 											pattern: field.pattern && {
 												value: new RegExp(field.pattern.value.slice(1, -1)),
 												message: field.pattern.message
@@ -90,6 +95,8 @@ export const AuthSignUp: FC<Props> = ({ onSubmit }) => {
 			<div className={s.auth_form_actions}>
 				<AppButton
 					type='submit'
+					disabled={loading}
+					loading={loading}
 					title={submit_label}
 					className={submitBtnStyles}>
 					{submit_title}

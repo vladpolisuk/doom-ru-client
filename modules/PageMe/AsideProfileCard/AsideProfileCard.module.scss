@@ -14,11 +14,6 @@
 	}
 
 	&_avatar {
-		border-radius: 50%;
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-o-border-radius: 50%;
 		margin-right: 15px;
 	}
 
@@ -34,5 +29,26 @@
 		margin-top: 2px;
 		font-size: 18px;
 		color: var(--color-2);
+	}
+
+	&_avatarSkeleton {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		margin-right: 15px;
+	}
+
+	&_secondNameSkeleton {
+		height: 24px;
+	}
+
+	&_nameSkeleton {
+		height: 24px;
+		margin-bottom: 1px;
+	}
+
+	&_idSkeleton {
+		margin-top: 2px;
+		height: 24px;
 	}
 }

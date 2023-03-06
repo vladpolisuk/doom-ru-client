@@ -1,13 +1,11 @@
-import { AxiosInstance } from 'axios';
-import { APIResponseType } from '.';
+export interface ILocationAPI {
+	/** ## Get city and country
+	 * Get city and country information by current location
+	 */
+	getCityAndCountry: () => Promise<{ city: string; country: string }>;
 
-export type GetLocationAPIType = () => {
-	/** Get city and country information by current location*/
-	getCityAndCountry: ReturnType<GetCityAndCountryType>;
-	/** Get IP by current location */
-	getIP: ReturnType<GetIPType>;
-};
-
-export type GetCityAndCountryType = (api: AxiosInstance) => () => APIResponseType<{ city: string; country: string }>;
-
-export type GetIPType = (api: AxiosInstance) => () => APIResponseType<string>;
+	/** ## Get IP
+	 * Get IP by current location
+	 */
+	getIP: () => Promise<string>;
+}

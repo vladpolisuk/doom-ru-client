@@ -20,7 +20,7 @@ const AppLocationBadge: FC<IAppNavigationBadge> = memo(
 
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_locationBadge, 'transition');
 
-		if (!location && Skeleton) return <>{Skeleton}</>;
+		if (!location && Skeleton) return Skeleton;
 
 		return (
 			<AppButton

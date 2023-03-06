@@ -29,6 +29,14 @@ button {
 	cursor: pointer;
 }
 
+input,
+button {
+	&:disabled {
+		opacity: 0.7;
+		user-select: none;
+	}
+}
+
 a,
 button,
 input,

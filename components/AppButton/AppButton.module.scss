@@ -1,6 +1,7 @@
 .app_button {
 	border: none;
 	padding: 10px 15px;
+	position: relative;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
@@ -8,6 +9,11 @@
 	font-size: 15px;
 	color: white;
 	outline: none;
+
+	&_spinner {
+		position: absolute;
+		left: 8px;
+	}
 }
 
 .app_button--primary {

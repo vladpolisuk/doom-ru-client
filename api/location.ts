@@ -1,35 +1,27 @@
-import axios from 'axios';
-import { GetCityAndCountryType, GetIPType, GetLocationAPIType } from '../types/api/location';
+import axios, { AxiosInstance } from 'axios';
+import { ILocationAPI } from '../types/api/location';
 
-const getCityAndCountry: GetCityAndCountryType = api => {
-	return async () => {
+/** ## Location API
+ * The common location api of the application
+ */
+class LocationAPI implements ILocationAPI {
+	private api: AxiosInstance;
+
+	constructor() {
+		this.api = axios.create({ baseURL: process.env.NEXT_PUBLIC_LOCATION_API_URL });
+	}
+
+	async getCityAndCountry() {
 		const {
 			data: { city, country_name }
-		} = await api.get('/json');
+		} = await this.api.get('/json');
 		return { city, country: country_name };
-	};
-};
+	}
 
-const getIP: GetIPType = api => {
-	return async () => {
-		const { data } = await api.get('/ip');
+	async getIP() {
+		const { data } = await this.api.get('/ip');
 		return data;
-	};
-};
+	}
+}
 
-/**
- * The common location api of the application
- * @method `getCityAndCountry` - Get city and country information by current location
- * @method `getIP` - Get IP by current location
- * @example
- * const api = getLocationAPI();
- * await api.getIP(); // 00.000.000.000
- */
-export const getLocationAPI: GetLocationAPIType = () => {
-	const api = axios.create({ baseURL: `https://ipapi.co` });
-
-	return {
-		getCityAndCountry: getCityAndCountry(api),
-		getIP: getIP(api)
-	};
-};
+export default LocationAPI;

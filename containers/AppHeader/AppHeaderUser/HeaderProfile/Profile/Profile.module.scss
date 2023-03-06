@@ -9,13 +9,11 @@
 	-ms-border-radius: 8px;
 	-o-border-radius: 8px;
 	margin-left: 10px;
+}
 
-	&_image {
-		border-radius: 50%;
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-o-border-radius: 50%;
-		user-select: none;
-	}
+.header_profileSkeleton {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	background-color: var(--color-6);
 }

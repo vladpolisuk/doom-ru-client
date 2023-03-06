@@ -6,8 +6,8 @@ import {
 	InputHTMLAttributes,
 	KeyboardEvent,
 	memo,
-	useState,
-	useEffect
+	useEffect,
+	useState
 } from 'react';
 import { BaseAppComponent } from '../../types/components';
 import AppInput from '../AppInput/AppInput';
@@ -44,7 +44,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	useEffect(() => {
 		if (code.length === codeLength) submit(+code);
-	}, [code]);
+	}, [code, codeLength, submit]);
 
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
 		if (!event.target.value) return;

@@ -8,6 +8,9 @@ const withPWA = require('next-pwa')({
 const nextConfig = withPWA({
 	reactStrictMode: false,
 	swcMinify: true,
+	compiler: {
+		removeConsole: true
+	},
 	i18n,
 	images: {
 		domains: ['lh3.googleusercontent.com', 'i.postimg.cc', 'www.udr.com', 'images.unsplash.com']

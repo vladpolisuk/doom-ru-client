@@ -1,8 +1,8 @@
 import { GetStaticPropsContext } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
-import { useTranslation } from 'next-i18next';
 import PageMe from '../../modules/PageMe/PageMe';
 
 export default function Me() {

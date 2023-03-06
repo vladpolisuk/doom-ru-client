@@ -1,9 +1,9 @@
+import clsx from 'clsx';
+import { CreatePost } from './CreatePost/CreatePost';
 import { Favorites } from './Favorites/Favorites';
 import s from './HeaderProfile.module.scss';
 import { Notifications } from './Notifications/Notifications';
 import { Profile } from './Profile/Profile';
-import clsx from 'clsx';
-import { CreatePost } from './CreatePost/CreatePost';
 
 export const HeaderProfile = () => {
 	return (
