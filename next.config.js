@@ -12,9 +12,6 @@ const nextConfig = withPWA({
 		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
 		NEXT_PUBLIC_LOCATION_API_URL: process.env.NEXT_PUBLIC_LOCATION_API_URL
 	},
-	compiler: {
-		removeConsole: true
-	},
 	i18n,
 	images: {
 		domains: ['lh3.googleusercontent.com', 'i.postimg.cc', 'www.udr.com', 'images.unsplash.com']

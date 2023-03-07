@@ -1,6 +1,5 @@
 import {
 	BaseSyntheticEvent,
-	ChangeEvent,
 	ClipboardEvent,
 	FC,
 	InputHTMLAttributes,
@@ -44,25 +43,30 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	useEffect(() => {
 		if (code.length === codeLength) submit(+code);
-	}, [code, codeLength, submit]);
+		console.log(code);
+	}, [code]);
 
-	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-		if (!event.target.value) return;
+	const onChange = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
+		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
 		const id = +event.target.id;
 		const value = +event.target.value;
-		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
 		if (id !== codeLength - 1) fields.item(id + 1).focus();
 		const div = Math.floor(value / 10);
 		if (div < 1) return setCode(code + value);
 		fields.item(id).value = String(div);
 	};
 
-	const handleKeyDown = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
+	const handleBackspace = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
 		const id = +event.target.id;
-		if (event.target.value || event.key !== 'Backspace') return;
+		const value = +event.target.value;
+		if (event.key !== 'Backspace') return;
+		event.preventDefault();
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
-		if (id === 0) return;
-		fields.item(id - 1).focus();
+		if (id > 0) {
+			if (!value) return fields.item(id - 1).focus();
+			fields.item(id - 1).focus();
+		}
+		fields.item(id).value = '';
 		setCode(code.slice(0, code.length - 1));
 	};
 
@@ -90,9 +94,9 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 					id={`${value}`}
 					key={value}
 					data-testid='app-inputCode'
-					onChange={onChange}
+					onInput={onChange}
 					onPaste={onPaste}
-					onKeyDown={handleKeyDown}
+					onKeyDown={handleBackspace}
 					placeholder={codePlaceholder}
 					className={s.app_inputCode}
 					{...extra}

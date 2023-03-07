@@ -54,9 +54,7 @@ const AppInput: FC<IAppInput> = memo(
 
 		const [inputType, setInputType] = useState(type);
 
-		const handleShowPassword = (event: any) => {
-			event.preventDefault();
-			event.stopPropagation();
+		const handleShowPassword = () => {
 			setInputType(inputType === 'password' ? 'text' : 'password');
 		};
 
@@ -115,6 +113,7 @@ const AppInput: FC<IAppInput> = memo(
 
 					<AppButton
 						color='transparent'
+						type='button'
 						onClick={handleShowPassword}
 						className={s.app_input_showPasswordButton}>
 						{inputType === 'password' ? <FaRegEye size='20' /> : <FaRegEyeSlash size='20' />}
