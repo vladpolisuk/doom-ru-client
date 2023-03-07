@@ -125,13 +125,15 @@ export const appMe = () => {
 		try {
 			const api = new AuthAPI();
 			const jwtToken = localStorage.getItem('token');
-			if (!jwtToken) return false;
+			if (!jwtToken) return { success: false, message: '' };
 			const response = await api.me(jwtToken);
 			const user = response.data.data.user;
 			dispatch(setAppUser(user));
 			return { success: true };
 		} catch (error: any) {
 			const axiosError: any = error as AxiosError;
+
+			localStorage.removeItem('token');
 
 			return {
 				success: false,

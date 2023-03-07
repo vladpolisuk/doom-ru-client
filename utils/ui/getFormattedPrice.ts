@@ -17,7 +17,7 @@ const localesSource = {
  * @returns string
  * */
 const formattedPrice: GetFormattedPrice = (price, currency = 'USD', term = 'month', locale = 'en') => {
-	const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency });
+	const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency, minimumFractionDigits: 0 });
 	const priceFormatted = formatter.format(price);
 	const termFormatted = localesSource[locale][term];
 	return `${priceFormatted} / ${termFormatted}`;
