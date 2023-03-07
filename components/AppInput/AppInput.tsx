@@ -115,7 +115,7 @@ const AppInput: FC<IAppInput> = memo(
 
 					<AppButton
 						color='transparent'
-						onMouseDown={handleShowPassword}
+						onClick={handleShowPassword}
 						className={s.app_input_showPasswordButton}>
 						{inputType === 'password' ? <FaRegEye size='20' /> : <FaRegEyeSlash size='20' />}
 					</AppButton>
