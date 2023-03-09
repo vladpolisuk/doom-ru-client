@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Locale } from '../../types/locales';
-import { AppLocation, AppState, AppTheme, AppUser } from './types';
+import { AppLocation, AppState, AppTheme, AppUser, Locale } from './types';
 
 const initialState: AppState = {
 	user: null,

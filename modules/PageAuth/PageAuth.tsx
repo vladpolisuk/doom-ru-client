@@ -48,6 +48,7 @@ const PageAuth = () => {
 		const result = await dispatch(appSignUp(newData));
 		setLoading(false);
 		if (!result.success) return setFormError(result.message);
+		setFormError('');
 		router.push(`/${router.locale}`);
 	};
 
