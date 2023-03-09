@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Locale } from '../../types/locales';
 import { AppLocation, AppState, AppTheme, AppUser } from './types';
 
 const initialState: AppState = {
 	user: null,
 	userLoading: true,
 	theme: 'system',
-	location: null
+	location: null,
+	locale: 'en'
 };
 
 const slice = createSlice({
@@ -23,7 +25,7 @@ const slice = createSlice({
 		/**
 		 * The application reducer that sets the application user to redux store
 		 * @param state AppState
-		 * @param action AppUser
+		 * @param action boolean
 		 */
 		setAppUserLoading: (state, action: PayloadAction<boolean>) => {
 			state.userLoading = action.payload;
@@ -43,6 +45,14 @@ const slice = createSlice({
 		 */
 		setAppLocation: (state, action: PayloadAction<AppLocation>) => {
 			state.location = action.payload;
+		},
+		/**
+		 * The application reducer that sets the application locale to redux store
+		 * @param state AppState
+		 * @param action Locale
+		 */
+		setAppLocale: (state, action: PayloadAction<Locale>) => {
+			state.locale = action.payload;
 		}
 	}
 });

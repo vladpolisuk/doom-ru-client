@@ -1,4 +1,4 @@
-import { Locale } from '../../types/locales';
+import { Locale } from '../../store/app/types';
 
 type GetFormattedCreatedAt = (createdAt: number, locale?: Locale) => string;
 

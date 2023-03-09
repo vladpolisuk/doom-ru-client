@@ -1,4 +1,4 @@
-import { Locale } from '.';
+import { Locale } from '../../store/app/types';
 
 export interface LocaleHeader {
 	locale: Locale;

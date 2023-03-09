@@ -27,3 +27,10 @@ export const getAppTheme = (state: RootState) => state.app.theme;
  * @returns `AppLocation`
  */
 export const getAppLocation = (state: RootState) => state.app.location;
+
+/**
+ * The selector that returns the application locale from redux store
+ * @param state RootState
+ * @returns `AppLocale`
+ */
+export const getAppLocale = (state: RootState) => state.app.locale;

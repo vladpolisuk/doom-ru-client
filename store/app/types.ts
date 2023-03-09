@@ -18,6 +18,10 @@ export type AppState = {
 	 * The application location
 	 */
 	location: AppLocation | null;
+	/**
+	 * The applications locale
+	 */
+	locale: Locale;
 };
 
 /**
@@ -73,3 +77,8 @@ export type AppLocation = {
 	 */
 	country: string;
 };
+
+/**
+ *
+ */
+export type Locale = 'ru' | 'en';

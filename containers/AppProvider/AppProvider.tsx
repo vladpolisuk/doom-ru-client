@@ -1,9 +1,9 @@
 import { useTheme } from 'next-themes';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
-import { appMe, loadAppLocation, setAppTheme, setAppUserLoading } from '../../store/app/actions';
+import { appMe, loadAppLocation, setAppLocale, setAppTheme, setAppUserLoading } from '../../store/app/actions';
 import { getAppTheme } from '../../store/app/selectors';
-import { AppTheme } from '../../store/app/types';
+import { AppTheme, Locale } from '../../store/app/types';
 
 /**
  * The global application provider
@@ -25,9 +25,12 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 	}, [appTheme, dispatch, setTheme, theme]);
 
 	useEffect(() => {
+		const lang = window.location.pathname.split('/')[1] as Locale;
+
 		const fetchData = async () => {
 			dispatch(setAppUserLoading(true));
 			dispatch(loadAppLocation());
+			await dispatch(setAppLocale(lang));
 			await dispatch(appMe());
 			dispatch(setAppUserLoading(false));
 		};

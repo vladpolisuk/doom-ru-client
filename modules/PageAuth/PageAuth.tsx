@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { useAppDispatch } from '../../hooks/store';
 import { appSignUp, appVerify } from '../../store/app/actions';
+import { Locale } from '../../store/app/types';
 import { SendVerifyFields } from '../../types/api/auth';
 import removeProperty from '../../utils/removeProperty';
 import { AuthCode } from './AuthCode';
@@ -32,7 +33,7 @@ const PageAuth = () => {
 		};
 
 		const newData = removeProperty<SendVerifyFields>(body, 'repeatPassword');
-		const result = await appVerify(newData);
+		const result = await appVerify(newData, router.locale as Locale);
 		setLoading(false);
 		if (!result.success) return setFormError(result.message);
 		setFormError('');

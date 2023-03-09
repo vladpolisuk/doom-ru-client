@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { Locale } from '../store/app/types';
 import type { IAuthAPI, SendSignInFields, SendSignUpFields, SendVerifyFields } from './../types/api/auth';
 
 /** ## Auth API
@@ -7,8 +8,11 @@ import type { IAuthAPI, SendSignInFields, SendSignUpFields, SendVerifyFields } f
 class AuthAPI implements IAuthAPI {
 	private api: AxiosInstance;
 
-	constructor() {
-		this.api = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_URL });
+	constructor(lang: Locale) {
+		this.api = axios.create({
+			baseURL: process.env.NEXT_PUBLIC_API_URL,
+			headers: { 'accept-language': lang }
+		});
 	}
 
 	public async signUp(data: SendSignUpFields) {

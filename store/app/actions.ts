@@ -2,9 +2,9 @@ import { AxiosError } from 'axios';
 import AuthAPI from '../../api/auth';
 import LocationAPI from '../../api/location';
 import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../types/api/auth';
-import { AppDispatch } from './../types';
+import { AppDispatch, RootState } from './../types';
 import { appActions } from './reducer';
-import { AppLocation, AppTheme, AppUser } from './types';
+import { AppLocation, AppTheme, AppUser, Locale } from './types';
 
 /**
  * The action that sets the application user to redux store
@@ -54,9 +54,9 @@ export const loadAppLocation = () => {
 /** ## App Verify User
  * The action that send verify request
  */
-export const appVerify = async (data: SendVerifyFields) => {
+export const appVerify = async (data: SendVerifyFields, lang: Locale) => {
 	try {
-		const api = new AuthAPI();
+		const api = new AuthAPI(lang);
 		await api.verify(data);
 		return { success: true };
 	} catch (error) {
@@ -73,9 +73,10 @@ export const appVerify = async (data: SendVerifyFields) => {
  * The action that send signup request
  */
 export const appSignUp = (data: SendSignUpFields) => {
-	return async (dispatch: AppDispatch) => {
+	return async (dispatch: AppDispatch, getState: () => RootState) => {
 		try {
-			const api = new AuthAPI();
+			const lang = getState().app.locale;
+			const api = new AuthAPI(lang);
 			const response = await api.signUp(data);
 			const user = response.data.data.user;
 			const token = response.data.data.token;
@@ -97,9 +98,10 @@ export const appSignUp = (data: SendSignUpFields) => {
  * The action that send signin request
  */
 export const appSignIn = (data: SendSignInFields) => {
-	return async (dispatch: AppDispatch) => {
+	return async (dispatch: AppDispatch, getState: () => RootState) => {
 		try {
-			const api = new AuthAPI();
+			const lang = getState().app.locale;
+			const api = new AuthAPI(lang);
 			const response = await api.signIn(data);
 			const user = response.data.data.user;
 			const token = response.data.data.token;
@@ -121,9 +123,10 @@ export const appSignIn = (data: SendSignInFields) => {
  * The action that send me request
  */
 export const appMe = () => {
-	return async (dispatch: AppDispatch) => {
+	return async (dispatch: AppDispatch, getState: () => RootState) => {
 		try {
-			const api = new AuthAPI();
+			const lang = getState().app.locale;
+			const api = new AuthAPI(lang);
 			const jwtToken = localStorage.getItem('token');
 			if (!jwtToken) return { success: false, message: '' };
 			const response = await api.me(jwtToken);
@@ -149,6 +152,15 @@ export const appMe = () => {
 export const setAppUserLoading = (loading: boolean) => {
 	return async (dispatch: AppDispatch) => {
 		dispatch(appActions.setAppUserLoading(loading));
+	};
+};
+
+/** ## App Locale
+ * The action that set app locale
+ */
+export const setAppLocale = (locale: Locale) => {
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppLocale(locale));
 	};
 };
 

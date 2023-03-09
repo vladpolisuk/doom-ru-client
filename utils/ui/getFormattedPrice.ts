@@ -1,5 +1,5 @@
+import { Locale } from '../../store/app/types';
 import { RealtyCurrency, RealtyTerm } from '../../types';
-import { Locale } from '../../types/locales';
 
 type GetFormattedPrice = (price: number, currency?: RealtyCurrency, term?: RealtyTerm, locale?: Locale) => string;
 
