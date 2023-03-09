@@ -8,8 +8,8 @@ import AppButton from '../../../../components/AppButton/AppButton';
 import AppLink from '../../../../components/AppLink/AppLink';
 import { Locale } from '../../../../store/app/types';
 import { Realty } from '../../../../types';
-import getFormattedCreatedAt from '../../../../utils/ui/getFormattedCreatedAt';
-import getFormattedPrice from '../../../../utils/ui/getFormattedPrice';
+import formatCreatedAt from '../../../../utils/ui/formatCreatedAt';
+import formatPrice from '../../../../utils/ui/formatPrice';
 import { View } from '../../PageSearch';
 import s from './RealtyItem.module.scss';
 import { RealtyItemImages } from './RealtyItemImages';
@@ -39,8 +39,8 @@ const RealtyItem: FC<Props> = memo(props => {
 
 	const url = `/s/${id}`;
 	const favoriteLabel = t('realty.favorite.add_label');
-	const formattedPrice = getFormattedPrice(price, currency, term, router.locale as Locale);
-	const formattedTime = getFormattedCreatedAt(createdAt, router.locale as Locale);
+	const formattedPrice = formatPrice(price, currency, term, router.locale as Locale);
+	const formattedTime = formatCreatedAt(createdAt, router.locale as Locale);
 
 	const styles = clsx(s.realty_item, s[`realty_item--${view}`], 'transition');
 	const styles_info = clsx(s.realty_item_info, s[`realty_item_info--${view}`], 'transition');

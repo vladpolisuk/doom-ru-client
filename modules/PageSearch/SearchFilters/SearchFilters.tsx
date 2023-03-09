@@ -13,7 +13,7 @@ import { RealtyFilter, RealtyFilters } from '../../../types';
 import { LocaleSearchFilter } from '../../../types/locales/search';
 import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';
-import getParsedQueries from '../../../utils/ui/getParsedQueries';
+import parseQueries from '../../../utils/ui/parseQueries';
 import s from './SearchFilters.module.scss';
 
 export const SearchFilters = () => {
@@ -24,7 +24,7 @@ export const SearchFilters = () => {
 
 	useEffect(() => {
 		if (!router.query) return;
-		const queries = getParsedQueries(router.query);
+		const queries = parseQueries(router.query);
 		const values = getValues();
 		// @ts-ignore
 		for (const key in values) setValue(key, queries[key]);
@@ -32,7 +32,7 @@ export const SearchFilters = () => {
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {
 		console.log(data);
-		const queries: any = getParsedQueries(data);
+		const queries: any = parseQueries(data);
 		const query: any = {};
 		for (let i in queries) if (queries[i]) query[i] = queries[i];
 		router.push({ pathname: `/s/${action}`, query });

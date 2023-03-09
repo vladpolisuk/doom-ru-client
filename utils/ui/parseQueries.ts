@@ -1,4 +1,4 @@
-type GetParsedQueries = <T>(values: T) => T;
+type ParseQueries = <T>(values: T) => T;
 
 const parseString = (value: string) => {
 	if (value === 'true') return true;
@@ -12,7 +12,7 @@ const parseString = (value: string) => {
  * @param values initial Object: T
  * @returns Object: T
  */
-const getParsedQueries: GetParsedQueries = values => {
+const parseQueries: ParseQueries = values => {
 	const result: any = {};
 
 	for (const key in values) {
@@ -30,4 +30,4 @@ const getParsedQueries: GetParsedQueries = values => {
 	return result;
 };
 
-export default getParsedQueries;
+export default parseQueries;

@@ -1,4 +1,4 @@
-type GetFormatTime = (seconds: number, format: string) => string;
+type FormatTime = (seconds: number, format: string) => string;
 
 /**
  * Format time in seconds to the specified format.
@@ -6,7 +6,7 @@ type GetFormatTime = (seconds: number, format: string) => string;
  * @param {string} format - Format in "mm:ss" or "hh:mm:ss".
  * @returns {string} - Formatted time.
  */
-const getFormatTime: GetFormatTime = (seconds: number, format: string) => {
+const formatTime: FormatTime = (seconds: number, format: string) => {
 	const hours = Math.floor(seconds / 3600);
 	const minutes = Math.floor((seconds % 3600) / 60);
 	const sec = seconds % 60;
@@ -24,4 +24,4 @@ const getFormatTime: GetFormatTime = (seconds: number, format: string) => {
 	return formattedTime;
 };
 
-export default getFormatTime;
+export default formatTime;

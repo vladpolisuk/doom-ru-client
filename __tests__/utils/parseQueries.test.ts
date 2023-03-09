@@ -1,6 +1,6 @@
-import getParsedQueries from '../../utils/ui/getParsedQueries';
+import parseQueries from '../../utils/ui/parseQueries';
 
-describe('getParsedQueries', () => {
+describe('parseQueries', () => {
 	it('should return parsed queries', () => {
 		const values = {
 			string: 'string',
@@ -11,7 +11,7 @@ describe('getParsedQueries', () => {
 			undefined: undefined
 		};
 
-		const result = getParsedQueries(values);
+		const result = parseQueries(values);
 
 		expect(result).toEqual({
 			string: 'string',
@@ -32,7 +32,7 @@ describe('getParsedQueries', () => {
 			empty: ''
 		};
 
-		const result = getParsedQueries(values);
+		const result = parseQueries(values);
 
 		expect(result).toEqual({
 			string: 'string',
@@ -45,7 +45,7 @@ describe('getParsedQueries', () => {
 
 	it('should return empty object', () => {
 		const values = {};
-		const result = getParsedQueries(values);
+		const result = parseQueries(values);
 		expect(result).toEqual({});
 	});
 });

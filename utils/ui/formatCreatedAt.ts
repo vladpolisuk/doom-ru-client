@@ -1,6 +1,6 @@
 import { Locale } from '../../store/app/types';
 
-type GetFormattedCreatedAt = (createdAt: number, locale?: Locale) => string;
+type FormatCreatedAt = (createdAt: number, locale?: Locale) => string;
 
 const localesSource = {
 	en: {
@@ -25,7 +25,7 @@ const localesSource = {
  * @param locale available locale
  * @return string
  * */
-const getFormattedCreatedAt: GetFormattedCreatedAt = (createdAt, locale = 'en') => {
+const formatCreatedAt: FormatCreatedAt = (createdAt, locale = 'en') => {
 	const now = new Date();
 	const created = new Date(createdAt);
 	const timeDiff = now.getTime() - created.getTime();
@@ -45,4 +45,4 @@ const getFormattedCreatedAt: GetFormattedCreatedAt = (createdAt, locale = 'en') 
 	return formatter.format(-monthsDiff, 'month');
 };
 
-export default getFormattedCreatedAt;
+export default formatCreatedAt;
