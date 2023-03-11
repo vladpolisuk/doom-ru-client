@@ -16,7 +16,7 @@ export const RealtyItemImages: FC<Props> = memo(({ images, view, title, realtyUR
 
 	const resetShowImageId = () => setShowImageId(0);
 
-	const imageSrc = `${process.env.NEXT_PUBLIC_API_URL}/api/image/${images[showImageId].id}`;
+	const imageSrc = `${process.env.NEXT_PUBLIC_API_URL}/image/${images[showImageId].id}`;
 	const styles_image = clsx(s.realty_item_image, s[`realty_item_image--${view}`], 'transition');
 
 	return (

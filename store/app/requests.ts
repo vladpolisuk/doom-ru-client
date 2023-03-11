@@ -1,7 +1,8 @@
 import AuthAPI from '../../api/auth';
+import LocationAPI from '../../api/location';
 import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../types/api/auth';
-import { AppDispatch, RootState } from '../types';
-import { setAppUser } from './actions';
+import { AppDispatch, AppGetState } from '../types';
+import { setAppLocation, setAppUser } from './actions';
 import { Locale } from './types';
 
 /** ## App Verify User
@@ -24,15 +25,13 @@ export const appVerify = async (data: SendVerifyFields, lang: Locale) => {
  * The action that send signup request
  */
 export const appSignUp = (data: SendSignUpFields) => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
+	return async (dispatch: AppDispatch, getState: AppGetState) => {
 		try {
 			const lang = getState().app.locale;
 			const api = new AuthAPI(lang);
 			const response = await api.signUp(data);
-			const user = response.data.user;
-			const token = response.data.token;
-			localStorage.setItem('token', token);
-			dispatch(setAppUser(user));
+			const user = response.data;
+			await dispatch(setAppUser(user));
 			return { success: true };
 		} catch (error: any) {
 			return {
@@ -47,15 +46,13 @@ export const appSignUp = (data: SendSignUpFields) => {
  * The action that send signin request
  */
 export const appSignIn = (data: SendSignInFields) => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
+	return async (dispatch: AppDispatch, getState: AppGetState) => {
 		try {
 			const lang = getState().app.locale;
 			const api = new AuthAPI(lang);
 			const response = await api.signIn(data);
-			const user = response.data.user;
-			const token = response.data.token;
-			localStorage.setItem('token', token);
-			dispatch(setAppUser(user));
+			const user = response.data;
+			await dispatch(setAppUser(user));
 			return { success: true };
 		} catch (error: any) {
 			return {
@@ -67,26 +64,52 @@ export const appSignIn = (data: SendSignInFields) => {
 };
 
 /** ## App Me
- * The action that send me request
+ * The request that send get me
  */
 export const appMe = () => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
+	return async (dispatch: AppDispatch, getState: AppGetState) => {
 		try {
-			const jwtToken = localStorage.getItem('token');
-			if (!jwtToken) return { success: false, message: '' };
 			const lang = getState().app.locale;
-			const api = new AuthAPI(lang, jwtToken);
+			const api = new AuthAPI(lang);
 			const response = await api.me();
-			const user = response.data.user;
-			dispatch(setAppUser(user));
+			const user = response.data;
+			await dispatch(setAppUser(user));
 			return { success: true };
 		} catch (error: any) {
-			localStorage.removeItem('token');
-
 			return {
 				success: false,
 				message: error.message
 			};
 		}
+	};
+};
+
+/** ## App Sign Out
+ * The request that send sign out
+ */
+export const appSignOut = () => {
+	return async (dispatch: AppDispatch, getState: AppGetState) => {
+		try {
+			const locale = getState().app.locale;
+			const api = new AuthAPI(locale);
+			await api.signOut();
+			return { success: true };
+		} catch (error: any) {
+			return {
+				success: false,
+				message: error.message
+			};
+		}
+	};
+};
+
+/**
+ * The action that load the user's location by IP
+ */
+export const loadAppLocation = () => {
+	return async (dispatch: AppDispatch) => {
+		const api = new LocationAPI();
+		const data = await api.getCityAndCountry();
+		await dispatch(setAppLocation(data));
 	};
 };

@@ -12,7 +12,7 @@ export const SearchSorts = () => {
 		defaultValues: { sort_by: 'default' }
 	});
 
-	const onSubmit = (data: RealtySort) => console.log(data);
+	const onSubmit = (data: RealtySort) => alert(JSON.stringify(data, null, 4));
 
 	const sort = t('search_sorts.sort_by', { returnObjects: true }) as LocaleSearchSortsSortBy;
 

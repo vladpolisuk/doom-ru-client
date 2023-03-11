@@ -1,9 +1,13 @@
-import { GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { Fragment } from 'react';
-import PageMe from '../../modules/PageMe/PageMe';
+import AuthAPI from '../../api/auth';
+import { Locale } from '../../store/app/types';
+
+const PageMe = dynamic(() => import('../../modules/PageMe/PageMe'));
 
 export default function Me() {
 	const t = useTranslation('common').t;
@@ -37,10 +41,28 @@ export default function Me() {
 	);
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-	return {
-		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'footer', 'me']))
-		}
-	};
+export async function getServerSideProps({ locale, req }: GetServerSidePropsContext) {
+	const lang = locale as Locale;
+	const translations = await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'footer', 'me']);
+
+	try {
+		const api = new AuthAPI(lang, {
+			cookie: req.headers.cookie ?? ''
+		});
+
+		await api.me();
+
+		return {
+			props: {
+				...translations
+			}
+		};
+	} catch (error: any) {
+		return {
+			redirect: {
+				permanent: false,
+				destination: `/${locale}`
+			}
+		};
+	}
 }

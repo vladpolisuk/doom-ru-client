@@ -43,8 +43,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	useEffect(() => {
 		if (code.length === codeLength) submit(+code);
-		console.log(code);
-	}, [code]);
+	}, [code, codeLength, submit]);
 
 	const onChange = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;

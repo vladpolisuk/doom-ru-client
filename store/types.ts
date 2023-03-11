@@ -8,3 +8,8 @@ export type RootState = ReturnType<typeof store.getState>;
  * The app dispatch type
  */
 export type AppDispatch = typeof store.dispatch;
+
+/**
+ * The app get state
+ */
+export type AppGetState = () => RootState;

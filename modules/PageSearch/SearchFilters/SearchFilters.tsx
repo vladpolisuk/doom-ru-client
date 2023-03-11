@@ -31,7 +31,6 @@ export const SearchFilters = () => {
 	}, [router.query, getValues, setValue]);
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {
-		console.log(data);
 		const queries: any = parseQueries(data);
 		const query: any = {};
 		for (let i in queries) if (queries[i]) query[i] = queries[i];

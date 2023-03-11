@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { useAppDispatch } from '../../hooks/store';
-import { appSignOut } from '../../store/app/actions';
+import { appSignOut } from '../../store/app/requests';
 import AppButton, { IAppButton } from '../AppButton/AppButton';
 
 type IAppSignOutButton = IAppButton;
@@ -13,17 +13,16 @@ type IAppSignOutButton = IAppButton;
  * @return `html:button`
  */
 const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) => {
-	const dispatch = useAppDispatch();
 	const router = useRouter();
+	const dispatch = useAppDispatch();
 
 	const logout = async () => {
-		dispatch(appSignOut());
-		router.push(`/${router.locale}`);
+		await dispatch(appSignOut());
+		router.reload();
 	};
 
 	return (
 		<AppButton
-			color='transparent'
 			onClick={logout}
 			{...props}>
 			{children}

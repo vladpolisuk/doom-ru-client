@@ -1,4 +1,3 @@
-import LocationAPI from '../../api/location';
 import { AppDispatch } from './../types';
 import { appActions } from './reducer';
 import { AppLocation, AppTheme, AppUser, Locale } from './types';
@@ -36,18 +35,6 @@ export const setAppLocation = (location: AppLocation) => {
 	};
 };
 
-/**
- * The action that load the user's location by IP
- * @returns void
- */
-export const loadAppLocation = () => {
-	return async (dispatch: AppDispatch) => {
-		const api = new LocationAPI();
-		const data = await api.getCityAndCountry();
-		dispatch(setAppLocation(data));
-	};
-};
-
 /** ## App User Loading
  * The action that set user loading status
  */
@@ -63,12 +50,5 @@ export const setAppUserLoading = (loading: boolean) => {
 export const setAppLocale = (locale: Locale) => {
 	return async (dispatch: AppDispatch) => {
 		dispatch(appActions.setAppLocale(locale));
-	};
-};
-
-export const appSignOut = () => {
-	return async (dispatch: AppDispatch) => {
-		dispatch(appActions.setAppUser(null));
-		localStorage.removeItem('token');
 	};
 };

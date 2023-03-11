@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { FiLogOut } from 'react-icons/fi';
 import AppSignOutButton from '../../components/AppSignOutButton/AppSignOutButton';
 import { LocaleMeAsideLogOut } from '../../types/locales/me';
@@ -10,15 +8,8 @@ import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
 const PageMe = () => {
-	const router = useRouter();
 	const { t } = useTranslation('me');
 	const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
-
-	useEffect(() => {
-		const token = localStorage.getItem('token');
-		if (!token) router.push(`/${router.locale}`);
-	}, [router]);
-
 	const styles = clsx(s.me_container, 'container');
 
 	return (
@@ -38,6 +29,7 @@ const PageMe = () => {
 					<AppSignOutButton
 						resetStyles
 						onlyARIA
+						color='transparent'
 						className={s.me_logout}
 						title={title}>
 						<FiLogOut className={s.me_logout_icon} />

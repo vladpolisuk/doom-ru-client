@@ -11,7 +11,7 @@ export const SearchBarForm = () => {
 	const { t } = useTranslation('home');
 	const { register, handleSubmit } = useForm<HomeRealtySearch>();
 
-	const onSubmit = (data: HomeRealtySearch) => console.log(data);
+	const onSubmit = (data: HomeRealtySearch) => alert(JSON.stringify(data, null, 4));
 
 	const inputTitle = t('home_section_search.search_input.title');
 	const inputPlaceholder = t('home_section_search.search_input.placeholder');

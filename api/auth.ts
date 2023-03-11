@@ -1,55 +1,33 @@
+import BaseAPI from '.';
 import { Locale } from '../store/app/types';
-import type { IAuthAPI, SendSignInFields, SendSignUpFields, SendVerifyFields } from './../types/api/auth';
+import type { SendSignInFields, SendSignUpFields, SendVerifyFields } from './../types/api/auth';
 
 /** ## Auth API
  * The common auth api of the application
  */
-class AuthAPI implements IAuthAPI {
-	private baseURL: string;
-	private headers: HeadersInit;
-
-	constructor(lang: Locale, jwt?: string) {
-		this.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api/auth`;
-		this.headers = {
-			'accept-language': lang,
-			'Content-Type': 'application/json',
-			authorization: `Bearer ${jwt}`
-		};
+export class AuthAPI extends BaseAPI {
+	constructor(lang: Locale, headers?: HeadersInit) {
+		super(`${process.env.NEXT_PUBLIC_API_URL}/auth`, lang, headers);
 	}
 
 	public async signUp(data: SendSignUpFields) {
-		return await this.fetch('/signup', 'POST', data);
+		return await this.fetch('POST')('/signup', data);
 	}
 
 	public async verify(data: SendVerifyFields) {
-		return await this.fetch('/verify', 'POST', data);
+		return await this.fetch('POST')('/verify', data);
 	}
 
 	public async signIn(data: SendSignInFields) {
-		return await this.fetch('/signin', 'POST', data);
+		return await this.fetch('POST')('/signin', data);
+	}
+
+	public async signOut() {
+		return await this.fetch('POST')('/signout');
 	}
 
 	public async me() {
-		return await this.fetch('/me');
-	}
-
-	private async fetch(url: string, method?: 'GET' | 'POST' | 'PUT' | 'DELETE', data?: any) {
-		const response = await fetch(`${this.baseURL}${url}`, {
-			headers: this.headers,
-			mode: 'cors',
-			body: JSON.stringify(data),
-			method: method || 'GET'
-		});
-
-		if (response.status >= 200 && response.status <= 299) {
-			return {
-				type: 'success',
-				...(await response.json())
-			};
-		}
-
-		const error = await response.json();
-		throw new Error(error.message);
+		return await this.fetch('GET')('/me');
 	}
 }
 

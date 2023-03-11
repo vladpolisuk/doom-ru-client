@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import AppLink from '../../../components/AppLink/AppLink';
 import { LocaleHeaderNavLink } from '../../../types/locales/header';
 import s from './AppHeaderNav.module.scss';
-import clsx from 'clsx';
 
 const AppHeaderNav = () => {
 	const { t } = useTranslation('header');
