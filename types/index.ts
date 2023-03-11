@@ -4,8 +4,7 @@ export interface Realty {
 	type: RealtyType;
 	title: string;
 	description: string;
-	primeImage: string;
-	images: string[];
+	images: RealtyImage[];
 	address: string;
 	rooms: number;
 	term: RealtyTerm;
@@ -17,6 +16,7 @@ export interface Realty {
 	repair: RealtyRepair;
 	elevator: boolean;
 	bedrooms: number;
+	bathrooms: number;
 	createdAt: number;
 	updatedAt: number;
 }
@@ -32,6 +32,10 @@ export type RealtyCurrency = 'USD' | 'RUB';
 export type RealtyHouseType = 'brick' | 'panel' | 'monolith' | 'wood' | 'other';
 
 export type RealtyRepair = 'design' | 'euro' | 'cosmetic' | 'without';
+
+export interface RealtyImage {
+	id: string;
+}
 
 export interface HomeRealtySearch {
 	address: string;

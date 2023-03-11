@@ -157,3 +157,60 @@
 		opacity: 0.8;
 	}
 }
+
+.realty_itemSkeleton {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	align-items: flex-start;
+	justify-content: flex-start;
+	border-radius: 8px;
+	border: 1px solid var(--color-6);
+	background-color: var(--background_actives-4);
+}
+
+.realty_itemSkeleton--list {
+	display: grid;
+	padding: 10px;
+	max-height: 400px;
+	grid-template-columns: 1fr 1.2fr;
+	gap: 15px;
+	width: 100%;
+}
+
+.realty_itemSkeleton--grid {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.realty_itemSkeleton_image {
+	position: relative;
+	width: 100%;
+	height: 240px;
+	background-color: var(--background_actives-3);
+}
+
+.realty_itemSkeleton_image--grid {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.realty_itemSkeleton_content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	gap: 8px;
+}
+
+.realty_itemSkeleton_content--grid {
+	padding: 0 10px 10px 10px;
+}
+
+.realty_itemSkeleton_text {
+	background-color: var(--background_actives-3);
+	width: 100%;
+	max-width: 450px;
+}

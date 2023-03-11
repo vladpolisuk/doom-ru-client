@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { appReducer } from './app/reducer';
+import { searchReducer } from './search/reducer';
 
 const rootReducer = combineReducers({
-	app: appReducer
+	app: appReducer,
+	search: searchReducer
 });
 
 /**

@@ -1,8 +1,5 @@
-import { AxiosError } from 'axios';
-import AuthAPI from '../../api/auth';
 import LocationAPI from '../../api/location';
-import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../types/api/auth';
-import { AppDispatch, RootState } from './../types';
+import { AppDispatch } from './../types';
 import { appActions } from './reducer';
 import { AppLocation, AppTheme, AppUser, Locale } from './types';
 
@@ -11,7 +8,7 @@ import { AppLocation, AppTheme, AppUser, Locale } from './types';
  * @param user AppUser
  * @returns void
  */
-const setAppUser = (user: AppUser) => {
+export const setAppUser = (user: AppUser) => {
 	return async (dispatch: AppDispatch) => {
 		dispatch(appActions.setAppUser(user));
 	};
@@ -48,101 +45,6 @@ export const loadAppLocation = () => {
 		const api = new LocationAPI();
 		const data = await api.getCityAndCountry();
 		dispatch(setAppLocation(data));
-	};
-};
-
-/** ## App Verify User
- * The action that send verify request
- */
-export const appVerify = async (data: SendVerifyFields, lang: Locale) => {
-	try {
-		const api = new AuthAPI(lang);
-		await api.verify(data);
-		return { success: true };
-	} catch (error) {
-		const axiosError: any = error as AxiosError;
-
-		return {
-			success: false,
-			message: axiosError.response.data.message
-		};
-	}
-};
-
-/** ## App Sign Up
- * The action that send signup request
- */
-export const appSignUp = (data: SendSignUpFields) => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
-		try {
-			const lang = getState().app.locale;
-			const api = new AuthAPI(lang);
-			const response = await api.signUp(data);
-			const user = response.data.data.user;
-			const token = response.data.data.token;
-			localStorage.setItem('token', token);
-			dispatch(setAppUser(user));
-			return { success: true };
-		} catch (error) {
-			const axiosError: any = error as AxiosError;
-
-			return {
-				success: false,
-				message: axiosError.response.data.message
-			};
-		}
-	};
-};
-
-/** ## App Sign In
- * The action that send signin request
- */
-export const appSignIn = (data: SendSignInFields) => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
-		try {
-			const lang = getState().app.locale;
-			const api = new AuthAPI(lang);
-			const response = await api.signIn(data);
-			const user = response.data.data.user;
-			const token = response.data.data.token;
-			localStorage.setItem('token', token);
-			dispatch(setAppUser(user));
-			return { success: true };
-		} catch (error) {
-			const axiosError: any = error as AxiosError;
-
-			return {
-				success: false,
-				message: axiosError.response.data.message
-			};
-		}
-	};
-};
-
-/** ## App Me
- * The action that send me request
- */
-export const appMe = () => {
-	return async (dispatch: AppDispatch, getState: () => RootState) => {
-		try {
-			const lang = getState().app.locale;
-			const api = new AuthAPI(lang);
-			const jwtToken = localStorage.getItem('token');
-			if (!jwtToken) return { success: false, message: '' };
-			const response = await api.me(jwtToken);
-			const user = response.data.data.user;
-			dispatch(setAppUser(user));
-			return { success: true };
-		} catch (error: any) {
-			const axiosError: any = error as AxiosError;
-
-			localStorage.removeItem('token');
-
-			return {
-				success: false,
-				message: axiosError.response.data.message
-			};
-		}
 	};
 };
 

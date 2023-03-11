@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import AppButton from '../../../../components/AppButton/AppButton';
 import { useAppDispatch } from '../../../../hooks/store';
-import { appSignIn } from '../../../../store/app/actions';
+import { appSignIn } from '../../../../store/app/requests';
 import { AuthSignIn, SignInFields } from './AuthSignIn';
 import s from './HeaderAuth.module.scss';
 

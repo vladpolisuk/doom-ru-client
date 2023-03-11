@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { useAppDispatch } from '../../hooks/store';
-import { appSignUp, appVerify } from '../../store/app/actions';
+import { appSignUp, appVerify } from '../../store/app/requests';
 import { Locale } from '../../store/app/types';
 import { SendVerifyFields } from '../../types/api/auth';
 import removeProperty from '../../utils/removeProperty';

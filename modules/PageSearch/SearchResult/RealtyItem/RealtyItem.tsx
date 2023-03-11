@@ -20,20 +20,7 @@ type Props = Realty & {
 };
 
 const RealtyItem: FC<Props> = memo(props => {
-	const {
-		title,
-		description,
-		price,
-		currency,
-		createdAt,
-		images,
-		term,
-		view,
-		id,
-		address,
-		primeImage,
-		toggleFavorite
-	} = props;
+	const { title, description, price, currency, createdAt, images, term, view, id, address, toggleFavorite } = props;
 	const router = useRouter();
 	const t = useTranslation('search').t;
 
@@ -60,7 +47,6 @@ const RealtyItem: FC<Props> = memo(props => {
 				realtyURL={url}
 				view={view}
 				images={images}
-				primeImage={primeImage}
 				title={title}
 			/>
 

@@ -1,24 +1,22 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import AppLink from '../../../../components/AppLink/AppLink';
+import { Realty } from '../../../../types';
 import { View } from '../../PageSearch';
 import s from './RealtyItem.module.scss';
 
-type Props = {
-	images: string[];
-	primeImage: string;
-	title: string;
+type Props = Pick<Realty, 'images' | 'title'> & {
 	view: View;
 	realtyURL: string;
 };
 
-export const RealtyItemImages: FC<Props> = ({ images, primeImage, view, title, realtyURL }) => {
-	const [showImageId, setShowImageId] = useState(-1);
+export const RealtyItemImages: FC<Props> = memo(({ images, view, title, realtyURL }) => {
+	const [showImageId, setShowImageId] = useState(0);
 
-	const resetShowImageId = () => setShowImageId(-1);
+	const resetShowImageId = () => setShowImageId(0);
 
-	const imageId = showImageId < 0 ? primeImage : images[showImageId];
+	const imageSrc = `${process.env.NEXT_PUBLIC_API_URL}/api/image/${images[showImageId].id}`;
 	const styles_image = clsx(s.realty_item_image, s[`realty_item_image--${view}`], 'transition');
 
 	return (
@@ -44,8 +42,10 @@ export const RealtyItemImages: FC<Props> = ({ images, primeImage, view, title, r
 				alt={title}
 				title={title}
 				className={styles_image}
-				src={imageId}
+				src={imageSrc}
 			/>
 		</AppLink>
 	);
-};
+});
+
+RealtyItemImages.displayName = 'RealtyItemImages';
