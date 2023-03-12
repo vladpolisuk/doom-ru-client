@@ -1,11 +1,10 @@
 import { GetServerSidePropsContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { Fragment } from 'react';
-import PageMe from '../../modules/PageMe/PageMe';
 import AuthAPI from '../../api/auth';
+import PageMe from '../../modules/PageMe/PageMe';
 import { Locale } from '../../store/app/types';
 
 export default function Me() {
@@ -42,7 +41,7 @@ export default function Me() {
 
 export async function getServerSideProps({ locale, req }: GetServerSidePropsContext) {
 	const lang = locale as Locale;
-	const translations = await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'footer', 'me']);
+	const translations = await serverSideTranslations(lang, ['common', 'header', 'auth', 'footer', 'me']);
 
 	try {
 		const api = new AuthAPI(lang, {

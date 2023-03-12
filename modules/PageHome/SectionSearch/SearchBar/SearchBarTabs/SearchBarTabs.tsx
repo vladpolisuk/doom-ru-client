@@ -13,24 +13,25 @@ export const SearchBarTabs = () => {
 		returnObjects: true
 	});
 
-	const components = tabs.map(({ title, text }, i) => (
-		<li key={text}>
-			<AppButton
-				title={title}
-				color='none'
-				onClick={() => setTab(i)}
-				className={s.sectionSearch_searchBar_tabs_item}>
-				{text}
-			</AppButton>
-		</li>
-	));
-
 	const styles = clsx(s.sectionSearch_searchBar_tabs, 'unlisted');
 	const dynamicStyles = { left: `${80 * tab}px` };
 
 	return (
 		<div className={s.sectionSearch_searchBar_nav}>
-			<ul className={styles}>{components}</ul>
+			<ul className={styles}>
+				{tabs &&
+					tabs.map(({ title, text }, i) => (
+						<li key={text}>
+							<AppButton
+								title={title}
+								color='none'
+								onClick={() => setTab(i)}
+								className={s.sectionSearch_searchBar_tabs_item}>
+								{text}
+							</AppButton>
+						</li>
+					))}
+			</ul>
 
 			<div
 				style={dynamicStyles}

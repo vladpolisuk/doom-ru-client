@@ -11,27 +11,26 @@ const AppHeaderNav = () => {
 	const navLabel = t('header_nav_label');
 	const links: LocaleHeaderNavLink[] = t('header_nav_links', { returnObjects: true });
 
-	const components = links.map((link: LocaleHeaderNavLink) => (
-		<li
-			key={link.name}
-			aria-label={link.title}
-			className={styles}>
-			<AppLink
-				resetStyles
-				className={s.header_nav_list_item_link}
-				title={link.title}
-				href={link.url}>
-				<span>{link.name}</span>
-			</AppLink>
-		</li>
-	));
-
 	return (
 		<nav className={s.header_nav}>
 			<ul
 				aria-label={navLabel}
 				className={s.header_nav_list}>
-				{components}
+				{links &&
+					links.map((link: LocaleHeaderNavLink) => (
+						<li
+							key={link.name}
+							aria-label={link.title}
+							className={styles}>
+							<AppLink
+								resetStyles
+								className={s.header_nav_list_item_link}
+								title={link.title}
+								href={link.url}>
+								<span>{link.name}</span>
+							</AppLink>
+						</li>
+					))}
 			</ul>
 		</nav>
 	);
