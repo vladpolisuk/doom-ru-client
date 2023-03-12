@@ -1,16 +1,26 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { FiLogOut } from 'react-icons/fi';
 import AppSignOutButton from '../../components/AppSignOutButton/AppSignOutButton';
+import { useAppSelector } from '../../hooks/store';
+import { getAppUser } from '../../store/app/selectors';
 import { LocaleMeAsideLogOut } from '../../types/locales/me';
 import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
 const PageMe = () => {
+	const user = useAppSelector(getAppUser);
+	const router = useRouter();
 	const { t } = useTranslation('me');
 	const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
 	const styles = clsx(s.me_container, 'container');
+
+	useEffect(() => {
+		if (!user) router.replace(`/${router.locale}`);
+	}, [router, user]);
 
 	return (
 		<div className={s.me}>

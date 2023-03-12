@@ -14,7 +14,7 @@ const nextConfig = withPWA({
 	},
 	i18n,
 	images: {
-		domains: ['lh3.googleusercontent.com', 'localhost', 'doom-ru-server.onrender.com']
+		domains: ['lh3.googleusercontent.com', 'localhost', 'api.doom-estate.ru', 'doom-estate.ru']
 	}
 });
 

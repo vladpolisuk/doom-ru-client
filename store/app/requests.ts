@@ -93,6 +93,7 @@ export const appSignOut = () => {
 			const locale = getState().app.locale;
 			const api = new AuthAPI(locale);
 			await api.signOut();
+			dispatch(setAppUser(null));
 			return { success: true };
 		} catch (error: any) {
 			return {

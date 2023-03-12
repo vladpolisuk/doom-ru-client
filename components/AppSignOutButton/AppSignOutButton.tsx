@@ -18,7 +18,7 @@ const AppSignOutButton: FC<IAppSignOutButton> = memo(({ children, ...props }) =>
 
 	const logout = async () => {
 		await dispatch(appSignOut());
-		router.reload();
+		router.replace(`/${router.locale}`);
 	};
 
 	return (
