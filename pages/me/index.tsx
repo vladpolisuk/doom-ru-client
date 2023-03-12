@@ -16,6 +16,8 @@ export default function Me() {
 	const author = t('site_author');
 	const title = t_me('me_title');
 
+	console.log('END');
+
 	return (
 		<Fragment>
 			<Head>
@@ -42,6 +44,7 @@ export default function Me() {
 export async function getServerSideProps({ locale, req }: GetServerSidePropsContext) {
 	const lang = locale as Locale;
 	const translations = await serverSideTranslations(lang, ['common', 'header', 'auth', 'footer', 'me']);
+	console.log('START');
 
 	try {
 		const api = new AuthAPI(lang, {
@@ -49,6 +52,8 @@ export async function getServerSideProps({ locale, req }: GetServerSidePropsCont
 		});
 
 		await api.me();
+
+		console.log('GETSERVERSIDEPROPS');
 
 		return {
 			props: {
