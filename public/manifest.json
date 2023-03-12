@@ -4,7 +4,7 @@
 	"description": "Doom.ru - database of ads for rent and sale of real estate",
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
-	"start_url": "http://localhost:3000/",
+	"start_url": "/",
 	"default_locale": "en",
 	"display": "standalone",
 	"orientation": "portrait",
@@ -30,22 +30,15 @@
 		{
 			"name": "Rent real estate",
 			"short_name": "Rent",
-			"url": "/rent",
+			"url": "/s/rent",
 			"description": "List of apartments for rent",
 			"icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
 		},
 		{
 			"name": "Buy real estate",
 			"short_name": "Buy",
-			"url": "/buy",
+			"url": "/s/buy",
 			"description": "List of apartments for sale",
-			"icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
-		},
-		{
-			"name": "Rent houses or plots",
-			"short_name": "Houses and plots",
-			"url": "/h_and_p",
-			"description": "List of houses and plots for sale or rent",
 			"icons": [{ "src": "/assets/android-chrome-96x96.png", "sizes": "96x96" }]
 		}
 	]
