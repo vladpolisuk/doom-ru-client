@@ -27,3 +27,12 @@ export const setSearchLoading = (loading: boolean) => {
 		dispatch(searchActions.setSearchLoading(loading));
 	};
 };
+
+/** ## Set Search Total
+ * The function that sets the search total
+ */
+export const setSearchTotal = (total: number) => {
+	return async (dispatch: AppDispatch) => {
+		dispatch(searchActions.setSearchTotal(total));
+	};
+};

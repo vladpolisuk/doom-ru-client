@@ -311,6 +311,18 @@
 		"grid": {
 			"name": "Grid",
 			"label": "Switch to grid view"
+		},
+		"prev": {
+			"name": "prev",
+			"label": "Go to previous page"
+		},
+		"next": {
+			"name": "next",
+			"label": "Go to next page"
+		},
+		"page": {
+			"name": "page",
+			"label": "Go to {{page}} page"
 		}
 	},
 	"realty": {

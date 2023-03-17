@@ -20,3 +20,10 @@ export const getSearchLoading = (state: RootState) => state.search.loading;
  * @returns `number`
  */
 export const getSearchPage = (state: RootState) => state.search.page;
+
+/**
+ * The selector that return the search total from redux store
+ * @param state RootState
+ * @returns `number`
+ */
+export const getSearchTotal = (state: RootState) => state.search.total;

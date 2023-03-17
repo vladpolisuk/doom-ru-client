@@ -1,0 +1,34 @@
+.app_pagination {
+	display: flex;
+	gap: 5px;
+
+	&_item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 48px;
+		min-width: 48px;
+		border-radius: 50%;
+		color: var(--color-2);
+		font-weight: bold;
+		box-sizing: border-box;
+		font-size: 15px;
+		background: var(--background_actives);
+		border: 1px solid var(--background_actives-2);
+
+		&[data-selected='true'] {
+			background-color: var(--color-brand);
+			color: var(--color);
+		}
+	}
+
+	&_dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 48px;
+		min-width: 48px;
+		font-size: 14px;
+		color: var(--color-2);
+	}
+}

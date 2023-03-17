@@ -11,6 +11,7 @@ import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { RealtyFilter, RealtyFilters } from '../../../types';
 import { LocaleSearchFilter } from '../../../types/locales/search';
+import removeProperty from '../../../utils/removeProperty';
 import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';
 import parseQueries from '../../../utils/ui/parseQueries';
@@ -23,11 +24,12 @@ export const SearchFilters = () => {
 	const action = router.route.split('/')[2];
 
 	useEffect(() => {
+		const urlQueries = removeProperty(router.query, 'page');
 		if (!router.query) return;
-		const queries = parseQueries(router.query);
+		const parsedQueries = parseQueries(urlQueries);
 		const values = getValues();
 		// @ts-ignore
-		for (const key in values) setValue(key, queries[key]);
+		for (const key in values) setValue(key, parsedQueries[key]);
 	}, [router.query, getValues, setValue]);
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {

@@ -2,8 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SearchState } from './types';
 
 const initialState: SearchState = {
-	page: 0,
+	page: 1,
 	take: 20,
+	total: 0,
 	loading: false
 };
 
@@ -18,6 +19,14 @@ const slice = createSlice({
 		 */
 		setSearchPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload;
+		},
+		/**
+		 * The search reducer that sets the total pages to redux store
+		 * @param state number
+		 * @param action number
+		 */
+		setSearchTotal: (state, action: PayloadAction<number>) => {
+			state.total = action.payload;
 		},
 		/**
 		 * The search reducer that sets the search take to redux store
@@ -39,7 +48,7 @@ const slice = createSlice({
 });
 
 /**
- * The serch reducer
+ * The search reducer
  */
 export const searchReducer = slice.reducer;
 /**
