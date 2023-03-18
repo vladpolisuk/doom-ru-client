@@ -12,7 +12,7 @@ interface IAppLink extends Props {
 	resetHref?: boolean;
 }
 
-/**
+/** ## App Link
  * The common link component in the application
  * @type `FC<AppLink>`
  * @memo `true`

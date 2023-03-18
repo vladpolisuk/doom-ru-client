@@ -8,7 +8,7 @@ const localesSource = {
 	ru: { day: 'день', month: 'мес.' }
 };
 
-/** Format price
+/** ## Format price
  * The function that format the price by locale, currency and term
  * @param price price
  * @param currency currency

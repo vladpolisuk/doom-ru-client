@@ -6,7 +6,7 @@ import AppButton, { IAppButton } from '../AppButton/AppButton';
 
 type IAppSignOutButton = IAppButton;
 
-/**
+/** ## App Sign Out Button
  * The common logout button in the application
  * @type `FC<AppLogoutButton>`
  * @memo `true`

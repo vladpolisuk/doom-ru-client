@@ -9,7 +9,7 @@ import s from './AppLocationBadge.module.scss';
 
 type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;
 
-/**
+/** ## App Location Badge
  * The common navigation badge component in the application
  * @memo `true`
  * @returns `AppButton`

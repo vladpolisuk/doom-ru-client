@@ -104,7 +104,7 @@ export const appSignOut = () => {
 	};
 };
 
-/**
+/** ## Load App Location
  * The action that load the user's location by IP
  */
 export const loadAppLocation = () => {

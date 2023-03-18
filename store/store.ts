@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
 	search: searchReducer
 });
 
-/**
+/** ## App Store
  * The application Redux store
  */
 const store = configureStore({

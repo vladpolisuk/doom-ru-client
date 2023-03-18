@@ -5,7 +5,7 @@ import s from './AppSkeleton.module.scss';
 
 type IAppSkeleton = BaseAppComponent<HTMLDivElement>;
 
-/**
+/** ## App Skeleton
  * The common component that renders a temporary stub
  * @returns `html:div`
  */

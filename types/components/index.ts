@@ -1,6 +1,6 @@
 import { BaseHTMLAttributes } from 'react';
 
-/**
+/** ## Base App Component
  * The common type of common components
  */
 export interface BaseAppComponent<T> extends BaseHTMLAttributes<T> {
@@ -18,7 +18,7 @@ export interface BaseAppComponent<T> extends BaseHTMLAttributes<T> {
 	onlyARIA?: boolean;
 }
 
-/**
+/** ## HTML Element Event
  * The common type of html events
  */
 export type HTMLElementEvent<T extends HTMLElement> = Event & {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type UserCountdownTimer = (initialTimeInSeconds: number, intervalInSeconds?: number) => [number, () => void];
 
-/**
+/** ## Countdown Timer Hook
  * Custom hook for countdown timer.
  * @param {number} initialTimeInSeconds - Initial time in seconds.
  * @param {number} intervalInSeconds - Interval in seconds.

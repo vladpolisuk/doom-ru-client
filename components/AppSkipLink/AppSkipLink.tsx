@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 
 type IAppSkipLink = BaseAppComponent<HTMLAnchorElement>;
 
-/**
+/** ## App Skip Link (for main)
  * The common skip link component in the application
  * @returns `html:anchor`
  */

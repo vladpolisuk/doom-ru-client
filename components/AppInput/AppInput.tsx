@@ -26,7 +26,7 @@ interface IAppInput extends Props {
 	showPasswordButton?: boolean;
 }
 
-/**
+/** ## App Input
  * The common input component in the application
  * @type `FC<AppInput>`
  * @memo `true`

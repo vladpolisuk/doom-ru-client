@@ -6,7 +6,7 @@ import { appMe, loadAppLocation } from '../../store/app/requests';
 import { getAppTheme } from '../../store/app/selectors';
 import { AppTheme, Locale } from '../../store/app/types';
 
-/**
+/** ## App Provider
  * The global application provider
  */
 const AppProvider: FC<PropsWithChildren> = ({ children }) => {

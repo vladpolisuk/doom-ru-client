@@ -5,7 +5,7 @@ import s from './AppCheckbox.module.scss';
 
 type IAppCheckbox = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
 
-/**
+/** ## App Checkbox
  * The common checkbox component in the application
  * @type `FC<AppCheckbox>`
  * @memo `true`

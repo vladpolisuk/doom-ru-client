@@ -1,6 +1,6 @@
 type FormatTime = (seconds: number, format: string) => string;
 
-/**
+/** ## Format Time
  * Format time in seconds to the specified format.
  * @param {number} seconds - Time in seconds.
  * @param {string} format - Format in "mm:ss" or "hh:mm:ss".

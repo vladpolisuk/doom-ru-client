@@ -10,7 +10,7 @@ type IAppSelectCompound = {
 	Option: FC<OptionHTMLAttributes<HTMLOptionElement>>;
 };
 
-/**
+/** ## App Select
  * The common select component in the application
  * @type `FC<AppSelect>`
  * @memo `true`

@@ -9,7 +9,7 @@ type IAppLabel = BaseAppComponent<HTMLLabelElement> &
 		errorMessage?: string;
 	};
 
-/**
+/** ## App Label (for AppInput)
  * The common label component in the application
  * @type `FC<AppLabel>`
  * @memo `true`

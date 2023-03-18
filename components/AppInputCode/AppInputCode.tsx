@@ -19,7 +19,7 @@ type IAppInputCode = BaseAppComponent<HTMLInputElement> &
 		submit: (code: number) => void;
 	};
 
-/**
+/** ## App Input Code
  * The common input code component in the application
  * @type `FC<AppInputCode>`
  * @memo `true`

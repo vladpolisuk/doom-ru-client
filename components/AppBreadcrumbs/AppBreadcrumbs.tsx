@@ -8,7 +8,7 @@ interface IAppBreadcrumbs extends BaseAppComponent<HTMLUListElement> {
 	separator?: string;
 }
 
-/**
+/** ## App Breadcrumbs
  * The common breadcrumbs component in the application
  * @type `FC<ul>`
  * @memo `true`

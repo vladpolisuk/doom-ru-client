@@ -1,4 +1,4 @@
-/**
+/** ## App State
  * The application state type
  */
 export type AppState = {

@@ -32,7 +32,7 @@ export type IAppPagination = HTMLAttributes<HTMLUListElement> &
 		onPageChange: (page: number) => void;
 	};
 
-/**
+/** ## App Pagination
  * The common pagination component in the application
  * @type `FC<AppPagination>`
  * @memo `true`

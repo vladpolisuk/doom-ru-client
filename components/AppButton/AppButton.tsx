@@ -16,7 +16,7 @@ export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> &
 		loading?: boolean;
 	};
 
-/**
+/** ## App Button
  * The common button component in the application
  * @type `FC<AppButton>`
  * @memo `true`
