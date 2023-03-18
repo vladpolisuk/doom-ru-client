@@ -1,4 +1,5 @@
 import { Locale } from '../../store/app/types';
+import { RealtyAction } from './../index';
 
 export interface LocaleHome {
 	locale: Locale;
@@ -31,6 +32,7 @@ export interface LocaleHomeSearchFilters {
 }
 
 export interface LocaleHomeSearchTab {
+	type: RealtyAction;
 	title: string;
 	text: string;
 }

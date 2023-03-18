@@ -7,9 +7,22 @@
 			"placeholder": "City, address, district or subway",
 			"title": "Input your address"
 		},
-		"search_button": {
-			"title": "Apply filters and search",
-			"text": "Search"
+		"search_modal": {
+			"name": "Filters"
+		},
+		"search_btn": {
+			"reset": {
+				"name": "Cancel",
+				"label": "Cancel the filters"
+			},
+			"submit": {
+				"name": "Apply",
+				"label": "Apply the filters"
+			},
+			"search": {
+				"name": "Search",
+				"label": "Apply filters and search"
+			}
 		},
 		"search_filters": {
 			"title": "Set filters",
@@ -17,14 +30,12 @@
 		},
 		"search_tabs": [
 			{
-				"title": "Choose all",
-				"text": "All"
-			},
-			{
+				"type": "rent",
 				"title": "Choose rent",
 				"text": "Rent"
 			},
 			{
+				"type": "buy",
 				"title": "Choose buy",
 				"text": "Buy"
 			}

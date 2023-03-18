@@ -1,30 +1,52 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiSearch, FiSliders } from 'react-icons/fi';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import AppInput from '../../../../../components/AppInput/AppInput';
-import { HomeRealtySearch } from '../../../../../types';
+import { useAppSelector } from '../../../../../hooks/store';
+import { getHomeLoading } from '../../../../../store/home/selectros';
+import { SearchBarAddressFields, SearchBarFields, SearchBarFiltersFields } from '../SearchBar';
 import s from './SearchBarForm.module.scss';
+import { SearchBarModal } from './SearchBarModal';
 
-export const SearchBarForm = () => {
+type Props = {
+	setForm: (data: SearchBarFields) => void;
+	form: SearchBarFields;
+};
+
+export const SearchBarForm: FC<Props> = ({ setForm, form }) => {
+	const loading = useAppSelector(getHomeLoading);
+	const [viewModal, setViewModal] = useState(false);
+	const [filters, setFilters] = useState<SearchBarFiltersFields>();
+	const { register, handleSubmit } = useForm<SearchBarFields>();
 	const { t } = useTranslation('home');
-	const { register, handleSubmit } = useForm<HomeRealtySearch>();
 
-	const onSubmit = (data: HomeRealtySearch) => alert(JSON.stringify(data, null, 4));
+	const submit = (data: SearchBarAddressFields) => {
+		if (!data) return;
+		const formData = { ...data, ...filters };
+		setForm(formData);
+	};
+
+	const filtersSubmit = (data: SearchBarFiltersFields) => {
+		setFilters(data);
+		const formData = { ...data, address: form?.address };
+		setForm(formData);
+	};
 
 	const inputTitle = t('home_section_search.search_input.title');
 	const inputPlaceholder = t('home_section_search.search_input.placeholder');
 	const filtersTitle = t('home_section_search.search_filters.title');
 	const filtersStyles = clsx(s.sectionSearch_searchBar_form_filters, 'active--scale', 'transition');
 	const filtersText = t('home_section_search.search_filters.text');
-	const submitTitle = t('home_section_search.search_button.title');
-	const submitStyles = clsx(s.sectionSearch_searchBar_form_button, 'active--scale', 'transition');
-	const submitText = t('home_section_search.search_button.text');
+	const submitStyles = clsx(s.sectionSearch_searchBar_form_submit, 'active--scale', 'transition');
+	const submitName = t('home_section_search.search_btn.search.name');
+	const submitLabel = t('home_section_search.search_btn.search.label');
 
 	return (
 		<form
-			onSubmit={handleSubmit(onSubmit)}
+			onSubmit={handleSubmit(submit)}
 			className={s.sectionSearch_searchBar_form}>
 			<AppInput
 				type='search'
@@ -37,18 +59,27 @@ export const SearchBarForm = () => {
 			/>
 
 			<AppButton
+				type='button'
 				title={filtersTitle}
 				color='transparent'
+				onClick={() => setViewModal(true)}
 				className={filtersStyles}>
 				<FiSliders className={s.sectionSearch_searchBar_form_filtersIcon} />
 				{filtersText}
 			</AppButton>
 
+			<SearchBarModal
+				onSubmit={filtersSubmit}
+				view={viewModal}
+				setView={setViewModal}
+			/>
+
 			<AppButton
-				title={submitTitle}
+				disabled={loading}
+				title={submitLabel}
 				className={submitStyles}
 				type='submit'>
-				{submitText}
+				{submitName}
 			</AppButton>
 		</form>
 	);

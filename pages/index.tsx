@@ -1,9 +1,9 @@
 import { GetStaticPropsContext } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { PageHome } from '../modules/PageHome/PageHome';
-import { useTranslation } from 'next-i18next';
 
 export default function Home() {
 	const t = useTranslation('common').t;
@@ -40,7 +40,14 @@ export default function Home() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	return {
 		props: {
-			...(await serverSideTranslations(locale as string, ['common', 'header', 'auth', 'home', 'footer']))
+			...(await serverSideTranslations(locale as string, [
+				'common',
+				'header',
+				'search',
+				'auth',
+				'home',
+				'footer'
+			]))
 		}
 	};
 }

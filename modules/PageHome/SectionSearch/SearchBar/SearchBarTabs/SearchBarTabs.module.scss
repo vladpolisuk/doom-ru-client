@@ -10,6 +10,28 @@
 	justify-content: flex-start;
 	box-shadow: 0 2px 0 -1px rgba(135, 135, 135, 0.2);
 
+	&_filterButton {
+		padding: 5px;
+	}
+
+	&_badge {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		right: 0;
+		top: 0px;
+		background-color: rgb(63, 63, 255);
+		padding: 3px 12px 3px 3px;
+		border-radius: 20px;
+		display: flex;
+		font-size: 14px;
+		font-weight: bold;
+		flex-direction: row;
+		color: white;
+		user-select: none;
+	}
+
 	&_item {
 		width: 80px;
 		padding: 12px 15px;

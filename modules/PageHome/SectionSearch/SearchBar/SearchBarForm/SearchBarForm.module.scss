@@ -26,7 +26,42 @@
 		margin-right: 5px;
 	}
 
-	&_button {
+	&_submit {
 		height: 50px;
+		min-width: 80px;
+	}
+
+	&_filtersForm {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		padding: 0 10px;
+
+		&_name {
+			line-height: 15px;
+		}
+
+		&_pair {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5rem;
+		}
+
+		&_input {
+			border: 1px solid var(--color-6);
+			background-color: var(--background_actives);
+		}
+
+		&_actions {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 100%;
+			padding: 30px 10px 0;
+		}
+
+		&_button {
+			height: 40px;
+		}
 	}
 }

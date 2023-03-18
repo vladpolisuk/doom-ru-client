@@ -8,7 +8,7 @@ import { RootState } from '../types';
 export const getSearchTake = (state: RootState) => state.search.take;
 
 /** ## Get Search Loading
- * The selector that returns the application user loading status from redux store
+ * The selector that returns the search user loading status from redux store
  * @param state RootState
  * @returns `boolean`
  */

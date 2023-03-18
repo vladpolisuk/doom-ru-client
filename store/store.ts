@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { appReducer } from './app/reducer';
+import { homeReducer } from './home/reducer';
 import { searchReducer } from './search/reducer';
 
 const rootReducer = combineReducers({
 	app: appReducer,
-	search: searchReducer
+	search: searchReducer,
+	home: homeReducer
 });
 
 /** ## App Store
