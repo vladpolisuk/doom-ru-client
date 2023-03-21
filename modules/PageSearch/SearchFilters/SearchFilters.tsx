@@ -26,17 +26,32 @@ export const SearchFilters = () => {
 	useEffect(() => {
 		const urlQueries = removeProperty(router.query, 'page');
 		if (!router.query) return;
-		const parsedQueries = parseQueries(urlQueries);
+		const parsedQueries = parseQueries(urlQueries) as any;
+		console.log(parsedQueries);
 		const values = getValues();
-		// @ts-ignore
-		for (const key in values) setValue(key, parsedQueries[key]);
+		for (const key in values) {
+			if (typeof parsedQueries[key] === 'number') {
+				setValue(key as any, getNumberWithSpaces(parsedQueries[key]));
+			} else setValue(key as any, parsedQueries[key]);
+		}
 	}, [router.query, getValues, setValue]);
 
 	const onSubmit: SubmitHandler<RealtyFilter> = data => {
 		const queries: any = parseQueries(data);
 		const query: any = {};
-		for (let i in queries) if (queries[i]) query[i] = queries[i];
-		router.push({ pathname: `/s/${action}`, query });
+		for (let i in queries) {
+			if (queries[i]) {
+				if (typeof queries[i] === 'string') {
+					const num = extractNumberFromString(queries[i]);
+					if (num) query[i] = num;
+					else query[i] = queries[i];
+				} else query[i] = queries[i];
+			}
+		}
+		router.push({
+			pathname: `/s/${action}`,
+			query
+		});
 	};
 
 	const onReset = () => {

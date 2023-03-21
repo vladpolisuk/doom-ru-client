@@ -40,6 +40,8 @@ export const SearchBarModal: FC<Props> = ({ view, setView, onSubmit }) => {
 	};
 
 	const submit = (data: SearchBarFiltersFields) => {
+		data.price_from = data.price_from ? (extractNumberFromString(data.price_from) as number) : undefined;
+		data.price_to = data.price_to ? (extractNumberFromString(data.price_to) as number) : undefined;
 		const formData = removeUndefinedProperties(data);
 		onSubmit(formData);
 		setView(false);

@@ -3,7 +3,7 @@ import { SearchState } from './types';
 
 const initialState: SearchState = {
 	page: 1,
-	take: 20,
+	take: 3,
 	total: 0,
 	loading: false
 };

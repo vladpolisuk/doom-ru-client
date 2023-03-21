@@ -7,7 +7,8 @@ import { Locale } from '../../../store/app/types';
 import { setSearchLoading } from '../../../store/search/actions';
 import { searchGetRealties } from '../../../store/search/requests';
 import { getSearchLoading, getSearchPage, getSearchTake, getSearchTotal } from '../../../store/search/selectors';
-import { Realty } from '../../../types';
+import { Realty, RealtyAction } from '../../../types';
+import parseQueries from '../../../utils/ui/parseQueries';
 import { View } from '../PageSearch';
 import RealtyItem from './RealtyItem/RealtyItem';
 import { RealtyItemSkeleton } from './RealtyItem/RealtyItemSkeleton';
@@ -40,15 +41,24 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 		const fetch = async () => {
 			dispatch(setSearchLoading(true));
 			const queryPage = Number(router.query.page || 1);
+			const action = router.route.split('/')[2] as RealtyAction;
 			const locale = router.locale as Locale;
+			const queries = parseQueries(router.query);
 			if (!locale) return;
-			const response = await dispatch(searchGetRealties(locale, take, queryPage));
+			const response = await dispatch(
+				searchGetRealties(locale, {
+					take,
+					action,
+					page: queryPage,
+					...queries
+				})
+			);
 			setRealties(response.data);
 			dispatch(setSearchLoading(false));
 		};
 
-		if (!realties || Number(router.query.page) !== page) fetch();
-	}, [router.query.page]);
+		if (router.isReady) fetch();
+	}, [router.query]);
 
 	const toggleFavorite = (id: number) => alert(id);
 
@@ -66,6 +76,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 					))}
 
 				{!loading &&
+					realties &&
 					realties.map(realty => (
 						<RealtyItem
 							view={view}
