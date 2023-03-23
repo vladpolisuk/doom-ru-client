@@ -24,10 +24,9 @@ export const SearchFilters = () => {
 	const action = router.route.split('/')[2];
 
 	useEffect(() => {
-		const urlQueries = removeProperty(router.query, 'page');
+		const urlQueries = removeProperty(router.query, 'page', 'sort_by');
 		if (!router.query) return;
 		const parsedQueries = parseQueries(urlQueries) as any;
-		console.log(parsedQueries);
 		const values = getValues();
 		for (const key in values) {
 			if (typeof parsedQueries[key] === 'number') {

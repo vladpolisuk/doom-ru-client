@@ -10,26 +10,26 @@
 			"options": [
 				{
 					"value": "",
-					"title": "Сортировать по"
+					"title": "Сортировка"
 				},
 				{
-					"value": "default",
+					"value": "DEFAULT",
 					"title": "По умолчанию"
 				},
 				{
-					"value": "price_down",
+					"value": "PRICE_DESC",
 					"title": "Дороже"
 				},
 				{
-					"value": "price_up",
+					"value": "PRICE_ASC",
 					"title": "Дешевле"
 				},
 				{
-					"value": "date_down",
+					"value": "DATE_DESC",
 					"title": "Новые"
 				},
 				{
-					"value": "date_up",
+					"value": "DATE_ASC",
 					"title": "Старые"
 				}
 			]

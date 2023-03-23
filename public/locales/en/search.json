@@ -13,23 +13,23 @@
 					"title": "Sort by"
 				},
 				{
-					"value": "default",
+					"value": "DEFAULT",
 					"title": "Default"
 				},
 				{
-					"value": "price_down",
+					"value": "PRICE_DESC",
 					"title": "More expensive"
 				},
 				{
-					"value": "price_up",
+					"value": "PRICE_ASC",
 					"title": "Cheaper"
 				},
 				{
-					"value": "date_down",
+					"value": "DATE_DESC",
 					"title": "New"
 				},
 				{
-					"value": "date_up",
+					"value": "DATE_ASC",
 					"title": "Old"
 				}
 			]
