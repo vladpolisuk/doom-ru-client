@@ -75,6 +75,6 @@ export type RealtySort = {
 	sort_by: RealtySortBy;
 };
 
-export type RealtySortBy = 'default' | 'price_up' | 'price_down' | 'date_up' | 'date_down';
+export type RealtySortBy = 'DEFAULT' | 'PRICE_ASC' | 'PRICE_DESC' | 'DATE_ASC' | 'DATE_DESC';
 
 export type RealtySorts = 'sort_by';

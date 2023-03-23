@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
-import { RealtySort } from '../../../types';
+import { RealtySort, RealtySortBy } from '../../../types';
 import { LocaleSearchSortsSortBy } from '../../../types/locales/search';
 import s from './SearchSorts.module.scss';
 
@@ -18,7 +18,7 @@ export const SearchSorts = () => {
 	useEffect(() => {
 		if (!router.isReady) return;
 		if (!router.query.sort_by) return;
-		setValue('sort_by', router.query.sort_by)
+		setValue('sort_by', router.query.sort_by as RealtySortBy)
 	}, [router])
 
 	const onSubmit = (data: RealtySort) => {
