@@ -7,10 +7,10 @@ import s from './AsideProfileCard.module.scss';
 export const ProfileCard = () => {
 	const user = useAppSelector(getAppUser);
 	const userLoading = useAppSelector(getAppUserLoading);
-	const name = user?.name || '';
-	const secondName = user?.secondName || '';
-	const id = user?.id || '';
 
+	const name = user && user.name;
+	const secondName = user && user.secondName;
+	const id = user && user.id;
 	const skeleton = userLoading ? <AppSkeleton className={s.me_aside_profileCard_avatarSkeleton} /> : undefined;
 
 	return (
@@ -21,7 +21,7 @@ export const ProfileCard = () => {
 				Skeleton={skeleton}
 				className={s.me_aside_profileCard_avatar}
 				src={user?.avatar}
-				alt={name}
+				alt={user?.name}
 			/>
 
 			<div className={s.me_aside_profileCard_info}>

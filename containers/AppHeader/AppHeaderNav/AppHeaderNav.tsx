@@ -1,15 +1,15 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import AppLink from '../../../components/AppLink/AppLink';
-import { LocaleHeaderNavLink } from '../../../types/locales/header';
+import { useTranslation } from '../../../hooks/useTranslation';
+import locales from '../../../locales';
 import s from './AppHeaderNav.module.scss';
 
 const AppHeaderNav = () => {
-	const { t } = useTranslation('header');
+	const header = useTranslation('header') as typeof locales.en.header;
 
 	const styles = clsx(s.header_nav_list_item, 'active--scale', 'transition');
-	const navLabel = t('header_nav_label');
-	const links: LocaleHeaderNavLink[] = t('header_nav_links', { returnObjects: true });
+	const navLabel = header.header_nav_label;
+	const links = header.header_nav_links;
 
 	return (
 		<nav className={s.header_nav}>
@@ -17,7 +17,7 @@ const AppHeaderNav = () => {
 				aria-label={navLabel}
 				className={s.header_nav_list}>
 				{links &&
-					links.map((link: LocaleHeaderNavLink) => (
+					links.map(link => (
 						<li
 							key={link.name}
 							aria-label={link.title}

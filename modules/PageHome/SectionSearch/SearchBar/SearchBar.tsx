@@ -33,10 +33,12 @@ export const SearchBar = () => {
 		const submit = async () => {
 			if (!form?.address) return;
 			await dispatch(setHomeLoading(true));
+
 			await router.push({
-				pathname: `/${router.locale}/s/${tab}`,
-				query: { ...form }
+				pathname: `/[lang]/s/${tab}`,
+				query: { ...form, lang: router.query.lang }
 			});
+
 			await dispatch(setHomeLoading(false));
 		};
 

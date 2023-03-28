@@ -6,23 +6,23 @@ exports[`AppSkipLink should render the component 1`] = `
   "baseElement": <body>
     <div>
       <a
-        aria-label="skip_link"
+        aria-label="Skip to main content"
         class="app_skipLink app_skipLink"
         data-testid="app-skip-link"
         href="#main"
       >
-        skip_link
+        Skip to main content
       </a>
     </div>
   </body>,
   "container": <div>
     <a
-      aria-label="skip_link"
+      aria-label="Skip to main content"
       class="app_skipLink app_skipLink"
       data-testid="app-skip-link"
       href="#main"
     >
-      skip_link
+      Skip to main content
     </a>
   </div>,
   "debug": [Function],

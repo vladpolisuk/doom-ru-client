@@ -1,6 +1,6 @@
-import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
+import AppProgressbar from '../components/AppProgressbar/AppProgressbar';
 import AppSkipLink from '../components/AppSkipLink/AppSkipLink';
 import AppFooter from '../containers/AppFooter/AppFooter';
 import AppHeader from '../containers/AppHeader/AppHeader';
@@ -8,7 +8,6 @@ import AppProvider from '../containers/AppProvider/AppProvider';
 import AppThemeProvider from '../containers/AppThemeProvider/AppThemeProvider';
 import store from '../store/store';
 import '../styles/global.scss';
-import AppProgressbar from '../components/AppProgressbar/AppProgressbar';
 
 function App({ Component, pageProps }: AppProps) {
 	return (
@@ -26,4 +25,4 @@ function App({ Component, pageProps }: AppProps) {
 	);
 }
 
-export default appWithTranslation(App);
+export default App;

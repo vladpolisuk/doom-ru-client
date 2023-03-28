@@ -1,10 +1,11 @@
-import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import AppAlert from '../../components/AppAlert/AppAlert';
 import AppButton from '../../components/AppButton/AppButton';
 import AppInputCode from '../../components/AppInputCode/AppInputCode';
 import AppSpinner from '../../components/AppSpinner/AppSpinner';
 import useCountdownTimer from '../../hooks/useCountdownTimer';
+import { useTranslation } from '../../hooks/useTranslation';
+import locales from '../../locales';
 import formatTime from '../../utils/ui/formatTime';
 import s from './PageAuth.module.scss';
 
@@ -15,13 +16,13 @@ type Props = {
 };
 
 export const AuthCode: FC<Props> = ({ onSubmit, error, loading }) => {
+	const auth = useTranslation('auth') as typeof locales.en.auth;
 	const [timer] = useCountdownTimer(5 * 60);
 	const time = formatTime(timer, 'mm:ss');
 
-	const t = useTranslation('auth').t;
-	const inputLabel = t('auth_form.code.label');
-	const sendAgainTitle = t('auth_form.code.sendAgain.title');
-	const sendAgainLabel = t('auth_form.code.sendAgain.label');
+	const inputLabel = auth.auth_form.code.label;
+	const sendAgainTitle = auth.auth_form.code.sendAgain.title;
+	const sendAgainLabel = auth.auth_form.code.sendAgain.label;
 
 	return (
 		<form className={s.auth_form}>

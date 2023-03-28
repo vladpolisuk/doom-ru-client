@@ -1,31 +1,20 @@
 import clsx from 'clsx';
 import { BaseHTMLAttributes, Dispatch, FC, memo, SetStateAction } from 'react';
-import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCircle } from 'react-icons/fa';
+import { IconType } from 'react-icons/lib';
 import AppLink from '../../../../components/AppLink/AppLink';
-import { LocaleMeAsideTabIcon } from '../../../../types/locales/me';
 import resetStylesOrMerge from '../../../../utils/ui/resetStylesOrMerge';
 import s from './AsideTabs.module.scss';
 
 export interface IAsideTabsItem extends BaseHTMLAttributes<HTMLAnchorElement> {
-	icon: LocaleMeAsideTabIcon;
+	Icon: IconType;
 	text: string;
 	setCurrent: Dispatch<SetStateAction<number>>;
 	tabId: number;
 	current: number;
 }
 
-const tabs: Record<LocaleMeAsideTabIcon, JSX.Element> = {
-	FaRegUserCircle: <FaRegUserCircle className={s.me_aside_tabs_item_icon} />,
-	FaRegBell: <FaRegBell className={s.me_aside_tabs_item_icon} />,
-	FaRegHeart: <FaRegHeart className={s.me_aside_tabs_item_icon} />,
-	FaRegSun: <FaRegSun className={s.me_aside_tabs_item_icon} />,
-	FaHistory: <FaHistory className={s.me_aside_tabs_item_icon} />,
-	FaRegListAlt: <FaRegListAlt className={s.me_aside_tabs_item_icon} />
-};
-
 export const AsideTabsItem: FC<IAsideTabsItem> = memo(
-	({ href, title, text, icon, current, setCurrent, tabId, ...props }) => {
-		const component = tabs[icon];
+	({ href, title, text, Icon, current, setCurrent, tabId, ...props }) => {
 		const isActive = current === tabId;
 
 		const click = () => setCurrent(tabId);
@@ -47,7 +36,7 @@ export const AsideTabsItem: FC<IAsideTabsItem> = memo(
 					href={href}
 					onClick={click}
 					{...props}>
-					{component}
+					<Icon className={s.me_aside_tabs_item_icon} />
 					<p className={s.me_aside_tabs_item_text}>{text}</p>
 				</AppLink>
 			</li>

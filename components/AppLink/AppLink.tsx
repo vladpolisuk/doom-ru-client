@@ -29,8 +29,8 @@ const AppLink: FC<IAppLink> = memo(
 		resetStyles = false,
 		...props
 	}) => {
-		const { locale } = useRouter();
-		const url = resetHref ? href : `/${locale}${href}`;
+		const router = useRouter();
+		const url = resetHref ? href : `/${router.query.lang}${href}`;
 		const titleAttr = onlyARIA ? '' : title;
 
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_link);

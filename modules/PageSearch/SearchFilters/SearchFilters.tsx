@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FormEvent, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,8 +8,9 @@ import AppCheckbox from '../../../components/AppCheckbox/AppCheckbox';
 import AppInput from '../../../components/AppInput/AppInput';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
+import { useTranslation } from '../../../hooks/useTranslation';
+import locales from '../../../locales';
 import { RealtyFilter, RealtyFilters } from '../../../types';
-import { LocaleSearchFilter } from '../../../types/locales/search';
 import removeProperty from '../../../utils/removeProperty';
 import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';
@@ -19,12 +19,12 @@ import s from './SearchFilters.module.scss';
 
 export const SearchFilters = () => {
 	const router = useRouter();
-	const { t } = useTranslation('search');
+	const search = useTranslation('search') as typeof locales.en.search;
 	const { handleSubmit, register, reset, setValue, getValues } = useForm<RealtyFilter>();
-	const action = router.route.split('/')[2];
+	const action = router.route.split('/')[3];
 
 	useEffect(() => {
-		const urlQueries = removeProperty(router.query, 'page', 'sort_by');
+		const urlQueries = removeProperty(router.query, 'page', 'sort_by', 'lang');
 		if (!router.query) return;
 		const parsedQueries = parseQueries(urlQueries) as any;
 		const values = getValues();
@@ -48,14 +48,22 @@ export const SearchFilters = () => {
 			}
 		}
 		router.push({
-			pathname: `/s/${action}`,
-			query
+			pathname: `/[lang]/s/${action}`,
+			query: {
+				...query,
+				lang: router.query.lang
+			}
 		});
 	};
 
 	const onReset = () => {
 		reset();
-		router.push({ pathname: `/s/${action}` });
+		router.push({
+			pathname: `/[lang]/s/${action}`,
+			query: {
+				lang: router.query.lang
+			}
+		});
 	};
 
 	const inputNumber = (name: RealtyFilters) => (event: FormEvent<HTMLInputElement>) => {
@@ -67,100 +75,11 @@ export const SearchFilters = () => {
 
 	const resetButtonStyles = clsx(s.search_filters_resetButton, 'active--scale', 'transition');
 	const submitButtonStyles = clsx(s.search_filters_submitButton, 'active--scale');
-	const resetButtonName = t('search_filters_btn.reset.name');
-	const resetButtonLabel = t('search_filters_btn.reset.label');
-	const submitButtonName = t('search_filters_btn.submit.name');
-	const submitButtonLabel = t('search_filters_btn.submit.label');
-
-	const filters: LocaleSearchFilter[] = t('search_filters', { returnObjects: true });
-	const components = filters?.map(filter => {
-		if (action !== filter.page && filter.page !== 'both') return;
-
-		switch (filter.type) {
-			case 'text':
-				return (
-					<AppLabel
-						key={filter.name}
-						htmlFor={filter.name}>
-						<p>{filter.title}</p>
-						<AppInput
-							onlyARIA
-							type={filter.typeInput}
-							title={filter.label}
-							className={s.search_filters_input}
-							placeholder={filter.label}
-							{...register(filter.name)}
-						/>
-					</AppLabel>
-				);
-
-			case 'option':
-				return (
-					<AppLabel
-						key={filter.name}
-						htmlFor={filter.name}>
-						<p>{filter.title}</p>
-						<AppSelect
-							aria-label={filter.label}
-							{...register(filter.name)}>
-							{filter.options?.map(({ value, title }) => (
-								<AppSelect.Option
-									key={title}
-									aria-label={title}
-									value={value}>
-									{title}
-								</AppSelect.Option>
-							))}
-						</AppSelect>
-					</AppLabel>
-				);
-
-			case 'from_to':
-				return (
-					<AppLabel
-						key={filter.name}
-						htmlFor={filter.name}>
-						<p>{filter.title}</p>
-						<div className={s.search_filters_pair}>
-							<AppInput
-								onlyARIA
-								min={filter.from?.min}
-								type={filter.from?.typeInput}
-								title={filter.from?.label}
-								className={s.search_filters_input}
-								placeholder={filter.from?.title}
-								onInput={inputNumber(filter.from?.name as RealtyFilters)}
-								{...register(filter.from?.name as RealtyFilters)}
-							/>
-							<AppInput
-								onlyARIA
-								min={filter.to?.min}
-								type={filter.to?.typeInput}
-								title={filter.to?.label}
-								className={s.search_filters_input}
-								placeholder={filter.to?.title}
-								onInput={inputNumber(filter.to?.name as RealtyFilters)}
-								{...register(filter.to?.name as RealtyFilters)}
-							/>
-						</div>
-					</AppLabel>
-				);
-
-			case 'checkbox':
-				return (
-					<AppLabel
-						row
-						key={filter.name}>
-						<AppCheckbox
-							onlyARIA
-							title={filter.label}
-							{...register(filter.name)}
-						/>
-						<p>{filter.title}</p>
-					</AppLabel>
-				);
-		}
-	});
+	const resetButtonName = search.search_filters_btn.reset.name;
+	const resetButtonLabel = search.search_filters_btn.reset.label;
+	const submitButtonName = search.search_filters_btn.submit.name;
+	const submitButtonLabel = search.search_filters_btn.submit.label;
+	const filters = search.search_filters;
 
 	return (
 		<aside>
@@ -168,7 +87,90 @@ export const SearchFilters = () => {
 				onReset={onReset}
 				onSubmit={handleSubmit(onSubmit)}
 				className={s.search_filters}>
-				{components}
+				{filters?.map(filter => {
+					if (action !== filter.page && filter.page !== 'both') return;
+
+					switch (filter.type) {
+						case 'text':
+							return (
+								<AppLabel
+									key={filter.name}
+									htmlFor={filter.name}>
+									<p>{filter.title}</p>
+									<AppInput
+										onlyARIA
+										type={filter.typeInput}
+										title={filter.label}
+										className={s.search_filters_input}
+										placeholder={filter.label}
+										{...register(filter.name as RealtyFilters)}
+									/>
+								</AppLabel>
+							);
+
+						case 'option':
+							return (
+								<AppLabel
+									key={filter.name}
+									htmlFor={filter.name}>
+									<p>{filter.title}</p>
+									<AppSelect
+										aria-label={filter.label}
+										{...register(filter.name as RealtyFilters)}>
+										{filter.options?.map(({ value, title }) => (
+											<AppSelect.Option
+												key={title}
+												aria-label={title}
+												value={value}>
+												{title}
+											</AppSelect.Option>
+										))}
+									</AppSelect>
+								</AppLabel>
+							);
+
+						case 'from_to':
+							return (
+								<AppLabel
+									key={filter.name}
+									htmlFor={filter.name}>
+									<p>{filter.title}</p>
+									<div className={s.search_filters_pair}>
+										<AppInput
+											onlyARIA
+											title={filter.from?.label}
+											className={s.search_filters_input}
+											placeholder={filter.from?.title}
+											onInput={inputNumber(filter.from?.name as RealtyFilters)}
+											{...register(filter.from?.name as RealtyFilters)}
+										/>
+										<AppInput
+											onlyARIA
+											title={filter.to?.label}
+											className={s.search_filters_input}
+											placeholder={filter.to?.title}
+											onInput={inputNumber(filter.to?.name as RealtyFilters)}
+											{...register(filter.to?.name as RealtyFilters)}
+										/>
+									</div>
+								</AppLabel>
+							);
+
+						case 'checkbox':
+							return (
+								<AppLabel
+									row
+									key={filter.name}>
+									<AppCheckbox
+										onlyARIA
+										title={filter.label}
+										{...register(filter.name as RealtyFilters)}
+									/>
+									<p>{filter.title}</p>
+								</AppLabel>
+							);
+					}
+				})}
 
 				<AppButton
 					onlyARIA

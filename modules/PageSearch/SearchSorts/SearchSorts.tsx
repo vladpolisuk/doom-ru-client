@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
-import { RealtySort, RealtySortBy } from '../../../types';
-import { LocaleSearchSortsSortBy } from '../../../types/locales/search';
+import { useTranslation } from '../../../hooks/useTranslation';
+import locales from '../../../locales';
+import { RealtySort, RealtySortBy, RealtySorts } from '../../../types';
 import s from './SearchSorts.module.scss';
 
 export const SearchSorts = () => {
 	const router = useRouter();
-	const t = useTranslation('search').t;
+	const search = useTranslation('search') as typeof locales.en.search;
 	const { handleSubmit, register, setValue, watch } = useForm<RealtySort>({
 		defaultValues: { sort_by: 'DEFAULT' }
 	});
@@ -18,22 +18,22 @@ export const SearchSorts = () => {
 	useEffect(() => {
 		if (!router.isReady) return;
 		if (!router.query.sort_by) return;
-		setValue('sort_by', router.query.sort_by as RealtySortBy)
-	}, [router])
+		setValue('sort_by', router.query.sort_by as RealtySortBy);
+	}, [router]);
 
 	const onSubmit = (data: RealtySort) => {
-		const action = router.route.split('/')[2];
+		const action = router.route.split('/')[3];
 
 		router.push({
-			pathname: `/s/${action}`,
+			pathname: `/[lang]/s/${action}`,
 			query: {
-				...router.query, 
+				...router.query,
 				sort_by: watch('sort_by')
 			}
 		});
 	};
 
-	const sort = t('search_sorts.sort_by', { returnObjects: true }) as LocaleSearchSortsSortBy;
+	const sort = search.search_sorts.sort_by;
 
 	return (
 		<form
@@ -43,7 +43,7 @@ export const SearchSorts = () => {
 				<AppSelect
 					className={s.search_sorts_sortBy}
 					aria-label={sort.label}
-					{...register(sort.name)}>
+					{...register(sort.name as RealtySorts)}>
 					{sort.options.map(option => (
 						<AppSelect.Option
 							key={option.value}

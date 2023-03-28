@@ -21,7 +21,7 @@ export const PageSearch = () => {
 
 	const styles = clsx(s.search_container, 'container');
 	const area = getStringWithUppercase(location?.city || location?.country || '', 0);
-	const action = router.route.split('/')[2];
+	const action = router.route.split('/')[3];
 	const typeText = getStringWithUppercase(action, 0);
 
 	return (
