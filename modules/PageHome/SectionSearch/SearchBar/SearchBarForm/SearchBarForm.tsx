@@ -1,12 +1,13 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiSearch, FiSliders } from 'react-icons/fi';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import AppInput from '../../../../../components/AppInput/AppInput';
 import { useAppSelector } from '../../../../../hooks/store';
-import { getHomeLoading } from '../../../../../store/home/selectros';
+import { useTranslation } from '../../../../../hooks/useTranslation';
+import locales from '../../../../../locales';
+import { getHomeLoading } from '../../../../../store/home/selectors';
 import { SearchBarAddressFields, SearchBarFields, SearchBarFiltersFields } from '../SearchBar';
 import s from './SearchBarForm.module.scss';
 import { SearchBarModal } from './SearchBarModal';
@@ -21,7 +22,7 @@ export const SearchBarForm: FC<Props> = ({ setForm, form }) => {
 	const [viewModal, setViewModal] = useState(false);
 	const [filters, setFilters] = useState<SearchBarFiltersFields>();
 	const { register, handleSubmit } = useForm<SearchBarFields>();
-	const { t } = useTranslation('home');
+	const home = useTranslation('home') as typeof locales.en.home;
 
 	const submit = (data: SearchBarAddressFields) => {
 		if (!data) return;
@@ -35,14 +36,14 @@ export const SearchBarForm: FC<Props> = ({ setForm, form }) => {
 		setForm(formData);
 	};
 
-	const inputTitle = t('home_section_search.search_input.title');
-	const inputPlaceholder = t('home_section_search.search_input.placeholder');
-	const filtersTitle = t('home_section_search.search_filters.title');
-	const filtersStyles = clsx(s.sectionSearch_searchBar_form_filters, 'active--scale', 'transition');
-	const filtersText = t('home_section_search.search_filters.text');
+	const inputTitle = home.home_section_search.search_input.title;
+	const inputPlaceholder = home.home_section_search.search_input.placeholder;
+	const filtersTitle = home.home_section_search.search_filters.title;
+	const filtersText = home.home_section_search.search_filters.text;
+	const submitName = home.home_section_search.search_btn.search.name;
+	const submitLabel = home.home_section_search.search_btn.search.label;
 	const submitStyles = clsx(s.sectionSearch_searchBar_form_submit, 'active--scale', 'transition');
-	const submitName = t('home_section_search.search_btn.search.name');
-	const submitLabel = t('home_section_search.search_btn.search.label');
+	const filtersStyles = clsx(s.sectionSearch_searchBar_form_filters, 'active--scale', 'transition');
 
 	return (
 		<form

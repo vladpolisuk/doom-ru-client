@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,11 +8,13 @@ import AppCheckbox from '../../../../components/AppCheckbox/AppCheckbox';
 import AppInput from '../../../../components/AppInput/AppInput';
 import AppLabel from '../../../../components/AppLabel/AppLabel';
 import AppModal from '../../../../components/AppModal/AppModal';
+import { useTranslation } from '../../../../hooks/useTranslation';
+import locales from '../../../../locales';
 import { SendSignInFields } from '../../../../types/api/auth';
-import { LocaleAuthSignInField } from '../../../../types/locales/auth';
 import s from './HeaderAuth.module.scss';
 
 export type SignInFields = SendSignInFields;
+type Fields = 'email' | 'password' | 'remember';
 
 type Props = {
 	setViewModal: (view: boolean) => void;
@@ -25,21 +26,21 @@ type Props = {
 
 export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loading, onSubmit }) => {
 	const router = useRouter();
-	const t = useTranslation('auth').t;
+	const auth = useTranslation('auth') as typeof locales.en.auth;
 	const {
 		handleSubmit,
 		register,
 		formState: { errors }
 	} = useForm<SignInFields>();
 
-	const title = t('auth_form.signin.title');
-	const name = t('auth_form.signin.name');
-	const haveAccount = t('auth_haveAccount');
-	const fields = t('auth_form.fields', { returnObjects: true }) as LocaleAuthSignInField[];
-	const cancel_title = t('auth_form.btn.signin.cancel.title');
-	const cancel_label = t('auth_form.btn.signin.cancel.label');
-	const submit_title = t('auth_form.btn.signin.submit.title');
-	const submit_label = t('auth_form.btn.signin.submit.label');
+	const title = auth.auth_form.signin.title;
+	const name = auth.auth_form.signin.name;
+	const haveAccount = auth.auth_haveAccount;
+	const fields = auth.auth_form.fields;
+	const cancel_title = auth.auth_form.btn.signin.cancel.title;
+	const cancel_label = auth.auth_form.btn.signin.cancel.label;
+	const submit_title = auth.auth_form.btn.signin.submit.title;
+	const submit_label = auth.auth_form.btn.signin.submit.label;
 
 	const submitBtnStyles = clsx(s.auth_modal_actions_submit, 'active--scale', 'transition');
 	const cancelBtnStyles = clsx(s.auth_modal_actions_cancel, 'active--scale', 'transition');
@@ -67,7 +68,7 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 									return (
 										<AppLabel
 											key={`field_${field.name}`}
-											errorMessage={errors[field.name]?.message}>
+											errorMessage={errors[field.name as Fields]?.message}>
 											<AppInput
 												showPasswordButton={field.showPasswordButton}
 												type={field.type}
@@ -75,11 +76,11 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 												invalid={field.name in errors}
 												placeholder={field.title}
 												className={s.auth_modal_form_input}
-												{...register(field.name, {
+												{...register(field.name as Fields, {
 													required: field.required,
 													minLength: field.minLength,
 													pattern: field.pattern && {
-														value: new RegExp(field.pattern.value.slice(1, -1)),
+														value: new RegExp(field.pattern.value),
 														message: field.pattern.message
 													}
 												})}
@@ -94,7 +95,7 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 											key={`field_${field.name}`}>
 											<AppCheckbox
 												disabled={loading}
-												{...register(field.name)}
+												{...register(field.name as Fields)}
 											/>
 											<p>{field.title}</p>
 										</AppLabel>
@@ -123,7 +124,7 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 						</AppButton>
 					</div>
 
-					<a href={`/${router.locale}/auth`}>{haveAccount}</a>
+					<a href={`/${router.query.lang}/auth`}>{haveAccount}</a>
 					<AppModal.Close
 						disabled={loading}
 						onClick={() => setViewModal(false)}

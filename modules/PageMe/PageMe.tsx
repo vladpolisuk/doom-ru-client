@@ -1,27 +1,16 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { FiLogOut } from 'react-icons/fi';
 import AppSignOutButton from '../../components/AppSignOutButton/AppSignOutButton';
-import { useAppSelector } from '../../hooks/store';
-import { getAppUser, getAppUserLoading } from '../../store/app/selectors';
-import { LocaleMeAsideLogOut } from '../../types/locales/me';
+import { useTranslation } from '../../hooks/useTranslation';
+import locales from '../../locales';
 import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
 const PageMe = () => {
-	const user = useAppSelector(getAppUser);
-	const userLoading = useAppSelector(getAppUserLoading);
-	const router = useRouter();
-	const { t } = useTranslation('me');
-	const { text, title }: LocaleMeAsideLogOut = t('aside.logout', { returnObjects: true });
+	const me = useTranslation('me') as typeof locales.en.me;
+	const { text, title } = me.aside.logout;
 	const styles = clsx(s.me_container, 'container');
-
-	useEffect(() => {
-		if (!user && !userLoading) router.replace(`/${router.locale}`);
-	}, [router, user, userLoading]);
 
 	return (
 		<div className={s.me}>

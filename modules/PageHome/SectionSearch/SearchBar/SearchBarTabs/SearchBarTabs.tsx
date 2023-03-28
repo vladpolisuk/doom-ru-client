@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import AppButton from '../../../../../components/AppButton/AppButton';
+import { useTranslation } from '../../../../../hooks/useTranslation';
+import locales from '../../../../../locales';
 import { RealtyAction } from '../../../../../types';
-import { LocaleHomeSearchTab } from '../../../../../types/locales/home';
 import s from './SearchBarTabs.module.scss';
 
 type Props = {
@@ -20,13 +20,9 @@ const searchActionIndex = {
 };
 
 export const SearchBarTabs: FC<Props> = ({ tab, setTab, withFilters, clearFilters }) => {
-	const { t } = useTranslation('home');
-
-	const filtersName = t('home_section_search.search_modal.name').toUpperCase();
-	const tabs: LocaleHomeSearchTab[] = t('home_section_search.search_tabs', {
-		returnObjects: true
-	});
-
+	const home = useTranslation('home') as typeof locales.en.home;
+	const tabs = home.home_section_search.search_tabs;
+	const title = home.home_section_search.search_filters.text;
 	const styles = clsx(s.sectionSearch_searchBar_tabs, 'unlisted');
 	const dynamicStyles = { left: `${80 * searchActionIndex[tab]}px` };
 
@@ -40,7 +36,7 @@ export const SearchBarTabs: FC<Props> = ({ tab, setTab, withFilters, clearFilter
 								<AppButton
 									title={title}
 									color='none'
-									onClick={() => setTab(type)}
+									onClick={() => setTab(type as RealtyAction)}
 									className={s.sectionSearch_searchBar_tabs_item}>
 									{text}
 								</AppButton>
@@ -64,8 +60,7 @@ export const SearchBarTabs: FC<Props> = ({ tab, setTab, withFilters, clearFilter
 							size={14}
 						/>
 					</AppButton>
-
-					{filtersName}
+					{title}
 				</div>
 			)}
 		</div>

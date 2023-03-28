@@ -1,18 +1,17 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { FC } from 'react';
 import AppLocationBadge from '../../../components/AppLocationBadge/AppLocationBadge';
 import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
+import { useTranslation } from '../../../hooks/useTranslation';
+import locales from '../../../locales';
 import wallpaper from '../../../public/assets/home_wallpaper.webp';
 import { SearchBar } from './SearchBar/SearchBar';
 import s from './SectionSearch.module.scss';
 
 export const SectionSearch: FC = () => {
-	const { t } = useTranslation('home');
-
-	const text = t('home_section_search.section_title');
-	const skeleton = <AppSkeleton className={s.home_sectionSearch_locationBadgeSkeleton} />;
+	const home = useTranslation('home') as typeof locales.en.home;
+	const title = home.home_section_search.section_title;
 
 	return (
 		<section
@@ -33,11 +32,11 @@ export const SectionSearch: FC = () => {
 				id='main'
 				className={clsx(s.home_sectionSearch_content, 'container')}>
 				<AppLocationBadge
-					Skeleton={skeleton}
+					Skeleton={<AppSkeleton className={s.home_sectionSearch_locationBadgeSkeleton} />}
 					className={s.home_sectionSearch_locationBadge}
 				/>
 
-				<h1 className={s.home_sectionSearch_title}>{text}</h1>
+				<h1 className={s.home_sectionSearch_title}>{title}</h1>
 
 				<SearchBar />
 			</main>

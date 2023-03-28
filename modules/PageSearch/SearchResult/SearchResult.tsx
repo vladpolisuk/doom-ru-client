@@ -8,6 +8,7 @@ import { setSearchLoading } from '../../../store/search/actions';
 import { searchGetRealties } from '../../../store/search/requests';
 import { getSearchLoading, getSearchPage, getSearchTake, getSearchTotal } from '../../../store/search/selectors';
 import { Realty, RealtyAction } from '../../../types';
+import removeProperty from '../../../utils/removeProperty';
 import parseQueries from '../../../utils/ui/parseQueries';
 import { View } from '../PageSearch';
 import RealtyItem from './RealtyItem/RealtyItem';
@@ -29,10 +30,10 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 
 	const changePage = (page: number) => {
 		if (page === Number(router.query.page)) return;
-		const action = router.route.split('/')[2];
+		const action = router.route.split('/')[3];
 
 		router.push({
-			pathname: `/${router.locale}/s/${action}`,
+			pathname: `/[lang]/s/${action}`,
 			query: { ...router.query, page: page }
 		});
 	};
@@ -41,9 +42,9 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 		const fetch = async () => {
 			dispatch(setSearchLoading(true));
 			const queryPage = Number(router.query.page || 1);
-			const action = router.route.split('/')[2] as RealtyAction;
-			const locale = router.locale as Locale;
-			const queries = parseQueries(router.query);
+			const action = router.route.split('/')[3] as RealtyAction;
+			const locale = router.query.lang as Locale;
+			const queries = parseQueries(removeProperty(router.query, 'lang'));
 			if (!locale) return;
 			const response = await dispatch(
 				searchGetRealties(locale, {
