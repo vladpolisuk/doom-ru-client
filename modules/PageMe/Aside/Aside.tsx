@@ -1,24 +1,24 @@
-import { useTranslation } from 'next-i18next';
-import React, { useEffect, useState } from 'react';
-import { LocaleMeAsideTab } from '../../../types/locales/me';
+import { useEffect, useState } from 'react';
+import { useTranslation } from '../../../hooks/useTranslation';
+import locales from '../../../locales';
 import { AsideTabs } from './AsideTabs/AsideTabs';
 
 export const Aside = () => {
-	const { t } = useTranslation('me');
+	const me = useTranslation('me') as typeof locales.en.me;
 	const [current, setCurrent] = useState(0);
 
 	useEffect(() => {
 		setCurrent(0);
 	}, []);
 
-	const tabs: LocaleMeAsideTab[] = t('aside.tabs', { returnObjects: true });
+	const tabs = me.aside.tabs;
 
-	const components = tabs.map(({ name, title, url, icon, id }) => (
+	const components = tabs.map(({ name, title, url, Icon, id }) => (
 		<AsideTabs.Item
+			Icon={Icon}
 			tabId={id}
 			current={current}
 			setCurrent={setCurrent}
-			icon={icon}
 			href={url}
 			title={title}
 			key={name}

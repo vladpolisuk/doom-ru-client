@@ -1,11 +1,12 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 import { TiLocation } from 'react-icons/ti';
 import AppButton from '../../../../components/AppButton/AppButton';
 import AppLink from '../../../../components/AppLink/AppLink';
+import { useTranslation } from '../../../../hooks/useTranslation';
+import locales from '../../../../locales';
 import { Locale } from '../../../../store/app/types';
 import { Realty } from '../../../../types';
 import formatCreatedAt from '../../../../utils/ui/formatCreatedAt';
@@ -22,13 +23,12 @@ type Props = Realty & {
 const RealtyItem: FC<Props> = memo(props => {
 	const { title, description, price, currency, createdAt, images, term, view, id, address, toggleFavorite } = props;
 	const router = useRouter();
-	const t = useTranslation('search').t;
+	const search = useTranslation('search') as typeof locales.en.search;
 
 	const url = `/s/${id}`;
-	const favoriteLabel = t('realty.favorite.add_label');
-	const formattedPrice = formatPrice(price, currency, term, router.locale as Locale);
-	const formattedTime = formatCreatedAt(createdAt, router.locale as Locale);
-
+	const favoriteLabel = search.realty.favorite.add_label;
+	const formattedPrice = formatPrice(price, currency, term, router.query.lang as Locale);
+	const formattedTime = formatCreatedAt(createdAt, router.query.lang as Locale);
 	const styles = clsx(s.realty_item, s[`realty_item--${view}`], 'transition');
 	const styles_info = clsx(s.realty_item_info, s[`realty_item_info--${view}`], 'transition');
 	const buttonStyles = clsx(s.realty_item_favorite, 'active--scale');

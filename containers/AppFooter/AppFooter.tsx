@@ -1,19 +1,17 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import AppLink from '../../components/AppLink/AppLink';
-import { useAppSelector } from '../../hooks/store';
-import { getAppUser } from '../../store/app/selectors';
-import { LocaleFooterGitHub } from '../../types/locales/footer';
+import { useTranslation } from '../../hooks/useTranslation';
+import locales from '../../locales';
 import s from './AppFooter.module.scss';
 import AppFooterBottom from './AppFooterBottom';
 
 const AppFooter = () => {
-	const t_f = useTranslation('footer').t;
+	const footer = useTranslation('footer') as typeof locales.en.footer;
 
-	const github: LocaleFooterGitHub = t_f('links.github', { returnObjects: true });
-	const title = t_f('title');
-	const disclaimer = t_f('disclaimer');
+	const github = footer.links.github;
+	const title = footer.title;
+	const disclaimer = footer.disclaimer;
 	const styles = clsx(s.footer_container, 'container');
 	const linksStyles = clsx(s.footer_links, 'unlisted');
 

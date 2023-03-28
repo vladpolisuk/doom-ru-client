@@ -1,8 +1,9 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { useAppDispatch } from '../../hooks/store';
+import { useTranslation } from '../../hooks/useTranslation';
+import locales from '../../locales';
 import { appSignUp, appVerify } from '../../store/app/requests';
 import { Locale } from '../../store/app/types';
 import { SendVerifyFields } from '../../types/api/auth';
@@ -20,7 +21,7 @@ const PageAuth = () => {
 	const [formError, setFormError] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [fields, setFields] = useState<SendVerifyFields | null>(null);
-	const t = useTranslation('auth').t;
+	const auth = useTranslation('auth') as typeof locales.en.auth;
 
 	const onSubmit = async (data: SignUpFields) => {
 		setLoading(true);
@@ -33,7 +34,7 @@ const PageAuth = () => {
 		};
 
 		const newData = removeProperty<SendVerifyFields>(body, 'repeatPassword');
-		const result = await appVerify(newData, router.locale as Locale);
+		const result = await appVerify(newData, router.query.lang as Locale);
 		setLoading(false);
 		if (!result.success) return setFormError(result.message);
 		setFormError('');
@@ -49,12 +50,12 @@ const PageAuth = () => {
 		setLoading(false);
 		if (!result.success) return setFormError(result.message);
 		setFormError('');
-		router.push(`/${router.locale}`);
+		router.push(`/${router.query.lang}`);
 	};
 
-	const signupTitle = t('auth_form.signup.title');
-	const codeTitle = t('auth_form.code.title');
-	const codeLabel = t('auth_form.code.label');
+	const signupTitle = auth.auth_form.signup.title;
+	const codeTitle = auth.auth_form.code.title;
+	const codeLabel = auth.auth_form.code.label;
 
 	const styles = clsx(s.authBox, 'container');
 

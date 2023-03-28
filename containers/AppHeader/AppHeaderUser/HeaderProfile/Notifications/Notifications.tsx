@@ -1,16 +1,17 @@
-import { useTranslation } from 'next-i18next';
 import { FaBell } from 'react-icons/fa';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import AppSkeleton from '../../../../../components/AppSkeleton/AppSkeleton';
 import { useAppSelector } from '../../../../../hooks/store';
+import { useTranslation } from '../../../../../hooks/useTranslation';
+import locales from '../../../../../locales';
 import { getAppUserLoading } from '../../../../../store/app/selectors';
 import s from './Notifications.module.scss';
 
 export const Notifications = () => {
 	const userLoading = useAppSelector(getAppUserLoading);
-	const { t } = useTranslation('header');
+	const header = useTranslation('header') as typeof locales.en.header;
 
-	const title = t('header_user_profile.notifications.title');
+	const title = header.header_user_profile.notifications.title;
 	const skeleton = userLoading ? <AppSkeleton className={s.header_notificationsSkeleton} /> : undefined;
 
 	return (

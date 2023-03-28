@@ -1,6 +1,6 @@
 import s from './PageHome.module.scss';
-import { SectionSearch } from './SectionSearch/SectionSearch';
 import { SectionQuickLinks } from './SectionQuickLinks/SectionQuickLinks';
+import { SectionSearch } from './SectionSearch/SectionSearch';
 
 export const PageHome = () => {
 	return (

@@ -1,8 +1,9 @@
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
 import { FC, HTMLAttributes, memo } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import usePagination, { DOTS } from '../../hooks/usePagination';
+import { useTranslation } from '../../hooks/useTranslation';
+import locales from '../../locales';
 import { BaseAppComponent } from '../../types/components';
 import AppButton from '../AppButton/AppButton';
 import s from './AppPagination.module.scss';
@@ -52,7 +53,7 @@ const AppPagination: FC<IAppPagination> = memo(
 		onPageChange,
 		...props
 	}) => {
-		const t = useTranslation('search').t;
+		const search = useTranslation('search') as typeof locales.en.search;
 
 		const paginationRange = usePagination({
 			currentPage,
@@ -67,9 +68,9 @@ const AppPagination: FC<IAppPagination> = memo(
 		const onNext = () => onPageChange(currentPage + 1);
 		const onPrevious = () => onPageChange(currentPage - 1);
 
-		const prevLabel = t('search_result_btn.prev.label');
-		const nextLabel = t('search_result_btn.next.label');
-		const pageLabel = (page: number) => t('search_result_btn.page.label', { page });
+		const prevLabel = search.search_result_btn.prev.label;
+		const nextLabel = search.search_result_btn.next.label;
+		const pageLabel = (page: number) => search.search_result_btn.page.label.replace(/\{\{page\}\}/g, String(page));
 		const lastPage = paginationRange[paginationRange.length - 1];
 		const titleAttr = onlyARIA ? '' : title;
 		const paginationStyles = clsx(className, s.app_pagination, 'unlisted');
