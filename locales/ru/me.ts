@@ -1,3 +1,5 @@
+import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCircle } from 'react-icons/fa';
+
 const me = {
 	locale: 'ru',
 	me_title: 'Доом.ру | Мой профиль',
@@ -8,42 +10,42 @@ const me = {
 				name: 'Профиль',
 				title: 'Перейти в профиль',
 				url: '/me/profile',
-				icon: 'FaRegUserCircle'
+				Icon: FaRegUserCircle
 			},
 			{
 				id: 1,
 				name: 'Уведомления',
 				title: 'Перейти в уведомления',
 				url: '/me/notifications',
-				icon: 'FaRegBell'
+				Icon: FaRegBell
 			},
 			{
 				id: 2,
 				name: 'Избранное',
 				title: 'Перейти в избранное',
 				url: '/me/favorites',
-				icon: 'FaRegHeart'
+				Icon: FaRegHeart
 			},
 			{
 				id: 3,
 				name: 'Настройки',
 				title: 'Перейти в настройки',
 				url: '/me/settings',
-				icon: 'FaRegSun'
+				Icon: FaRegSun
 			},
 			{
 				id: 4,
 				name: 'Мои объявления',
 				title: 'Перейти в мои объявления',
 				url: '/me/announcements',
-				icon: 'FaRegListAlt'
+				Icon: FaRegListAlt
 			},
 			{
 				id: 5,
 				name: 'История',
 				title: 'Перейти в историю сделок',
 				url: '/me/history',
-				icon: 'FaHistory'
+				Icon: FaHistory
 			}
 		],
 		logout: {
