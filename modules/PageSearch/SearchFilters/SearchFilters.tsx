@@ -9,7 +9,6 @@ import AppInput from '../../../components/AppInput/AppInput';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { RealtyFilter, RealtyFilters } from '../../../types';
 import removeProperty from '../../../utils/removeProperty';
 import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
@@ -19,7 +18,7 @@ import s from './SearchFilters.module.scss';
 
 export const SearchFilters = () => {
 	const router = useRouter();
-	const search = useTranslation('search') as typeof locales.en.search;
+	const search = useTranslation('search');
 	const { handleSubmit, register, reset, setValue, getValues } = useForm<RealtyFilter>();
 	const action = router.route.split('/')[3];
 

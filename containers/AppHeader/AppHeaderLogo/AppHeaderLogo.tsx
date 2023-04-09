@@ -3,11 +3,10 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import AppLink from '../../../components/AppLink/AppLink';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import s from './AppHeaderLogo.module.scss';
 
 const AppHeaderLogo = () => {
-	const header = useTranslation('header') as typeof locales.en.header;
+	const header = useTranslation('header');
 	const [mounted, setMounted] = useState(false);
 	const { resolvedTheme } = useTheme();
 

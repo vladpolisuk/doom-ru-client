@@ -4,13 +4,12 @@ import { FC } from 'react';
 import AppLocationBadge from '../../../components/AppLocationBadge/AppLocationBadge';
 import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import wallpaper from '../../../public/assets/home_wallpaper.webp';
 import { SearchBar } from './SearchBar/SearchBar';
 import s from './SectionSearch.module.scss';
 
 export const SectionSearch: FC = () => {
-	const home = useTranslation('home') as typeof locales.en.home;
+	const home = useTranslation('home');
 	const title = home.home_section_search.section_title;
 
 	return (

@@ -1,0 +1,68 @@
+.realty_author {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	gap: 20px;
+	border: 1px solid var(--color-6);
+	background-color: var(--background_actives-4);
+	padding: 15px 18px;
+	border-radius: 10px;
+	height: fit-content;
+
+	&_avatar {
+		height: 100px;
+		width: 100px;
+	}
+
+	&_avatarSkeleton {
+		border-radius: 50%;
+		background-color: var(--background_actives-3);
+	}
+
+	&_info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		height: 100%;
+		width: fit-content;
+		color: var(--color-2);
+		gap: 10px;
+	}
+
+	&_fullName {
+		font-size: 20px;
+		font-weight: bold;
+		color: var(--color);
+	}
+
+	&_fullNameSkeleton {
+		height: 30px;
+		background-color: var(--background_actives-3);
+	}
+
+	&_email {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		color: var(--color-2);
+		gap: 5px;
+	}
+
+	&_emailSkeleton {
+		height: 24px;
+		background-color: var(--background_actives-3);
+	}
+
+	&_city {
+		user-select: none;
+	}
+
+	&_citySkeleton {
+		height: 24px;
+		background-color: var(--background_actives-3);
+	}
+}

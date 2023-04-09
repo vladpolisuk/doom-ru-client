@@ -1,9 +1,8 @@
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import s from './AppFooter.module.scss';
 
 const AppFooterBottom = () => {
-	const common = useTranslation('common') as typeof locales.en.common;
+	const common = useTranslation('common');
 	const author = common.site_author;
 	const currentYear = new Date().getFullYear().toString();
 

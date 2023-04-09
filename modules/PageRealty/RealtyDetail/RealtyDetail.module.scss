@@ -1,0 +1,64 @@
+.realty_detail {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	gap: 20px;
+
+	&_badges {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 10px;
+		width: 100%;
+	}
+
+	&_badge {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: row;
+		gap: 5px;
+		padding: 10px 15px;
+		border: 1px solid var(--color-6);
+		background-color: var(--color-brand);
+		border-radius: 30px;
+		font-weight: bold;
+	}
+
+	&_badgeSkeleton {
+		border: none;
+		background-color: var(--background_actives-4);
+	}
+
+	&_items {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+		gap: 10px;
+		border-radius: 10px;
+		padding: 15px 18px;
+		border: 1px solid var(--color-6);
+		background-color: var(--background_actives-4);
+	}
+
+	&_item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 8px 10px;
+		border-radius: 5px;
+		border: 1px solid var(--color-4);
+		text-align: left;
+
+		&_label {
+		}
+
+		&_value {
+			text-align: left;
+		}
+	}
+}

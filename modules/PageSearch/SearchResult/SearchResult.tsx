@@ -61,8 +61,6 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 		if (router.isReady) fetch();
 	}, [router.query]);
 
-	const toggleFavorite = (id: number) => alert(id);
-
 	const styles = clsx(s[`search_result_list--${view}`], 'unlisted');
 
 	return (
@@ -82,7 +80,6 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 						<RealtyItem
 							view={view}
 							key={realty.id}
-							toggleFavorite={toggleFavorite}
 							{...realty}
 						/>
 					))}

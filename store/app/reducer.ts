@@ -52,6 +52,15 @@ const slice = createSlice({
 		 */
 		setAppLocale: (state, action: PayloadAction<Locale>) => {
 			state.locale = action.payload;
+		},
+		/**
+		 * The application reducer that sets the application locale to redux store
+		 * @param state AppState
+		 * @param action Locale
+		 */
+		setAppUserFavorites: (state, action: PayloadAction<AppUser['favorites']>) => {
+			if (!state.user) return;
+			state.user.favorites = action.payload;
 		}
 	}
 });

@@ -1,6 +1,5 @@
 import { FC, memo } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppSkipLink.module.scss';
@@ -12,7 +11,7 @@ type IAppSkipLink = BaseAppComponent<HTMLAnchorElement>;
  * @returns `html:anchor`
  */
 const AppSkipLink: FC<IAppSkipLink> = memo(({ className = s.app_skipLink, resetStyles = false }) => {
-	const common = useTranslation('common') as typeof locales.en.common;
+	const common = useTranslation('common');
 	const text = common.skip_link;
 
 	const styles = resetStylesOrMerge(resetStyles, className, s.app_skipLink);

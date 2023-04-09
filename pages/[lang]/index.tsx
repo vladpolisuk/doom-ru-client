@@ -2,12 +2,11 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import { PageHome } from '../../modules/PageHome/PageHome';
 
 export default function Home() {
-	const common = useTranslation('common') as typeof locales.en.common;
-	const home = useTranslation('home') as typeof locales.en.home;
+	const common = useTranslation('common');
+	const home = useTranslation('home');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;

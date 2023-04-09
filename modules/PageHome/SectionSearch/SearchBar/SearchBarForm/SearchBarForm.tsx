@@ -6,7 +6,6 @@ import AppButton from '../../../../../components/AppButton/AppButton';
 import AppInput from '../../../../../components/AppInput/AppInput';
 import { useAppSelector } from '../../../../../hooks/store';
 import { useTranslation } from '../../../../../hooks/useTranslation';
-import locales from '../../../../../locales';
 import { getHomeLoading } from '../../../../../store/home/selectors';
 import { SearchBarAddressFields, SearchBarFields, SearchBarFiltersFields } from '../SearchBar';
 import s from './SearchBarForm.module.scss';
@@ -22,7 +21,7 @@ export const SearchBarForm: FC<Props> = ({ setForm, form }) => {
 	const [viewModal, setViewModal] = useState(false);
 	const [filters, setFilters] = useState<SearchBarFiltersFields>();
 	const { register, handleSubmit } = useForm<SearchBarFields>();
-	const home = useTranslation('home') as typeof locales.en.home;
+	const home = useTranslation('home');
 
 	const submit = (data: SearchBarAddressFields) => {
 		if (!data) return;

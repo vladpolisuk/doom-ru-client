@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import PageAuth from '../../../modules/PageAuth/PageAuth';
 
 export default function Auth() {
-	const common = useTranslation('common') as typeof locales.en.common;
-	const auth = useTranslation('auth') as typeof locales.en.auth;
+	const common = useTranslation('common');
+	const auth = useTranslation('auth');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;

@@ -5,7 +5,6 @@ import AppInputCode from '../../components/AppInputCode/AppInputCode';
 import AppSpinner from '../../components/AppSpinner/AppSpinner';
 import useCountdownTimer from '../../hooks/useCountdownTimer';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import formatTime from '../../utils/ui/formatTime';
 import s from './PageAuth.module.scss';
 
@@ -16,7 +15,7 @@ type Props = {
 };
 
 export const AuthCode: FC<Props> = ({ onSubmit, error, loading }) => {
-	const auth = useTranslation('auth') as typeof locales.en.auth;
+	const auth = useTranslation('auth');
 	const [timer] = useCountdownTimer(5 * 60);
 	const time = formatTime(timer, 'mm:ss');
 

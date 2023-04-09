@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import AppLink from '../../../components/AppLink/AppLink';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { LinksBoard } from './LinksBoard/LinksBoard';
 import s from './SectionQuickLinks.module.scss';
 
 export const SectionQuickLinks = () => {
-	const home = useTranslation('home') as typeof locales.en.home;
+	const home = useTranslation('home');
 	const quickLinks = home.home_section_quickLinks.links_board;
 	const title = home.home_section_quickLinks.section_title;
 	const styles = clsx(s.section_quickLinks_container, 'container');

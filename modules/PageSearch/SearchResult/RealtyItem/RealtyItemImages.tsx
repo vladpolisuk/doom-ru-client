@@ -23,7 +23,6 @@ export const RealtyItemImages: FC<Props> = memo(({ images, view, title, realtyUR
 		<AppLink
 			onlyARIA
 			href={realtyURL}
-			target='_blank'
 			title={title}
 			onMouseLeave={resetShowImageId}
 			className={s.realty_item_imagesBox}>

@@ -7,10 +7,6 @@ const footer = {
 		github: {
 			title: 'Перейти в GitHub',
 			url: 'https://github.com/vladislav124352/doom-ru-client'
-		},
-		linkedin: {
-			title: 'Перейти в LinkedIn',
-			url: 'https://linkedin.com/vladislav124352/'
 		}
 	}
 };

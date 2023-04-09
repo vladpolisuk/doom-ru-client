@@ -1,11 +1,10 @@
 import clsx from 'clsx';
 import AppLink from '../../../components/AppLink/AppLink';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import s from './AppHeaderNav.module.scss';
 
 const AppHeaderNav = () => {
-	const header = useTranslation('header') as typeof locales.en.header;
+	const header = useTranslation('header');
 
 	const styles = clsx(s.header_nav_list_item, 'active--scale', 'transition');
 	const navLabel = header.header_nav_label;

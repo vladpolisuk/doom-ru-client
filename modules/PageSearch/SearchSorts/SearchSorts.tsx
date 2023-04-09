@@ -4,13 +4,12 @@ import { useForm } from 'react-hook-form';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { RealtySort, RealtySortBy, RealtySorts } from '../../../types';
 import s from './SearchSorts.module.scss';
 
 export const SearchSorts = () => {
 	const router = useRouter();
-	const search = useTranslation('search') as typeof locales.en.search;
+	const search = useTranslation('search');
 	const { handleSubmit, register, setValue, watch } = useForm<RealtySort>({
 		defaultValues: { sort_by: 'DEFAULT' }
 	});

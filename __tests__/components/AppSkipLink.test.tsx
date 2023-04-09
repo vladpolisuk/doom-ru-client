@@ -3,6 +3,16 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import AppSkipLink from '../../components/AppSkipLink/AppSkipLink';
 
 describe('AppSkipLink', () => {
+	const useRouter = jest.spyOn(require('next/router'), 'useRouter');
+
+	useRouter.mockImplementation(() => ({
+		push: jest.fn(),
+		prefetch: jest.fn(),
+		query: {
+			lang: 'en'
+		}
+	}));
+
 	it('should render the component', () => {
 		const wrapper = render(<AppSkipLink />);
 		const link = screen.getByTestId('app-skip-link');

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { AsideTabs } from './AsideTabs/AsideTabs';
 
 export const Aside = () => {
-	const me = useTranslation('me') as typeof locales.en.me;
+	const me = useTranslation('me');
 	const [current, setCurrent] = useState(0);
 
 	useEffect(() => {

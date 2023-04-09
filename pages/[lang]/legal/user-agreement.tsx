@@ -2,13 +2,12 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 
 const DynamicPage = dynamic(() => import('../../../modules/PageLegal/UserAgreement/UserAgreement'));
 
 export default function UserAgreement() {
-	const common = useTranslation('common') as typeof locales.en.common;
-	const legal = useTranslation('home') as typeof locales.en.legal;
+	const common = useTranslation('common');
+	const legal = useTranslation('legal');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;

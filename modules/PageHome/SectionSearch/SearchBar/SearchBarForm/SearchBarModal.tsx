@@ -7,7 +7,6 @@ import AppLabel from '../../../../../components/AppLabel/AppLabel';
 import AppModal from '../../../../../components/AppModal/AppModal';
 import AppSelect from '../../../../../components/AppSelect/AppSelect';
 import { useTranslation } from '../../../../../hooks/useTranslation';
-import locales from '../../../../../locales';
 import removeUndefinedProperties from '../../../../../utils/removeUndefinedProperties';
 import extractNumberFromString from '../../../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../../../utils/ui/getNumberWithSpaces';
@@ -22,8 +21,8 @@ type Props = {
 
 export const SearchBarModal: FC<Props> = ({ view, setView, onSubmit }) => {
 	const { register, handleSubmit, reset, setValue } = useForm<SearchBarFiltersFields>();
-	const home = useTranslation('home') as typeof locales.en.home;
-	const search = useTranslation('search') as typeof locales.en.search;
+	const home = useTranslation('home');
+	const search = useTranslation('search');
 
 	const filters = search.search_filters;
 	const buttonStyles = clsx(s.sectionSearch_searchBar_form_filtersForm_button, 'active--scale', 'transition');

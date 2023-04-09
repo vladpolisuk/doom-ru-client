@@ -2,13 +2,12 @@ import clsx from 'clsx';
 import { FiLogOut } from 'react-icons/fi';
 import AppSignOutButton from '../../components/AppSignOutButton/AppSignOutButton';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import { Aside } from './Aside/Aside';
 import { ProfileCard } from './AsideProfileCard/AsideProfileCard';
 import s from './PageMe.module.scss';
 
 const PageMe = () => {
-	const me = useTranslation('me') as typeof locales.en.me;
+	const me = useTranslation('me');
 	const { text, title } = me.aside.logout;
 	const styles = clsx(s.me_container, 'container');
 

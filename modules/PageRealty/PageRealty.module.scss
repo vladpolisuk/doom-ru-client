@@ -1,0 +1,35 @@
+.realty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	&_container {
+		padding: 20px 10px;
+		width: 100%;
+		max-width: 1300px;
+	}
+
+	&_main {
+		display: grid;
+		grid-template-columns: 1.6fr 1fr;
+		grid-gap: 20px;
+		width: 100%;
+	}
+
+	&_content {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		margin-bottom: 20px;
+
+		&_hr {
+			width: 100%;
+			background: var(--color);
+			opacity: 0.1;
+			border-radius: 1px;
+			height: 2px;
+			border: none;
+		}
+	}
+}

@@ -3,7 +3,6 @@ import { FC } from 'react';
 import { FaListUl, FaThLarge } from 'react-icons/fa';
 import AppButton from '../../../components/AppButton/AppButton';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { View } from '../PageSearch';
 import s from './SearchSwitchView.module.scss';
 
@@ -13,7 +12,7 @@ type Props = {
 };
 
 export const SearchSwitchView: FC<Props> = ({ view, handler }) => {
-	const search = useTranslation('search') as typeof locales.en.search;
+	const search = useTranslation('search');
 
 	const listHandler = () => handler('list');
 	const gridHandler = () => handler('grid');

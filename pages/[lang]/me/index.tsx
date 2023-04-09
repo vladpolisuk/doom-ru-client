@@ -4,7 +4,6 @@ import { Fragment } from 'react';
 import AuthAPI from '../../../api/auth';
 import { useAppDispatch } from '../../../hooks/store';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import PageMe from '../../../modules/PageMe/PageMe';
 import { setAppUser } from '../../../store/app/actions';
 import { Locale } from '../../../store/app/types';
@@ -13,8 +12,8 @@ export default function Me(props: any) {
 	const dispatch = useAppDispatch();
 	dispatch(setAppUser(props.user));
 
-	const common = useTranslation('common') as typeof locales.en.common;
-	const me = useTranslation('me') as typeof locales.en.me;
+	const common = useTranslation('common');
+	const me = useTranslation('me');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;

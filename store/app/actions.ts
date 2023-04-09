@@ -44,6 +44,15 @@ export const setAppUserLoading = (loading: boolean) => {
 	};
 };
 
+/** ## Set App User Favorites
+ * The action that set user favorites
+ */
+export const setAppUserFavorites = (favorites: number[]) => {
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppUserFavorites(favorites));
+	};
+};
+
 /** ## Set App Locale
  * The action that set app locale
  */

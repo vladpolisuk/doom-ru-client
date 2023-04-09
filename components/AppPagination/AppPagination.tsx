@@ -3,7 +3,6 @@ import { FC, HTMLAttributes, memo } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import usePagination, { DOTS } from '../../hooks/usePagination';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import { BaseAppComponent } from '../../types/components';
 import AppButton from '../AppButton/AppButton';
 import s from './AppPagination.module.scss';
@@ -53,7 +52,7 @@ const AppPagination: FC<IAppPagination> = memo(
 		onPageChange,
 		...props
 	}) => {
-		const search = useTranslation('search') as typeof locales.en.search;
+		const search = useTranslation('search');
 
 		const paginationRange = usePagination({
 			currentPage,

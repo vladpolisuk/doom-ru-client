@@ -9,7 +9,6 @@ import AppInput from '../../../../components/AppInput/AppInput';
 import AppLabel from '../../../../components/AppLabel/AppLabel';
 import AppModal from '../../../../components/AppModal/AppModal';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import locales from '../../../../locales';
 import { SendSignInFields } from '../../../../types/api/auth';
 import s from './HeaderAuth.module.scss';
 
@@ -26,7 +25,7 @@ type Props = {
 
 export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loading, onSubmit }) => {
 	const router = useRouter();
-	const auth = useTranslation('auth') as typeof locales.en.auth;
+	const auth = useTranslation('auth');
 	const {
 		handleSubmit,
 		register,

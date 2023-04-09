@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { useAppDispatch } from '../../hooks/store';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import { appSignUp, appVerify } from '../../store/app/requests';
 import { Locale } from '../../store/app/types';
 import { SendVerifyFields } from '../../types/api/auth';
@@ -21,7 +20,7 @@ const PageAuth = () => {
 	const [formError, setFormError] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [fields, setFields] = useState<SendVerifyFields | null>(null);
-	const auth = useTranslation('auth') as typeof locales.en.auth;
+	const auth = useTranslation('auth');
 
 	const onSubmit = async (data: SignUpFields) => {
 		setLoading(true);
@@ -30,7 +29,8 @@ const PageAuth = () => {
 			...data,
 			bio: '',
 			city: '',
-			avatar: ''
+			avatar: '',
+			favorites: []
 		};
 
 		const newData = removeProperty<SendVerifyFields>(body, 'repeatPassword');

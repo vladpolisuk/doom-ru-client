@@ -34,3 +34,10 @@ export const getAppLocation = (state: RootState) => state.app.location;
  * @returns `AppLocale`
  */
 export const getAppLocale = (state: RootState) => state.app.locale;
+
+/** ## Get App User Favorites
+ * The selector that returns the application user favorites from redux store
+ * @param state RootState
+ * @returns `AppUser['favorites']`
+ */
+export const getAppUserFavorites = (state: RootState) => state.app.user?.favorites || [];

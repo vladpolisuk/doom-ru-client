@@ -3,6 +3,16 @@ import { render, screen } from '@testing-library/react';
 import AppPagination from '../../components/AppPagination/AppPagination';
 
 describe('AppPagination', () => {
+	const useRouter = jest.spyOn(require('next/router'), 'useRouter');
+
+	useRouter.mockImplementation(() => ({
+		push: jest.fn(),
+		prefetch: jest.fn(),
+		query: {
+			lang: 'en'
+		}
+	}));
+
 	it('should be rendered', () => {
 		const onPageChange = jest.fn();
 		const wrapper = render(

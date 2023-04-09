@@ -1,0 +1,74 @@
+.slider_container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.images_container {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	gap: 10px;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	padding: 10px;
+	position: absolute;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	font-size: 1.5rem;
+	border: none;
+	cursor: pointer;
+	user-select: none;
+
+	&:hover,
+	&:focus-visible {
+		background-color: #2929298f;
+	}
+}
+
+.prev_button {
+	left: 10px;
+	padding-right: 12px;
+}
+
+.next_button {
+	right: 10px;
+	padding-left: 12px;
+}
+
+.images_carousel {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 15px;
+	padding: 15px 0;
+
+	&_item {
+		padding: 0;
+	}
+
+	&_image {
+		transition: all 200ms ease-in-out;
+		border-radius: 5px;
+		object-fit: cover;
+		opacity: 0.6;
+	}
+
+	&_imageActive {
+		transform: scale(1.05);
+		opacity: 1;
+	}
+}

@@ -7,7 +7,6 @@ import AppCheckbox from '../../components/AppCheckbox/AppCheckbox';
 import AppInput from '../../components/AppInput/AppInput';
 import AppLabel from '../../components/AppLabel/AppLabel';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import s from './PageAuth.module.scss';
 
 export type SignUpFields = {
@@ -27,7 +26,7 @@ type Props = {
 };
 
 export const AuthSignUp: FC<Props> = ({ onSubmit, error, loading }) => {
-	const auth = useTranslation('auth') as typeof locales.en.auth;
+	const auth = useTranslation('auth');
 	const {
 		register,
 		handleSubmit,

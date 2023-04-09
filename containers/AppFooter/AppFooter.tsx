@@ -1,13 +1,12 @@
 import clsx from 'clsx';
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub } from 'react-icons/bs';
 import AppLink from '../../components/AppLink/AppLink';
 import { useTranslation } from '../../hooks/useTranslation';
-import locales from '../../locales';
 import s from './AppFooter.module.scss';
 import AppFooterBottom from './AppFooterBottom';
 
 const AppFooter = () => {
-	const footer = useTranslation('footer') as typeof locales.en.footer;
+	const footer = useTranslation('footer');
 
 	const github = footer.links.github;
 	const title = footer.title;
@@ -37,16 +36,6 @@ const AppFooter = () => {
 								title={github.title}
 								href={github.url}>
 								<BsGithub className={s.footer_links_item_image} />
-							</AppLink>
-						</li>
-
-						<li className={s.footer_links_item}>
-							<AppLink
-								resetHref
-								className={s.footer_link}
-								title={github.title}
-								href={github.url}>
-								<BsLinkedin className={s.footer_links_item_image} />
 							</AppLink>
 						</li>
 					</ul>

@@ -5,6 +5,7 @@ import header from './header';
 import home from './home';
 import legal from './legal';
 import me from './me';
+import realty from './realty';
 import search from './search';
 
 const ru = {
@@ -14,6 +15,7 @@ const ru = {
 	header,
 	legal,
 	me,
+	realty,
 	footer,
 	common
 };

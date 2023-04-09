@@ -3,7 +3,6 @@ import { useState } from 'react';
 import AppButton from '../../../../components/AppButton/AppButton';
 import { useAppDispatch } from '../../../../hooks/store';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import locales from '../../../../locales';
 import { appSignIn } from '../../../../store/app/requests';
 import { AuthSignIn, SignInFields } from './AuthSignIn';
 import s from './HeaderAuth.module.scss';
@@ -13,7 +12,7 @@ export const HeaderAuth = () => {
 	const dispatch = useAppDispatch();
 	const [formError, setFormError] = useState('');
 	const [loading, setLoading] = useState(false);
-	const header = useTranslation('header') as typeof locales.en.header;
+	const header = useTranslation('header');
 
 	const title = header.header_user_auth.signin.title;
 	const text = header.header_user_auth.signin.name;

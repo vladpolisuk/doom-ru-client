@@ -16,9 +16,8 @@ export interface Realty {
 	repair: RealtyRepair;
 	elevator: boolean;
 	bedrooms: number;
-	bathrooms: number;
-	createdAt: number;
-	updatedAt: number;
+	createdAt: string;
+	updatedAt: string;
 }
 
 export type RealtyAction = 'rent' | 'buy';

@@ -1,3 +1,5 @@
+import locales from '../../locales';
+
 /** ## App State
  * The application state type
  */
@@ -56,6 +58,10 @@ export type AppUser = {
 	 * The user's city
 	 */
 	city?: string;
+	/**
+	 * The user's favorite realties
+	 */
+	favorites: number[];
 };
 
 /**
@@ -79,6 +85,11 @@ export type AppLocation = {
 };
 
 /**
- *
+ * The application locale type
  */
 export type Locale = 'ru' | 'en';
+
+/**
+ * The application locale pages type
+ */
+export type Locales = keyof typeof locales.en;

@@ -1,6 +1,6 @@
 import { Locale } from '../../store/app/types';
 
-type FormatCreatedAt = (createdAt: number, locale?: Locale) => string;
+type FormatCreatedAt = (createdAt: string, locale?: Locale) => string;
 
 const localesSource = {
 	en: {

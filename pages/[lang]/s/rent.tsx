@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import locales from '../../../locales';
 import { PageSearch } from '../../../modules/PageSearch/PageSearch';
 
 export default function Rent() {
-	const common = useTranslation('common') as typeof locales.en.common;
-	const search = useTranslation('search') as typeof locales.en.search;
+	const common = useTranslation('common');
+	const search = useTranslation('search');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;
