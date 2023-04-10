@@ -30,7 +30,8 @@ const PageAuth = () => {
 			bio: '',
 			city: '',
 			avatar: '',
-			favorites: []
+			favorites: [],
+			phone: ''
 		};
 
 		const newData = removeProperty<SendVerifyFields>(body, 'repeatPassword');
