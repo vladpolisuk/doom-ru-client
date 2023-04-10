@@ -62,6 +62,10 @@ export type AppUser = {
 	 * The user's favorite realties
 	 */
 	favorites: number[];
+	/**
+	 * the user's phone
+	 */
+	phone: string;
 };
 
 /**

@@ -29,6 +29,10 @@ export class AuthAPI extends BaseAPI {
 	public async me() {
 		return await this.fetch('GET')('/me');
 	}
+
+	public async addPhone(phone: string) {
+		return await this.fetch('GET')('/phone', { phone });
+	}
 }
 
 export default AuthAPI;
