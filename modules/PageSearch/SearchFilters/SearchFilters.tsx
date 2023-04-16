@@ -98,7 +98,7 @@ export const SearchFilters = () => {
 									<p>{filter.title}</p>
 									<AppInput
 										onlyARIA
-										type={filter.typeInput}
+										type={filter.type}
 										title={filter.label}
 										className={s.search_filters_input}
 										placeholder={filter.label}

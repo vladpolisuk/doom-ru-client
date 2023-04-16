@@ -1,6 +1,6 @@
 const realty = {
 	locale: 'ru',
-	home_title: '{{title}} | Доом.ру - база недвижимости',
+	realty_title: '{{title}} | Доом.ру - база недвижимости',
 	realty_detail: {
 		title: 'Подробнее',
 		bool: {

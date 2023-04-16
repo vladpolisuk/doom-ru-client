@@ -24,6 +24,10 @@ interface IAppInput extends Props {
 	 * Specify that showPassword button should be rendered
 	 */
 	showPasswordButton?: boolean;
+	/**
+	 * Specify that input should be rendered as textarea
+	 */
+	as?: 'input' | 'textarea';
 }
 
 /** ## App Input
@@ -38,6 +42,7 @@ const AppInput: FC<IAppInput> = memo(
 			title,
 			children,
 			type,
+			as = 'input',
 			placeholder,
 			iconLeft,
 			iconRight,
@@ -63,19 +68,35 @@ const AppInput: FC<IAppInput> = memo(
 		const invalidStyles = invalid ? s['app_input--invalid'] : '';
 		const inputStyles = resetStylesOrMerge(resetStyles, className, s.app_input, iconSide, invalidStyles);
 
+		const Component = ({ ...props }: any) => {
+			return {
+				textarea: (
+					<textarea
+						ref={ref}
+						{...props}
+					/>
+				),
+				input: (
+					<input
+						ref={ref}
+						{...props}
+					/>
+				)
+			}[as];
+		};
+
 		if (iconLeft)
 			return (
 				<div className={s.app_inputLabel}>
 					<span className={s.app_input_iconLeft}>{iconLeft}</span>
 
-					<input
+					<Component
 						type={type}
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
-						ref={ref}
 						{...extra}
 					/>
 				</div>
@@ -83,14 +104,13 @@ const AppInput: FC<IAppInput> = memo(
 		else if (iconRight)
 			return (
 				<div className={s.app_inputLabel}>
-					<input
+					<Component
 						type={type}
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
-						ref={ref}
 						{...extra}
 					/>
 
@@ -100,13 +120,12 @@ const AppInput: FC<IAppInput> = memo(
 		else if (showPasswordButton) {
 			return (
 				<div className={s.app_inputLabel}>
-					<input
+					<Component
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
-						ref={ref}
 						{...extra}
 						type={inputType}
 					/>
@@ -123,14 +142,13 @@ const AppInput: FC<IAppInput> = memo(
 		}
 
 		return (
-			<input
+			<Component
 				type={type}
 				title={titleAttr}
 				aria-label={title}
 				placeholder={placeholder}
 				data-testid='app-input'
 				className={inputStyles}
-				ref={ref}
 				{...extra}
 			/>
 		);

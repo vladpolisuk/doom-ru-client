@@ -1,5 +1,6 @@
 import BaseAPI from '.';
 import { Locale } from '../store/app/types';
+import { RealtyForm } from '../store/realty/types';
 import { Realty, RealtyFilter } from '../types';
 
 export type GetRealtiesFilters = Partial<
@@ -24,16 +25,20 @@ export class RealtyAPI extends BaseAPI {
 		return await this.fetch('GET')(`/${id}`);
 	}
 
+	public async createRealty(realty: RealtyForm) {
+		return await this.fetch('POST')('/', realty);
+	}
+
+	public async getAllFavoriteRealties() {
+		return await this.fetch('GET')(`/favorite`);
+	}
+
 	public async addToFavorite(realtyId: number) {
 		return await this.fetch('POST')(`/favorite/${realtyId}`);
-	} 
+	}
 
 	public async removeFromFavorite(realtyId: number) {
 		return await this.fetch('DELETE')(`/favorite/${realtyId}`);
-	}	
-
-	public async getAllFavoriteRealties(realtyId: number) {
-		return await this.fetch('GET')(`/favorite`);
 	}
 }
 

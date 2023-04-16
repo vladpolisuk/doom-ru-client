@@ -47,3 +47,9 @@ export interface RealtyImage {
 export type RealtyUser = {
 	id: number;
 };
+
+export type RealtyForm = Omit<Realty, 'id' | 'updatedAt' | 'images' | 'user' | 'createdAt'>;
+
+export type RealtySubmit = RealtyForm & {
+	images: Buffer[];
+};

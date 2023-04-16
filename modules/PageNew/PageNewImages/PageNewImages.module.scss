@@ -1,0 +1,155 @@
+.images {
+	display: flex;
+	flex-direction: column;
+
+	&_title {
+		text-transform: uppercase;
+		color: var(--color-2);
+		margin-top: 0;
+	}
+
+	&_error {
+		margin-bottom: 20px;
+		max-width: 400px;
+	}
+}
+
+.image {
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.imageClose {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	padding: 5px;
+	background: rgb(164, 164, 164);
+	z-index: 2;
+
+	&:hover,
+	&:focus-visible {
+		background: rgb(137, 137, 137);
+	}
+}
+
+.imagesList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	&_item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		border-radius: 5px;
+		transition: opacity 250ms ease;
+	}
+
+	&_item--removing {
+		opacity: 0;
+	}
+
+	&_item--moving {
+		cursor: grab;
+		opacity: 0.5;
+	}
+}
+
+.fileInput {
+	display: none;
+}
+
+.imageUploadBox {
+	width: 100px;
+	height: 100px;
+	border-radius: 5px;
+	border: 2px solid var(--color-2);
+	opacity: 0.6;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-style: dashed;
+	user-select: none;
+	text-align: center;
+
+	&_text {
+		font-size: 14px;
+		text-transform: uppercase;
+		color: var(--color-2);
+	}
+}
+
+.imageUpload {
+	width: fit-content;
+	cursor: pointer;
+}
+
+.openModalBtn {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: none;
+	z-index: 1;
+	border-radius: 5px;
+}
+
+.imageModal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 10px;
+	max-width: 700px;
+	background: transparent;
+	border: none;
+	padding: 0;
+
+	&_btn {
+		position: absolute;
+		background-color: #0000003f;
+		border-radius: 50%;
+		width: 42px;
+		height: 42px;
+
+		&:hover,
+		&:focus-visible {
+			background-color: #0000004e;
+		}
+	}
+
+	&_btnPrev {
+		left: 20px;
+	}
+
+	&_btnNext {
+		right: 20px;
+	}
+
+	&_close {
+		background-color: #0000003f;
+
+		&:hover,
+		&:focus-visible {
+			background-color: #0000004e;
+		}
+	}
+
+	&_image {
+		border-radius: 5px;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}

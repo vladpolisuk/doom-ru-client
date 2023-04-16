@@ -30,6 +30,7 @@ button {
 }
 
 input,
+textarea,
 button {
 	&:disabled {
 		opacity: 0.7;
@@ -39,6 +40,7 @@ button {
 
 a,
 button,
+textarea,
 input,
 select {
 	&:focus-visible {

@@ -6,8 +6,8 @@ import s from './AppModal.module.scss';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const AppModalButton: FC<Props> = ({ children, ...extra }) => {
-	const styles = clsx(s.app_modal_close, 'transition');
+const AppModalButton: FC<Props> = ({ children, className, ...extra }) => {
+	const styles = clsx(s.app_modal_close, 'transition', className);
 
 	return (
 		<AppButton

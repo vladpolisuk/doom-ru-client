@@ -16,3 +16,11 @@
 		background-color: var(--background);
 	}
 }
+
+.app_select--invalid {
+	box-shadow: 0 0 0 2px rgb(255, 29, 29);
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px rgb(255, 29, 29);
+	}
+}

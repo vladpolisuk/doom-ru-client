@@ -3,6 +3,7 @@ import { setAppUserFavorites } from '../app/actions';
 import { Locale } from '../app/types';
 import { AppDispatch, AppGetState } from '../types';
 import { RealtyAPI } from './../../api/realty';
+import { RealtySubmit } from './types';
 
 /** ## Get Realty
  * The request to load realty data
@@ -88,4 +89,24 @@ export const removeRealtyFromFavorite = (id: number) => {
 			};
 		}
 	};
+};
+
+/** ## Create Realty
+ * The request that create realty
+ * @param data RealtyForm
+ */
+export const createRealty = async (data: RealtySubmit, lang: Locale) => {
+	try {
+		const api = new RealtyAPI(lang);
+		const response = await api.createRealty(data);
+		return {
+			data: response.data,
+			success: true
+		};
+	} catch (error: any) {
+		return {
+			message: error.message,
+			success: false
+		};
+	}
 };

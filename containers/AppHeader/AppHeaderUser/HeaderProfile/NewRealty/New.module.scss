@@ -1,10 +1,17 @@
-.header_create {
+.link {
+	padding: 10px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header_new {
 	color: var(--color-2);
 	width: 22px;
 	height: 22px;
 }
 
-.header_createSkeleton {
+.header_newSkeleton {
 	width: 55px;
 	height: 45px;
 	border-radius: 10px;

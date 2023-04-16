@@ -40,7 +40,6 @@ const search = {
 			page: 'both',
 			name: 'address',
 			type: 'text',
-			typeInput: 'search',
 			title: 'Address',
 			label: 'City, district or subway'
 		},
@@ -325,7 +324,7 @@ const search = {
 			label: 'Go to {{page}} page'
 		}
 	},
-	realty: {
+	search_realty: {
 		favorite: {
 			add_label: 'Save to favorites',
 			remove_label: 'Remove from favorites'

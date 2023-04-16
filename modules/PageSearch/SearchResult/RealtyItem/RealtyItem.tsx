@@ -30,7 +30,7 @@ const RealtyItem: FC<Props> = memo(props => {
 	const [loading, setLoading] = useState(false);
 
 	const url = `/s/${id}`;
-	const favoriteLabel = search.realty.favorite.add_label;
+	const favoriteLabel = search.search_realty.favorite.add_label;
 	const formattedPrice = formatPrice(price, currency, term, router.query.lang as Locale);
 	const formattedTime = formatCreatedAt(createdAt, router.query.lang as Locale);
 	const styles = clsx(s.realty_item, s[`realty_item--${view}`], 'transition');

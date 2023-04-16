@@ -324,7 +324,7 @@ const search = {
 			label: 'Перейти к {{page}}-ой странице'
 		}
 	},
-	realty: {
+	search_realty: {
 		favorite: {
 			add_label: 'Сохранить в избранное',
 			remove_label: 'Удалить из избранного'

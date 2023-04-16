@@ -5,6 +5,7 @@ import header from './header';
 import home from './home';
 import legal from './legal';
 import me from './me';
+import newRealty from './new';
 import realty from './realty';
 import search from './search';
 
@@ -12,12 +13,13 @@ const ru = {
 	home,
 	auth,
 	search,
-	header,
-	legal,
-	me,
-	realty,
 	footer,
-	common
+	common,
+	header,
+	new: newRealty,
+	realty,
+	legal,
+	me
 };
 
 export default ru;

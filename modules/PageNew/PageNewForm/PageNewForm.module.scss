@@ -1,0 +1,55 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	max-width: 400px;
+
+	&_title {
+		text-transform: uppercase;
+		color: var(--color-2);
+		margin-top: 30px;
+	}
+
+	&_fields {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: 100%;
+	}
+
+	&_field {
+		background: var(--background_actives-4);
+
+		&:hover,
+		&:focus-visible {
+			background: var(--background_actives-4);
+		}
+	}
+
+	&_field--textarea {
+		height: 200px;
+	}
+
+	&_submit {
+		width: 100%;
+		margin-top: 30px;
+		margin-bottom: 20px;
+	}
+}
+
+.modalConfirm {
+	&_content {
+		text-align: center;
+		line-height: 1.5;
+		padding: 0 20px;
+	}
+
+	&_actions {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		gap: 10px;
+		padding-top: 20px;
+	}
+}
