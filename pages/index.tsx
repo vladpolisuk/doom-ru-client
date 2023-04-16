@@ -6,7 +6,7 @@ export default function Home() {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	const string = context.req.headers['accept-language'];
-	const lang = string?.split(';')[0].split(',')[0];
+	const lang = string?.split(';')[0].split(',')[0].split('-')[0];
 
 	return {
 		redirect: {
