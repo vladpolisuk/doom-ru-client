@@ -1,11 +1,11 @@
-import { FC, forwardRef, InputHTMLAttributes, memo, useState } from 'react';
+import { FC, InputHTMLAttributes, forwardRef, memo, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppButton from '../AppButton/AppButton';
 import s from './AppInput.module.scss';
 
-type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
+type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement & HTMLTextAreaElement>;
 
 interface IAppInput extends Props {
 	/**
@@ -25,9 +25,9 @@ interface IAppInput extends Props {
 	 */
 	showPasswordButton?: boolean;
 	/**
-	 * Specify that input should be rendered as textarea
+	 * Specify which type of input should be rendered
 	 */
-	as?: 'input' | 'textarea';
+	as?: 'textarea' | 'input';
 }
 
 /** ## App Input
@@ -42,8 +42,8 @@ const AppInput: FC<IAppInput> = memo(
 			title,
 			children,
 			type,
-			as = 'input',
 			placeholder,
+			as = 'input',
 			iconLeft,
 			iconRight,
 			className = '',
@@ -68,64 +68,54 @@ const AppInput: FC<IAppInput> = memo(
 		const invalidStyles = invalid ? s['app_input--invalid'] : '';
 		const inputStyles = resetStylesOrMerge(resetStyles, className, s.app_input, iconSide, invalidStyles);
 
-		const Component = ({ ...props }: any) => {
-			return {
-				textarea: (
-					<textarea
-						ref={ref}
-						{...props}
-					/>
-				),
-				input: (
-					<input
-						ref={ref}
-						{...props}
-					/>
-				)
-			}[as];
-		};
+		const component =
+			as === 'input' ? (
+				<input
+					type={type}
+					title={titleAttr}
+					aria-label={title}
+					placeholder={placeholder}
+					data-testid='app-input'
+					className={inputStyles}
+					ref={ref}
+					{...extra}
+				/>
+			) : (
+				<textarea
+					title={titleAttr}
+					aria-label={title}
+					placeholder={placeholder}
+					data-testid='app-input'
+					className={inputStyles}
+					ref={ref}
+					{...extra}
+				/>
+			);
 
 		if (iconLeft)
 			return (
 				<div className={s.app_inputLabel}>
 					<span className={s.app_input_iconLeft}>{iconLeft}</span>
-
-					<Component
-						type={type}
-						title={titleAttr}
-						aria-label={title}
-						placeholder={placeholder}
-						data-testid='app-input'
-						className={inputStyles}
-						{...extra}
-					/>
+					{component}
 				</div>
 			);
 		else if (iconRight)
 			return (
 				<div className={s.app_inputLabel}>
-					<Component
-						type={type}
-						title={titleAttr}
-						aria-label={title}
-						placeholder={placeholder}
-						data-testid='app-input'
-						className={inputStyles}
-						{...extra}
-					/>
-
+					{component}
 					<span className={s.app_input_iconRight}>{iconRight}</span>
 				</div>
 			);
 		else if (showPasswordButton) {
 			return (
 				<div className={s.app_inputLabel}>
-					<Component
+					<input
 						title={titleAttr}
 						aria-label={title}
 						placeholder={placeholder}
 						data-testid='app-input'
 						className={inputStyles}
+						ref={ref}
 						{...extra}
 						type={inputType}
 					/>
@@ -141,17 +131,7 @@ const AppInput: FC<IAppInput> = memo(
 			);
 		}
 
-		return (
-			<Component
-				type={type}
-				title={titleAttr}
-				aria-label={title}
-				placeholder={placeholder}
-				data-testid='app-input'
-				className={inputStyles}
-				{...extra}
-			/>
-		);
+		return component;
 	})
 );
 

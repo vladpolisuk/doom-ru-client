@@ -57,12 +57,11 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	const handleBackspace = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
 		const id = +event.target.id;
-		const value = +event.target.value;
 		if (event.key !== 'Backspace') return;
 		event.preventDefault();
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
 		if (id > 0) {
-			if (!value) return fields.item(id - 1).focus();
+			if (!event.target.value) return fields.item(id - 1).focus();
 			fields.item(id - 1).focus();
 		}
 		fields.item(id).value = '';
@@ -93,7 +92,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 					id={`${value}`}
 					key={value}
 					data-testid='app-inputCode'
-					onInput={onChange}
+					onChange={onChange}
 					onPaste={onPaste}
 					onKeyDown={handleBackspace}
 					placeholder={codePlaceholder}

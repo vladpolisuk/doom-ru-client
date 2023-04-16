@@ -145,8 +145,8 @@ export const PageNewForm: FC<Props> = ({ onSubmit, loading }) => {
 										<AppInput
 											onlyARIA
 											type='text'
-											invalid={field.name in errors}
 											as='textarea'
+											invalid={field.name in errors}
 											required={field.required?.value}
 											title={field.label}
 											className={clsx(s.form_field, s['form_field--textarea'])}
