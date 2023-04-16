@@ -32,7 +32,7 @@ export type RealtyAction = 'rent' | 'buy';
 
 export type RealtyType = 'apartment' | 'room' | 'studio' | 'house' | 'cottage' | 'hostel';
 
-export type RealtyTerm = 'day' | 'month';
+export type RealtyTerm = 'day' | 'month' | 'forever';
 
 export type RealtyCurrency = 'USD' | 'RUB';
 

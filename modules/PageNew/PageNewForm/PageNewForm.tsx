@@ -49,7 +49,9 @@ export const PageNewForm: FC<Props> = ({ onSubmit, loading }) => {
 	});
 
 	const submit = (data: RealtyForm) => {
-		onSubmit(data);
+		const newData = { ...data };
+		if (data.action === 'buy') newData.term = 'forever';
+		onSubmit(newData);
 	};
 
 	const openConfirmModal = async () => {
