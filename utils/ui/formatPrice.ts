@@ -1,11 +1,12 @@
 import { Locale } from '../../store/app/types';
-import { RealtyCurrency, RealtyTerm } from '../../types';
+import { RealtyTerm } from '../../store/realty/types';
+import { RealtyCurrency } from '../../types';
 
 type FormatPrice = (price: number, currency?: RealtyCurrency, term?: RealtyTerm, locale?: Locale) => string;
 
 const localesSource = {
-	en: { day: 'day', month: 'month' },
-	ru: { day: 'день', month: 'мес.' }
+	en: { day: 'day', month: 'month', forever: '' },
+	ru: { day: 'день', month: 'мес.', forever: '' }
 };
 
 /** ## Format price
@@ -20,6 +21,7 @@ const formatPrice: FormatPrice = (price, currency = 'USD', term = 'month', local
 	const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency, minimumFractionDigits: 0 });
 	const priceFormatted = formatter.format(price);
 	const termFormatted = localesSource[locale][term];
+	if (term === 'forever') return priceFormatted;
 	return `${priceFormatted} / ${termFormatted}`;
 };
 
