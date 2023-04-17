@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppUser } from './../app/types';
 import { Realty, RealtyState } from './types';
 
 const initialState: RealtyState = {
@@ -25,6 +26,7 @@ const initialState: RealtyState = {
 		updatedAt: ''
 	},
 	loading: true,
+	author: undefined,
 	favoritesLoading: false
 };
 
@@ -55,6 +57,14 @@ const slice = createSlice({
 		 */
 		setRealtyFavoritesLoading: (state, action: PayloadAction<boolean>) => {
 			state.favoritesLoading = action.payload;
+		},
+		/** ## Set Realty Author
+		 * Set Realty author state
+		 * @param state RealtyState
+		 * @param action AppUser
+		 */
+		setRealtyAuthor: (state, action: PayloadAction<AppUser>) => {
+			state.author = action.payload;
 		}
 	}
 });

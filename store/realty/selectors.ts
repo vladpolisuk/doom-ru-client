@@ -7,6 +7,13 @@ import { RootState } from '../types';
  */
 export const getRealty = (state: RootState) => state.realty.realty;
 
+/** ## Get Realty Author
+ * The selector that returns the realty author from redux store
+ * @param state RootState
+ * @returns `AppUser`
+ */
+export const getRealtyAuthor = (state: RootState) => state.realty.author;
+
 /** ## Get Realty
  * The selector that returns the realty from redux store
  * @param state RootState

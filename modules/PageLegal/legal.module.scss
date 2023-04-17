@@ -1,8 +1,15 @@
 .legal {
-	padding: 0 10px;
 	padding-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	&_container {
+		padding: 15px;
+	}
 
 	&_text {
+		line-height: 1.5;
 		text-align: justify;
 	}
 }

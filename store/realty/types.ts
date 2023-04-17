@@ -1,7 +1,10 @@
+import { AppUser } from '../app/types';
+
 export type RealtyState = {
 	realty: Partial<Realty>;
 	loading: boolean;
 	favoritesLoading: boolean;
+	author?: AppUser;
 };
 
 export type Realty = {

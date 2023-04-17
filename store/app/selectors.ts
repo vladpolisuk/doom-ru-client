@@ -41,3 +41,10 @@ export const getAppLocale = (state: RootState) => state.app.locale;
  * @returns `AppUser['favorites']`
  */
 export const getAppUserFavorites = (state: RootState) => state.app.user?.favorites || [];
+
+/** ## Get App Sign In View
+ * The selector that returns the application sign in view status from redux store
+ * @param state RootState
+ * @returns `boolean`
+ */
+export const getAppSignInView = (state: RootState) => state.app.signInView;

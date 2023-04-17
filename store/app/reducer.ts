@@ -6,7 +6,8 @@ const initialState: AppState = {
 	userLoading: true,
 	theme: 'system',
 	location: null,
-	locale: 'en'
+	locale: 'en',
+	signInView: false
 };
 
 const slice = createSlice({
@@ -61,6 +62,14 @@ const slice = createSlice({
 		setAppUserFavorites: (state, action: PayloadAction<AppUser['favorites']>) => {
 			if (!state.user) return;
 			state.user.favorites = action.payload;
+		},
+		/**
+		 * The application reducer that sets the application view modal to redux store
+		 * @param state AppState
+		 * @param action boolean
+		 */
+		setAppSignInView: (state, action: PayloadAction<boolean>) => {
+			state.signInView = action.payload;
 		}
 	}
 });

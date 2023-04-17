@@ -68,6 +68,14 @@ const realty = {
 			remove_favorite: {
 				label: 'Click to remove from favorites',
 				title: 'Remove from favorites'
+			},
+			signIn: {
+				title: 'Please, Sign In',
+				label: 'You should be signed in to show phone',
+				btn: {
+					title: 'Sign In',
+					label: 'Click to sign in'
+				}
 			}
 		}
 	}

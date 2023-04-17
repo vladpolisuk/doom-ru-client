@@ -61,3 +61,12 @@ export const setAppLocale = (locale: Locale) => {
 		dispatch(appActions.setAppLocale(locale));
 	};
 };
+
+/** ## Set App Sign In View
+ * The action that set user loading status
+ */
+export const setAppSignInView = (view: boolean) => {
+	return async (dispatch: AppDispatch) => {
+		dispatch(appActions.setAppSignInView(view));
+	};
+};

@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useAppDispatch } from '../../hooks/store';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Locale } from '../../store/app/types';
-import { setRealty, setRealtyLoading } from '../../store/realty/actions';
-import { getRealty } from '../../store/realty/requests';
+import { setRealty, setRealtyAuthor, setRealtyLoading } from '../../store/realty/actions';
+import { fetchRealtyUser, getRealty } from '../../store/realty/requests';
 import s from './PageRealty.module.scss';
 import { RealtyAuthor } from './RealtyAuthor/RealtyAuthor';
 import { RealtyDetail } from './RealtyDetail/RealtyDetail';
@@ -26,6 +26,8 @@ const PageRealty = () => {
 			const id = Number(router.query.id);
 			const response = await getRealty(locale, id);
 			dispatch(setRealty(response.data));
+			const author = await fetchRealtyUser(locale, response.data.user.id);
+			dispatch(setRealtyAuthor(author.data));
 			dispatch(setRealtyLoading(false));
 		};
 

@@ -45,22 +45,18 @@ export const appSignUp = (data: SendSignUpFields) => {
 /** ## App Sign In
  * The action that send signin request
  */
-export const appSignIn = (data: SendSignInFields) => {
-	return async (dispatch: AppDispatch, getState: AppGetState) => {
-		try {
-			const lang = getState().app.locale;
-			const api = new AuthAPI(lang);
-			const response = await api.signIn(data);
-			const user = response.data;
-			await dispatch(setAppUser(user));
-			return { success: true };
-		} catch (error: any) {
-			return {
-				success: false,
-				message: error.message
-			};
-		}
-	};
+export const appSignIn = async (data: SendSignInFields, locale: Locale) => {
+	try {
+		const api = new AuthAPI(locale);
+		const response = await api.signIn(data);
+		const user = response.data;
+		return { success: true };
+	} catch (error: any) {
+		return {
+			success: false,
+			message: error.message
+		};
+	}
 };
 
 /** ## App Me

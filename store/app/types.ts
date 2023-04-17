@@ -24,6 +24,10 @@ export type AppState = {
 	 * The applications locale
 	 */
 	locale: Locale;
+	/**
+	 * The application view modal
+	 */
+	signInView: boolean;
 };
 
 /**
