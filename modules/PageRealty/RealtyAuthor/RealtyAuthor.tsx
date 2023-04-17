@@ -5,7 +5,6 @@ import { MdMailOutline } from 'react-icons/md';
 import AppAvatar from '../../../components/AppAvatar/AppAvatar';
 import AppLink from '../../../components/AppLink/AppLink';
 import { useAppSelector } from '../../../hooks/store';
-import { useTranslation } from '../../../hooks/useTranslation';
 import { AppUser, Locale } from '../../../store/app/types';
 import { fetchRealtyUser } from '../../../store/realty/requests';
 import { getRealtyUser } from '../../../store/realty/selectors';
@@ -16,7 +15,6 @@ export const RealtyAuthor = () => {
 	const router = useRouter();
 	const realtyUser = useAppSelector(getRealtyUser);
 	const [user, setUser] = useState<AppUser>();
-	const realtyT = useTranslation('realty');
 
 	useEffect(() => {
 		const fetch = async () => {
@@ -27,6 +25,10 @@ export const RealtyAuthor = () => {
 		};
 
 		fetch();
+
+		return () => {
+			setUser(undefined);
+		};
 	}, [realtyUser, router]);
 
 	const styles = clsx(s.realty_author, 'active--scale', 'transition');

@@ -4,7 +4,7 @@ import s from './RealtyDetail.module.scss';
 
 export const RealtyDetailSkeleton = () => {
 	const styles = clsx(s.realty_detail, 'unlisted');
-	const detailItemStyles = clsx(s.realty_detail_badge, s.realty_detail_badgeSkeleton);
+	const detailItemStyles = clsx(s.realty_detail_badgeSkeleton);
 
 	return (
 		<ul className={styles}>

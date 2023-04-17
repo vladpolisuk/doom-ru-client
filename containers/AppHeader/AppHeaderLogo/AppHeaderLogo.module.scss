@@ -10,8 +10,17 @@
 	-moz-border-radius: 8px;
 	-ms-border-radius: 8px;
 	-o-border-radius: 8px;
+	flex-direction: row;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
 
 	&_image {
 		margin-right: 10px;
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
 	}
 }

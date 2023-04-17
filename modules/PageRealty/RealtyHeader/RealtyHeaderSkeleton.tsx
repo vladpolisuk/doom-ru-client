@@ -3,8 +3,8 @@ import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
 import s from './RealtyHeader.module.scss';
 
 export const RealtyHeaderSkeleton = () => {
-	const idStyles = clsx(s.realty_id, s.realty_idSkeleton);
-	const titleStyles = clsx(s.realty_title, s.realty_titleSkeleton);
+	const idStyles = clsx(s.realty_idSkeleton);
+	const titleStyles = clsx(s.realty_titleSkeleton);
 	const backStyles = clsx(s.realty_backSkeleton);
 
 	return (

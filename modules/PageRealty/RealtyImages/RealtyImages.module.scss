@@ -1,6 +1,8 @@
 .realty_images {
 	height: 600px;
 	width: 100%;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
 }
 
 .realty_image {
@@ -8,4 +10,10 @@
 	height: 100%;
 	object-fit: cover;
 	border-radius: 5px;
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
 }

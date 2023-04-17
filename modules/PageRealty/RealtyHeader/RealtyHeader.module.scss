@@ -24,6 +24,8 @@
 	font-size: 22px;
 	width: 100%;
 	margin: 0;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
 }
 
 .realty_titleSkeleton {
@@ -34,6 +36,8 @@
 	text-transform: uppercase;
 	color: var(--color-2);
 	padding: 8px;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
 }
 
 .realty_idSkeleton {
@@ -45,9 +49,18 @@
 	border-radius: 9px;
 	padding: 8px;
 	background: transparent;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
 }
 
 .realty_backSkeleton {
 	border-radius: 9px;
 	background-color: var(--background_actives-3);
+	max-width: 50px;
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
 }

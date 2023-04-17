@@ -1,6 +1,5 @@
 import { AppDispatch } from '../types';
 import { searchActions } from './reducer';
-
 /** ## Set Search Take
  * The function that sets the search take
  */

@@ -5,6 +5,14 @@
 	align-items: center;
 	justify-content: flex-end;
 	flex-direction: row;
+	opacity: 0;
+	animation: fadeIn 200ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
 }
 
 .auth_modal {

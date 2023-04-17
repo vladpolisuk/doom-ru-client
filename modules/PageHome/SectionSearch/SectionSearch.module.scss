@@ -19,6 +19,8 @@
 		-moz-border-radius: 10px;
 		-ms-border-radius: 10px;
 		-o-border-radius: 10px;
+		opacity: 0;
+		animation: fadeIn 100ms ease-in-out forwards;
 
 		&_image {
 			animation-name: scale;
@@ -85,5 +87,11 @@
 		-moz-transform: scale(1.07);
 		-ms-transform: scale(1.07);
 		-o-transform: scale(1.07);
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
 	}
 }

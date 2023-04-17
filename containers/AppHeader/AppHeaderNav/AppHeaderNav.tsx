@@ -6,9 +6,9 @@ import s from './AppHeaderNav.module.scss';
 const AppHeaderNav = () => {
 	const header = useTranslation('header');
 
-	const styles = clsx(s.header_nav_list_item, 'active--scale', 'transition');
 	const navLabel = header.header_nav_label;
 	const links = header.header_nav_links;
+	const itemStyles = clsx(s.header_nav_list_item, 'active--scale', 'transition');
 
 	return (
 		<nav className={s.header_nav}>
@@ -20,7 +20,7 @@ const AppHeaderNav = () => {
 						<li
 							key={link.name}
 							aria-label={link.title}
-							className={styles}>
+							className={itemStyles}>
 							<AppLink
 								resetStyles
 								className={s.header_nav_list_item_link}

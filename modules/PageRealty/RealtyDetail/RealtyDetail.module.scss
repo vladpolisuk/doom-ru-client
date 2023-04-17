@@ -25,9 +25,12 @@
 		background-color: var(--color-brand);
 		border-radius: 30px;
 		font-weight: bold;
+		opacity: 0;
+		animation: fadeIn 200ms ease-in-out forwards;
 	}
 
 	&_badgeSkeleton {
+		border-radius: 30px;
 		border: none;
 		background-color: var(--background_actives-4);
 	}
@@ -53,6 +56,8 @@
 		border-radius: 5px;
 		border: 1px solid var(--color-4);
 		text-align: left;
+		opacity: 0;
+		animation: fadeIn 200ms ease-in-out forwards;
 
 		&_label {
 		}
@@ -60,5 +65,11 @@
 		&_value {
 			text-align: left;
 		}
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
 	}
 }
