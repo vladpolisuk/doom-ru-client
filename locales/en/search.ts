@@ -252,26 +252,32 @@ const search = {
 			label: 'Apply filters'
 		}
 	},
-	search_result_btn: {
-		list: {
-			name: 'List',
-			label: 'Switch to list view'
+	search_result: {
+		no_results: {
+			title: 'No realties found',
+			label: 'Try to change page filters'
 		},
-		grid: {
-			name: 'Grid',
-			label: 'Switch to grid view'
-		},
-		prev: {
-			name: 'prev',
-			label: 'Go to previous page'
-		},
-		next: {
-			name: 'next',
-			label: 'Go to next page'
-		},
-		page: {
-			name: 'page',
-			label: 'Go to {{page}} page'
+		btn: {
+			list: {
+				name: 'List',
+				label: 'Switch to list view'
+			},
+			grid: {
+				name: 'Grid',
+				label: 'Switch to grid view'
+			},
+			prev: {
+				name: 'prev',
+				label: 'Go to previous page'
+			},
+			next: {
+				name: 'next',
+				label: 'Go to next page'
+			},
+			page: {
+				name: 'page',
+				label: 'Go to {{page}} page'
+			}
 		}
 	},
 	search_realty: {

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { FC, memo, useEffect, useState } from 'react';
 import AppPagination from '../../../components/AppPagination/AppPagination';
 import { useAppDispatch, useAppSelector } from '../../../hooks/store';
+import { useTranslation } from '../../../hooks/useTranslation';
 import { Locale } from '../../../store/app/types';
 import { setSearchLoading } from '../../../store/search/actions';
 import { searchGetRealties } from '../../../store/search/requests';
@@ -25,6 +26,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 	const page = useAppSelector(getSearchPage);
 	const total = useAppSelector(getSearchTotal);
 	const loading = useAppSelector(getSearchLoading);
+	const searchT = useTranslation('search');
 	const dispatch = useAppDispatch();
 	const [realties, setRealties] = useState<Realty[]>([]);
 
@@ -45,7 +47,8 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 			const action = router.route.split('/')[3] as RealtyAction;
 			const locale = router.query.lang as Locale;
 			const queries = parseQueries(removeProperty(router.query, 'lang'));
-			if (!locale) return;
+			if (!locale) return dispatch(setSearchLoading(false));
+			setRealties([]);
 			const response = await dispatch(
 				searchGetRealties(locale, {
 					take,
@@ -59,9 +62,12 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 		};
 
 		if (router.isReady) fetch();
+		s;
 	}, [router.query]);
 
 	const styles = clsx(s[`search_result_list--${view}`], 'unlisted');
+	const notFoundTitle = searchT.search_result.no_results.title;
+	const notFoundLabel = searchT.search_result.no_results.label;
 
 	return (
 		<div className={s.search_result}>
@@ -75,7 +81,6 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 					))}
 
 				{!loading &&
-					realties &&
 					realties.map(realty => (
 						<RealtyItem
 							view={view}
@@ -85,13 +90,23 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 					))}
 			</ul>
 
-			<AppPagination
-				siblingCount={1}
-				currentPage={page}
-				totalPages={total}
-				pageSize={take}
-				onPageChange={changePage}
-			/>
+			{realties.length > 0 && (
+				<AppPagination
+					siblingCount={1}
+					currentPage={page}
+					totalPages={total}
+					pageSize={take}
+					onPageChange={changePage}
+				/>
+			)}
+
+			{!realties.length && !loading && (
+				<div className={s.search_result_notFound}>
+					<p className={s.search_result_notFound_404}>404</p>
+					<strong className={s.search_result_notFound_title}>{notFoundTitle}</strong>
+					<p className={s.search_result_notFound_label}>{notFoundLabel}</p>
+				</div>
+			)}
 		</div>
 	);
 });

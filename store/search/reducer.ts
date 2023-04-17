@@ -5,7 +5,7 @@ const initialState: SearchState = {
 	page: 1,
 	take: 3,
 	total: 0,
-	loading: false
+	loading: true
 };
 
 const slice = createSlice({

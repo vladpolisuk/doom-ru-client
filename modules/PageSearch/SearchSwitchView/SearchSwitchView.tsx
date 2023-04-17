@@ -8,17 +8,17 @@ import s from './SearchSwitchView.module.scss';
 
 type Props = {
 	view: View;
-	handler: (view: View) => void;
+	setView: (view: View) => void;
 };
 
-export const SearchSwitchView: FC<Props> = ({ view, handler }) => {
+export const SearchSwitchView: FC<Props> = ({ view, setView }) => {
 	const search = useTranslation('search');
 
-	const listHandler = () => handler('list');
-	const gridHandler = () => handler('grid');
+	const listHandler = () => setView('list');
+	const gridHandler = () => setView('grid');
 
-	const list_label = search.search_result_btn.list.label;
-	const grid_label = search.search_result_btn.grid.label;
+	const list_label = search.search_result.btn.list.label;
+	const grid_label = search.search_result.btn.grid.label;
 	const styles_grid = clsx(s.search_switchView_button, view === 'grid' ? s['search_switchView_button--active'] : '');
 	const styles_list = clsx(s.search_switchView_button, view === 'list' ? s['search_switchView_button--active'] : '');
 

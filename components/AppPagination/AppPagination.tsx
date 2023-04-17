@@ -67,9 +67,9 @@ const AppPagination: FC<IAppPagination> = memo(
 		const onNext = () => onPageChange(currentPage + 1);
 		const onPrevious = () => onPageChange(currentPage - 1);
 
-		const prevLabel = search.search_result_btn.prev.label;
-		const nextLabel = search.search_result_btn.next.label;
-		const pageLabel = (page: number) => search.search_result_btn.page.label.replace(/\{\{page\}\}/g, String(page));
+		const prevLabel = search.search_result.btn.prev.label;
+		const nextLabel = search.search_result.btn.next.label;
+		const pageLabel = (page: number) => search.search_result.btn.page.label.replace(/\{\{page\}\}/g, String(page));
 		const lastPage = paginationRange[paginationRange.length - 1];
 		const titleAttr = onlyARIA ? '' : title;
 		const paginationStyles = clsx(className, s.app_pagination, 'unlisted');

@@ -52,7 +52,7 @@ export const PageSearch = () => {
 						<div className={s.search_resultBox_control}>
 							<SearchSwitchView
 								view={view}
-								handler={setView}
+								setView={setView}
 							/>
 							<SearchSorts />
 						</div>
