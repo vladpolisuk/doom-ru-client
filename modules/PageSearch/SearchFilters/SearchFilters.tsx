@@ -107,6 +107,23 @@ export const SearchFilters = () => {
 								</AppLabel>
 							);
 
+						case 'number':
+							return (
+								<AppLabel
+									key={filter.name}
+									htmlFor={filter.name}>
+									<p>{filter.title}</p>
+									<AppInput
+										onlyARIA
+										type={filter.type}
+										title={filter.label}
+										className={s.search_filters_input}
+										placeholder={filter.label}
+										{...register(filter.name as RealtyFilters)}
+									/>
+								</AppLabel>
+							);
+
 						case 'option':
 							return (
 								<AppLabel

@@ -80,38 +80,21 @@ const search = {
 				}
 			]
 		},
+
 		{
 			name: 'rooms',
 			page: 'both',
-			type: 'option',
+			type: 'number',
 			title: 'Rooms',
-			label: 'Select rooms',
-			options: [
-				{
-					value: '',
-					title: 'Select rooms'
-				},
-				{
-					value: '1',
-					title: '1'
-				},
-				{
-					value: '2',
-					title: '2'
-				},
-				{
-					value: '3',
-					title: '3'
-				},
-				{
-					value: '4',
-					title: '4'
-				},
-				{
-					value: '5',
-					title: '5'
-				}
-			]
+			label: 'Input rooms'
+		},
+
+		{
+			name: 'bedrooms',
+			page: 'both',
+			type: 'number',
+			title: 'Beds',
+			label: 'Input beds'
 		},
 		{
 			name: 'term',
@@ -149,39 +132,6 @@ const search = {
 				title: 'to',
 				label: 'Input max price'
 			}
-		},
-		{
-			name: 'beds',
-			page: 'both',
-			type: 'option',
-			title: 'Beds',
-			label: 'Select beds',
-			options: [
-				{
-					value: '',
-					title: 'Choose bedrooms'
-				},
-				{
-					value: '1',
-					title: '1'
-				},
-				{
-					value: '2',
-					title: '2'
-				},
-				{
-					value: '3',
-					title: '3'
-				},
-				{
-					value: '4',
-					title: '4'
-				},
-				{
-					value: '5',
-					title: '5'
-				}
-			]
 		},
 		{
 			name: 'floor',

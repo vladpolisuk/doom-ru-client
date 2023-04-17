@@ -83,35 +83,17 @@ const search = {
 		{
 			name: 'rooms',
 			page: 'both',
-			type: 'option',
+			type: 'number',
 			title: 'Комнаты',
-			label: 'Выберите кол-во комнат',
-			options: [
-				{
-					value: '',
-					title: 'Кол-во комнат'
-				},
-				{
-					value: '1',
-					title: '1'
-				},
-				{
-					value: '2',
-					title: '2'
-				},
-				{
-					value: '3',
-					title: '3'
-				},
-				{
-					value: '4',
-					title: '4'
-				},
-				{
-					value: '5',
-					title: '5'
-				}
-			]
+			label: 'Введите комнаты'
+		},
+
+		{
+			name: 'bedrooms',
+			page: 'both',
+			type: 'number',
+			title: 'Кровати',
+			label: 'Введите кровати'
 		},
 		{
 			name: 'term',
@@ -149,39 +131,6 @@ const search = {
 				title: 'до',
 				label: 'Максимальная цена'
 			}
-		},
-		{
-			name: 'bedrooms',
-			page: 'both',
-			type: 'option',
-			title: 'Кровати',
-			label: 'Выберите кол-во кроватей',
-			options: [
-				{
-					value: '',
-					title: 'Кол-во кроватей'
-				},
-				{
-					value: '1',
-					title: '1'
-				},
-				{
-					value: '2',
-					title: '2'
-				},
-				{
-					value: '3',
-					title: '3'
-				},
-				{
-					value: '4',
-					title: '4'
-				},
-				{
-					value: '5',
-					title: '5'
-				}
-			]
 		},
 		{
 			name: 'floor',
