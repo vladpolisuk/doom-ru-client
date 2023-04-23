@@ -7,7 +7,7 @@ export type AppState = {
 	/**
 	 * The application user
 	 */
-	user: AppUser | null;
+	user: AppUser;
 	/**
 	 * The user loading status
 	 */

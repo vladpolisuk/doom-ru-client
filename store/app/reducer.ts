@@ -2,7 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppLocation, AppState, AppTheme, AppUser, Locale } from './types';
 
 const initialState: AppState = {
-	user: null,
+	user: {
+		email: '',
+		favorites: [],
+		id: 0,
+		name: '',
+		phone: '',
+		secondName: '',
+		avatar: '',
+		bio: '',
+		city: ''
+	},
 	userLoading: true,
 	theme: 'system',
 	location: null,
@@ -19,7 +29,7 @@ const slice = createSlice({
 		 * @param state AppState
 		 * @param action AppUser
 		 */
-		setAppUser: (state, action: PayloadAction<AppUser | null>) => {
+		setAppUser: (state, action: PayloadAction<AppUser>) => {
 			state.user = action.payload;
 		},
 		/**

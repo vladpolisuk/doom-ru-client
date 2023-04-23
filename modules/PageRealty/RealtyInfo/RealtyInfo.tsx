@@ -53,9 +53,21 @@ export const RealtyInfo = () => {
 	const relativeDate = realty.createdAt && formatCreatedAt(realty.createdAt, locale);
 	const price = realty.price && formatPrice(realty.price, realty.currency, realty.term, locale);
 	const actionStyles = clsx(s.realty_action, 'active--scale', 'transition');
-	const isFavorite = realty.id && user?.favorites && user?.favorites.includes(realty.id);
-	const favoriteLabel = isFavorite ? removeFavoriteLabel : addFavoriteLabel;
 	const authorPhone = formatPhone(String(realtyAuthor?.phone));
+	let isFavorite = false;
+
+	if (typeof window !== 'undefined') {
+		const favorites = user.favorites;
+		const localStorageFavorites = router.isReady && localStorage.getItem('favorites');
+
+		if (!favorites) {
+			isFavorite = JSON.parse(localStorageFavorites || '[]').includes(realty.id);
+		} else if (realty.id) {
+			isFavorite = user.favorites.includes(realty.id);
+		}
+	}
+
+	const favoriteLabel = isFavorite ? removeFavoriteLabel : addFavoriteLabel;
 
 	const addToFavorite = async () => {
 		if (!locale) return;
@@ -75,9 +87,9 @@ export const RealtyInfo = () => {
 	};
 
 	const handleShowPhone = () => {
-		if (!user) return handleOpenModal();
+		if (!user.email) return handleOpenModal();
 		setShowPhone(!showPhone);
-		if (!showPhone) window.navigator.clipboard.writeText(String(user?.phone));
+		if (!showPhone) window.navigator.clipboard.writeText(String(user.phone));
 	};
 
 	return (

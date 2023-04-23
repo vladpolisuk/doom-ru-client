@@ -36,7 +36,16 @@ const RealtyItem: FC<Props> = memo(
 		const styles = clsx(s.realty_item, s[`realty_item--${view}`], 'transition');
 		const styles_info = clsx(s.realty_item_info, s[`realty_item_info--${view}`], 'transition');
 		const buttonStyles = clsx(s.realty_item_favorite, 'active--scale');
-		const isFavorite = user?.favorites.includes(id);
+
+		const favorites = user.favorites;
+		const localStorageFavorites = localStorage.getItem('favorites');
+		let isFavorite = false;
+
+		if (!favorites) {
+			isFavorite = JSON.parse(localStorageFavorites || '[]').includes(id);
+		} else {
+			isFavorite = user.favorites.includes(id);
+		}
 
 		const toggleFavorite = async () => {
 			const locale = router.query.lang as Locale;

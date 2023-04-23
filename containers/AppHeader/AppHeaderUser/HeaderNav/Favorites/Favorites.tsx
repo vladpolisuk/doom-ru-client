@@ -17,7 +17,7 @@ export const Favorites = () => {
 			color='none'
 			className='active--scale'>
 			<FaHeart className={s.header_favorites} />
-			{favorites?.length > 0 && <span className={s.header_favorites_count}>{favorites?.length}</span>}
+			{favorites.length > 0 && <span className={s.header_favorites_count}>{favorites.length}</span>}
 		</AppButton>
 	);
 };

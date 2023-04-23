@@ -7,7 +7,7 @@ import { AppLocation, AppTheme, AppUser, Locale } from './types';
  * @param user AppUser
  * @returns void
  */
-export const setAppUser = (user: AppUser | null) => {
+export const setAppUser = (user: AppUser) => {
 	return async (dispatch: AppDispatch) => {
 		dispatch(appActions.setAppUser(user));
 	};

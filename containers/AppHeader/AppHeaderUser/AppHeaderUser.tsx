@@ -1,14 +1,23 @@
+import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
 import { useAppSelector } from '../../../hooks/store';
 import { getAppUser, getAppUserLoading } from '../../../store/app/selectors';
 import s from './AppHeaderUser.module.scss';
 import { HeaderAuth } from './HeaderAuth/HeaderAuth';
+import { HeaderNav } from './HeaderNav/HeaderNav';
 import { HeaderProfile } from './HeaderProfile/HeaderProfile';
 
 const AppHeaderUser = () => {
 	const userLoading = useAppSelector(getAppUserLoading);
 	const user = useAppSelector(getAppUser);
-	const component = !user && !userLoading ? <HeaderAuth /> : <HeaderProfile />;
-	return <div className={s.header_user}>{component}</div>;
+
+	return (
+		<div className={s.header_user}>
+			<HeaderNav />
+			{userLoading && !user.email && <AppSkeleton className={s.header_userSkeleton} />}
+			{!userLoading && user.email && <HeaderProfile />}
+			{!userLoading && !user.email && <HeaderAuth />}
+		</div>
+	);
 };
 
 export default AppHeaderUser;

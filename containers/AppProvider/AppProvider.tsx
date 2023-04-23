@@ -28,9 +28,9 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 		const fetchData = async () => {
 			dispatch(setAppUserLoading(true));
 			await dispatch(appMe());
-			dispatch(setAppUserLoading(false));
 			await dispatch(setAppLocale(lang));
 			await dispatch(loadAppLocation());
+			dispatch(setAppUserLoading(false));
 		};
 
 		fetchData();

@@ -3,7 +3,7 @@ import LocationAPI from '../../api/location';
 import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../types/api/auth';
 import { AppDispatch, AppGetState } from '../types';
 import { setAppLocation, setAppUser } from './actions';
-import { Locale } from './types';
+import { AppUser, Locale } from './types';
 
 /** ## App Verify User
  * The action that send verify request
@@ -72,6 +72,17 @@ export const appMe = () => {
 			await dispatch(setAppUser(user));
 			return { success: true };
 		} catch (error: any) {
+			let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+			if (favorites) {
+				const user: AppUser = {
+					...getState().app.user,
+					favorites
+				};
+
+				await dispatch(setAppUser(user));
+			}
+
 			return {
 				success: false,
 				message: error.message

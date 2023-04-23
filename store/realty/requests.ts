@@ -59,6 +59,19 @@ export const addRealtyToFavorite = (id: number) => {
 				success: true
 			};
 		} catch (error: any) {
+			let favorites = localStorage.getItem('favorites');
+			let array = [];
+
+			if (favorites) {
+				array = JSON.parse(favorites) as number[];
+				array.push(id);
+			} else {
+				array = [id];
+			}
+
+			localStorage.setItem('favorites', JSON.stringify(array));
+			await dispatch(setAppUserFavorites(array));
+
 			return {
 				message: error.message,
 				success: false
@@ -83,6 +96,15 @@ export const removeRealtyFromFavorite = (id: number) => {
 				success: true
 			};
 		} catch (error: any) {
+			let favorites = localStorage.getItem('favorites');
+
+			if (favorites) {
+				let array = JSON.parse(favorites) as number[];
+				array = array.filter(item => +item !== id);
+				localStorage.setItem('favorites', JSON.stringify(array));
+				await dispatch(setAppUserFavorites(array));
+			}
+
 			return {
 				message: error.message,
 				success: false
