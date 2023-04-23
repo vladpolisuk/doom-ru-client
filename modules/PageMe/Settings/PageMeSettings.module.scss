@@ -1,0 +1,47 @@
+.me_settings {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+	&_container {
+		padding: 20px 10px;
+	}
+
+	.me {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 20px;
+		width: 100%;
+
+		&_content {
+			width: 100%;
+
+			&_form {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				height: 100%;
+				width: 100%;
+
+				&_submit {
+					width: fit-content;
+				}
+			}
+		}
+
+		&_option {
+			justify-content: space-between;
+
+			&--select {
+				width: fit-content;
+			}
+		}
+
+		&_title {
+			color: var(--color-2);
+			margin-top: 0;
+		}
+	}
+}

@@ -52,6 +52,39 @@ const me = {
 			text: 'Log Out',
 			title: 'Log out of the app'
 		}
+	},
+	settings: {
+		title: 'Customization',
+		form: {
+			options: [
+				{
+					name: 'theme',
+					title: 'Application theme',
+					select: {
+						title: 'Select theme',
+						label: 'Select app theme',
+						options: [
+							{
+								value: 'system',
+								title: 'System'
+							},
+							{
+								value: 'light',
+								title: 'Light'
+							},
+							{
+								value: 'dark',
+								title: 'Dark'
+							}
+						]
+					}
+				}
+			],
+			submit: {
+				title: 'Save settings',
+				label: 'Click to save settings'
+			}
+		}
 	}
 };
 

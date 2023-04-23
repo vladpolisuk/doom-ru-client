@@ -52,6 +52,39 @@ const me = {
 			text: 'Выйти',
 			title: 'Выйти из приложения'
 		}
+	},
+	settings: {
+		title: 'Кастомизация',
+		form: {
+			options: [
+				{
+					name: 'theme',
+					title: 'Тема приложения',
+					select: {
+						title: 'Выбрать тему',
+						label: 'Выбрать тему приложения',
+						options: [
+							{
+								value: 'system',
+								title: 'Как в системе'
+							},
+							{
+								value: 'light',
+								title: 'Светлая'
+							},
+							{
+								value: 'dark',
+								title: 'Темная'
+							}
+						]
+					}
+				}
+			],
+			submit: {
+				title: 'Сохранить настройки',
+				label: 'Нажмите что сохранить настройки'
+			}
+		}
 	}
 };
 

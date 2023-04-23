@@ -1,8 +1,8 @@
-import AppAvatar from '../../../components/AppAvatar/AppAvatar';
-import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../hooks/store';
-import { getAppUser, getAppUserLoading } from '../../../store/app/selectors';
-import s from './AsideProfileCard.module.scss';
+import AppAvatar from '../../../../components/AppAvatar/AppAvatar';
+import AppSkeleton from '../../../../components/AppSkeleton/AppSkeleton';
+import { useAppSelector } from '../../../../hooks/store';
+import { getAppUser, getAppUserLoading } from '../../../../store/app/selectors';
+import s from './ProfileCard.module.scss';
 
 export const ProfileCard = () => {
 	const user = useAppSelector(getAppUser);
