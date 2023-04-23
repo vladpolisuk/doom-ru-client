@@ -14,8 +14,8 @@ const AppHeaderUser = () => {
 		<div className={s.header_user}>
 			<HeaderNav />
 			{userLoading && !user.email && <AppSkeleton className={s.header_userSkeleton} />}
-			{!userLoading && user.email && <HeaderProfile />}
 			{!userLoading && !user.email && <HeaderAuth />}
+			{!userLoading && user.email && <HeaderProfile />}
 		</div>
 	);
 };

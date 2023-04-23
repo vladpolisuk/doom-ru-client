@@ -26,10 +26,10 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 		const lang = window.location.pathname.split('/')[1] as Locale;
 
 		const fetchData = async () => {
+			dispatch(setAppLocale(lang));
+			dispatch(loadAppLocation());
 			dispatch(setAppUserLoading(true));
 			await dispatch(appMe());
-			await dispatch(setAppLocale(lang));
-			await dispatch(loadAppLocation());
 			dispatch(setAppUserLoading(false));
 		};
 
