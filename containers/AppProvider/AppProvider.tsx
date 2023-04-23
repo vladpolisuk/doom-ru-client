@@ -12,22 +12,20 @@ import { AppTheme, Locale } from '../../store/app/types';
 const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 	const dispatch = useAppDispatch();
 	const appTheme = useAppSelector(getAppTheme);
-	const { setTheme, theme } = useTheme();
+	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		setTheme(appTheme);
-	}, [appTheme, setTheme]);
+	}, [appTheme]);
 
 	useEffect(() => {
-		if (appTheme !== theme && theme) {
-			dispatch(setAppTheme(theme as AppTheme));
-			setTheme(appTheme);
-		}
-	}, [appTheme, dispatch, setTheme, theme]);
+		dispatch(setAppTheme(theme as AppTheme));
+	}, []);
 
 	useEffect(() => {
+		const lang = window.location.pathname.split('/')[1] as Locale;
+
 		const fetchData = async () => {
-			const lang = window.location.pathname.split('/')[1] as Locale;
 			dispatch(setAppUserLoading(true));
 			await dispatch(appMe());
 			await dispatch(setAppLocale(lang));

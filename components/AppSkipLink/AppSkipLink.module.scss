@@ -6,6 +6,7 @@
 	padding: 10px;
 	background: yellow;
 	color: black;
+	z-index: 1000;
 
 	&:focus {
 		top: 20px;
