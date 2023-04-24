@@ -9,6 +9,7 @@ import { SearchFilters } from './SearchFilters/SearchFilters';
 import { SearchResult } from './SearchResult/SearchResult';
 import { SearchSorts } from './SearchSorts/SearchSorts';
 import { SearchSwitchView } from './SearchSwitchView/SearchSwitchView';
+import SearchTake from './SearchTake/SearchTake';
 
 export type View = 'list' | 'grid';
 
@@ -42,6 +43,7 @@ export const PageSearch = () => {
 								setView={setView}
 							/>
 							<SearchSorts />
+							<SearchTake />
 						</div>
 						<SearchResult view={view} />
 					</div>

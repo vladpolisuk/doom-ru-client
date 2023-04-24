@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { FC } from 'react';
+import { FC, memo, useEffect } from 'react';
 import { FaListUl, FaThLarge } from 'react-icons/fa';
 import AppButton from '../../../components/AppButton/AppButton';
 import { useTranslation } from '../../../hooks/useTranslation';
@@ -11,11 +11,24 @@ type Props = {
 	setView: (view: View) => void;
 };
 
-export const SearchSwitchView: FC<Props> = ({ view, setView }) => {
+export const SearchSwitchView: FC<Props> = memo(({ view, setView }) => {
 	const search = useTranslation('search');
 
-	const listHandler = () => setView('list');
-	const gridHandler = () => setView('grid');
+	useEffect(() => {
+		const localStorageView = localStorage.getItem('search_view');
+		if (!localStorageView) return;
+		else setView(localStorageView as View);
+	}, []);
+
+	const listHandler = () => {
+		localStorage.setItem('search_view', 'list');
+		setView('list');
+	};
+
+	const gridHandler = () => {
+		localStorage.setItem('search_view', 'grid');
+		setView('grid');
+	};
 
 	const list_label = search.search_result.btn.list.label;
 	const grid_label = search.search_result.btn.grid.label;
@@ -43,4 +56,6 @@ export const SearchSwitchView: FC<Props> = ({ view, setView }) => {
 			</AppButton>
 		</div>
 	);
-};
+});
+
+SearchSwitchView.displayName = 'SearchSwitchView';

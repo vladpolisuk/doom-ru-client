@@ -251,6 +251,30 @@ const search = {
 			label: 'Применить фильтры'
 		}
 	},
+	search_take: {
+		select: {
+			name: 'take',
+			label: 'Кол-во на странице',
+			options: [
+				{
+					value: '',
+					title: 'Кол-во на странице'
+				},
+				{
+					value: 10,
+					title: '10'
+				},
+				{
+					value: 20,
+					title: '20'
+				},
+				{
+					value: 50,
+					title: '50'
+				}
+			]
+		}
+	},
 	search_result: {
 		title: 'Результаты',
 		no_results: {

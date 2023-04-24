@@ -252,6 +252,30 @@ const search = {
 			label: 'Apply filters'
 		}
 	},
+	search_take: {
+		select: {
+			name: 'take',
+			label: 'Take by',
+			options: [
+				{
+					value: '',
+					title: 'Take by'
+				},
+				{
+					value: 10,
+					title: '10'
+				},
+				{
+					value: 20,
+					title: '20'
+				},
+				{
+					value: 50,
+					title: '50'
+				}
+			]
+		}
+	},
 	search_result: {
 		title: 'Results',
 		no_results: {

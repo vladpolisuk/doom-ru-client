@@ -47,7 +47,6 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 			const action = router.route.split('/')[3] as RealtyAction;
 			const locale = router.query.lang as Locale;
 			const queries = parseQueries(removeProperty(router.query, 'lang'));
-			if (!locale) return dispatch(setSearchLoading(false));
 			setRealties([]);
 			const response = await dispatch(
 				searchGetRealties(locale, {
@@ -62,8 +61,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 		};
 
 		if (router.isReady) fetch();
-		s;
-	}, [router.query]);
+	}, [router, take]);
 
 	const styles = clsx(s[`search_result_list--${view}`], 'unlisted');
 	const notFoundTitle = searchT.search_result.no_results.title;
@@ -100,7 +98,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 				/>
 			)}
 
-			{!realties.length && !loading && (
+			{realties.length === 0 && !loading && (
 				<div className={s.search_result_notFound}>
 					<p className={s.search_result_notFound_404}>404</p>
 					<strong className={s.search_result_notFound_title}>{notFoundTitle}</strong>
