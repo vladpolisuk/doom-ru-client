@@ -30,8 +30,8 @@ abstract class BaseAPI {
 
 			if (response.status >= 200 && response.status <= 299) {
 				const contentType = response.headers.get('content-type');
-				if (!contentType) throw new Error('No Content-Type');
-				if (contentType.includes('text/plain')) return await response.text();
+				if (contentType && contentType.includes('text/plain')) return await response.text();
+				if (!contentType) return {};
 				return await response.json();
 			}
 

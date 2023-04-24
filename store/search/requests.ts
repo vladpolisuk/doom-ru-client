@@ -1,7 +1,7 @@
 import RealtyAPI, { GetRealtiesFilters } from '../../api/realty';
 import { Locale } from '../app/types';
 import { AppDispatch } from './../types';
-import { searchActions } from './reducer';
+import { setSearchPage, setSearchTotal } from './actions';
 
 /** ## Search Loading Realties
  * The action that send verify request
@@ -11,8 +11,8 @@ export const searchGetRealties = (lang: Locale, filters?: GetRealtiesFilters) =>
 		try {
 			const api = new RealtyAPI(lang);
 			const response = await api.getRealties(filters);
-			dispatch(searchActions.setSearchPage(response.page || 1));
-			dispatch(searchActions.setSearchTotal(response.count || 0));
+			dispatch(setSearchPage(response ? response.page : 1));
+			dispatch(setSearchTotal(response ? response.count : 0));
 			return { success: true, data: response.data };
 		} catch (error: any) {
 			return {
