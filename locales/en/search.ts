@@ -253,6 +253,7 @@ const search = {
 		}
 	},
 	search_result: {
+		title: 'Results',
 		no_results: {
 			title: 'No realties found',
 			label: 'Try to change page filters'

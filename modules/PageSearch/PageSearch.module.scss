@@ -20,6 +20,15 @@
 		color: var(--color-2);
 		margin-left: 10px;
 		font-weight: 600;
+		opacity: 0;
+		animation: fadeIn 100ms ease-in-out forwards;
+
+		&--spinner {
+			width: 32px;
+			height: 32px;
+			margin-left: 10px;
+			color: var(--color-2);
+		}
 	}
 
 	&_main {
@@ -42,5 +51,11 @@
 			flex-direction: row;
 			gap: 10px;
 		}
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
 	}
 }

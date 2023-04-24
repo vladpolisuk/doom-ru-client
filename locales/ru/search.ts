@@ -252,6 +252,7 @@ const search = {
 		}
 	},
 	search_result: {
+		title: 'Результаты',
 		no_results: {
 			title: 'Объявлений не найдено',
 			label: 'Попробуйте изменить фильтры'

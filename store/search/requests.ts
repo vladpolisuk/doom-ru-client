@@ -11,8 +11,8 @@ export const searchGetRealties = (lang: Locale, filters?: GetRealtiesFilters) =>
 		try {
 			const api = new RealtyAPI(lang);
 			const response = await api.getRealties(filters);
-			dispatch(searchActions.setSearchPage(response.page));
-			dispatch(searchActions.setSearchTotal(response.count));
+			dispatch(searchActions.setSearchPage(response.page || 1));
+			dispatch(searchActions.setSearchTotal(response.count || 0));
 			return { success: true, data: response.data };
 		} catch (error: any) {
 			return {
