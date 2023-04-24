@@ -66,13 +66,15 @@ export const AppImageSlider: FC<Props> = memo(
 					data-testid='app-image-slider'
 					className={clsx(s.slider_container, className)}
 					{...extra}>
-					<AppButton
-						resetStyles
-						data-testid='app-image-slider-prev'
-						className={prevStyles}
-						onClick={onPrevClick}>
-						<FaChevronLeft />
-					</AppButton>
+					{images.length > 1 && (
+						<AppButton
+							resetStyles
+							data-testid='app-image-slider-prev'
+							className={prevStyles}
+							onClick={onPrevClick}>
+							<FaChevronLeft />
+						</AppButton>
+					)}
 
 					<div className={clsx(s.images_container)}>
 						{direction === undefined ? (
@@ -104,13 +106,15 @@ export const AppImageSlider: FC<Props> = memo(
 						)}
 					</div>
 
-					<AppButton
-						resetStyles
-						data-testid='app-image-slider-next'
-						className={nextStyles}
-						onClick={onNextClick}>
-						<FaChevronRight />
-					</AppButton>
+					{images.length > 1 && (
+						<AppButton
+							resetStyles
+							data-testid='app-image-slider-next'
+							className={nextStyles}
+							onClick={onNextClick}>
+							<FaChevronRight />
+						</AppButton>
+					)}
 				</div>
 
 				{withCarousel && images.length > 1 && (
