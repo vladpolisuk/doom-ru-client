@@ -1,5 +1,6 @@
 import auth from './auth';
 import common from './common';
+import error from './error';
 import footer from './footer';
 import header from './header';
 import home from './home';
@@ -14,6 +15,7 @@ const en = {
 	auth,
 	search,
 	footer,
+	error,
 	common,
 	header,
 	new: newRealty,

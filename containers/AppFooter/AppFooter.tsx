@@ -11,7 +11,7 @@ const AppFooter = () => {
 	const footer = useTranslation('footer');
 
 	const github = footer.links.github;
-	const link = `${String(process.env.NEXT_PUBLIC_HOST)}/${router.query.lang}/legal`;
+	const link = `${String(process.env.NEXT_PUBLIC_HOST)}/${router.asPath.split('/')[1]}/legal`;
 	const title = footer.title.replaceAll('{{link}}', link);
 	const disclaimer = footer.disclaimer.replaceAll('{{author}}', 'https://github.com/vladpolisuk');
 	const styles = clsx(s.footer_container, 'container');
