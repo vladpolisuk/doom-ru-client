@@ -1,5 +1,6 @@
+import clsx from 'clsx';
 import { FaHeart } from 'react-icons/fa';
-import AppButton from '../../../../../components/AppButton/AppButton';
+import AppLink from '../../../../../components/AppLink/AppLink';
 import { useAppSelector } from '../../../../../hooks/store';
 import { useTranslation } from '../../../../../hooks/useTranslation';
 import { getAppUserFavorites } from '../../../../../store/app/selectors';
@@ -10,14 +11,15 @@ export const Favorites = () => {
 	const header = useTranslation('header');
 
 	const title = header.header_user_profile.favorites.title;
+	const styles = clsx(s.favorites, 'transition', 'active--scale');
 
 	return (
-		<AppButton
+		<AppLink
 			title={title}
-			color='none'
-			className='active--scale'>
-			<FaHeart className={s.header_favorites} />
-			{favorites.length > 0 && <span className={s.header_favorites_count}>{favorites.length}</span>}
-		</AppButton>
+			href='/me/favorites'
+			className={styles}>
+			<FaHeart className={s.favorites_icon} />
+			{favorites.length > 0 && <span className={s.favorites_count}>{favorites.length}</span>}
+		</AppLink>
 	);
 };

@@ -3,7 +3,7 @@ import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCirc
 const me = {
 	locale: 'en',
 	me_title: 'Doom.ru | My profile',
-	aside: {
+	me_aside: {
 		tabs: [
 			{
 				id: 0,
@@ -49,11 +49,11 @@ const me = {
 			}
 		],
 		logout: {
-			text: 'Log Out',
-			title: 'Log out of the app'
+			title: 'Log Out',
+			label: 'Log out of the app'
 		}
 	},
-	settings: {
+	me_settings: {
 		title: 'Customization',
 		form: {
 			options: [
@@ -85,6 +85,9 @@ const me = {
 				label: 'Click to save settings'
 			}
 		}
+	},
+	me_favorites: {
+		title: 'Favorites'
 	}
 };
 

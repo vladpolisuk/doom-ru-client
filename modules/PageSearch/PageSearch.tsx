@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { AppRealtyView } from '../../components/AppRealty/AppRealty';
 import AppSpinner from '../../components/AppSpinner/AppSpinner';
 import { useAppSelector } from '../../hooks/store';
 import { useTranslation } from '../../hooks/useTranslation';
@@ -11,12 +12,10 @@ import { SearchSorts } from './SearchSorts/SearchSorts';
 import { SearchSwitchView } from './SearchSwitchView/SearchSwitchView';
 import SearchTake from './SearchTake/SearchTake';
 
-export type View = 'list' | 'grid';
-
 export const PageSearch = () => {
 	const total = useAppSelector(getSearchTotal);
 	const loading = useAppSelector(getSearchLoading);
-	const [view, setView] = useState<View>('list');
+	const [view, setView] = useState<AppRealtyView>('list');
 	const search = useTranslation('search');
 
 	const resultsTitle = search.search_result.title;

@@ -3,7 +3,7 @@ import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCirc
 const me = {
 	locale: 'ru',
 	me_title: 'Доом.ру | Мой профиль',
-	aside: {
+	me_aside: {
 		tabs: [
 			{
 				id: 0,
@@ -49,11 +49,11 @@ const me = {
 			}
 		],
 		logout: {
-			text: 'Выйти',
-			title: 'Выйти из приложения'
+			title: 'Выйти',
+			label: 'Выйти из приложения'
 		}
 	},
-	settings: {
+	me_settings: {
 		title: 'Кастомизация',
 		form: {
 			options: [
@@ -85,6 +85,9 @@ const me = {
 				label: 'Нажмите что сохранить настройки'
 			}
 		}
+	},
+	me_favorites: {
+		title: 'Избранное'
 	}
 };
 

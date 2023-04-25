@@ -8,8 +8,9 @@ import { ProfileCard } from './ProfileCard/ProfileCard';
 export const Aside = () => {
 	const me = useTranslation('me');
 
-	const { text, title } = me.aside.logout;
-	const tabs = me.aside.tabs;
+	const btnLogoutTitle = me.me_aside.logout.title;
+	const btnLogoutLabel = me.me_aside.logout.label;
+	const tabs = me.me_aside.tabs;
 
 	return (
 		<main className={s.me_aside}>
@@ -36,9 +37,9 @@ export const Aside = () => {
 					onlyARIA
 					color='transparent'
 					className={s.me_aside_logout}
-					title={title}>
+					title={btnLogoutLabel}>
 					<FiLogOut className={s.me_aside_logout_icon} />
-					{text}
+					{btnLogoutTitle}
 				</AppSignOutButton>
 			</AsideTabs>
 		</main>

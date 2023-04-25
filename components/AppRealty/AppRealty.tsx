@@ -3,25 +3,26 @@ import { useRouter } from 'next/router';
 import { FC, memo, useState } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { TiLocation } from 'react-icons/ti';
-import AppButton from '../../../../components/AppButton/AppButton';
-import AppLink from '../../../../components/AppLink/AppLink';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/store';
-import { useTranslation } from '../../../../hooks/useTranslation';
-import { getAppUser } from '../../../../store/app/selectors';
-import { Locale } from '../../../../store/app/types';
-import { addRealtyToFavorite, removeRealtyFromFavorite } from '../../../../store/realty/requests';
-import { Realty } from '../../../../types';
-import formatCreatedAt from '../../../../utils/ui/formatCreatedAt';
-import formatPrice from '../../../../utils/ui/formatPrice';
-import { View } from '../../PageSearch';
-import s from './RealtyItem.module.scss';
-import { RealtyItemImages } from './RealtyItemImages';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import { useTranslation } from '../../hooks/useTranslation';
+import { getAppUser } from '../../store/app/selectors';
+import { Locale } from '../../store/app/types';
+import { addRealtyToFavorite, removeRealtyFromFavorite } from '../../store/realty/requests';
+import { Realty } from '../../store/realty/types';
+import formatCreatedAt from '../../utils/ui/formatCreatedAt';
+import formatPrice from '../../utils/ui/formatPrice';
+import AppButton from '../AppButton/AppButton';
+import AppLink from '../AppLink/AppLink';
+import s from './AppRealty.module.scss';
+import { RealtyItemImages } from './AppRealtyImages';
+
+export type AppRealtyView = 'list' | 'grid';
 
 type Props = Realty & {
-	view: View;
+	view: AppRealtyView;
 };
 
-const RealtyItem: FC<Props> = memo(
+const AppRealty: FC<Props> = memo(
 	({ title, description, price, currency, createdAt, images, term, view, id, address }) => {
 		const router = useRouter();
 		const dispatch = useAppDispatch();
@@ -33,9 +34,9 @@ const RealtyItem: FC<Props> = memo(
 		const favoriteLabel = search.search_realty.favorite.add_label;
 		const formattedPrice = formatPrice(price, currency, term, router.query.lang as Locale);
 		const formattedTime = formatCreatedAt(createdAt, router.query.lang as Locale);
-		const styles = clsx(s.realty_item, s[`realty_item--${view}`], 'transition');
-		const styles_info = clsx(s.realty_item_info, s[`realty_item_info--${view}`], 'transition');
-		const buttonStyles = clsx(s.realty_item_favorite, 'active--scale');
+		const styles = clsx(s.realty, s[`realty--${view}`], 'transition');
+		const styles_info = clsx(s.realty_info, s[`realty_info--${view}`], 'transition');
+		const buttonStyles = clsx(s.realty_favorite, 'active--scale');
 
 		const favorites = user.favorites;
 		const localStorageFavorites = localStorage.getItem('favorites');
@@ -62,7 +63,7 @@ const RealtyItem: FC<Props> = memo(
 					onlyARIA
 					href={url}
 					title={title}
-					className={s.realty_item_wrap}
+					className={s.realty_wrap}
 				/>
 
 				<RealtyItemImages
@@ -73,13 +74,13 @@ const RealtyItem: FC<Props> = memo(
 				/>
 
 				<div className={styles_info}>
-					<p className={s.realty_item_title}>{title}</p>
-					<p className={s.realty_item_price}>{formattedPrice}</p>
-					<div className={s.realty_item_addressBox}>
-						<TiLocation className={s.realty_item_addressIcon} />
-						<p className={s.realty_item_address}>{address}</p>
+					<p className={s.realty_title}>{title}</p>
+					<p className={s.realty_price}>{formattedPrice}</p>
+					<div className={s.realty_addressBox}>
+						<TiLocation className={s.realty_addressIcon} />
+						<p className={s.realty_address}>{address}</p>
 					</div>
-					<p className={s.realty_item_description}>{description}</p>
+					<p className={s.realty_description}>{description}</p>
 					<time dateTime={formattedTime}>{formattedTime}</time>
 				</div>
 
@@ -89,11 +90,12 @@ const RealtyItem: FC<Props> = memo(
 					title={favoriteLabel}
 					onClick={toggleFavorite}
 					className={buttonStyles}>
-					{!isFavorite && <FaRegHeart className={s.realty_item_favorite_icon} />}
+					{!isFavorite && <FaRegHeart className={s.realty_favorite_icon} />}
+
 					{isFavorite && (
 						<FaHeart
 							color='#ff3a3a'
-							className={s.realty_item_favorite_icon}
+							className={s.realty_favorite_icon}
 						/>
 					)}
 				</AppButton>
@@ -102,5 +104,5 @@ const RealtyItem: FC<Props> = memo(
 	}
 );
 
-RealtyItem.displayName = 'RealtyItem';
-export default RealtyItem;
+AppRealty.displayName = 'RealtyItem';
+export default AppRealty;

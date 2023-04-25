@@ -1,0 +1,14 @@
+.me {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&_container {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding: 20px 10px;
+		gap: 20px;
+	}
+}

@@ -2,13 +2,13 @@ import clsx from 'clsx';
 import { FC, memo, useEffect } from 'react';
 import { FaListUl, FaThLarge } from 'react-icons/fa';
 import AppButton from '../../../components/AppButton/AppButton';
+import { AppRealtyView } from '../../../components/AppRealty/AppRealty';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { View } from '../PageSearch';
 import s from './SearchSwitchView.module.scss';
 
 type Props = {
-	view: View;
-	setView: (view: View) => void;
+	view: AppRealtyView;
+	setView: (view: AppRealtyView) => void;
 };
 
 export const SearchSwitchView: FC<Props> = memo(({ view, setView }) => {
@@ -17,7 +17,7 @@ export const SearchSwitchView: FC<Props> = memo(({ view, setView }) => {
 	useEffect(() => {
 		const localStorageView = localStorage.getItem('search_view');
 		if (!localStorageView) return;
-		else setView(localStorageView as View);
+		else setView(localStorageView as AppRealtyView);
 	}, []);
 
 	const listHandler = () => {

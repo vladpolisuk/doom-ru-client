@@ -2,22 +2,22 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FC, memo, useEffect, useState } from 'react';
 import AppPagination from '../../../components/AppPagination/AppPagination';
+import AppRealty, { AppRealtyView } from '../../../components/AppRealty/AppRealty';
+import { AppRealtySkeleton } from '../../../components/AppRealty/AppRealtySkeleton';
 import { useAppDispatch, useAppSelector } from '../../../hooks/store';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { Locale } from '../../../store/app/types';
+import { Realty } from '../../../store/realty/types';
 import { setSearchLoading } from '../../../store/search/actions';
 import { searchGetRealties } from '../../../store/search/requests';
 import { getSearchLoading, getSearchPage, getSearchTake, getSearchTotal } from '../../../store/search/selectors';
-import { Realty, RealtyAction } from '../../../types';
+import { RealtyAction } from '../../../types';
 import removeProperty from '../../../utils/removeProperty';
 import parseQueries from '../../../utils/ui/parseQueries';
-import { View } from '../PageSearch';
-import RealtyItem from './RealtyItem/RealtyItem';
-import { RealtyItemSkeleton } from './RealtyItem/RealtyItemSkeleton';
 import s from './SearchResult.module.scss';
 
 type Props = {
-	view: View;
+	view: AppRealtyView;
 };
 
 export const SearchResult: FC<Props> = memo(({ view }) => {
@@ -72,7 +72,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 			<ul className={styles}>
 				{loading &&
 					[...Array(take).keys()].map(key => (
-						<RealtyItemSkeleton
+						<AppRealtySkeleton
 							view={view}
 							key={key}
 						/>
@@ -80,7 +80,7 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 
 				{!loading &&
 					realties.map(realty => (
-						<RealtyItem
+						<AppRealty
 							view={view}
 							key={realty.id}
 							{...realty}

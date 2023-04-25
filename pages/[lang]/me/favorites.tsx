@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import AuthAPI from '../../../api/auth';
 import { useTranslation } from '../../../hooks/useTranslation';
+import PageMeFavorites from '../../../modules/PageMe/Favorites/PageMeFavorites';
 import PageMeLayout from '../../../modules/PageMe/PageMeLayout';
-import PageMeSettings from '../../../modules/PageMe/Settings/PageMeSettings';
 import { Locale } from '../../../store/app/types';
 
 export default function Me() {
@@ -35,7 +35,7 @@ export default function Me() {
 			</Head>
 
 			<PageMeLayout>
-				<PageMeSettings />
+				<PageMeFavorites />
 			</PageMeLayout>
 		</Fragment>
 	);
