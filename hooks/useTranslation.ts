@@ -6,7 +6,8 @@ type LocalesMap = typeof locales;
 
 export const useTranslation = <T extends keyof LocalesMap['en']>(page: T): LocalesMap['en'][T] => {
 	const router = useRouter();
-	const locale = router.asPath.split('/')[1] as Locale;
-	const translation = locales[locale][page];
+	const queryLocale = router.query.lang as Locale;
+	const locale = (router.asPath && (router.asPath.split('/')[1] as Locale)) || '';
+	const translation = locales[queryLocale || locale][page];
 	return translation;
 };

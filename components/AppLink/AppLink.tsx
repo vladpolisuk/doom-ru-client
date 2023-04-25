@@ -30,7 +30,8 @@ const AppLink: FC<IAppLink> = memo(
 		...props
 	}) => {
 		const router = useRouter();
-		const url = resetHref ? href : `/${router.asPath.split('/')[1]}${href}`;
+		const queryLocale = router.query.lang;
+		const url = resetHref ? href : `/${queryLocale || router.asPath.split('/')[1]}${href}`;
 		const titleAttr = onlyARIA ? '' : title;
 
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_link);
