@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import AppButton from '../../components/AppButton/AppButton';
 import { useTranslation } from '../../hooks/useTranslation';
+import { Locale } from '../../store/app/types';
 import s from './PageError.module.scss';
 
 interface Props {
@@ -12,8 +13,13 @@ interface Props {
 const PageError: FC<Props> = ({ statusCode }) => {
 	const error = useTranslation('error');
 	const router = useRouter();
+	const locale = router.asPath.split('/')[1] as Locale;
 
-	const handleHome = () => router.push(`/${router.asPath.split('/')[1]}`);
+	useEffect(() => {
+		router.prefetch(`/${locale}`);
+	}, [locale, router]);
+
+	const handleHome = () => router.push(`/${locale}`);
 
 	const styles = clsx(s.error_container, 'container');
 	const btnStyles = clsx('transition', 'active--scale');
