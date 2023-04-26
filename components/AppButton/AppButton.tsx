@@ -29,7 +29,6 @@ const AppButton: FC<IAppButton> = memo(
 		className = '',
 		loading = false,
 		color = 'default',
-		Skeleton = undefined,
 		onlyARIA = false,
 		resetStyles = false,
 		...props
@@ -45,8 +44,6 @@ const AppButton: FC<IAppButton> = memo(
 		}[resetStyles ? 'reset' : color];
 
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_button, variantStyle);
-
-		if (Skeleton) return Skeleton;
 
 		return (
 			<button

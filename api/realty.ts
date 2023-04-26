@@ -29,7 +29,11 @@ export class RealtyAPI extends BaseAPI {
 		return await this.fetch('POST')('/', realty);
 	}
 
-	public async getAllFavoriteRealties() {
+	public async getMyRealties() {
+		return await this.fetch('GET')('/me');
+	}
+
+	public async getFavoriteRealties() {
 		return await this.fetch('GET')(`/favorite`);
 	}
 
@@ -39,6 +43,10 @@ export class RealtyAPI extends BaseAPI {
 
 	public async removeFromFavorite(realtyId: number) {
 		return await this.fetch('DELETE')(`/favorite/${realtyId}`);
+	}
+
+	public async removeRealty(realtyId: number) {
+		return await this.fetch('DELETE')(`/${realtyId}`);
 	}
 }
 

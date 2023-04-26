@@ -1,9 +1,26 @@
 .me_favorites {
 	width: 100%;
 
+	&_header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 10px;
+		margin-bottom: 20px;
+	}
+
+	&_count {
+		color: var(--color-2);
+		font-size: 28px;
+		font-weight: bold;
+		opacity: 0;
+		animation: fadeIn 150ms ease-in-out forwards;
+	}
+
 	&_title {
 		color: var(--color-2);
-		margin-top: 0;
+		margin: 0;
 		font-size: 28px;
 	}
 
@@ -15,5 +32,20 @@
 		justify-content: flex-start;
 		gap: 10px;
 		padding-bottom: 30px;
+	}
+
+	&_notFound {
+		font-size: 32px;
+		color: var(--color-4);
+		font-weight: bold;
+		text-align: center;
+		animation: fadeIn 150ms ease-in-out forwards;
+		width: 100%;
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
 	}
 }

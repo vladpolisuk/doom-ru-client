@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 import AppLocationBadge from '../../../components/AppLocationBadge/AppLocationBadge';
-import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
 import { useTranslation } from '../../../hooks/useTranslation';
 import wallpaper from '../../../public/assets/home_wallpaper.webp';
 import { SearchBar } from './SearchBar/SearchBar';
@@ -30,13 +29,8 @@ export const SectionSearch: FC = () => {
 			<main
 				id='main'
 				className={clsx(s.home_sectionSearch_content, 'container')}>
-				<AppLocationBadge
-					Skeleton={<AppSkeleton className={s.home_sectionSearch_locationBadgeSkeleton} />}
-					className={s.home_sectionSearch_locationBadge}
-				/>
-
+				<AppLocationBadge className={s.home_sectionSearch_locationBadge} />
 				<h1 className={s.home_sectionSearch_title}>{title}</h1>
-
 				<SearchBar />
 			</main>
 		</section>

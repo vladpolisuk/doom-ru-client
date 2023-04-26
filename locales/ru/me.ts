@@ -2,7 +2,10 @@ import { FaHistory, FaRegBell, FaRegHeart, FaRegListAlt, FaRegSun, FaRegUserCirc
 
 const me = {
 	locale: 'ru',
-	me_title: 'Доом.ру | Мой профиль',
+	me_profile_title: 'Doom.ru | Профиль',
+	me_favorites_title: 'Doom.ru | Избранное',
+	me_settings_title: 'Doom.ru | Настройки',
+	me_realties_title: 'Doom.ru | Мои объявления',
 	me_aside: {
 		tabs: [
 			{
@@ -37,7 +40,7 @@ const me = {
 				id: 4,
 				name: 'Мои объявления',
 				title: 'Перейти в мои объявления',
-				url: '/me/announcements',
+				url: '/me/realties',
 				Icon: FaRegListAlt
 			},
 			{
@@ -87,7 +90,42 @@ const me = {
 		}
 	},
 	me_favorites: {
-		title: 'Избранное'
+		title: 'Избранное',
+		not_found: {
+			title: 'Нет избранных'
+		}
+	},
+	me_realties: {
+		title: 'Мои объявления',
+		not_found: {
+			title: 'Нет объявлений'
+		},
+		messages: {
+			success: {
+				title: 'Объявления удалены'
+			},
+			error: {
+				title: 'Что-то пошло не так'
+			}
+		},
+		btn: {
+			remove: {
+				title: 'Удалить',
+				label: 'Нажмите, чтобы удалить'
+			},
+			reset: {
+				title: 'Сбросить',
+				label: 'Нажмите, чтобы сбросить'
+			},
+			cancel: {
+				title: 'Отменить',
+				label: 'Нажмите, чтобы отменить'
+			}
+		},
+		modal: {
+			title: 'Вы уверены?',
+			description: 'Когда вы нажмете "удалить", объявления удалятся безвозвратно'
+		}
 	}
 };
 

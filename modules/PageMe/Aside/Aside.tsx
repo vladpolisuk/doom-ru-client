@@ -13,7 +13,7 @@ export const Aside = () => {
 	const tabs = me.me_aside.tabs;
 
 	return (
-		<main className={s.me_aside}>
+		<aside className={s.me_aside}>
 			<ProfileCard />
 
 			<hr className={s.me_aside_hr} />
@@ -42,6 +42,6 @@ export const Aside = () => {
 					{btnLogoutTitle}
 				</AppSignOutButton>
 			</AsideTabs>
-		</main>
+		</aside>
 	);
 };

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { FC, memo, useState } from 'react';
+import { FC, ReactNode, memo, useState } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { TiLocation } from 'react-icons/ti';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
@@ -20,13 +20,14 @@ export type AppRealtyView = 'list' | 'grid';
 
 type Props = Realty & {
 	view: AppRealtyView;
+	MyRealtyButton?: ReactNode;
 };
 
 const AppRealty: FC<Props> = memo(
-	({ title, description, price, currency, createdAt, images, term, view, id, address }) => {
+	({ title, description, price, currency, createdAt, images, term, view, id, address, user, MyRealtyButton }) => {
 		const router = useRouter();
 		const dispatch = useAppDispatch();
-		const user = useAppSelector(getAppUser);
+		const appUser = useAppSelector(getAppUser);
 		const search = useTranslation('search');
 		const [loading, setLoading] = useState(false);
 
@@ -36,17 +37,10 @@ const AppRealty: FC<Props> = memo(
 		const formattedTime = formatCreatedAt(createdAt, router.query.lang as Locale);
 		const styles = clsx(s.realty, s[`realty--${view}`], 'transition');
 		const styles_info = clsx(s.realty_info, s[`realty_info--${view}`], 'transition');
-		const buttonStyles = clsx(s.realty_favorite, 'active--scale');
+		const favoriteButtonStyles = clsx(s.realty_favorite, 'transition', 'active--scale');
 
-		const favorites = user.favorites;
-		const localStorageFavorites = localStorage.getItem('favorites');
-		let isFavorite = false;
-
-		if (!favorites) {
-			isFavorite = JSON.parse(localStorageFavorites || '[]').includes(id);
-		} else {
-			isFavorite = user.favorites.includes(id);
-		}
+		const isMyRealty = appUser.id === user.id;
+		const isFavorite = appUser.favorites.includes(id);
 
 		const toggleFavorite = async () => {
 			const locale = router.query.lang as Locale;
@@ -84,21 +78,24 @@ const AppRealty: FC<Props> = memo(
 					<time dateTime={formattedTime}>{formattedTime}</time>
 				</div>
 
-				<AppButton
-					resetStyles
-					disabled={loading}
-					title={favoriteLabel}
-					onClick={toggleFavorite}
-					className={buttonStyles}>
-					{!isFavorite && <FaRegHeart className={s.realty_favorite_icon} />}
+				{appUser.id !== 0 && isMyRealty && MyRealtyButton}
+				{appUser.id !== 0 && !isMyRealty && (
+					<AppButton
+						resetStyles
+						disabled={loading}
+						title={favoriteLabel}
+						onClick={toggleFavorite}
+						className={favoriteButtonStyles}>
+						{!isFavorite && <FaRegHeart className={s.realty_favorite_icon} />}
 
-					{isFavorite && (
-						<FaHeart
-							color='#ff3a3a'
-							className={s.realty_favorite_icon}
-						/>
-					)}
-				</AppButton>
+						{isFavorite && (
+							<FaHeart
+								color='#ff3a3a'
+								className={s.realty_favorite_icon}
+							/>
+						)}
+					</AppButton>
+				)}
 			</li>
 		);
 	}

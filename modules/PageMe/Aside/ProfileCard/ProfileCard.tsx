@@ -8,18 +8,18 @@ export const ProfileCard = () => {
 	const user = useAppSelector(getAppUser);
 	const userLoading = useAppSelector(getAppUserLoading);
 
-	const skeleton = userLoading ? <AppSkeleton className={s.me_aside_profileCard_avatarSkeleton} /> : undefined;
-
 	return (
 		<div className={s.me_aside_profileCard}>
-			<AppAvatar
-				width={90}
-				height={90}
-				Skeleton={skeleton}
-				className={s.me_aside_profileCard_avatar}
-				src={user.avatar}
-				alt={user.name}
-			/>
+			{userLoading && <AppSkeleton className={s.me_aside_profileCard_avatarSkeleton} />}
+			{!userLoading && (
+				<AppAvatar
+					width={90}
+					height={90}
+					className={s.me_aside_profileCard_avatar}
+					src={user.avatar}
+					alt={user.name}
+				/>
+			)}
 
 			<div className={s.me_aside_profileCard_info}>
 				{userLoading && <AppSkeleton className={s.me_aside_profileCard_nameSkeleton} />}

@@ -1,0 +1,51 @@
+.app_message {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 10px;
+	flex-direction: row;
+	padding: 10px 12px;
+	max-width: 250px;
+	border-radius: 5px;
+	color: white;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(100%);
+	animation: slideIn var(--duration, 200ms) ease-in-out forwards,
+		slideOut var(--duration, 200ms) ease-in var(--delay, 1000ms) forwards;
+
+	&--success {
+		background: rgb(62, 143, 62);
+	}
+
+	&--info {
+		background: rgb(62, 96, 143);
+	}
+
+	&--error {
+		background: rgb(143, 62, 62);
+	}
+
+	&--warning {
+		background: rgb(143, 111, 62);
+	}
+}
+
+@keyframes slideIn {
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0%);
+	}
+}
+
+@keyframes slideOut {
+	100% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(50%);
+	}
+}

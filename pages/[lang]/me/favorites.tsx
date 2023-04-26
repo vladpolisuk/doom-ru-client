@@ -2,19 +2,25 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import AuthAPI from '../../../api/auth';
+import RealtyAPI from '../../../api/realty';
 import { useTranslation } from '../../../hooks/useTranslation';
 import PageMeFavorites from '../../../modules/PageMe/Favorites/PageMeFavorites';
 import PageMeLayout from '../../../modules/PageMe/PageMeLayout';
 import { Locale } from '../../../store/app/types';
+import { Realty } from '../../../store/realty/types';
 
-export default function Me() {
+interface Props {
+	favorites: Realty[];
+}
+
+export default function MeFavorites(props: Props) {
 	const common = useTranslation('common');
 	const me = useTranslation('me');
 
 	const description = common.site_description;
 	const keywords = common.site_keywords;
 	const author = common.site_author;
-	const title = me.me_title;
+	const title = me.me_favorites_title;
 
 	return (
 		<Fragment>
@@ -35,7 +41,7 @@ export default function Me() {
 			</Head>
 
 			<PageMeLayout>
-				<PageMeFavorites />
+				<PageMeFavorites realties={props.favorites} />
 			</PageMeLayout>
 		</Fragment>
 	);
@@ -43,12 +49,19 @@ export default function Me() {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	try {
-		const api = new AuthAPI(context.query.lang as Locale, {
+		const locale = context.query.lang as Locale;
+		const api = new AuthAPI(locale, {
 			cookie: context.req.headers.cookie || ''
 		});
 		await api.me();
+		const realtyApi = new RealtyAPI(locale, {
+			cookie: context.req.headers.cookie || ''
+		});
+		const response = await realtyApi.getFavoriteRealties();
 		return {
-			props: {}
+			props: {
+				favorites: response.data
+			}
 		};
 	} catch (error: any) {
 		return {

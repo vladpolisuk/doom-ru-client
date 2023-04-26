@@ -62,15 +62,6 @@
 			background-color: rgba(0, 0, 0, 0.7);
 		}
 	}
-
-	&_locationBadgeSkeleton {
-		height: 36px;
-		position: absolute;
-		top: 20px;
-		left: 10px;
-		width: 150px;
-		background-color: rgba(0, 0, 0, 0.6);
-	}
 }
 
 @keyframes scale {

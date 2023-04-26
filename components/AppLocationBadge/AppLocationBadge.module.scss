@@ -10,6 +10,10 @@
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 
+	&Skeleton {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
 	&_icon {
 		width: 20px;
 		height: 20px;

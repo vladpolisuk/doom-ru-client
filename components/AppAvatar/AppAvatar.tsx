@@ -14,20 +14,8 @@ export type Props = BaseAppComponent<HTMLImageElement> & ImgHTMLAttributes<HTMLI
  * @return `next:image`
  */
 const AppAvatar: FC<Props> = memo(
-	({
-		resetStyles = false,
-		className = '',
-		width = 45,
-		Skeleton = undefined,
-		placeholder = '',
-		height = 45,
-		alt = '',
-		src,
-		...extra
-	}) => {
+	({ resetStyles = false, className = '', width = 45, placeholder = '', height = 45, alt = '', src, ...extra }) => {
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_avatar);
-
-		if (Skeleton) return Skeleton;
 
 		return src ? (
 			<Image
