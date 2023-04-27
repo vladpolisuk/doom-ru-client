@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
-import { FaClock, FaHeart, FaPhone, FaRegHeart } from 'react-icons/fa';
+import { FaClock, FaEye, FaHeart, FaPhone, FaRegHeart } from 'react-icons/fa';
 import { TiLocation } from 'react-icons/ti';
 import AppButton from '../../../components/AppButton/AppButton';
 import AppModal from '../../../components/AppModal/AppModal';
@@ -70,7 +70,7 @@ export const RealtyInfo = () => {
 
 	const handleGoToSettings = () => {
 		router.push(`/${locale}/me/realties`);
-	}
+	};
 
 	const actionStyles = clsx(s.realty_action, 'active--scale', 'transition');
 	const showPhoneTitle = realtyTranslation.realty_info.actions.phone.title;
@@ -97,14 +97,18 @@ export const RealtyInfo = () => {
 						<p className={s.realty_price}>{price}</p>
 						<div className={s.realty_addressBox}>
 							<TiLocation className={s.realty_addressIcon} />
-							<p className={s.realty_address}>{realty.address}</p>
+							<address className={s.realty_address}>{realty.address}</address>
 						</div>
 						<p className={s.realty_description}>{realty.description}</p>
-						<div className={s.realty_dateBox}>
+						<div className={s.realty_box}>
 							<FaClock />
 							<time className={s.realty_date}>
 								{date} ({relativeDate})
 							</time>
+						</div>
+						<div className={s.realty_box}>
+							<FaEye />
+							<p className={s.realty_date}>{realty.views}</p>
 						</div>
 					</div>
 

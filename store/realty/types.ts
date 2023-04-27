@@ -22,6 +22,7 @@ export type Realty = {
 	currency: RealtyCurrency;
 	area: number;
 	floor: number;
+	views: number;
 	houseType: RealtyHouseType;
 	repair: RealtyRepair;
 	elevator: boolean;
@@ -51,7 +52,7 @@ export type RealtyUser = {
 	id: number;
 };
 
-export type RealtyForm = Omit<Realty, 'id' | 'updatedAt' | 'images' | 'user' | 'createdAt'>;
+export type RealtyForm = Omit<Realty, 'id' | 'updatedAt' | 'images' | 'user' | 'createdAt' | 'views'>;
 
 export type RealtySubmit = RealtyForm & {
 	images: Buffer[];

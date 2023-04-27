@@ -72,7 +72,7 @@ const AppRealty: FC<Props> = memo(
 					<p className={s.realty_price}>{formattedPrice}</p>
 					<div className={s.realty_addressBox}>
 						<TiLocation className={s.realty_addressIcon} />
-						<p className={s.realty_address}>{address}</p>
+						<address className={s.realty_address}>{address}</address>
 					</div>
 					<p className={s.realty_description}>{description}</p>
 					<time dateTime={formattedTime}>{formattedTime}</time>

@@ -37,6 +37,10 @@ export class RealtyAPI extends BaseAPI {
 		return await this.fetch('GET')(`/favorite`);
 	}
 
+	public async updateRealtyViews(id: number) {
+		return await this.fetch('POST')(`/view/${id}`);
+	}
+
 	public async addToFavorite(realtyId: number) {
 		return await this.fetch('POST')(`/favorite/${realtyId}`);
 	}

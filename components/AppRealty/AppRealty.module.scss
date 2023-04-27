@@ -165,25 +165,27 @@
 	&_price {
 		font-size: 24px;
 		font-weight: 600;
+		color: var(--color);
 	}
 
 	&_addressBox {
 		display: flex;
 		flex-direction: row;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: flex-start;
+		gap: 5px;
 	}
 
 	&_addressIcon {
-		width: 20px;
-		height: 20px;
-		margin-right: 5px;
+		min-width: 20px;
+		min-height: 20px;
 		color: var(--color-brand-2);
 	}
 
 	&,
 	&_address {
 		color: var(--color-2);
+		margin-top: 2px;
 	}
 
 	&_description {

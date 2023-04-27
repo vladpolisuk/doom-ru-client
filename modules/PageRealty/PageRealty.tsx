@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../hooks/store';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Locale } from '../../store/app/types';
 import { setRealty, setRealtyAuthor, setRealtyLoading } from '../../store/realty/actions';
-import { fetchRealtyUser, getRealty } from '../../store/realty/requests';
+import { fetchRealtyUser, getRealty, updateRealtyViews } from '../../store/realty/requests';
+import { getRealty as getRealtySelector } from '../../store/realty/selectors';
 import s from './PageRealty.module.scss';
 import { RealtyAuthor } from './RealtyAuthor/RealtyAuthor';
 import { RealtyDetail } from './RealtyDetail/RealtyDetail';
@@ -17,16 +18,27 @@ const PageRealty = () => {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
 	const containerStyles = clsx(s.realty_container, 'container');
-	const realty = useTranslation('realty');
+	const realty = useAppSelector(getRealtySelector);
+	const t = useTranslation('realty');
+
+	useEffect(() => {
+		const fetch = async () => {
+			if (!realty.id) return;
+			const locale = router.query.lang as Locale;
+			await updateRealtyViews(realty.id, locale);
+		};
+
+		fetch();
+	}, [realty, router]);
 
 	useEffect(() => {
 		const fetch = async () => {
 			dispatch(setRealtyLoading(true));
 			const locale = router.query.lang as Locale;
 			const id = Number(router.query.id);
-			const response = await getRealty(locale, id);
+			const response = await getRealty(id, locale);
 			dispatch(setRealty(response.data));
-			const author = await fetchRealtyUser(locale, response.data.user.id);
+			const author = await fetchRealtyUser(response.data.user.id, locale);
 			dispatch(setRealtyAuthor(author.data));
 			dispatch(setRealtyLoading(false));
 		};
@@ -34,8 +46,8 @@ const PageRealty = () => {
 		fetch();
 	}, [router, dispatch]);
 
-	const detail = realty.realty_detail.title;
-	const author = realty.realty_author.title;
+	const detail = t.realty_detail.title;
+	const author = t.realty_author.title;
 
 	return (
 		<div className={s.realty}>

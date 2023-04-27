@@ -8,7 +8,7 @@ import { RealtySubmit } from './types';
 /** ## Get Realty
  * The request to load realty data
  */
-export const getRealty = async (lang: Locale, id: number) => {
+export const getRealty = async (id: number, lang: Locale) => {
 	try {
 		const api = new RealtyAPI(lang);
 		const response = await api.getRealty(id);
@@ -27,7 +27,7 @@ export const getRealty = async (lang: Locale, id: number) => {
 /** ## Get Realty User
  * The request to load realty user data
  */
-export const fetchRealtyUser = async (lang: Locale, id: number) => {
+export const fetchRealtyUser = async (id: number, lang: Locale) => {
 	try {
 		const api = new UserAPI(lang);
 		const response = await api.getOneUser(id);
@@ -121,6 +121,26 @@ export const createRealty = async (data: RealtySubmit, lang: Locale) => {
 	try {
 		const api = new RealtyAPI(lang);
 		const response = await api.createRealty(data);
+		return {
+			data: response.data,
+			success: true
+		};
+	} catch (error: any) {
+		return {
+			message: error.message,
+			success: false
+		};
+	}
+};
+
+/** ## Update Realty Views
+ * The request that update realty's views
+ * @param id number
+ */
+export const updateRealtyViews = async (id: number, lang: Locale) => {
+	try {
+		const api = new RealtyAPI(lang);
+		const response = await api.updateRealtyViews(id);
 		return {
 			data: response.data,
 			success: true

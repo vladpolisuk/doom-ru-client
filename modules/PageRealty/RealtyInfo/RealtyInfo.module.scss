@@ -57,7 +57,6 @@
 	color: var(--color-brand-2);
 	width: 22px;
 	height: 22px;
-	margin-top: 2px;
 }
 
 .realty_price {
@@ -71,7 +70,7 @@
 	background-color: var(--background_actives-3);
 }
 
-.realty_dateBox {
+.realty_box {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
