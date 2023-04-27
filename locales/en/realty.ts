@@ -76,6 +76,10 @@ const realty = {
 					title: 'Sign In',
 					label: 'Click to sign in'
 				}
+			},
+			go_to_settings: {
+				title: 'Go to settings',
+				label: 'Click to go to settings'
 			}
 		}
 	}

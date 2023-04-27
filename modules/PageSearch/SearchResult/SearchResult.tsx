@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/store';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { Locale } from '../../../store/app/types';
 import { Realty } from '../../../store/realty/types';
-import { setSearchLoading } from '../../../store/search/actions';
+import { setSearchLoading, setSearchPage, setSearchTotal } from '../../../store/search/actions';
 import { searchGetRealties } from '../../../store/search/requests';
 import { getSearchLoading, getSearchPage, getSearchTake, getSearchTotal } from '../../../store/search/selectors';
 import { RealtyAction } from '../../../types';
@@ -42,25 +42,25 @@ export const SearchResult: FC<Props> = memo(({ view }) => {
 
 	useEffect(() => {
 		const fetch = async () => {
-			dispatch(setSearchLoading(true));
+			await dispatch(setSearchLoading(true));
 			const queryPage = Number(router.query.page || 1);
 			const action = router.route.split('/')[3] as RealtyAction;
 			const locale = router.query.lang as Locale;
 			const queries = parseQueries(removeProperty(router.query, 'lang'));
 			setRealties([]);
-			const response = await dispatch(
-				searchGetRealties(locale, {
-					take,
-					action,
-					page: queryPage,
-					...queries
-				})
-			);
-			setRealties(response.data);
-			dispatch(setSearchLoading(false));
+			const response = await searchGetRealties(locale, {
+				take,
+				action,
+				page: queryPage,
+				...queries
+			});
+			setRealties(response.data.data || []);
+			await dispatch(setSearchPage(response ? response.data.page : 1));
+			await dispatch(setSearchTotal(response ? response.data.count : 0));
+			await dispatch(setSearchLoading(false));
 		};
 
-		if (router.isReady) fetch();
+		fetch();
 	}, [router, take]);
 
 	const styles = clsx(s[`search_result_list--${view}`], 'unlisted');
