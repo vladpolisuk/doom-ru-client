@@ -114,7 +114,7 @@ export const RealtyItem: FC<Props> = memo(({ realty, selectedIds, toggleSelectRe
 
 			{selectedIds.length === 0 && (
 				<div
-					data-loading={true}
+					data-loading={loading}
 					className={s.realty_item_controls}>
 					{editMode && (
 						<AppButton
