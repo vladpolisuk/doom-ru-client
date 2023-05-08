@@ -20,11 +20,26 @@ export type AppRealtyView = 'list' | 'grid';
 
 type Props = Realty & {
 	view: AppRealtyView;
+	className?: string;
 	MyRealtyButton?: ReactNode;
 };
 
 const AppRealty: FC<Props> = memo(
-	({ title, description, price, currency, createdAt, images, term, view, id, address, user, MyRealtyButton }) => {
+	({
+		title,
+		description,
+		price,
+		currency,
+		createdAt,
+		className,
+		images,
+		term,
+		view,
+		id,
+		address,
+		user,
+		MyRealtyButton
+	}) => {
 		const router = useRouter();
 		const dispatch = useAppDispatch();
 		const appUser = useAppSelector(getAppUser);
@@ -35,7 +50,7 @@ const AppRealty: FC<Props> = memo(
 		const favoriteLabel = search.search_realty.favorite.add_label;
 		const formattedPrice = formatPrice(price, currency, term, router.query.lang as Locale);
 		const formattedTime = formatCreatedAt(createdAt, router.query.lang as Locale);
-		const styles = clsx(s.realty, s[`realty--${view}`], 'transition');
+		const styles = clsx(s.realty, s[`realty--${view}`], 'transition', className);
 		const styles_info = clsx(s.realty_info, s[`realty_info--${view}`], 'transition');
 		const favoriteButtonStyles = clsx(s.realty_favorite, 'transition', 'active--scale');
 

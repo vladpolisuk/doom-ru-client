@@ -1,0 +1,104 @@
+.realty_item {
+	width: 100%;
+	position: relative;
+	transition: all 50ms ease-in-out;
+	border-radius: 8px;
+	box-shadow: inset 0 0 0 1px var(--color-6);
+	background: var(--background_actives-4);
+	z-index: 1;
+
+	&[data-selected='true'] {
+		scale: 0.99;
+	}
+
+	&:hover * &_controls_btn {
+		opacity: 1;
+	}
+
+	&_post {
+		position: relative;
+		opacity: 0;
+		animation: fadeIn 200ms ease-in-out forwards;
+		z-index: 2;
+	}
+
+	&_controls {
+		position: absolute;
+		right: -64px;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 10px;
+		padding: 0 10px;
+		height: 100%;
+
+		&[data-loading='true'] > &_btn {
+			opacity: 1;
+		}
+
+		&:hover > &_btn {
+			opacity: 1;
+		}
+
+		&_btn {
+			opacity: 0;
+			border-radius: 50%;
+			min-width: 40px;
+			min-height: 40px;
+			padding: 0;
+			color: var(--color-2);
+			transition: all 150ms ease-in-out;
+
+			&:focus-visible {
+				opacity: 1;
+			}
+		}
+	}
+
+	&_selectBtn {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: transparent;
+		width: 34px;
+		height: 34px;
+		border: 0;
+		border-radius: 50%;
+
+		&:hover {
+			.me_realties_selectBtn_icon {
+				opacity: 1;
+				transition: opacity 50ms easy-in-out;
+			}
+		}
+
+		&_icon {
+			width: 24px;
+			height: 24px;
+			opacity: 0.8;
+		}
+	}
+
+	&_edit {
+		width: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		padding: 15px;
+		opacity: 0;
+		gap: 20px;
+		animation: fadeIn 200ms ease-in-out forwards;
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}

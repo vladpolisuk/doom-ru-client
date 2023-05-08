@@ -1,11 +1,9 @@
-import clsx from 'clsx';
 import { FC, useState } from 'react';
-import AppRealty from '../../../components/AppRealty/AppRealty';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { Realty } from '../../../store/realty/types';
 import ControlSelectedRealties from './ControlSelectedRealties';
 import s from './PageRealties.module.scss';
-import SelectRealtyBtn from './SelectRealtyBtn';
+import { RealtiesList } from './RealtiesList/RealtiesList';
 
 interface Props {
 	realties: Realty[];
@@ -24,9 +22,7 @@ const PageMeRealties: FC<Props> = ({ realties }) => {
 		}
 	};
 
-	const styles = clsx(s.me_realties_list, 'unlisted');
 	const realtiesTitle = me.me_realties.title;
-	const realtiesNotFoundTitle = me.me_realties.not_found.title;
 
 	return (
 		<main className={s.me_realties}>
@@ -42,24 +38,11 @@ const PageMeRealties: FC<Props> = ({ realties }) => {
 				/>
 			</div>
 
-			<ul className={styles}>
-				{realties.map(realty => (
-					<AppRealty
-						MyRealtyButton={
-							<SelectRealtyBtn
-								id={realty.id}
-								isSelected={selectedIds.includes(realty.id)}
-								toggleSelectRealty={toggleSelectRealty}
-							/>
-						}
-						view='list'
-						key={realty.id}
-						{...realty}
-					/>
-				))}
-
-				{realties.length === 0 && <p className={s.me_realties_notFound}>{realtiesNotFoundTitle}</p>}
-			</ul>
+			<RealtiesList
+				selectedIds={selectedIds}
+				toggleSelectRealty={toggleSelectRealty}
+				realties={realties}
+			/>
 		</main>
 	);
 };

@@ -133,6 +133,22 @@ export const createRealty = async (data: RealtySubmit, lang: Locale) => {
 	}
 };
 
+export const updateRealty = async (id: number, data: RealtySubmit, lang: Locale) => {
+	try {
+		const api = new RealtyAPI(lang);
+		const response = await api.updateRealty(id, data);
+		return {
+			data: response.data,
+			success: true
+		};
+	} catch (error: any) {
+		return {
+			message: error.message,
+			success: false
+		};
+	}
+};
+
 /** ## Update Realty Views
  * The request that update realty's views
  * @param id number
