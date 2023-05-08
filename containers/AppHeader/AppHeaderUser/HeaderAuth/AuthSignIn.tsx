@@ -75,6 +75,7 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 												invalid={field.name in errors}
 												placeholder={field.title}
 												className={s.auth_modal_form_input}
+												autoComplete={field.autoComplete}
 												{...register(field.name as Fields, {
 													required: field.required,
 													minLength: field.minLength,
@@ -94,6 +95,7 @@ export const AuthSignIn: FC<Props> = memo(({ setViewModal, viewModal, error, loa
 											key={`field_${field.name}`}>
 											<AppCheckbox
 												disabled={loading}
+												defaultChecked={field.defaultValue}
 												{...register(field.name as Fields)}
 											/>
 											<p>{field.title}</p>

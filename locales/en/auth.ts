@@ -19,6 +19,7 @@ const auth = {
 				type: 'email',
 				title: 'Email',
 				label: 'Enter email',
+				autoComplete: 'username',
 				required: {
 					value: true,
 					message: 'Email is required'
@@ -35,6 +36,7 @@ const auth = {
 				type: 'text',
 				title: 'Name',
 				label: 'Enter your name',
+				autoComplete: 'given-name',
 				required: {
 					value: true,
 					message: 'Name is required'
@@ -51,6 +53,7 @@ const auth = {
 				type: 'text',
 				title: 'Second name',
 				label: 'Enter your second name',
+				autoComplete: 'family-name',
 				required: {
 					value: true,
 					message: 'Second name is required'
@@ -61,13 +64,32 @@ const auth = {
 				}
 			},
 			{
-				page: 'both',
+				page: 'signin',
 				name: 'password',
 				fieldType: 'input',
 				type: 'password',
 				title: 'Password',
 				label: 'Enter password',
 				showPasswordButton: true,
+				autoComplete: 'current-password',
+				required: {
+					value: true,
+					message: 'Password is required'
+				},
+				minLength: {
+					value: 8,
+					message: 'Min 8 letters'
+				}
+			},
+			{
+				page: 'signup',
+				name: 'password',
+				fieldType: 'input',
+				type: 'password',
+				title: 'Password',
+				label: 'Enter password',
+				showPasswordButton: true,
+				autoComplete: 'new-password',
 				required: {
 					value: true,
 					message: 'Password is required'
@@ -85,6 +107,7 @@ const auth = {
 				title: 'Repeat password',
 				label: 'Enter password again',
 				showPasswordButton: true,
+				autoComplete: 'new-password',
 				required: {
 					value: true,
 					message: 'Repeat password'
@@ -102,6 +125,7 @@ const auth = {
 				page: 'signin',
 				name: 'remember',
 				fieldType: 'checkbox',
+				defaultValue: true,
 				type: 'checkbox',
 				title: 'Remember me',
 				label: 'Remember me'

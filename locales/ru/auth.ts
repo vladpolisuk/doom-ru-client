@@ -19,6 +19,7 @@ const auth = {
 				type: 'email',
 				title: 'Почта',
 				label: 'Введите email',
+				autoComplete: 'username',
 				required: {
 					value: true,
 					message: 'Почта обязательна'
@@ -35,6 +36,7 @@ const auth = {
 				type: 'text',
 				title: 'Имя',
 				label: 'Введите свое имя',
+				autoComplete: 'given-name',
 				required: {
 					value: true,
 					message: 'Имя обязательно'
@@ -51,6 +53,7 @@ const auth = {
 				type: 'text',
 				title: 'Фамилия',
 				label: 'Введите свою фамилию',
+				autoComplete: 'family-name',
 				required: {
 					value: true,
 					message: 'Фамилия обязательна'
@@ -61,13 +64,32 @@ const auth = {
 				}
 			},
 			{
-				page: 'both',
+				page: 'signup',
 				name: 'password',
 				fieldType: 'input',
 				type: 'password',
 				title: 'Пароль',
 				label: 'Введите пароль',
 				showPasswordButton: true,
+				autoComplete: 'new-password',
+				required: {
+					value: true,
+					message: 'Пароль обязателен'
+				},
+				minLength: {
+					value: 8,
+					message: 'Минимум 8 символов'
+				}
+			},
+			{
+				page: 'signin',
+				name: 'password',
+				fieldType: 'input',
+				type: 'password',
+				title: 'Пароль',
+				label: 'Введите пароль',
+				showPasswordButton: true,
+				autoComplete: 'current-password',
 				required: {
 					value: true,
 					message: 'Пароль обязателен'
@@ -85,6 +107,7 @@ const auth = {
 				title: 'Повторите пароль',
 				label: 'Введите пароль еще раз',
 				showPasswordButton: true,
+				autoComplete: 'new-password',
 				required: {
 					value: true,
 					message: 'Повторите пароль'
@@ -102,6 +125,7 @@ const auth = {
 				page: 'signin',
 				name: 'remember',
 				fieldType: 'checkbox',
+				defaultValue: true,
 				type: 'checkbox',
 				title: 'Запомнить меня',
 				label: 'Запомнить меня'

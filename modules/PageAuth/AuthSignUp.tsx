@@ -63,6 +63,7 @@ export const AuthSignUp: FC<Props> = ({ onSubmit, error, loading }) => {
 										placeholder={field.title}
 										invalid={field.name in errors}
 										className={s.auth_form_input}
+										autoComplete={field.autoComplete}
 										{...register(field.name as Fields, {
 											required: field.required,
 											minLength: field.minLength,
@@ -85,7 +86,11 @@ export const AuthSignUp: FC<Props> = ({ onSubmit, error, loading }) => {
 						case 'checkbox':
 							return (
 								<AppLabel row>
-									<AppCheckbox {...register(field.name as Fields)} />
+									<AppCheckbox
+										disabled={loading}
+										defaultChecked={field.defaultValue}
+										{...register(field.name as Fields)}
+									/>
 									<p>{field.title}</p>
 								</AppLabel>
 							);
