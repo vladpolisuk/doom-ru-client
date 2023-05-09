@@ -1,10 +1,12 @@
 import NextNProgress from 'nextjs-progressbar';
+import { FC } from 'react';
 
 /** ## App progress bar
  * The common progress bar for the app
- * @memo false
+ * @memo `false`
+ * @returns `NextNProgress`
  */
-export default function AppProgressbar() {
+const AppProgressbar: FC = () => {
 	return (
 		<NextNProgress
 			height={2}
@@ -21,4 +23,6 @@ export default function AppProgressbar() {
 			)}
 		/>
 	);
-}
+};
+
+export default AppProgressbar;

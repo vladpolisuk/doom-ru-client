@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { MdMailOutline } from 'react-icons/md';
 import AppAvatar from '../../../components/AppAvatar/AppAvatar';
 import AppLink from '../../../components/AppLink/AppLink';
-import { useAppSelector } from '../../../hooks/store';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { getRealtyAuthor } from '../../../store/realty/selectors';
 import s from './RealtyAuthor.module.scss';
 import { RealtyAuthorSkeleton } from './RealtyAuthorSkeleton';

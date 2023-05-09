@@ -1,28 +1,27 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { CSSProperties, FC, memo, useState } from 'react';
+import { BaseHTMLAttributes, CSSProperties, FC, memo, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { animated, useTransition } from 'react-spring';
-import { BaseAppComponent } from '../../types/components';
 import AppButton from '../AppButton/AppButton';
 import s from './AppImageSlider.module.scss';
 
-type Props = BaseAppComponent<HTMLDivElement> & {
+interface IAppImageSlider extends BaseHTMLAttributes<HTMLDivElement> {
 	images: { url: string }[];
 	imageStyles?: string;
 	btnStyles?: string;
 	width?: number;
 	height?: number;
 	withCarousel?: boolean;
-};
+}
 
 /** ## App Image Slider
  * The common slider component in the application
- * @type `FC<AppImagesSlider>`
+ * @type `FC<IAppImageSlider>`
  * @memo `true`
  * @return `html:div`
  */
-export const AppImageSlider: FC<Props> = memo(
+export const AppImageSlider: FC<IAppImageSlider> = memo(
 	({ images, width = 800, height = 400, imageStyles = '', className, btnStyles = '', withCarousel, ...extra }) => {
 		const [index, setIndex] = useState(0);
 		const [direction, setDirection] = useState<'left' | 'right' | undefined>();

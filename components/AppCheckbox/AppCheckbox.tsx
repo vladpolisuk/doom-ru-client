@@ -1,6 +1,6 @@
 import { FC, Ref, InputHTMLAttributes, memo, forwardRef } from 'react';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
-import { BaseAppComponent } from '../../types/components';
+import { BaseAppComponent } from '../types';
 import s from './AppCheckbox.module.scss';
 
 type IAppCheckbox = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;

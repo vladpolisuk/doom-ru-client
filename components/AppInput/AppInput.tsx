@@ -1,32 +1,17 @@
-import { FC, InputHTMLAttributes, forwardRef, memo, useState } from 'react';
+import { FC, forwardRef, InputHTMLAttributes, memo, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppButton from '../AppButton/AppButton';
+import { BaseAppComponent } from '../types';
 import s from './AppInput.module.scss';
 
 type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement & HTMLTextAreaElement>;
 
 interface IAppInput extends Props {
-	/**
-	 * Specify an icon to display on the left of input
-	 */
 	iconLeft?: JSX.Element;
-	/**
-	 * Specify an icon to display on the right of input
-	 */
 	iconRight?: JSX.Element;
-	/**
-	 * Specify that input value is invalid
-	 */
 	invalid?: boolean;
-	/**
-	 * Specify that showPassword button should be rendered
-	 */
 	showPasswordButton?: boolean;
-	/**
-	 * Specify which type of input should be rendered
-	 */
 	as?: 'textarea' | 'input';
 }
 

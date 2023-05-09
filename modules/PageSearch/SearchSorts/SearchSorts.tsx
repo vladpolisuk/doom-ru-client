@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { RealtySort, RealtySortBy, RealtySorts } from '../../../types';
+import { RealtySort, RealtySortBy, RealtySorts } from '../../../store/realty/types';
 import s from './SearchSorts.module.scss';
 
 export const SearchSorts = () => {

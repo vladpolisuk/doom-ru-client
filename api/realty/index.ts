@@ -1,15 +1,7 @@
-import BaseAPI from '.';
-import { Locale } from '../store/app/types';
-import { RealtySubmit } from '../store/realty/types';
-import { Realty, RealtyFilter } from '../types';
-
-export type GetRealtiesFilters = Partial<
-	RealtyFilter &
-		Pick<Realty, 'action'> & {
-			page: number;
-			take: number;
-		}
->;
+import BaseAPI from '..';
+import { Locale } from '../../store/app/types';
+import { RealtySubmit } from '../../store/realty/types';
+import { GetRealtiesFilters } from './types';
 
 export class RealtyAPI extends BaseAPI {
 	constructor(lang: Locale, headers?: HeadersInit) {

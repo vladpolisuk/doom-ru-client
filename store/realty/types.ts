@@ -32,6 +32,32 @@ export type Realty = {
 	updatedAt: string;
 };
 
+export interface RealtyFilter
+	extends Pick<Realty, 'type' | 'address' | 'rooms' | 'term' | 'houseType' | 'repair' | 'elevator' | 'bedrooms'> {
+	price_from?: number;
+	price_to?: number;
+	area_from?: number;
+	area_to?: number;
+	floor_from?: number;
+	floor_to?: number;
+}
+
+export type RealtyFilters =
+	| 'type'
+	| 'address'
+	| 'rooms'
+	| 'term'
+	| 'houseType'
+	| 'repair'
+	| 'elevator'
+	| 'bedrooms'
+	| 'price_from'
+	| 'price_to'
+	| 'area_from'
+	| 'area_to'
+	| 'floor_from'
+	| 'floor_to';
+
 export type RealtyAction = 'rent' | 'buy';
 
 export type RealtyType = 'apartment' | 'room' | 'studio' | 'house' | 'cottage' | 'hostel';
@@ -57,3 +83,11 @@ export type RealtyForm = Omit<Realty, 'id' | 'updatedAt' | 'images' | 'user' | '
 export type RealtySubmit = RealtyForm & {
 	images: Buffer[];
 };
+
+export type RealtySort = {
+	sort_by: RealtySortBy;
+};
+
+export type RealtySortBy = 'DEFAULT' | 'PRICE_ASC' | 'PRICE_DESC' | 'DATE_ASC' | 'DATE_DESC';
+
+export type RealtySorts = 'sort_by';

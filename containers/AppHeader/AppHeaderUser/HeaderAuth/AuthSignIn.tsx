@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
+import { SendSignInFields } from '../../../../api/auth/types';
 import AppAlert from '../../../../components/AppAlert/AppAlert';
 import AppButton from '../../../../components/AppButton/AppButton';
 import AppCheckbox from '../../../../components/AppCheckbox/AppCheckbox';
@@ -9,7 +10,6 @@ import AppInput from '../../../../components/AppInput/AppInput';
 import AppLabel from '../../../../components/AppLabel/AppLabel';
 import AppModal from '../../../../components/AppModal/AppModal';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import { SendSignInFields } from '../../../../types/api/auth';
 import s from './HeaderAuth.module.scss';
 
 export type SignInFields = SendSignInFields;

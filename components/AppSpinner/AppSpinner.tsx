@@ -1,17 +1,15 @@
 import { FC, memo } from 'react';
 import { CgSpinner } from 'react-icons/cg';
 import { IconBaseProps, IconType } from 'react-icons/lib';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppSpinner.module.scss';
 
-export type Props = BaseAppComponent<HTMLOrSVGElement> &
-	IconBaseProps & {
-		/**
-		 * Specify that button should render with loading spinner
-		 */
-		Icon?: IconType;
-	};
+type Props = BaseAppComponent<HTMLOrSVGElement> & IconBaseProps;
+
+export interface IAppSpinner extends Props {
+	Icon?: IconType;
+}
 
 /** ## App Spinner
  * The common spinner component in the application
@@ -20,7 +18,7 @@ export type Props = BaseAppComponent<HTMLOrSVGElement> &
  * @return `html:svg`
  */
 
-const AppSpinner: FC<Props> = memo(({ Icon = CgSpinner, resetStyles = false, className = '', ...extra }) => {
+const AppSpinner: FC<IAppSpinner> = memo(({ Icon = CgSpinner, resetStyles = false, className = '', ...extra }) => {
 	const styles = resetStylesOrMerge(resetStyles, className, s.app_spinner);
 
 	return (

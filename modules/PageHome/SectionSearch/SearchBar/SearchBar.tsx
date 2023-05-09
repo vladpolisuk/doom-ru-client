@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from '../../../../hooks/store';
+import useAppDispatch from '../../../../hooks/useAppDispatch';
 import { setHomeLoading } from '../../../../store/home/actions';
-import { RealtyTerm } from '../../../../store/realty/types';
-import { RealtyAction, RealtyType } from '../../../../types';
+import { RealtyAction, RealtyTerm, RealtyType } from '../../../../store/realty/types';
 import s from './SearchBar.module.scss';
 import { SearchBarForm } from './SearchBarForm/SearchBarForm';
 import { SearchBarTabs } from './SearchBarTabs/SearchBarTabs';

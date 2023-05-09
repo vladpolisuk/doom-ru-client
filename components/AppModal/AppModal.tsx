@@ -1,63 +1,29 @@
 import FocusTrap from 'focus-trap-react';
 import { FC, memo, OptionHTMLAttributes, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppModal.module.scss';
 import AppModalClose from './AppModalClose';
 import AppModalContent from './AppModalContent';
 import AppModalFooter from './AppModalFooter';
 import AppModalHeader from './AppModalHeader';
 
-type IAppModal = BaseAppComponent<HTMLDivElement> & {
-	/**
-	 * The current visibility state of the modal.
-	 */
+interface IAppModal extends BaseAppComponent<HTMLDivElement> {
 	view: boolean;
-	/**
-	 * A function to update the visibility state of the modal.
-	 * @param view The new visibility state of the modal.
-	 */
 	setView: (view: boolean) => void;
-	/**
-	 * Whether or not to show an overlay behind the modal.
-	 */
 	overlay?: boolean;
-	/**
-	 * Whether or not to close the modal when clicking on the overlay.
-	 */
 	closeOnOverlay?: boolean;
-	/**
-	 * The ID of the root element to attach the modal to.
-	 */
 	rootId?: string;
-	/**
-	 * Whether or not to close the modal when clicking outside of it.
-	 */
 	closeByOutsideClick?: boolean;
-};
+}
 
-type CompoundProps = {
-	/**
-	 * The header of the compound component.
-	 */
+interface CompoundProps {
 	Header: FC<OptionHTMLAttributes<HTMLDivElement>>;
-
-	/**
-	 * The footer of the compound component.
-	 */
 	Footer: FC<OptionHTMLAttributes<HTMLDivElement>>;
-
-	/**
-	 * The content of the compound component.
-	 */
 	Content: FC<OptionHTMLAttributes<HTMLDivElement>>;
-
-	/**
-	 * A button component to close the compound component.
-	 */
 	Close: FC<OptionHTMLAttributes<HTMLButtonElement>>;
-};
+}
 
 /** ## App Modal
  * The common modal component in the application

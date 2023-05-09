@@ -1,15 +1,16 @@
 import { FC, HTMLAttributes, memo } from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaInfoCircle, FaTimesCircle } from 'react-icons/fa';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppAlert.module.scss';
 
 type Type = 'error' | 'success' | 'info' | 'warning';
 
-export type IAppAlert = BaseAppComponent<HTMLSpanElement> &
-	HTMLAttributes<HTMLSpanElement> & {
-		type?: Type;
-	};
+type Props = BaseAppComponent<HTMLSpanElement> & HTMLAttributes<HTMLSpanElement>;
+
+export interface IAppAlert extends Props {
+	type?: Type;
+}
 
 /** ## App Alert
  * The common alert component in the application
@@ -17,7 +18,6 @@ export type IAppAlert = BaseAppComponent<HTMLSpanElement> &
  * @memo `true`
  * @return `html:span`
  */
-
 const AppAlert: FC<IAppAlert> = memo(({ resetStyles = false, className = '', type = 'info', children, ...extra }) => {
 	const styles = resetStylesOrMerge(resetStyles, className, s.app_alert, s[`app_alert--${type}`]);
 

@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import useAppSelector from '../../hooks/useAppSelector';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Locale } from '../../store/app/types';
 import { setRealty, setRealtyAuthor, setRealtyLoading } from '../../store/realty/actions';

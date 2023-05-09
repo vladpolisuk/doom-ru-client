@@ -1,20 +1,26 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react';
+import { Dispatch, FC, memo, SetStateAction, useState } from 'react';
 import s from './AppImagesUpload.module.scss';
 import ImageItem from './AppImagesUploadItem';
 import AppImagesUploadNew from './AppImagesUploadNew';
 
-export type AppImageUploadType = {
+export interface AppImageUploadType {
 	id: string;
 	file: File;
-};
+}
 
-interface Props {
+interface IAppImagesUpload {
 	images: AppImageUploadType[];
 	setImages: Dispatch<SetStateAction<AppImageUploadType[]>>;
 	loading?: boolean;
 }
 
-const AppImagesUpload: FC<Props> = ({ images, setImages, loading = false }) => {
+/** ## App Images Upload
+ * The common images upload component in the application
+ * @type `FC<IAppImagesUpload>`
+ * @memo `true`
+ * @return `html:div`
+ */
+const AppImagesUpload: FC<IAppImagesUpload> = memo(({ images, setImages, loading = false }) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 	return (
@@ -45,6 +51,8 @@ const AppImagesUpload: FC<Props> = ({ images, setImages, loading = false }) => {
 			</ul>
 		</div>
 	);
-};
+});
+
+AppImagesUpload.displayName = 'AppImagesUpload';
 
 export default AppImagesUpload;

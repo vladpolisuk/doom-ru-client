@@ -1,18 +1,18 @@
 import clsx from 'clsx';
-import { ChangeEvent, Dispatch, FC, SetStateAction, memo } from 'react';
+import { ChangeEvent, Dispatch, FC, memo, SetStateAction } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from '../../hooks/useTranslation';
 import AppLabel from '../AppLabel/AppLabel';
 import { AppImageUploadType } from './AppImagesUpload';
 import s from './AppImagesUpload.module.scss';
 
-interface Props {
+interface IAppImagesUploadNew {
 	images: AppImageUploadType[];
 	setImages: Dispatch<SetStateAction<AppImageUploadType[]>>;
 	loading?: boolean;
 }
 
-const AppImagesUploadNew: FC<Props> = memo(({ images, setImages, loading = false }) => {
+const AppImagesUploadNew: FC<IAppImagesUploadNew> = memo(({ images, setImages, loading = false }) => {
 	const newT = useTranslation('new');
 
 	const addImages = (files: FileList) => {

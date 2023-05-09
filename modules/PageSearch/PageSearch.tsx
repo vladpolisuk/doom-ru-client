@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { AppRealtyView } from '../../components/AppRealty/AppRealty';
 import AppSpinner from '../../components/AppSpinner/AppSpinner';
-import { useAppSelector } from '../../hooks/store';
+import useAppSelector from '../../hooks/useAppSelector';
 import { useTranslation } from '../../hooks/useTranslation';
 import { getSearchLoading, getSearchTotal } from '../../store/search/selectors';
 import s from './PageSearch.module.scss';

@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, memo, PropsWithChildren } from 'react';
 import s from './AppModal.module.scss';
 
-type Props = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
+type IAppModalContent = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
 
-const AppModalContent: FC<Props> = ({ children, ...extra }) => {
+const AppModalContent: FC<IAppModalContent> = memo(({ children, ...extra }) => {
 	return (
 		<main
 			className={s.app_modal_content}
@@ -11,6 +11,8 @@ const AppModalContent: FC<Props> = ({ children, ...extra }) => {
 			{children}
 		</main>
 	);
-};
+});
+
+AppModalContent.displayName = 'AppModalContent';
 
 export default AppModalContent;

@@ -8,16 +8,17 @@ import {
 	useEffect,
 	useState
 } from 'react';
-import { BaseAppComponent } from '../../types/components';
 import AppInput from '../AppInput/AppInput';
+import { BaseAppComponent } from '../types';
 import s from './AppInputCode.module.scss';
 
-type IAppInputCode = BaseAppComponent<HTMLInputElement> &
-	InputHTMLAttributes<HTMLInputElement> & {
-		codeLength: number;
-		codePlaceholder?: string;
-		submit: (code: number) => void;
-	};
+type Props = BaseAppComponent<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>;
+
+interface IAppInputCode extends Props {
+	codeLength: number;
+	codePlaceholder?: string;
+	submit: (code: number) => void;
+}
 
 /** ## App Input Code
  * The common input code component in the application

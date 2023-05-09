@@ -1,6 +1,6 @@
 import { AppImageSlider } from '../../../components/AppImageSlider/AppImageSlider';
 import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../hooks/store';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { getRealtyImages, getRealtyLoading } from '../../../store/realty/selectors';
 import s from './RealtyImages.module.scss';
 

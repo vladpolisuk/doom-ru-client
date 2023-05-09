@@ -1,6 +1,6 @@
 import AppAvatar from '../../../../components/AppAvatar/AppAvatar';
 import AppSkeleton from '../../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../../hooks/store';
+import useAppSelector from '../../../../hooks/useAppSelector';
 import { getAppUser, getAppUserLoading } from '../../../../store/app/selectors';
 import s from './ProfileCard.module.scss';
 

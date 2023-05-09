@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { Dispatch, FC, SetStateAction, memo, useState } from 'react';
+import { Dispatch, FC, memo, SetStateAction, useState } from 'react';
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import removeFile from '../../utils/ui/removeFile';
 import AppButton from '../AppButton/AppButton';
@@ -8,7 +8,7 @@ import AppModal from '../AppModal/AppModal';
 import { AppImageUploadType } from './AppImagesUpload';
 import s from './AppImagesUpload.module.scss';
 
-type Props = {
+interface IImageItem {
 	image: File;
 	id: string;
 	index: number;
@@ -18,9 +18,9 @@ type Props = {
 	currentImageIndex: number;
 	setCurrentImageIndex: (index: number) => void;
 	loading?: boolean;
-};
+}
 
-const ImageItem: FC<Props> = memo(
+const ImageItem: FC<IImageItem> = memo(
 	({ image, id, index, images, loading, setImages, currentImage, currentImageIndex, setCurrentImageIndex }) => {
 		const [view, setView] = useState(false);
 
