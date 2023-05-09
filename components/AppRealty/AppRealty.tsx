@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { FC, ReactNode, memo, useState } from 'react';
+import { FC, memo, ReactNode, useState } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { TiLocation } from 'react-icons/ti';
-import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import useAppSelector from '../../hooks/useAppSelector';
 import { useTranslation } from '../../hooks/useTranslation';
 import { getAppUser } from '../../store/app/selectors';
 import { Locale } from '../../store/app/types';
@@ -18,13 +19,19 @@ import { RealtyItemImages } from './AppRealtyImages';
 
 export type AppRealtyView = 'list' | 'grid';
 
-type Props = Realty & {
+interface IAppRealty extends Realty {
 	view: AppRealtyView;
 	className?: string;
 	MyRealtyButton?: ReactNode;
-};
+}
 
-const AppRealty: FC<Props> = memo(
+/** App Realty
+ * The common app realty component in the application
+ * @type `FC<IAppRealty>`
+ * @memo `true`
+ * @returns `html:li`
+ */
+const AppRealty: FC<IAppRealty> = memo(
 	({
 		title,
 		description,
@@ -116,5 +123,5 @@ const AppRealty: FC<Props> = memo(
 	}
 );
 
-AppRealty.displayName = 'RealtyItem';
+AppRealty.displayName = 'AppRealty';
 export default AppRealty;

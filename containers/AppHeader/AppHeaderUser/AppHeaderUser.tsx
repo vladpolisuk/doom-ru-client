@@ -1,5 +1,5 @@
 import AppSkeleton from '../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../hooks/store';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { getAppUser, getAppUserLoading } from '../../../store/app/selectors';
 import s from './AppHeaderUser.module.scss';
 import { HeaderAuth } from './HeaderAuth/HeaderAuth';

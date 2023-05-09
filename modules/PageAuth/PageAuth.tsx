@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
-import { useAppDispatch } from '../../hooks/store';
+import { SendVerifyFields } from '../../api/auth/types';
+import useAppDispatch from '../../hooks/useAppDispatch';
 import { useTranslation } from '../../hooks/useTranslation';
 import { appSignUp, appVerify } from '../../store/app/requests';
 import { Locale } from '../../store/app/types';
-import { SendVerifyFields } from '../../types/api/auth';
 import removeProperty from '../../utils/removeProperty';
 import { AuthCode } from './AuthCode';
 import { AuthSignUp, SignUpFields } from './AuthSignUp';

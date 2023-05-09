@@ -1,6 +1,5 @@
 import { Locale } from '../../store/app/types';
-import { RealtyTerm } from '../../store/realty/types';
-import { RealtyCurrency } from '../../types';
+import { RealtyCurrency, RealtyTerm } from '../../store/realty/types';
 
 type FormatPrice = (price: number, currency?: RealtyCurrency, term?: RealtyTerm, locale?: Locale) => string;
 

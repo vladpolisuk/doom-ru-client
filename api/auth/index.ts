@@ -1,6 +1,6 @@
-import BaseAPI from '.';
-import { Locale } from '../store/app/types';
-import type { SendSignInFields, SendSignUpFields, SendVerifyFields } from './../types/api/auth';
+import BaseAPI from '..';
+import { Locale } from '../../store/app/types';
+import { SendSignInFields, SendSignUpFields, SendVerifyFields } from './types';
 
 /** ## Auth API
  * The common auth api of the application

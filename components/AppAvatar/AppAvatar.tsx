@@ -1,19 +1,19 @@
 import Image from 'next/image';
 import { FC, ImgHTMLAttributes, memo } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppAvatar.module.scss';
 
-export type Props = BaseAppComponent<HTMLImageElement> & ImgHTMLAttributes<HTMLImageElement>;
+export type IAppAvatar = BaseAppComponent<HTMLImageElement> & ImgHTMLAttributes<HTMLImageElement>;
 
 /** ## App Avatar
  * The common avatar component in the application
- * @type `FC<AppAvatar>`
+ * @type `FC<IAppAvatar>`
  * @memo `true`
  * @return `next:image`
  */
-const AppAvatar: FC<Props> = memo(
+const AppAvatar: FC<IAppAvatar> = memo(
 	({ resetStyles = false, className = '', width = 45, placeholder = '', height = 45, alt = '', src, ...extra }) => {
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_avatar);
 

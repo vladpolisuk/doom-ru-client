@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import { BaseAppComponent } from '../../types/components';
+import { BaseAppComponent } from '../types';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import s from './AppSkipLink.module.scss';
 

@@ -1,10 +1,10 @@
-import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
-import s from './AppModal.module.scss';
 import clsx from 'clsx';
+import { FC, HTMLAttributes, memo, PropsWithChildren } from 'react';
+import s from './AppModal.module.scss';
 
-type Props = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
+type IAppModalFooter = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
 
-const AppModalFooter: FC<Props> = ({ children, className, ...extra }) => {
+const AppModalFooter: FC<IAppModalFooter> = memo(({ children, className, ...extra }) => {
 	const styles = clsx(s.app_modal_footer, className);
 
 	return (
@@ -14,6 +14,8 @@ const AppModalFooter: FC<Props> = ({ children, className, ...extra }) => {
 			{children}
 		</footer>
 	);
-};
+});
+
+AppModalFooter.displayName = 'AppModalFooter';
 
 export default AppModalFooter;

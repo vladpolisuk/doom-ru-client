@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FaChevronLeft } from 'react-icons/fa';
 import AppButton from '../../../components/AppButton/AppButton';
-import { useAppSelector } from '../../../hooks/store';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { getRealty, getRealtyLoading } from '../../../store/realty/selectors';
 import s from './RealtyHeader.module.scss';
 import { RealtyHeaderSkeleton } from './RealtyHeaderSkeleton';

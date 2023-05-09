@@ -2,11 +2,11 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import AuthAPI from '../../../api/auth';
+import RealtyAPI from '../../../api/realty';
 import { useTranslation } from '../../../hooks/useTranslation';
 import PageMeLayout from '../../../modules/PageMe/PageMeLayout';
 import PageMeRealties from '../../../modules/PageMe/Realties/PageRealties';
 import { Locale } from '../../../store/app/types';
-import RealtyAPI from '../../../api/realty';
 import { Realty } from '../../../store/realty/types';
 
 interface Props {

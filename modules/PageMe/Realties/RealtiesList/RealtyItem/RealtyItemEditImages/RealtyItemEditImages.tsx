@@ -3,7 +3,7 @@ import { Dispatch, FC, SetStateAction, useEffect } from 'react';
 import ImageAPI from '../../../../../../api/image';
 import AppImagesUpload, { AppImageUploadType } from '../../../../../../components/AppImagesUpload/AppImagesUpload';
 import { Locale } from '../../../../../../store/app/types';
-import { RealtyImage } from '../../../../../../types';
+import { RealtyImage } from '../../../../../../store/realty/types';
 
 interface Props {
 	images: AppImageUploadType[];

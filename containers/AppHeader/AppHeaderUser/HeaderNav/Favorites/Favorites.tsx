@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FaHeart } from 'react-icons/fa';
 import AppLink from '../../../../../components/AppLink/AppLink';
-import { useAppSelector } from '../../../../../hooks/store';
+import useAppSelector from '../../../../../hooks/useAppSelector';
 import { useTranslation } from '../../../../../hooks/useTranslation';
 import { getAppUserFavorites } from '../../../../../store/app/selectors';
 import s from './Favorites.module.scss';

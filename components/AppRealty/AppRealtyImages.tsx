@@ -6,12 +6,14 @@ import AppLink from '../AppLink/AppLink';
 import { AppRealtyView } from './AppRealty';
 import s from './AppRealty.module.scss';
 
-type Props = Pick<Realty, 'images' | 'title'> & {
+type Props = Pick<Realty, 'images' | 'title'>;
+
+interface IRealtyItemImages extends Props {
 	view: AppRealtyView;
 	realtyURL: string;
-};
+}
 
-export const RealtyItemImages: FC<Props> = memo(({ images, view, title, realtyURL }) => {
+export const RealtyItemImages: FC<IRealtyItemImages> = memo(({ images, view, title, realtyURL }) => {
 	const [showImageId, setShowImageId] = useState(0);
 
 	const resetShowImageId = () => setShowImageId(0);

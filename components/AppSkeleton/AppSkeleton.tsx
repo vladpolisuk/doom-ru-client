@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
-import { BaseAppComponent } from '../../types/components';
+import { BaseAppComponent } from '../types';
 import s from './AppSkeleton.module.scss';
 
 type IAppSkeleton = BaseAppComponent<HTMLDivElement>;

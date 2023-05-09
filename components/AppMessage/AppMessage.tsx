@@ -1,8 +1,8 @@
 import { FC, HTMLAttributes, memo } from 'react';
 import { createPortal } from 'react-dom';
 import { FaCheckCircle, FaExclamationTriangle, FaInfoCircle, FaTimesCircle } from 'react-icons/fa';
-import type { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppMessage.module.scss';
 
 type Props = BaseAppComponent<HTMLDivElement> & HTMLAttributes<HTMLDivElement>;
@@ -10,29 +10,11 @@ type Props = BaseAppComponent<HTMLDivElement> & HTMLAttributes<HTMLDivElement>;
 export type IAppMessageType = 'error' | 'info' | 'warning' | 'success';
 
 interface IAppMessage extends Props {
-	/**
-	 * The message
-	 */
 	message: string;
-	/**
-	 * The message's type
-	 */
 	type?: IAppMessageType;
-	/**
-	 * Time (ms) of showing
-	 */
 	delay?: number;
-	/**
-	 * Time (ms) of showing
-	 */
 	duration?: number;
-	/**
-	 * The ID of the root element to attach the modal to.
-	 */
 	rootId?: string;
-	/**
-	 * The viewing of component
-	 */
 	open: boolean;
 }
 

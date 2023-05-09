@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
-import { useAppDispatch } from '../../hooks/store';
+import useAppDispatch from '../../hooks/useAppDispatch';
 import { appSignOut } from '../../store/app/requests';
 import AppButton, { IAppButton } from '../AppButton/AppButton';
 

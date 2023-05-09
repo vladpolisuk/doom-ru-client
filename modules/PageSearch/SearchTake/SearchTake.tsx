@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import AppSelect from '../../../components/AppSelect/AppSelect';
-import { useAppDispatch, useAppSelector } from '../../../hooks/store';
+import useAppDispatch from '../../../hooks/useAppDispatch';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { setSearchTake } from '../../../store/search/actions';
 import { getSearchTake } from '../../../store/search/selectors';

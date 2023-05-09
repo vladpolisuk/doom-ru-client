@@ -1,4 +1,4 @@
-import BaseAPI from '.';
+import BaseAPI from '..';
 
 /** ## Location API
  * The common location api of the application

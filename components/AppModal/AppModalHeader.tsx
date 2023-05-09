@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, memo, PropsWithChildren } from 'react';
 import s from './AppModal.module.scss';
 
-type Props = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
+type IAppModalHeader = HTMLAttributes<HTMLDivElement & PropsWithChildren>;
 
-const AppModalHeader: FC<Props> = ({ children, ...extra }) => {
+const AppModalHeader: FC<IAppModalHeader> = memo(({ children, ...extra }) => {
 	return (
 		<header
 			className={s.app_modal_header}
@@ -11,6 +11,8 @@ const AppModalHeader: FC<Props> = ({ children, ...extra }) => {
 			{children}
 		</header>
 	);
-};
+});
+
+AppModalHeader.displayName = 'AppModalHeader';
 
 export default AppModalHeader;

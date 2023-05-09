@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { FiSearch, FiSliders } from 'react-icons/fi';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import AppInput from '../../../../../components/AppInput/AppInput';
-import { useAppSelector } from '../../../../../hooks/store';
+import useAppSelector from '../../../../../hooks/useAppSelector';
 import { useTranslation } from '../../../../../hooks/useTranslation';
 import { getHomeLoading } from '../../../../../store/home/selectors';
 import { SearchBarAddressFields, SearchBarFields, SearchBarFiltersFields } from '../SearchBar';

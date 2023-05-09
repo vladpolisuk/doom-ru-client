@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import AppProgressbar from '../components/AppProgressbar/AppProgressbar';
 import AppSkipLink from '../components/AppSkipLink/AppSkipLink';

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import AppAvatar from '../../../../components/AppAvatar/AppAvatar';
 import AppLink from '../../../../components/AppLink/AppLink';
-import { useAppSelector } from '../../../../hooks/store';
+import useAppSelector from '../../../../hooks/useAppSelector';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import { getAppUser } from '../../../../store/app/selectors';
 import s from './HeaderProfile.module.scss';

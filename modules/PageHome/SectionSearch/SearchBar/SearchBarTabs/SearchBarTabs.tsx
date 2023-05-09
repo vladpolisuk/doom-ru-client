@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import AppButton from '../../../../../components/AppButton/AppButton';
 import { useTranslation } from '../../../../../hooks/useTranslation';
-import { RealtyAction } from '../../../../../types';
+import { RealtyAction } from '../../../../../store/realty/types';
 import s from './SearchBarTabs.module.scss';
 
 type Props = {

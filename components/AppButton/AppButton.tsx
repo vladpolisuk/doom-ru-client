@@ -1,20 +1,15 @@
 import { ButtonHTMLAttributes, FC, memo } from 'react';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppSpinner from '../AppSpinner/AppSpinner';
+import { BaseAppComponent } from '../types';
 import s from './AppButton.module.scss';
 
-export type IAppButton = ButtonHTMLAttributes<HTMLButtonElement> &
-	BaseAppComponent<HTMLButtonElement> & {
-		/**
-		 * Specify that color style should be used
-		 */
-		color?: 'primary' | 'transparent' | 'reset' | 'none' | 'default';
-		/**
-		 * Specify that button should render with loading spinner
-		 */
-		loading?: boolean;
-	};
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & BaseAppComponent<HTMLButtonElement>;
+
+export interface IAppButton extends Props {
+	color?: 'primary' | 'transparent' | 'reset' | 'none' | 'default';
+	loading?: boolean;
+}
 
 /** ## App Button
  * The common button component in the application

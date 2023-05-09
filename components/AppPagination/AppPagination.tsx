@@ -3,34 +3,19 @@ import { FC, HTMLAttributes, memo } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import usePagination, { DOTS } from '../../hooks/usePagination';
 import { useTranslation } from '../../hooks/useTranslation';
-import { BaseAppComponent } from '../../types/components';
 import AppButton from '../AppButton/AppButton';
+import { BaseAppComponent } from '../types';
 import s from './AppPagination.module.scss';
 
-export type IAppPagination = HTMLAttributes<HTMLUListElement> &
-	BaseAppComponent<HTMLUListElement> & {
-		/**
-		 * Represents the total count of data available from the source.
-		 */
-		totalPages: number;
-		/**
-		 * Represents the maximum data that is visible in a single page.
-		 */
-		pageSize: number;
-		/**
-		 * Represents the current active page. Defaults to 1.
-		 */
-		currentPage?: number;
-		/**
-		 * Represents the min number of page buttons to be shown on each side of the current page button. Defaults to 1.
-		 */
-		siblingCount?: number;
-		/**
-		 * Callback function invoked with the updated page value when the page is changed.
-		 * @param page number
-		 */
-		onPageChange: (page: number) => void;
-	};
+type Props = HTMLAttributes<HTMLUListElement> & BaseAppComponent<HTMLUListElement>;
+
+export interface IAppPagination extends Props {
+	totalPages: number;
+	pageSize: number;
+	currentPage?: number;
+	siblingCount?: number;
+	onPageChange: (page: number) => void;
+}
 
 /** ## App Pagination
  * The common pagination component in the application

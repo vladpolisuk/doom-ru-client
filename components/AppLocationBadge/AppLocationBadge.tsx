@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { FC, memo } from 'react';
 import { FiNavigation } from 'react-icons/fi';
-import { useAppSelector } from '../../hooks/store';
+import useAppSelector from '../../hooks/useAppSelector';
 import { getAppLocation } from '../../store/app/selectors';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
 import AppButton from '../AppButton/AppButton';
 import AppSkeleton from '../AppSkeleton/AppSkeleton';
+import { BaseAppComponent } from '../types';
 import s from './AppLocationBadge.module.scss';
 
 type IAppNavigationBadge = BaseAppComponent<HTMLButtonElement>;

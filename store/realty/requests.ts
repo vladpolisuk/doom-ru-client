@@ -1,8 +1,8 @@
+import { RealtyAPI } from '../../api/realty';
 import UserAPI from '../../api/user';
 import { setAppUserFavorites } from '../app/actions';
 import { Locale } from '../app/types';
 import { AppDispatch, AppGetState } from '../types';
-import { RealtyAPI } from './../../api/realty';
 import { RealtySubmit } from './types';
 
 /** ## Get Realty

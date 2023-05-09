@@ -1,5 +1,5 @@
-import BaseAPI from '.';
-import { Locale } from '../store/app/types';
+import BaseAPI from '..';
+import { Locale } from '../../store/app/types';
 
 export class UserAPI extends BaseAPI {
 	constructor(lang: Locale, headers?: HeadersInit) {

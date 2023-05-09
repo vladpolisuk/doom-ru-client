@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { useAppSelector } from '../../../hooks/store';
+import useAppSelector from '../../../hooks/useAppSelector';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { getRealty, getRealtyLoading } from '../../../store/realty/selectors';
-import { RealtyHouseType, RealtyRepair, RealtyType } from '../../../types';
+import { RealtyHouseType, RealtyRepair, RealtyType } from '../../../store/realty/types';
 import s from './RealtyDetail.module.scss';
 import { RealtyDetailSkeleton } from './RealtyDetailSkeleton';
 

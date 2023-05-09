@@ -1,13 +1,14 @@
 import { FC, LabelHTMLAttributes, memo } from 'react';
-import { BaseAppComponent } from '../../types/components';
 import resetStylesOrMerge from '../../utils/ui/resetStylesOrMerge';
+import { BaseAppComponent } from '../types';
 import s from './AppLabel.module.scss';
 
-type IAppLabel = BaseAppComponent<HTMLLabelElement> &
-	LabelHTMLAttributes<HTMLLabelElement> & {
-		row?: boolean;
-		errorMessage?: string;
-	};
+type Props = BaseAppComponent<HTMLLabelElement> & LabelHTMLAttributes<HTMLLabelElement>;
+
+interface IAppLabel extends Props {
+	row?: boolean;
+	errorMessage?: string;
+}
 
 /** ## App Label (for AppInput)
  * The common label component in the application

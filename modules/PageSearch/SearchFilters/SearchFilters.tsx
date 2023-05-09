@@ -9,7 +9,7 @@ import AppInput from '../../../components/AppInput/AppInput';
 import AppLabel from '../../../components/AppLabel/AppLabel';
 import AppSelect from '../../../components/AppSelect/AppSelect';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { RealtyFilter, RealtyFilters } from '../../../types';
+import { RealtyFilter, RealtyFilters } from '../../../store/realty/types';
 import removeProperty from '../../../utils/removeProperty';
 import extractNumberFromString from '../../../utils/ui/extractNumberFromString';
 import getNumberWithSpaces from '../../../utils/ui/getNumberWithSpaces';

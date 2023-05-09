@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import AppSkeleton from '../../../../components/AppSkeleton/AppSkeleton';
-import { useAppSelector } from '../../../../hooks/store';
+import useAppSelector from '../../../../hooks/useAppSelector';
 import { getAppUser, getAppUserLoading } from '../../../../store/app/selectors';
 import { Favorites } from './Favorites/Favorites';
 import s from './HeaderNav.module.scss';

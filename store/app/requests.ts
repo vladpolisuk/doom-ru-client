@@ -1,6 +1,6 @@
 import AuthAPI from '../../api/auth';
+import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../api/auth/types';
 import LocationAPI from '../../api/location';
-import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../types/api/auth';
 import { AppDispatch, AppGetState } from '../types';
 import { setAppLocation, setAppUser } from './actions';
 import { AppUser, Locale } from './types';
