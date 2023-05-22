@@ -1,6 +1,8 @@
 import AuthAPI from '../../api/auth';
 import { SendSignInFields, SendSignUpFields, SendVerifyFields } from '../../api/auth/types';
 import LocationAPI from '../../api/location';
+import UserAPI from '../../api/user';
+import { AppUpdateUser } from '../../api/user/types';
 import { AppDispatch, AppGetState } from '../types';
 import { setAppLocation, setAppUser } from './actions';
 import { AppUser, Locale } from './types';
@@ -13,6 +15,65 @@ export const appVerify = async (data: SendVerifyFields, lang: Locale) => {
 		const api = new AuthAPI(lang);
 		await api.verify(data);
 		return { success: true };
+	} catch (error: any) {
+		return {
+			success: false,
+			message: error.message
+		};
+	}
+};
+
+/** App Update User
+ * The request that send the updated user data
+ */
+export const appUpdateUser = async (data: AppUpdateUser, lang: Locale) => {
+	try {
+		const api = new UserAPI(lang);
+		const response = await api.updateOneUser(data);
+		return {
+			success: true,
+			data: response?.data,
+			message: response.message
+		};
+	} catch (error: any) {
+		return {
+			success: false,
+			message: error.data ? error.data[0].msg : error.message
+		};
+	}
+};
+
+/** App Verify Code
+ * The request that send the code to verify
+ */
+export const appVerifyUser = async (code: number, lang: Locale) => {
+	try {
+		const api = new UserAPI(lang);
+		const response = await api.verifyUser(code);
+		return {
+			success: true,
+			data: response?.data,
+			message: response.message
+		};
+	} catch (error: any) {
+		return {
+			success: false,
+			message: error.data ? error.data[0].msg : error.message
+		};
+	}
+};
+
+/** App Resend Verify
+ * The request that resend verify code to email
+ */
+export const appResendVerify = async (lang: Locale) => {
+	try {
+		const api = new UserAPI(lang);
+		const response = await api.resendVerify();
+		return {
+			success: true,
+			message: response.message
+		};
 	} catch (error: any) {
 		return {
 			success: false,

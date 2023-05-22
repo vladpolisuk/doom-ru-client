@@ -26,8 +26,8 @@ const AppLabel: FC<IAppLabel> = memo(
 				data-testid='app-label'
 				className={labelStyles}
 				{...props}>
-				{children}
 				{errorMessage && <p className={s.app_label_errorMessage}>{errorMessage}</p>}
+				{children}
 			</label>
 		);
 	}

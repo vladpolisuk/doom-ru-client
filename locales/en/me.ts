@@ -95,6 +95,113 @@ const me = {
 			title: 'No favorites'
 		}
 	},
+	me_profile: {
+		title: 'Profile',
+		avatar: {
+			modal: {
+				actions: {
+					submit: {
+						title: 'Set image',
+						label: 'Click to set image'
+					},
+					cancel: {
+						title: 'Cancel',
+						label: 'Click to cancel'
+					}
+				}
+			}
+		},
+		form: {
+			fields: [
+				{
+					name: 'email',
+					fieldType: 'input',
+					type: 'email',
+					title: 'Email',
+					label: 'Enter new email',
+					autoComplete: 'username',
+					required: {
+						value: true,
+						message: 'Email is required'
+					},
+					pattern: {
+						value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+						message: 'Email is incorrect'
+					}
+				},
+				{
+					name: 'name',
+					fieldType: 'input',
+					type: 'text',
+					title: 'Name',
+					label: 'Enter your new name',
+					autoComplete: 'given-name',
+					required: {
+						value: true,
+						message: 'Name is required'
+					},
+					minLength: {
+						value: 2,
+						message: 'Min 2 letters'
+					}
+				},
+				{
+					name: 'secondName',
+					fieldType: 'input',
+					type: 'text',
+					title: 'Second name',
+					label: 'Enter your new second name',
+					autoComplete: 'family-name',
+					required: {
+						value: true,
+						message: 'Second name is required'
+					},
+					minLength: {
+						value: 2,
+						message: 'Min 2 letters'
+					}
+				},
+				{
+					name: 'bio',
+					fieldType: 'textarea',
+					type: 'text',
+					title: 'Bio',
+					label: 'Enter your bio',
+					autoComplete: 'off'
+				},
+				{
+					name: 'city',
+					fieldType: 'input',
+					type: 'text',
+					title: 'City',
+					label: 'Enter your city',
+					autoComplete: 'city'
+				},
+				{
+					name: 'phone',
+					fieldType: 'input',
+					type: 'tel',
+					title: 'Phone number',
+					label: 'Enter your new phone number',
+					autoComplete: 'phone'
+				}
+			],
+			btn: {
+				submit: {
+					title: 'Save changes',
+					label: 'Click to save profile changes'
+				},
+				code: {
+					title: 'Verify email',
+					label: 'Click to verify email',
+					again: {
+						title: 'Send code again',
+						label: 'Click to send code again'
+					}
+				}
+			}
+		}
+	},
 	me_realties: {
 		title: 'My realties',
 		not_found: {

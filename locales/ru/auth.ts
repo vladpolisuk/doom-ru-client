@@ -1,6 +1,6 @@
 const auth = {
 	locale: 'en',
-	auth_title: 'Доом.ру - база данных недвижимости | Вход',
+	auth_title: 'Доом.ру - база данных недвижимости | Регистрация',
 	auth_haveAccount: 'Нет аккаунта?',
 	auth_form: {
 		signin: {

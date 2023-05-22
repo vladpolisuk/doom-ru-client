@@ -95,6 +95,113 @@ const me = {
 			title: 'Нет избранных'
 		}
 	},
+	me_profile: {
+		title: 'Профиль',
+		avatar: {
+			modal: {
+				actions: {
+					submit: {
+						title: 'Установить картинку',
+						label: 'Нажмите, чтобы установить картинку'
+					},
+					cancel: {
+						title: 'Отменить',
+						label: 'Нажмите, чтобы отменить'
+					}
+				}
+			}
+		},
+		form: {
+			fields: [
+				{
+					name: 'email',
+					fieldType: 'input',
+					type: 'email',
+					title: 'Почта',
+					label: 'Введите новый email',
+					autoComplete: 'username',
+					required: {
+						value: true,
+						message: 'Почта обязательна'
+					},
+					pattern: {
+						value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+						message: 'Неверная почта'
+					}
+				},
+				{
+					name: 'name',
+					fieldType: 'input',
+					type: 'text',
+					title: 'Имя',
+					label: 'Введите свое новое имя',
+					autoComplete: 'given-name',
+					required: {
+						value: true,
+						message: 'Имя обязательно'
+					},
+					minLength: {
+						value: 2,
+						message: 'Минимум 2 символа'
+					}
+				},
+				{
+					name: 'secondName',
+					fieldType: 'input',
+					type: 'text',
+					title: 'Фамилия',
+					label: 'Введите свою новую фамилию',
+					autoComplete: 'family-name',
+					required: {
+						value: true,
+						message: 'Фамилия обязательна'
+					},
+					minLength: {
+						value: 2,
+						message: 'Минимум 2 символа'
+					}
+				},
+				{
+					name: 'bio',
+					fieldType: 'textarea',
+					type: 'text',
+					title: 'О себе',
+					label: 'Расскажите о себе',
+					autoComplete: 'off'
+				},
+				{
+					name: 'city',
+					fieldType: 'input',
+					type: 'text',
+					title: 'Город',
+					label: 'Введите свой город',
+					autoComplete: 'city'
+				},
+				{
+					name: 'phone',
+					fieldType: 'input',
+					type: 'tel',
+					title: 'Номер телефона',
+					label: 'Введите свой новый номер телефона',
+					autoComplete: 'phone'
+				}
+			],
+			btn: {
+				submit: {
+					title: 'Сохранить изменения',
+					label: 'Нажмите, чтобы сохранить изменения'
+				},
+				code: {
+					title: 'Подтвердить почту',
+					label: 'Нажмите, чтобы подтвердить почту',
+					again: {
+						title: 'Отправить код еще раз',
+						label: 'Нажмите, чтобы получить код еще раз'
+					}
+				}
+			}
+		}
+	},
 	me_realties: {
 		title: 'Мои объявления',
 		not_found: {

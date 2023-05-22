@@ -1,4 +1,5 @@
 import { Locale } from '../store/app/types';
+import { APIError } from './error';
 
 abstract class BaseAPI {
 	protected baseURL: string;
@@ -37,7 +38,7 @@ abstract class BaseAPI {
 			}
 
 			const error = await response.json();
-			throw new Error(error.message);
+			throw new APIError(error.message, error.data || undefined);
 		};
 	};
 }

@@ -15,7 +15,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		return {
 			redirect: {
 				permanent: false,
-				destination: `/${context.query.lang}/me/settings`
+				destination: `/${context.query.lang}/me/profile`
 			}
 		};
 	} catch (error: any) {

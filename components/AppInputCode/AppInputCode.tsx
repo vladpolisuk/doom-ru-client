@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import {
 	BaseSyntheticEvent,
 	ClipboardEvent,
@@ -44,7 +45,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	useEffect(() => {
 		if (code.length === codeLength) submit(+code);
-	}, [code, codeLength, submit]);
+	}, [code, codeLength]);
 
 	const onChange = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
 		const fields = document.getElementsByName(name) as NodeListOf<HTMLInputElement>;
@@ -83,8 +84,10 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 		setCode(paste);
 	};
 
+	const styles = clsx(s.app_code, className);
+
 	return (
-		<div className={s.app_code}>
+		<div className={styles}>
 			{[...Array(codeLength).keys()].map(value => (
 				<AppInput
 					name={name}

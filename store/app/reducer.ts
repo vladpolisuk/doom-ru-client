@@ -11,7 +11,8 @@ const initialState: AppState = {
 		secondName: '',
 		avatar: '',
 		bio: '',
-		city: ''
+		city: '',
+		isActivated: false
 	},
 	userLoading: true,
 	theme: 'system',

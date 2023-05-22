@@ -1,6 +1,6 @@
 const auth = {
 	locale: 'en',
-	auth_title: 'Doom.ru - real estate database | Auth',
+	auth_title: 'Doom.ru - real estate database | Registration',
 	auth_haveAccount: "Don't have an account?",
 	auth_form: {
 		signin: {

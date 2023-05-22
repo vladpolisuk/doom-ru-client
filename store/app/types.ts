@@ -70,6 +70,10 @@ export type AppUser = {
 	 * the user's phone
 	 */
 	phone: string;
+	/**
+	 * the user's verify status
+	 */
+	isActivated: boolean;
 };
 
 /**
