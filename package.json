@@ -2,6 +2,7 @@
 	"name": "doom-ru-client",
 	"description": "Frontend of Doom.ru",
 	"author": "Vladislav Polishchuk <vladpolisuk159@gmail.com>",
+	"packageManager": "yarn@4.1.0",
 	"keywords": [
 		"Realty",
 		"Frontend",
@@ -9,6 +10,16 @@
 		"Next.js",
 		"Redux",
 		"TypeScript"
+	],
+	"os": [
+		"linux",
+		"darwin",
+		"win32"
+	],
+	"cpu": [
+		"x64",
+		"ia32",
+		"arm64"
 	],
 	"private": true,
 	"version": "1.0.0",
