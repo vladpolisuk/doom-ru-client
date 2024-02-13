@@ -45,6 +45,7 @@ const AppInputCode: FC<IAppInputCode> = memo(props => {
 
 	useEffect(() => {
 		if (code.length === codeLength) submit(+code);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [code, codeLength]);
 
 	const onChange = (event: BaseSyntheticEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
