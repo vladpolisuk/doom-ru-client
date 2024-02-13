@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-
+const million = require('million/compiler');
 const withPWA = require('next-pwa')({
 	dest: 'public'
 });
@@ -13,8 +13,29 @@ const nextConfig = withPWA({
 		NEXT_PUBLIC_HOST: process.env.NEXT_PUBLIC_HOST
 	},
 	images: {
-		domains: ['lh3.googleusercontent.com', 'localhost', 'api.doom-estate.ru', 'doom-estate.ru']
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'lh3.googleusercontent.com',
+				pathname: '**'
+			},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				pathname: '**'
+			},
+			{
+				protocol: 'https',
+				hostname: 'api.doom-estate.ru',
+				pathname: '**'
+			},
+			{
+				protocol: 'https',
+				hostname: 'doom-estate.ru',
+				pathname: '**'
+			}
+		]
 	}
 });
 
-module.exports = nextConfig;
+module.exports = million.next(nextConfig);

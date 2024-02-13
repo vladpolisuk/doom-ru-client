@@ -14,7 +14,7 @@ export type IAppAvatar = BaseAppComponent<HTMLImageElement> & ImgHTMLAttributes<
  * @return `next:image`
  */
 const AppAvatar: FC<IAppAvatar> = memo(
-	({ resetStyles = false, className = '', width = 45, placeholder = '', height = 45, alt = '', src, ...extra }) => {
+	({ resetStyles = false, className = '', width = 45, height = 45, alt = '', src, ...extra }) => {
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_avatar);
 
 		return src ? (
@@ -24,7 +24,6 @@ const AppAvatar: FC<IAppAvatar> = memo(
 				width={width as any}
 				height={width as any}
 				data-testid='app-avatar'
-				placeholder={placeholder as any}
 				className={styles}
 				draggable='false'
 				src={src}

@@ -37,7 +37,7 @@ const AppMessage: FC<IAppMessage> = memo(
 		rootId = 'message-root',
 		resetStyles = false,
 		...props
-	}) => {
+	}): JSX.Element | null => {
 		const Icon = {
 			info: FaInfoCircle,
 			success: FaCheckCircle,
@@ -48,7 +48,7 @@ const AppMessage: FC<IAppMessage> = memo(
 		const styles = resetStylesOrMerge(resetStyles, className, s.app_message, s[`app_message--${type}`]);
 
 		return open
-			? createPortal(
+			? (createPortal(
 					<div
 						// @ts-ignore
 						style={{ '--delay': `${delay}ms`, '--duration': `${duration}ms` }}
@@ -63,7 +63,7 @@ const AppMessage: FC<IAppMessage> = memo(
 						{message}
 					</div>,
 					document.getElementById(rootId) as HTMLElement
-			  )
+			  ) as React.ReactPortal)
 			: null;
 	}
 );
