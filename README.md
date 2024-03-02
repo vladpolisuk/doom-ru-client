@@ -25,9 +25,23 @@ Lighthouse Overview analyze results
 
 ## To-do
 
-1. Add the ability to search for ads on the map.
-2. Add online payment option.
-3. Add a chat between buyer and seller.
+- Add option to change user password on me/profile page with confirmation by mail
+- Add password complexity check during registration
+- Add "Delete account" option
+- Registration notifications
+- Authorization notifications
+- Notifications about profile changes
+- Notification Settings
+- Notifications page
+- Remove "History" page
+- Fix light theme
+- Prohibit creating an ad without a phone number
+- Provide the user's real phone number on the ad page
+- Add captcha for login and registration
+- Make compression of images on the server
+- Mobile layout for the site
+- Google Maps for home page and listing page
+- Add "Viewed" checkbox on ad page
 
 ## Links
 
