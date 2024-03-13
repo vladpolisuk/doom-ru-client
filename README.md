@@ -45,6 +45,6 @@ Lighthouse Overview analyze results
 
 ## Links
 
--   Website: [doom-ru.vercel.app](https://doom-ru.vercel.app/)
+-   Website: [doomru.ru](https://doomru.ru/)
 -   Backend: [github](https://github.com/K0lxoznik/Backend)
 -   Contributors: [Dmitry](https://github.com/K0lxoznik)
