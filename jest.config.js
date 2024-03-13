@@ -1,4 +1,4 @@
-import nextJest from 'next/jest';
+const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({
 	dir: './'
@@ -15,4 +15,4 @@ const customJestConfig = {
 	testMatch: ['**/__tests__/**/*.test.ts?(x)']
 };
 
-export default createJestConfig(customJestConfig);
+module.exports = createJestConfig(customJestConfig);

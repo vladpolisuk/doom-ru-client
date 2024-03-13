@@ -26,12 +26,12 @@ const nextConfig = withPWA({
 			},
 			{
 				protocol: 'https',
-				hostname: 'api.doom-estate.ru',
+				hostname: 'api.doom-ru.vercel.app',
 				pathname: '**'
 			},
 			{
 				protocol: 'https',
-				hostname: 'doom-estate.ru',
+				hostname: 'doom-ru.vercel.app',
 				pathname: '**'
 			}
 		]

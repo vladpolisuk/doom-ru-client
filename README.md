@@ -4,10 +4,10 @@ A web application for searching and renting real estate, with internationalizati
 
 ## Methods and technologies
 
-* Methods: `Flexible Module Arhitecture`,  `Redux Flow`, `Custom i18n`, `PWA`, `JWT Auth`, `Unit Tests`
-* Front-End Stack: `Next.js`, `TypeScript`, `Redux (toolkit)` and other libraries.
-* Back-End Stack: `Node.js`, `Express.js`, `TypeScript`, `PostgresQL`, `TypeORM` and etc.
-* DevOps: `vercel`, `reg.ru` and `render.com`
+-   Methods: `Flexible Module Arhitecture`, `Redux Flow`, `Custom i18n`, `PWA`, `JWT Auth`, `Unit Tests`
+-   Front-End Stack: `Next.js`, `TypeScript`, `Redux (toolkit)` and other libraries.
+-   Back-End Stack: `Node.js`, `Express.js`, `TypeScript`, `PostgresQL`, `TypeORM` and etc.
+-   DevOps: `vercel`, `reg.ru` and `render.com`
 
 ## Metrics
 
@@ -31,6 +31,6 @@ Lighthouse Overview analyze results
 
 ## Links
 
-* Website: [doom-estate.ru](https://dooom-estate.ru/)
-* Backend: [github](https://github.com/K0lxoznik/Backend)
-* Contributors: [Dmitry](https://github.com/K0lxoznik)
+-   Website: [doom-ru.vercel.app](https://doom-ru.vercel.app/)
+-   Backend: [github](https://github.com/K0lxoznik/Backend)
+-   Contributors: [Dmitry](https://github.com/K0lxoznik)
