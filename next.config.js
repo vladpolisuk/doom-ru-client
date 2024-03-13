@@ -26,7 +26,7 @@ const nextConfig = withPWA({
 			},
 			{
 				protocol: 'https',
-				hostname: 'api.doom-ru.vercel.app',
+				hostname: 'doom-ru-server.onrender.com',
 				pathname: '**'
 			},
 			{
